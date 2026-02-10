@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <title>NANO-JLU 2019</title>
+  <link href="style/normalize.css" rel="stylesheet" type="text/css">
+  <link href="style/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body></div>
+  <header>
+
+     
+     <nav>
+       <a href=Home.html>HOME</a>  
+       <a href=Idea.html class="current">IDEA</a>  
+       <a href=Labbook.html>EXPERIMENT</a>  
+       <a href=Result.html>RESULT</a>  
+       <a href=Simulation.html >SIMULATION</a> 
+       <a href=Team.html>TEAM</a> 
+
+     </nav>
+      
+     <nav class="sub">
+       <a href="#01">Background</a>
+       <a href="#02">Problem and Solution</a>
+       <a href="#03">Design</a>
+       <a href="#04">Sequence Design</a>
+       <a href="#05">Goals</a>
+       <a href="#06">Reference</a>
+     </nav>
+
+  </header>
+ <div class="kikuchi">
+    <div id="col-sidebar">     
+    </div>
+        <div id="col-sidebar-right">   <div class="git"><img src="images/实验员女-年轻.gif" width="120" height="216"></div></div></div>
+<section id="01" class="light">
+    <figure>
+         <div class="smallFigure">
+            <img src="images/1.JPG">
+         </div></figure>
+  <h2>Background</h2>
+  <input type="text" value="" />
+<h3>
+<strong>Drug delivery systems have received growing research interests in the treatment of cancer since they can selectively deliver therapeutic agents to targeted tissues with their unique recognition abilities and environmentally responsive properties<sup>[1]</sup>. Among various drug delivery systems, protein-based nanocarriers have the advantages of high biocompatibility and cell recognition ability, which makes them ideal candidates for targeted drug delivery. Towards this end, multiple protein-based nanocarriers have been developed based on gelatin<sup>[2]</sup>, collagen<sup>[3]</sup>, silk protein<sup>[4]</sup> and elastin<sup>[5]</sup>. However, despite all the efforts, protein-based nanocarriers still exhibit a limited clinical performance as a consequence of low delivery efficiency and actual efficacy. Few nanocarriers can reach the targeted sites due to multiple biological barriers, such as non-specific serum adsorption, macrophages-mediated clearance, and high interstitial pressure as well as shear stress at tumor tissues.<sup>[6]</sup> As for the few nanocarriers that reach the targeted sites, they may still subject to endosomal degradation during cell internalization, which has limited their actual efficacy.  </strong></h3>
+    <figure>
+         <div class="smallFigure">
+            <img src="images/2.JPG">
+         </div></figure>
+</section>
+  
+<section id="02" class="dark">
+    <h2>Problem and Solution</h2>
+      <input type="text" value="" />
+      <h3><p><font size="+2">▶Problem 1:</font></p>
+
+    <strong>Generally, to fulfill the highly efficient anti-cancer drug delivery, a nanocarrier should be able to overcome the clearance effects from macrophages and penetrate into cancer cells in the tumor tissue. However, while neutral hydrophilic and negative-charged nanoparticles generally suffer much lower clearance effects than positive-charged and hydrophobic nanoparticles, it is usually the positive-charged nanoparticles that is favorable to cell internalization and endosomal escape. The contradiction in the favored properties at different delivery stages suggests that drug delivery systems of high efficacies cannot be based on conventional nanocarriers with invariable properties. Thus, a problem is demanding prompt solution:</strong> how to find a balance among these different requirements to fulfill the anti-cancer drug delivery?</p> </h3>
+          <figure>
+         <div class="smallFigure">
+            <img src="images/Figure 1. Tumor microenvironment-activatable responsive drug carrier..png" alt="Figure 1. Tumor microenvironment-activatable responsive drug carrier.">
+         </div>
+          <p class="description">Scheme 1. Tumor microenvironment-activatable responsive drug carrier.</p>
+      </figure>
+<h3><p><font size="+2">▶Solution 1:</font></p>
+<strong>An environmentally responsive drug carrier, triggered by the tumor microenvironment stimuli, could solve the problem. Here, we propose a nanocarrier with a zwitterionic surface to from a hydrating layer in blood circulation to resist the non-specific clearance by macrophage, while providing an enhanced half-life in blood circulation, however, the hydrating layer also prevent the cellular uptake. In the tumor micro-environment, distinguishing biological factors like over-expressed MMP-2 enzyme could remove the surface by clearing at the enzyme site. Thus, cell-penetrating blocks are exposed near the cancer cells and will fulfill the cellular uptake process.</strong></h3>
+<h3><p><font size="+2">▶Problem 2:</font></p>     
+<strong>As we discussed above, a drug carrier with environmentally responsive ability needs several functional segments and a hydrophobic block to drive the self-assembly. However, a single building block including all those parts can prevent conformational arrangement and correctly folding of chains during micelle formation.<sup>[6]</sup> Besides, a long and thus complicated peptide chain might also exhibit a random-coiled conformation after it is synthesized, which makes it much more difficult to assemble.</strong> How to achieve the various biological functions while ensuring the micelle formation?</h3> 
+      <figure>
+         <div class="smallFigure">
+            <img src="images/Figure 2.abcd.png" alt="Figure 2. leucine zipper coiled-coil. (a) Helical wheel diagram of leucine zipper; (b) Interaction between leucine zipper coiled-coil; (c) Interaction between ZR and ZE; (d) Connection between two polypeptide chains.">
+         </div>
+          <p class="description">Scheme 2. leucine zipper coiled-coil. (a) Helical wheel diagram of leucine zipper; (b) Interaction between leucine zipper coiled-coil; (c) Interaction between LZ<sub>R</sub> and LZ<sub>E</sub>; (d) Connection between two polypeptide chains.</p>
+      </figure>
+ <h3><p><font size="+2">▶Solution 2:</font></p> 
+<strong>Separating the functional block and the hydrophobic block into two chains guarantees the correct folding and makes it easier for self-assembly. Connection between two chains can be achieved by leucine zipper coiled coils, which is one of the largest and most conserved transcription factors and repressors family in eukaryotes. Its characteristic leucine repeat (Leu-X<sub>6</sub>-Leu-X<sub>6</sub>-Leu-X<sub>6</sub>-Leu) forms an ɑ helix , with Leucine locating at one side of the helix and offering a strong hydrophobic interaction to form protein-protein dimer <sup>[7]</sup>.Moreover, By rationally adding arginine and glutamic to respective chains, the arginine-rich basic leucine zipper (LZ<sub>R</sub>) and glutamic acid-rich leucine zipper (LZ<sub>E</sub>) combine tightly to form a coiled-coil “LZ<sub>R</sub>-LZ<sub>E</sub>” complex via the hydrophobic and electrostatic interactions between leucine zipper coiled-coils. The strong interactions between two chains result in a high affinity with extremely low dissociation constant (K<sub>d</sub> ≈ 10<sup>−15</sup> M),  and since the affinity between LZ<sub>R</sub> motifs is much weaker,<sup>[8]</sup> the “LZ<sub>R</sub>-LZ<sub>E</sub>” complex is more favorable than “LZ<sub>R</sub>-LZ<sub>R</sub>” or “LZ<sub>E</sub>-LZ<sub>E</sub>” complex. With the LZ<sub>R</sub>-LZ<sub>E</sub> connection between two chains, the functional block can connect to the hydrophobic block to form a protein complex.</strong>
+
+<strong>Additionally, this modification brings us an extra merit:<br/> 
+Since the diversity of tumor, various drug carriers are needed for multiple cancer treatment. With the LZ<sub>R</sub>-LZ<sub>E</sub> connection between two chains, the functional block can be flexible changed in response to specific requirements,avoiding the renewedly design of hydrophobic block.</strong></h3>
+    <figure>
+         <div class="smallFigure">
+            <img src="images/3.JPG">
+         </div></figure>
+</section>
+       
+
+  <section id="03" class="light">
+    <h2>Design</h2>
+      <input type="text" value="" />
+    <h3> <strong> We design an environmentally responsive protein drug carrier (ERPC) composed of a   hydrophobic polypeptide chain and a functional polypeptide chain, which dimerize via leucine zipper coiled-coils to form amphiphilic protein complexes, and self-assembly into protein nanoparticles.</strong></h3>
+    <figure>
+         <div class="smallFigure">
+            <img src="images/Figure 1. the overall process of ERPC formation..png" alt="Figure 1. the overall process of ERPC formation.">
+         </div>
+          <p class="description">Scheme 3. The overall process of ERPC formation.</p>
+      </figure>
+<h3>   
+<strong>  The hydrophobic chain, composed of a thermo-responsive elastin-like polypeptide (ELP),which served as a stable hydrophobic block, fused with an arginine-rich basic leucine zipper (LZ<sub>R</sub>), and is named as LZ<sub>R</sub>-ELP. Flexible linker (G<sub>4</sub>S)<sub>2</sub> was inserted to separate the two blocks and enhance solubility and stability of LZ<sub>R</sub>-ELP. (S4)</strong>
+<figure>
+     <div class="smallFigure">
+            <img src="images/L1.png" alt="Figure 2. Secondary structure of “core” polypeptide.">
+         </div>
+          <p class="description">Scheme 4. Secondary structure of LZ<sub>R</sub>-ELP.</p>
+      </figure>
+<figure>
+     <div class="smallFigure">
+            <img src="images/L2.png" alt="Figure 2. Secondary structure of “shell” polypeptide.">
+         </div>
+          <p class="description">Scheme 5. Secondary structure of (EK)<sub>10</sub>-TAT-LZ<sub>E</sub>.</p>
+      </figure>
+<h3><strong>The functional chains, contains a glutamic acid-riched leucine zipper(Z<sub>E</sub>) fused with a functional block, which composed of a cell-penetrating peptide TAT, an MMP-2 enzyme sensitive site PLGLAG and a zwitterionic peptide (EK)<sub>10</sub>, we called this chain at hydrophobic (EK)<sub>10</sub>-TAT-LZ<sub>E</sub>. Rigid linker ALMPVDG was introduced to promote the rigidity of the peptide. (S5)
+<p>Based on the structure of the two chains above, we can roughly predict the process of assembly into 2 steps: the dimerization of LZ<sub>R</sub>-ELP and (EK)<sub>10</sub>-TAT-LZ<sub>E</sub> and the assembly of ERPC.</p>
+    <figure>
+         <div class="smallFigure">
+            <img src="images/组装.gif" alt="">
+         </div></figure>
+
+<p>For the First step, the LZ<sub>R</sub>-ELP and (EK)<sub>10</sub>-TAT-LZ<sub>E</sub> dimerize via the hydrophobic and electrostatic interactions of leucine zipper coiled-coil (LZ<sub>R</sub>/LZ<sub>E</sub>) to form (EK)<sub>10</sub>-TAT-LZ<sub>E</sub>/LZ<sub>R</sub>-ELP amphiphilic complexes. During this process, the dispersed ELPs simplified the interaction in the hole system and makes it easier for the dimerization. 
+For the second step, at room temperature, ELPs obtains a trend that gathering into a hydrophobic phase, leading to the amphiphilic complexes self-assemble into an environmentally responsive protein carrier (ERPC) nanoparticals.</p></strong></h3>
+
+<figure>
+     <div class="smallFigure">
+            <img src="images/生物学功能 改.png" alt="Figure 4. biological function of EPRC.">
+         </div>
+          <p class="description">Scheme 6. biological function of EPRC.①Intravenous administration. ②MMP-2 enzyme clearance ③cellular uptake</p>
+    </figure>
+<strong><h3>Upon intravenous administration, the outer (EK)<sub>10</sub> peptide of ERPC forms a strong hydration layer and avoid the the adsorption by albumin in the serum. When it accumulates in the tumor tissue, the over-expressed MMP-2 enzyme clears at the enzyme cutting site behind (EK)<sub>10</sub> and then cell-penetrating peptide TAT would be exposed. The cationic cell-penetrated peptide mediates the endocytosis and pore formation in the endosomal membrane, leading to an endosomal escape and drug release.  </strong></h3>
+    <figure>
+         <div class="smallFigure">
+            <img src="images/4.JPG">
+         </div></figure>
+</section>
+
+  <section id="04" class="dark">
+<h2>Sequence design</h2>
+  <input type="text" value="" />
+  
+<h3>
+<strong>Briefly, we designed the amino acid sequence of LZ<sub>R</sub>-ELP and (EK)<sub>10</sub>-TAT-LZ<sub>E</sub>  and predict their secondary structure, tertiary structure and the interaction between the two chains. The amino acid sequence of LZ<sub>R</sub>-ELP and (EK)<sub>10</sub>-TAT-LZ<sub>E</sub> can be found in Table 1.</strong>
+<table border=1 bordercolor=red width:80% style="table-layout:fixed" >
+  <tr><td bgcolor=#D9F6FF width="60px"><h5>Name</h5></td><td><h5>Sequence</h5></td></tr>
+<tr><td bgcolor=#D9F6FF width="60px"><h5>LZ<sub>R</sub>-ELP</h5></td><td><font color="#FFE278">MA</font><font color="#9CFFCC">LEIRAAALRRRNTALRTRVAELRQRVQRLRNEVSQYETRYGPL</font><font color="##FDD272">(G<sub>4</sub>S)<sub>5</sub>G</font><font color="#C1C1C1">[(VPGVG)<sub>2</sub>VPGFG(VPGVG)<sub>2</sub>]<sub>5</sub></font></td></tr>
+<tr><td bgcolor=#D9F6FF width="60px"><h5>(EK)<sub>10</sub>-TAT-LZ<sub>E</sub> </h5></td><td><font color="#41709E">(EK)<sub>10</sub></font><font color="#391E9B">PLGLAG</font><font color="#AC73AF">YGRKKRRQRRR</font><font color="#FFD184">ALMPVDG</font><font color="#F4988A">LEIEAAALEQENTALETEVAELEQEVQRLENIVSQYRTRYGPL</font></td></tr>
+</table>
+          <p class="description">Table 1. The sequence of LZ<sub>R</sub>-ELP and (EK)<sub>10</sub>-TAT-LZ<sub>E</sub> polypeptide.</p>
+
+    <strong>ProCovar was used to predict the inter-residue contacts and secondary structure of LZ<sub>R</sub>-ELP and (EK)<sub>10</sub>-TAT-LZ<sub>E</sub>.</strong>
+<figure>
+     <div class="smallFigure">
+            <img src="images/Figure 1. Secondary structure prediction of “core” polypeptide.png" alt="Figure 1. Secondary structure prediction of “core” polypeptide">
+    </div>
+          <p class="description">Scheme 7. Secondary structure prediction of LZ<sub>R</sub>-ELP</p>
+    </figure>
+            <figure>
+         <div class="smallFigure">
+            <img src="images/Figure 2. Secondary structure prediction of “shell” polypeptide.png" alt="Figure 2. Secondary structure prediction of “shell” polypeptide">
+         </div>
+          <p class="description">Scheme 8. Secondary structure prediction of (EK)<sub>10</sub>-TAT-LZ<sub>E</sub>.<sup>[10-13]</sup></p>
+      </figure>
+    <strong>As shown in Scheme 7 and 8, both Z<sub>R</sub> and Z<sub>E</sub> are presented as ɑ helix domains, and ELP peptide was composed of coils. No β strand or disordered domain can be found in both LZ<sub>R</sub>-ELP and (EK)<sub>10</sub>-TAT-LZ<sub>E</sub>.
+
+<p>We use SWISS-MODEL protein structure homology modelling to predict the interaction between LZ<sub>R</sub> and LZ<sub>E</sub>. Results were downloaded from SWISS-MODEL as a PDB file.
+</strong></p>
+    <figure>
+         <div class="smallFigure">
+            <img src="images/Linker.gif" alt="">
+         </div>
+          <p class="description">Scheme 9. Interaction between Z<sub>R</sub> and Z<sub>E</sub><sup>[14-18]</sup></p>
+      </figure>
+<strong>As shown in Scheme 9, there is a strong interaction between LZ<sub>R</sub> and LZ<sub>E</sub>, which results in the formation of LZ<sub>R</sub>/LZ<sub>E</sub> complex.
+
+<p>Tertiary structure of LZ<sub>R</sub>-ELP and (EK)<sub>10</sub>-TAT-LZ<sub>E</sub> were predict using DEMO, a pipeline for constructing multidomain protein structures by docking-based domain assembly simulations. Results were downloaded from Zhang’s Lab as PDB files.</p></strong>
+
+      <figure>
+         <div class="smallimg">
+            <img src="images/L1_2.gif" alt="">
+         </div>
+          <p class="description">Scheme 10. Tertiary structure of LZ<sub>R</sub>-ELP</p>
+      </figure>
+      <figure>
+         <div class="smallimg">
+            <img src="images/L2_1.gif" alt="">
+         </div>
+          <p class="description">Scheme 11. Tertiary structure of (EK)<sub>10</sub>-TAT-LZ<sub>E</sub><sup>[19]</sup></p>
+      </figure>
+    <strong>As shown in scheme 10 and 11, each functional domain folds separately without extra interaction and winding, which supports the correct connection between the two polypeptide and the formation of LZ<sub>R</sub>-ELP/(EK)<sub>10</sub>-TAT-LZ<sub>E</sub> amphiphilic complex. Besides, the separately folding domains ensure the realization of environmentally responsive function.
+
+<p>The possibilities of residues in LZ<sub>R</sub>-ELP and (EK)<sub>10</sub>-TAT-LZ<sub>E</sub> being in contact were predicted using a heat map. “Being in contact” means the minimum backbone non-hydrogen atom distance of two residues falling in the range[0,6Å]. Predicted contact map was shown below and higher probabilities are represented by darker color.
+</p></strong>
+<div class="img-circle-container">
+    <div class="img-circle"><div class="img-mask"><img src="images/Figure 6. Input sequence.png" alt="Figure 6. Input sequence 1"></div></div>
+      <div class="img-circle"><div class="img-mask"><img src="images/Figure 6. Input sequence2.png" alt="Figure 6. Input sequence 2"></div></div>
+                <p class="description">Scheme 12. Input sequence</p>
+    </div>
+<strong>We first input the LZ<sub>R</sub>-ELP peptide sequence that exhibit in longitudinal axis in Scheme 12, then input the (EK)<sub>10</sub>-TAT-LZ<sub>E</sub> peptide sequence that exhibit in lateral axis in Scheme 12.</strong>
+<figure>
+     <div class="smallimg">
+            <img src="images/Figure 7. Predicted contact map of “core” and “shell” membrane.png" alt="Figure 7. Predicted contact map of “core” and “shell” membrane">
+         </div>
+          <p class="description">Scheme 13. Predicted contact map of LZ<sub>R</sub>-ELP and (EK)<sub>10</sub>-TAT-LZ<sub>E</sub> membrane<sup>[20-23]</sup></p>
+      </figure>
+
+<strong>As shown in scheme 13, the residues interaction in the red box exhibit the highest probabilities, which indicates the interaction between leucine zipper coiled-coil contributes to the connection between LZ<sub>R</sub>-ELP and (EK)<sub>10</sub>-TAT-LZ<sub>E</sub>, and other domains are unrelated with the process. </strong></h3>
+</section>
+  <section id="05" class="light">
+    <h2>Goals</h2>
+      <input type="text" value="" />
+   <h3>  <strong>Goals for this summer:<br/>
+
+<p>1. Expression and purification of LZR-ELP and (EK)10-TAT-ZE<br/>
+2. Dimerization of LZR-ELP and (EK)10-TAT-ZE<br/>
+3. Obtaining of ERPCs assemblies with fixed appearance.<br/>
+4. Response to MMP2 enzyme</p>
+
+<p>Goals for the future:<br/>
+1. Loading and release of hydrophobic drug<br/>
+2. Intracellular delivery of hydrophobic drug<br/>
+3. In vivo anti-cancer drug delivery efficiency</p></strong></h3>
+
+<figure>
+     <div class="smallFigure">
+            <img src=images/M`NR%0)AAFB~K$)I4~})K3Y.png>
+         </div>
+</figure></section>
+  
+  <section id="06" class="dark">
+    <h2>References</h2>
+      <input type="text" value="" />
+<h6>[1] Elzoghby AO, Samy WM, Elgindy NA. Protein-based nanocarriers as promising drug and gene delivery systems. J Control Release. 2012, 161(1): 38-49.<br/>
+[2] Zwiorek K, Kloeckner J, Wagner E, Coester C Coester, Gelatin nanoparticles as a new and simple gene delivery system. J. Pharm. Pharm. Sci. 2005, 7 (4): 22-28.<br/>
+[3] Lee CH, Singla A, Lee Y. Biomedical applications of collagen. Int. J. Pharm. 2001, 221 (1-2): 1-22<br/>
+[4] Numata K, Kaplan DL. Silk-based delivery systems of bioactive molecules. Adv. Drug Deliv. Rev. 2010, 62 (15): 1497-1508.<br/>
+[5] Rodríguez-Cabello JC, Prieto S, Reguera J, Arias FJ, Ribeiro A. Biofunctional design of elastin-like polymers for advanced applications in nanobiotechnology. J. Biomater. Sci. Polym. Ed. 2007, 18 (3): 269-286.<br/>
+[6] Chen B, Dai W, He B, Zhang H, Wang X, Wang Y, Zhang Q. Current Multistage Drug Delivery Systems Based on the Tumor Microenvironment. Theranostics 2017, 7(3): 538-558.<br/>
+[7] Nowinski AK, White AD, Keefe AJ, Jiang S. Biologically Inspired Stealth Peptide-Capped Gold Nanoparticles. Langmuir 2014, 30 (7): 1864-1870<br/>
+[8] Park WM, Champion JA. Thermally Triggered Self-Assembly of Folded Proteins into Vesicles. J Am Chem Soc. 2014, 136 (52): 17906-17909<br/>
+[9] Hirst JD, Vieth M, Skolnick J, Brooks CL Predicting leucine zipper structures from sequence. Protein Eng. 1996, 9(8): 657–662.<br/>
+[10] Greener JG, Kandathil SM, Jones DT. Deep learning extends de novo protein modelling coverage of genomes using iteratively predicted structural constraints. Nat Commun. 2019, 10(1): 3977. <br/>
+[11] Kandathil SM, Greener JG, Jones DT. Prediction of interresidue contacts with DeepMetaPSICOV in CASP13. Proteins. 2019, [ahead of print] https://doi.org/10.1101/586800. <br/>
+[12] Greener JG, Moffat L, Jones DT. Design of metalloproteins and novel protein folds using variational autoencoders. Sci Rep. 2018, 8(1): 16189. <br/>
+[13] Jones DT, Kandathil SM. High precision in protein contact prediction using fully convolutional neural networks and minimal sequence features. Bioinformatics. 2018, 34(19): 3308-3315.<br/>
+[14] Waterhouse A, Bertoni M, Bienert S, Studer G, Tauriello G, Gumienny R, Heer FT, de Beer TAP, Rempfer C, Bordoli L, Lepore R, Schwede T. SWISS-MODEL: homology modelling of protein structures and complexes. Nucleic Acids Res. 2018, 46(W1), W296-W303. <br/>   
+[15] Guex N, Peitsch MC, Schwede T. Automated comparative protein structure modeling with SWISS-MODEL and Swiss-PdbViewer: A historical perspective. Electrophoresis 2009, 30, S162-S173 .  <br/>  
+[16] Bienert S, Waterhouse A, de Beer TA, Tauriello G, Studer G, Bordoli L, Schwede T. The SWISS-MODEL Repository - new features and functionality. Nucleic Acids Res. 2017, 45(D1), D313-D319.    <br/>
+[17] Benkert P, Biasini M, Schwede T. Toward the estimation of the absolute quality of individual protein structure models. Bioinformatics 2011, 27(3): 343-350.  <br/>  
+[18] Bertoni M, Kiefer F, Biasini M, Bordoli L, Schwede T. Modeling protein quaternary structure of homo- and hetero-oligomers beyond binary interactions by homology. Sci Rep. 2017, 7 (1): 10480.    <br/>
+[19] Zhou X, Hu J, Zhang C, Zhang G, Zhang Y. Assembling multidomain protein structures through analogous global structural alignments. Proc Natl Acad Sci USA. 2019, 116(32): 15930-15938.<br/>
+[20] Zeng H, Wang S, Zhou T, Zhao F, Li X, Wu Q, Xu J. ComplexContact: a web server for inter-protein contact prediction using deep learning. Nucleic Acids Res. 2018, 46(W1): W432- W437.<br/>
+[21]Tian-ming Zhou, Sheng Wang, Jinbo Xu, Deep learning reveals many more inter-protein contacts than direct coupling analysis. RECOMB 2018; <br/>
+[22] Wang S, Sun S, Xu J. Analysis of deep learning methods for blind protein contact prediction in CASP12. Proteins. 2018, 86 Suppl 1: 67– 77.<br/>
+[23] Wang S, Sun S, Li Z, Zhang R, Xu J. Accurate De Novo Prediction of Protein Contact Map by Ultra-Deep Learning Model. PLoS Comput Biol. 2017, 13(1): e1005324
+
+</h6>
+
+
+</section>
+       
+
+  
+
+
+  <footer>
+    <p>Designed and built by @Nano-JLU</p>
+    <p> Welcome to contact us: <a href="mailto:nanojlubiomod@gmail.com">Nano-JLU</a></p>
+    <p>Copyright © 2019 BIOMOD Nano-JLU 2019 All Rights Reserved.</p>  
+  </footer>
+
+
+</body></html>
