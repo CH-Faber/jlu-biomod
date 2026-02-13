@@ -18,12 +18,14 @@ Write-Host "🚀 开始增量同步大文件到服务器..." -ForegroundColor Cy
 # --include='*/': 包含所有文件夹
 # --include='*.mp4': 包含所有 mp4 视频
 # --include='*.zip': 包含所有 zip 压缩包
+# --include='*.psd': 包含所有 psd 源文件
 # --exclude='*': 排除其他所有文件 (其他文件建议走 Git 同步)
 
 rsync -avzP `
     --include='*/' `
     --include='*.mp4' `
     --include='*.zip' `
+    --include='*.psd' `
     --exclude='*' `
     ./public/archive/ `
     "${SERVER_USER}@${SERVER_IP}:${DEST_PATH}/public/archive/"
