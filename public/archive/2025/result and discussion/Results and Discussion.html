@@ -1,0 +1,882 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li>figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure>table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote>:last-child { margin-bottom: 0px; }
+blockquote>:first-child, li>:first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write>p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p>.md-image:only-child:not(.md-img-error) img, p>img:only-child { display: block; margin: auto; }
+#write.first-line-indent p>.md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p>.md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item>input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel>svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1>.outline-item { padding-left: 0px; }
+.outline-h2>.outline-item { padding-left: 1em; }
+.outline-h3>.outline-item { padding-left: 2em; }
+.outline-h4>.outline-item { padding-left: 3em; }
+.outline-h5>.outline-item { padding-left: 4em; }
+.outline-h6>.outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open>.outline-item>.outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open>.outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open>.outline-item>.outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open>.outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active>.outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write>ul:first-child,
+#write>ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item>input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biomod - Results</title>
+    <style>
+      body { 
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; 
+        margin: 0; 
+        background-color: #e7f7ff; 
+        line-height: 1.6;
+      }
+      a { color: inherit; text-decoration: none; }
+      .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+      header { position: sticky; top: 0; z-index: 100; backdrop-filter: saturate(120%) blur(6px); background: rgba(255,255,255,0.8); border-bottom: 1px solid #eef2f7; width: 100%; }
+      header .container { max-width: none; margin: 0; padding: 0 16px; }
+      .nav { display: flex; align-items: center; height: 56px; width: 100%; padding: 0 16px; }
+      .brand { font-weight: 700; color: #1f2937; }
+      .spacer { flex: 1; }
+      .nav-links { display: none; gap: 16px; font-size: 16px; }
+      .nav-links a { color: #334155; font-weight: 500; transition: color 0.2s; text-decoration: none; }
+      .nav-links a:hover { color: #007bff; }
+      .nav-links a.active {
+        color: #007bff;
+        font-weight: 700;
+      }
+      .hamburger { width: 40px; height: 40px; border-radius: 10px; border: 1px solid #e5e7eb; display: grid; place-items: center; background: #fff; }
+      @media (min-width: 960px) { .nav-links { display: flex; } .hamburger { display: none; } }
+      .mobile-menu { position: fixed; inset: 0; background: rgba(15,23,42,0.5); display: none; z-index: 1000; }
+      .mobile-menu.open { display: block; }
+      .mobile-panel { position: absolute; top: 0; right: 0; width: 78vw; max-width: 360px; height: 100%; background: #ffffff; box-shadow: -8px 0 32px rgba(0,0,0,0.15); padding: 20px; overflow: auto; }
+      .mobile-panel a { display: block; padding: 14px 8px; font-size: 18px; color: #0f172a; border-bottom: 1px solid #f1f5f9; }
+      
+      .content-page {
+        padding: 40px 0;
+        margin-top: 56px;
+      }
+
+      /* Styles for Results Content */
+      .results-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .results-content h1, .results-content h2, .results-content h3 {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+        color: #2c3e50;
+      }
+      .results-content h1 {
+        font-size: 2.5em;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+      .results-content h2 {
+        font-size: 2em;
+        margin-top: 1.5em;
+        margin-bottom: 1rem;
+      }
+      .results-content h3 {
+        font-size: 1.5em;
+        margin-top: 1.2em;
+        margin-bottom: 1rem;
+      }
+      .results-content p, .results-content li {
+        font-size: 1em;
+        color: #333;
+      }
+      .results-content h2 {
+        font-size: 1.8em;
+        margin-top: 2em;
+        border-bottom: 1px solid #eef2f7;
+        padding-bottom: 8px;
+      }
+      .results-content h3 {
+          font-size: 1.4em;
+          margin-top: 1.5em;
+      }
+      .results-content p {
+        text-align: justify;
+        color: #334155;
+      }
+      .figure {
+        text-align: center;
+        margin: 30px 0;
+      }
+      .figure img {
+        max-width: 100%;
+        height: auto;
+      }
+      .figure-caption {
+        margin-top: 10px;
+        color: #555;
+        font-size: 0.9em;
+        text-align: left;
+      }
+      .references ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+      .references li {
+        margin-bottom: 12px;
+        color: #444;
+        font-size: 0.85em;
+      }
+
+      /* Sidebar background styles */
+      body {
+        background-color: #e7f7ff;
+      }
+      
+      /* Left sidebar with blend mode */
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 100vh;
+        background-image: url('../images/left.jpg');
+        background-size: auto 100%;
+        background-position: left top;
+        background-repeat: no-repeat;
+        z-index: 1;
+        pointer-events: none;
+        mix-blend-mode: multiply;
+      }
+      /* Hide sidebars on mobile */
+      @media (max-width: 1200px) {
+        body {
+          background: #e7f7ff;
+        }
+      }
+      
+      /* Fix content background to show sidebars */
+      #write {
+        background-color: transparent !important;
+        background: transparent !important;
+      }
+      
+      /* Ensure main content area has proper background */
+      .typora-export-content {
+        background-color: #e7f7ff;
+      }
+      
+      /* Loading animation */
+      .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('../images/ing-background.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 1;
+        transition: opacity 0.5s ease-out;
+      }
+      
+      .loading-screen.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      
+      .loading-gif {
+        width: 450px;
+        height: auto;
+        max-width: 120vw;
+        max-height: 120vh;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+      <img src="../images/666.gif" alt="Loading" class="loading-gif">
+    </div>
+    
+    <!-- Right sidebar as separate element -->
+    <div style="position: fixed; top: 0; right: 0; width: 200px; height: 100vh; background-image: url('../images/right.jpg'); background-size: auto 100%; background-position: right top; background-repeat: no-repeat; z-index: 1; pointer-events: none; mix-blend-mode: multiply;"></div>
+    
+    <header>
+        <div class="container nav">
+          <a href="../index.html" class="brand">NanoJLU-2025</a>
+          <div class="spacer"></div>
+          <nav class="nav-links">
+            <a href="../index.html">Project</a>
+            <a href="../background/background.html">Background</a >
+            <a href="../design/Design.html">Design</a >
+            <a href="../material and method/Materials and Method.html">Method</a >
+            <a href="../labbook/LABBOOK.html">Labbook</a >
+            <a href="Results and Discussion.html" class="active">Results</a >
+            <a href="../about us/about-us.html">About Us</a >
+            <a href="../Future/prospect and future.html">Future</a >
+            <a href="../ELSI/ELSI.html">ELSI</a >
+          </nav>
+          <button id="open-menu" class="hamburger" aria-label="Open menu"><span></span></button>
+        </div>
+        <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+            <div class="mobile-panel">
+              <a href="../index.html">Project</a >
+              <a href="../background/background.html">Background</a >
+              <a href="../design/Design.html">Design</a >
+              <a href="../material and method/Materials and Method.html">Method</a >
+              <a href="../labbook/LABBOOK.html">Labbook</a >
+              <a href="Results and Discussion.html" class="active">Results</a >
+              <a href="../about us/about-us.html">About Us</a >
+              <a href="../Future/prospect and future.html">Future</a >
+              <a href="../ELSI/ELSI.html">ELSI</a >
+            </div>
+        </div>
+    </header>
+
+</style><title>Results and Discussion</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='results-and-discussion'><strong><span>Results and Discussion</span></strong></h1><p><span>	</span><span>This study focuses on investigating how to use DNA tetrahedra as monomers and ion responsive G4 chains as linkers to achieve template-free synthesis of two-dimensional membranes and cage structures by controlling reaction conditions.</span></p><p><span>	</span><span>Initially, three DNA single strands (GS2-GS4) with G-rich terminals and an additional strand (S1) containing potential functional modification sites were subjected to annealing to form DNA tetrahedrons (TDNs)[1]. Subsequently, by introducing different cations, single layer membrane structure and cage assembly was directly achieved in template-free solution. The entire assembly process was characterized using agarose gel electrophoresis (AGE) and dynamic light scattering (DLS). Meanwhile, atomic force microscopy (AFM)  were employed to visualize the structure of the assemblies.</span></p><p><span>	</span><span>All experimental evidence confirms the successful development of a strategy for direct 2D DNA membrane assembly in solution using rigid linkers, enabling the synthesis of supramolecular assemblies with sizes exceeding 100 nm. Furthermore, by adjusting the ion ratio, the 2D membrane assembly was successfully curved, and spherical cage structures with a diameter of over 200 nm were synthesized in a substrate-free solution. Owing to the ion dependence of G4 chains, the membrane assembly can undergo rapid dissociation upon the addition of a small amount of the counter molecule 18-crown-6 ether. Under such conditions, reversible assembly can be realized under mild conditions. Additionally, due to the presence of functional group chains reserved at the vertices of the TDN tetrahedron, this assembly can be rapidly modified and loaded with a large number of different functional groups, laying the foundation for its further expanded applications.</span></p><p>&nbsp;</p><h3 id='1-synthesis-of-tdn-monomers------dna-tetrahedron-our-first-finished-goal'><strong><span>1. Synthesis of TDN Monomers——DNA tetrahedron, our first finished goal</span></strong></h3><p><span>	</span><span>TDN monomers were assembled via one-step annealing in solution[1,2], and the assembly details were analyzed by AGE. As shown in Fig. 1, from left to right in the gel, with the sequential addition of each nucleic acid strand, the migration rate of the assemblies gradually decreased, eventually stabilizing at approximately 180 bp (referenced to the nucleic acid marker). The faster migration rate (compared to the actual base length of 210 bp) can be attributed to the reduced overall radius of the constrained nucleic acid strands after assembly, which is consistent with observations reported in other similar studies[3].</span></p><p><img src="result图片/组装.png" alt="组装" style="zoom: 40%;" /><img src="result图片/TDN电泳图.webp" alt="TDN电泳图" style="zoom: 24%;" /></p><h6 id='fig-1-3-agarose-gel-electrophoresis-image-of-various-nucleic-acid-units-after-annealing-under-experimental-conditions-stained-with-safe-green-nucleic-acid-dye-lanes-1-4-s1-single-strand-gs2-single-strand-gs3-single-strand-gs4-single-strand-lanes-5-8-s1-+-gs2-assembly-gs2-+-gs3-assembly-s1-+-gs2-+-gs3-assembly-gs2-+-gs3-+-gs4-assembly-lanes-9-10-two-parallel-batches-of-synthesized-tdn-assemblies-lane-11-dna-ladder-h2'><em><span>Fig. 1: 3% agarose gel electrophoresis image of various nucleic acid units after annealing under experimental conditions, stained with Safe Green nucleic acid dye. Lanes 1-4: S1 single strand, GS2 single strand, GS3 single strand, GS4 single strand; Lanes 5-8: S1 + GS2 assembly, GS2 + GS3 assembly, S1 + GS2 + GS3 assembly, GS2 + GS3 + GS4 assembly; Lanes 9-10: Two parallel batches of synthesized TDN assemblies; Lane 11: DNA Ladder-H2.</span></em><span> </span></h6><hr /><p>&nbsp;</p><p><span>	</span><span>Subsequently, AFM was used to characterize the structure of the synthesized TDN monomers. As presented in Fig. 2a-b , the TDN structures appeared as particles with a diameter ranging from 15 to 25 nm and a thickness of approximately 1 nm in the AFM images. The deviated aspect ratio (0.04 instead of 1.0 for an ideal regular tetrahedron) is attributed to two factors: the dehydration-induced collapse of the 3D structure during sample preparation and the damage to the Z-direction structure caused by the tapping-mode probe during testing[1] .A small number of larger aggregates observed may result from random TDN aggregation induced by a high Mg²+ concentration, while particles smaller than the aforementioned diameter are considered to be a small amount of unassembled strand clusters. The overall assembly efficiency was statistically analyzed through particle size measurement (Fig. 2b). Using the built-in program of AFM to count the particle sizes of monomers, the TDN particle sizes exhibited a Gaussian distribution, with an average diameter of 19 ± 1 nm. The small standard deviation indicates that the assembly conditions were successfully optimized.</span></p><p><span> </span></p><p><img src="result图片/TDN原子力.webp" alt="TDN原子力" style="zoom:75%;" /></p><h6 id='fig-2-a-statistical-analysis-of-the-particle-sizes-of-assembled-tdn-monomers-b-cross-sectional-analysis-of-the-afm-image-of-tdn-monomers'><em><span>Fig. 2: (a) Statistical analysis of the particle sizes of assembled TDN monomers. (b) Cross-sectional analysis of the AFM image of TDN monomers</span></em></h6><hr /><p>&nbsp;</p><h3 id='2-synthesis-of-supramolecular-assemblies'><strong><span>2. Synthesis of Supramolecular Assemblies</span></strong></h3><p><span>	</span><span>Next, different cations were introduced to trigger the G-quadruplex-mediated directional assembly of TDNs.</span></p><p><span>	</span><span>G-quadruplexes exhibit broad cation dependence and can be stabilized by various cations, such as K⁺​, Na+, Li⁺​, and NH4+. Among these cations, K⁺​ exhibits a much stronger stabilizing effect on G-quadruplexes than the others. This is due to its suitable ionic radius and low dehydration energy[4], which can be verified by theoretical calculations of its melting temperature and binding energy[6]. However, the high binding strength of K⁺​ introduces drawbacks during assembly: the dissociation temperature of its complexes is much higher than the disassembly temperature of TDNs, making structural reorganization and local error correction unattainable via conventional cooling-annealing methods. This assembly method typically results in randomly aggregated clumpy structures. To address this issue, lithium ion , a cation with weaker binding strength, was introduced for auxiliary assembly. Compared to K⁺​ , Li⁺​ has lower binding strength and a moderate melting temperature, enabling mild reversible dissociation without damaging TDN monomers. The difference in binding energy between these two ions not only leads to variations in the structural rigidities of the assemblies but also expands the range of synthesized assemblies (Fig. 3a, 5a, 6a).</span></p><p><span>	</span><span>To investigate the fine structure of the assemblies, AFM and DLS were utilized. Conventional AGE was not employed for analysis except in the section related to deionized disassembly (④). This is because the excessively large size of the assemblies (usually &gt; 100 nm) and the high ion concentration in the electrophoresis buffer would cause damage to the agarose gel.</span></p><p>&nbsp;</p><p><strong><span>①</span></strong><span> </span><strong><span>TDN assembly induced by Li⁺——Membrane, our second finished goal</span></strong></p><p><span>	</span><span>To explore the controlled formation of 2D membranes, we first employed Li⁺ ions, a cation with a relatively small ionic radius and weak G4-stabilizing ability. Unlike K⁺, which strongly locks G-quadruplexes into rigid conformations, Li⁺ interacts only transiently with guanine bases. This weaker binding strength allows partial and reversible formation of G4 linkages, enabling the system to continuously self-adjust during assembly. In other words, Li⁺ provides a gentle, error-correctable assembly environment, allowing TDN monomers to reorganize into a stable and uniform two-dimensional lattice.</span></p><p><span>	</span><span>A series of Li⁺​-induced assemblies were successfully synthesized by simply adding Li⁺​-containing buffer to the TDN monomer solution and equilibrating the mixture near its melting temperature for 48 h.</span></p><p><img src="result图片/二维膜原子力.webp" referrerpolicy="no-referrer" alt="二维膜原子力"></p><p><img src="result图片/构象示意图.webp" alt="构象示意图" style="zoom:80%;" /></p><h6 id='fig-3--a-afm-images-of-li⁺-induced-assemblies--cross-sectional-analysis-of-the-afm-image-of-li⁺-induced-assemblies-b-afm-images-of-li⁺-induced-assemblies-3d-afm-image-of-li⁺-induced-assemblies-c-tdn-monomer-assembly-conformation-diagram'><em><span>Fig. 3  (a) AFM images of Li⁺​-induced assemblies.  Cross-sectional analysis of the AFM image of Li⁺​-induced assemblies. (b) AFM images of Li⁺​-induced assemblies. 3D AFM image of Li⁺​-induced assemblies. (c) TDN monomer assembly conformation diagram.</span></em></h6><hr /><p>&nbsp;</p><p><span>	</span><span>As shown in the AFM images, the Li⁺​-induced assemblies form continuous membrane structures with a thickness of approximately 2 nm and a diameter of around 200 nm. After optimizing the testing conditions, clumpy structures with a diameter of approximately 20 nm were clearly observed. Combining the size of TDN monomers and the uniform thickness of the overall assembly, this assembly was identified as a 2D membrane structure formed by the assembly of single-layer TDNs.</span></p><p><span>	</span><span>In the cross-sectional profile, numerous spike-like structures were clearly observed on the membrane surface(Fig. 3c). These structures are considered to be the tetrahedral tips of TDN monomers, further confirming that the membrane structure is formed by the directional assembly of TDNs rather than the random aggregation of nucleic acids driven by surface tension.</span></p><p><span>	</span><span>Due to the presence of surface energy and electrostatic repulsion of the nucleic acid backbone[6], TDNs tend to assemble in a configuration where their tetrahedral tips face opposite directions during 2D membrane formation(Fig. 3c). This explains why the observed structure thickness is 2 nm instead of the ideal 1 nm for a single layer.</span></p><p><span> </span></p><p><strong><span>②</span></strong><span> </span><strong><span>TDN Assembly Induced by K⁺——Membrane, our second finished goal</span></strong></p><p><span>	</span><span>Next, to enhance structural rigidity and membrane integrity, we examined assembly under K⁺-rich conditions. K⁺ is the most effective stabilizer of G-quadruplexes due to its ideal ionic radius and low dehydration energy, allowing it to precisely coordinate within the G4 central channel. As a result, K⁺ confers high binding energy and strong mechanical strength to G4 linkages, producing a more compact and cohesive supramolecular network.</span></p><p><span>	</span><span>K⁺​-induced assemblies were synthesized using the same preparation method as that for Li⁺​-induced assemblies. Notably, although the melting temperature of G-quadruplexes stabilized by K⁺​ is much higher than the equilibrium temperature (70°C &gt;&gt; 35°C) under these conditions, the same annealing procedure was maintained to ensure a consistent thermodynamic environment for the system.</span></p><p><img src="result图片/钾离子组装.webp" alt="钾离子组装" style="zoom:75%;" /></p><h6 id='fig-4-a-afm-images-of-k⁺-induced-assemblies-b-cross-sectional-analysis-of-the-afm-images-of-k⁺-induced-assemblies-c-3d-model-of-membrane-stacking-structure-d-3d-models-with-different-numbers-of-stacked-layers'><em><span>Fig. 4: (a) AFM images of K⁺​-induced assemblies. (b) Cross-sectional analysis of the AFM images of K⁺​-induced assemblies. (c) 3D model of membrane stacking structure</span></em><span> (d) 3D models with different numbers of stacked layers.</span></h6><hr /><p>&nbsp;</p><p><span>	</span><span>AFM characterization of K⁺​-induced assemblies revealed large-area assembly structures. Compared to Li⁺​-induced assemblies, the intact area of K⁺​-induced assemblies was significantly increased, and the number of internal voids was greatly reduced. Only large-scale stress-induced holes caused by drying during sample preparation were observed, indicating a lower defect rate during assembly. This phenomenon corresponds to the stronger stabilizing effect of K⁺​ on G-quadruplexes.</span></p><p><span>	</span><span>To study the structure of K⁺​-induced assemblies more precisely, higher-resolution AFM images were acquired and subjected to cross-sectional analysis. Interestingly, three membrane structures with different thicknesses (2 nm, 4 nm, and 6 nm) were observed(Fig. 5b-c). This fixed thickness gradient typically indicates the presence of multi-layer stacking in the system[7]. Combined with the AFM image feature that the edge thickness is larger than the internal thickness of the intact membrane, this thickness gradient is attributed to membrane curling and multi-layer stacking caused by drying during sample preparation. The unique thickness gradient (2 nm = 2 × TDN thickness) further confirms that, similar to Li⁺​-induced assemblies(Fig. 3b), this membrane structure is a 2D membrane formed by TDN assembly.</span></p><p><span> </span></p><p><span> </span><strong><span>③</span></strong><span> </span><strong><span>Synergistic Assembly Induced by K⁺​ and Li⁺​——Vesicle, our third finished goal</span></strong></p><p><span>	</span><span>To precisely control the curling and closure of the 2D TDN–G4 membranes into 3D vesicles, we developed a mixed-ion assembly strategy guided by the  design model from Kim&#39;s study (which we have discussed in our design section) of membrane bending. According to our theoretical framework, the critical radius (Rₐ) of curvature depends on the balance between bonding energy (E</span><sub><span>b</span></sub><span>) and edge energy (E</span><sub><span>e</span></sub><span>): When the increase in edge energy from unbonded sites exceeds the surface energy gained from further planar growth, the system spontaneously bends. Thus, by tuning the G4 bonding energy through different cations, the assembly can be directed to remain flat or to curl into a closed vesicle.</span></p><p><span>	</span><span>In this context, we introduced both K⁺ and Li⁺ ions to achieve a controllable curvature range. K⁺ generates highly stable G4 linkages with strong bonding energy, decreasing the critical radius and promoting curvature, whereas Li⁺ forms weaker, more reversible G4 linkages, increasing the critical radius and maintaining planar extension. By varying their ratio, we could fine-tune the transition point between 2D growth and 3D closure, achieving dynamic regulation of vesicle formation.</span></p><p><img src="result图片/钾锂组装原子力.webp" alt="钾锂组装原子力" style="zoom:50%;" /></p><h6 id='fig-5-a-afm-image-of-k⁺li⁺-induced-assemblies-b-3d-afm-image-of-k⁺li⁺-induced-assemblies-c-statistical-analysis-of-the-particle-sizes-of-k⁺-li⁺--induced-assemblies-from-afm-images-d-dls-data-of-k⁺li⁺-induced-assemblies'><em><span>Fig. 5 (a) AFM image of K⁺​/Li⁺​-induced assemblies. (b) 3D AFM image of K⁺​/Li⁺​-induced assemblies. (c) Statistical analysis of the particle sizes of K⁺​ /Li⁺​ -induced assemblies from AFM images. (d) DLS data of K⁺​/Li⁺​-induced assemblies.</span></em></h6><hr /><p>&nbsp;</p><p><span>	</span><span>In the AFM images of K⁺​ /Li⁺​ -induced assemblies, a large number of spherical structures were observed, with a small number of ellipsoidal structures interspersed. These ellipsoidal assemblies may be formed by the fusion of adjacent spherical structures. The uniform thickness observed in the 3D images indicates that these spherical structures are not irregular DNA clusters, as the latter generally exhibit a strong thickness-diameter correlation[8]—a phenomenon not observed in our images.</span></p><p><span>	</span><span>To further confirm whether these spherical structures are self-assembled in solution or formed by surface tension during drying, DLS was performed to verify the presence of such structures in solution(Fig. 6d). </span></p><p><span> </span></p><p><img src="result图片/钾锂组装原子力2.webp" referrerpolicy="no-referrer" alt="钾锂组装原子力2"></p><h6 id='fig-6-phase-diagram-analysis-of-the-afm-images-of-k⁺li⁺-induced-assemblies'><em><span>Fig. 6: Phase diagram analysis of the AFM images of K⁺​/Li⁺​-induced assemblies.</span></em></h6><hr /><p>&nbsp;</p><p><span>	</span><span>To further investigate the internal structure of the spherical structures, the phase diagrams of the AFM images of the spherical structures were analyzed, and the mechanical properties were used to characterize the spheres. The phase diagrams showed a soft-hard-soft transition inside the spherical structures. Combining height images and phase diagrams for analysis, this transition indicates the presence of a cap-like structure inside the spheres formed by dehydration-induced collapse. This structure is commonly observed in liposome vesicles of similar size, providing further evidence that the spherical structures are hollow[10].</span></p><p><span> </span></p><p><img src="result图片/钾锂组装原子力3.webp" referrerpolicy="no-referrer" alt="钾锂组装原子力3"></p><h6 id='fig-7-cross-sectional-analysis-of-the-afm-images-of-k⁺-li⁺--induced-assemblies'><em><span>Fig. 7: Cross-sectional analysis of the AFM images of K⁺​ /Li⁺​ -induced assemblies.</span></em></h6><hr /><p>&nbsp;</p><p><span>	</span><span>To further confirm that the spherical structures are hollow spherical cages, higher-resolution AFM images were used to analyze the cross-sectional structure of the spheres(Fig. 8). Consistent with the expected results, the cross-section of the spheres showed a uniform thickness, which is exactly equal to the superimposed thickness of the two-layer TDN membrane discussed earlier(2 × 2 nm = 4 nm).</span></p><p><span>	</span><span>In summary, we have ultimately confirmed the successful use of TDN as a structural monomer and G4 chains as connectors to synthesize assemblies such as hollow cages and two-dimensional membranes.</span></p><p><span> </span></p><p><strong><span>④</span></strong><span> </span><strong><span>Reversibility of G-quadruplex-Mediated Assembly</span></strong></p><p><span> </span></p><p><span>	</span><span>In order to prove that we can control the linking of G4 chains and the formation of assemblies by means of ion concentration, agarose gel electrophoresis was used to analyze the assembly and the disassembly process induced by deionization.18-crown-6 ether is a type of crown ether with a cavity. Its appropriately sized cavity and numerous oxygen coordination sites endow it with extremely high affinity for K⁺​ ions, and it is used to remove K⁺​ ions from buffers and assemblies[11].</span></p><p><img src="result图片/组装体电泳图.webp" alt="组装体电泳图" style="zoom:80%;" /></p><h6 id='fig-8-agarose-gel-electrophoresis-image-of-k⁺-induced-assemblies-stained-with-safe-green-nucleic-acid-dye-from-left-to-right-lane-1-dna-ladder-h2-lanes-2-3-k⁺-induced-assemblies'><em><span>Fig. 8: Agarose gel electrophoresis image of K⁺​-induced assemblies stained with Safe Green nucleic acid dye. From left to right, Lane 1: DNA Ladder-H2; Lanes 2-3: K⁺-induced assemblies.</span></em></h6><hr /><p>&nbsp;</p><p><span>	</span><span>It can be seen that in the presence of K⁺​ ions, the assemblies can be successfully assembled and remain stable under electrophoresis conditions. Due to the large average radius of the assemblies (&gt;200 nm), severe pore-blocking occurred in the electrophoresis lanes, making it almost impossible to find any signal at the corresponding positions.</span></p><p><img src="result图片/解组装电泳图.webp" alt="解组装电泳图" style="zoom:80%;" /></p><h6 id='fig-9-agarose-gel-electrophoresis-image-of-the-disassembly-of-k⁺-induced-assemblies-induced-by-crown-ether-the-image-was-captured-after-staining-with-safe-green-nucleic-acid-dye-from-left-to-right-lane-1-tdn-monomers-lanes-2-3-assemblies-undergoing-disassembly-induced-by-18-crown-6-ether-lane-4-dna-ladder-h2'><em><span>Fig. 9: Agarose gel electrophoresis image of the disassembly of K⁺-induced assemblies induced by crown ether. The image was captured after staining with Safe Green nucleic acid dye. From left to right, Lane 1: TDN monomers; Lanes 2-3: Assemblies undergoing disassembly induced by 18-crown-6 ether; Lane 4: DNA Ladder-H2.</span></em></h6><hr /><p>&nbsp;</p><p><span>	</span><span>In contrast, upon the addition of 18-crown-6 ether, the competitive binding of this crown ether to K⁺​ ions triggers the disassembly of the assemblies under the same experimental conditions. Consequently, a positive signal emerges at a position nearly coinciding with that of the TDN monomers. This unique property of the assemblies establishes a foundational basis for their rapid adjustment and adaptation in the context of complex and dynamically changing biological microenvironments. Notably, such behavior endows the assemblies with a high level of dynamism, which significantly surpasses that of the conventional double-strand-linked DNA supramolecular structures.</span></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h3 id='reference'><strong><span>Reference</span></strong></h3><p><span>(1)  Zhou, Z.; Fan, D.; Wang, J.; Sohn, Y. S.; Nechushtai, R.; Willner, I. Triggered Dimerization and Trimerization of DNA Tetrahedra for Multiplexed miRNA Detection and Imaging of Cancer Cells. </span><em><span>Small</span></em><span> </span><strong><span>2021</span></strong><span>, </span><em><span>17</span></em><span> (6), 2007355. </span><a href='https://doi.org/10.1002/smll.202007355' target='_blank' class='url'>https://doi.org/10.1002/smll.202007355</a><span>.</span></p><p><span>(2)  Guo, Y.; Zhang, Q.; Zhu, Q.; Gao, J.; Zhu, X.; Yu, H.; Li, Y.; Zhang, C. Copackaging Photosensitizer and PD-L1 siRNA in a Nucleic Acid Nanogel for Synergistic Cancer Photoimmunotherapy. </span><em><span>Sci. Adv.</span></em><span> </span><strong><span>2022</span></strong><span>, </span><em><span>8</span></em><span> (16), eabn2941. </span><a href='https://doi.org/10.1126/sciadv.abn2941' target='_blank' class='url'>https://doi.org/10.1126/sciadv.abn2941</a><span>.</span></p><p><span>(3)  Ke, Y.; Sharma, J.; Liu, M.; Jahn, K.; Liu, Y.; Yan, H. Scaffolded DNA Origami of a DNA Tetrahedron Molecular Cage. </span><em><span>Nano Lett.</span></em><span> </span><strong><span>2009</span></strong><span>,</span><em><span>9</span></em><span>(6), 2445–2447 </span><a href='https://doi.org/10.1021/nl901165f' target='_blank' class='url'>https://doi.org/10.1021/nl901165f</a></p><p><span>(4)  Zaccaria, F.; Paragi, G.; Fonseca Guerra, C. The Role of Alkali Metal Cations in the Stabilization of Guanine Quadruplexes: Why K⁺​ Is the Best. </span><em><span>Phys. Chem. Chem. Phys.</span></em><span> </span><strong><span>2016</span></strong><span>, </span><em><span>18</span></em><span> (31), 20895–20904. </span><a href='https://doi.org/10.1039/C6CP01030J' target='_blank' class='url'>https://doi.org/10.1039/C6CP01030J</a><span>.</span></p><p><span>(5)  Lane, A. N.; Chaires, J. B.; Gray, R. D.; Trent, J. O. Stability and Kinetics of G-Quadruplex Structures. </span><em><span>Nucleic Acids Research</span></em><span> </span><strong><span>2008</span></strong><span>, </span><em><span>36</span></em><span> (17), 5482–5515. </span><a href='https://doi.org/10.1093/nar/gkn517' target='_blank' class='url'>https://doi.org/10.1093/nar/gkn517</a><span>.</span></p><p><span>(6)  Vieregg, J. R. Nucleic Acid Structural Energetics. </span><em><span>Encyclopedia of Analytical Chemistry</span></em><span> </span><em><strong><span>2016</span></strong></em><span>,</span><em><span>1</span></em><span>(18), </span><a href='https://doi.org/10.1002/9780470027318.a1418.pub3' target='_blank' class='url'>https://doi.org/10.1002/9780470027318.a1418.pub3</a></p><p><span>(7)  Baek, K.; Yun, G.; Kim, Y.; Kim, D.; Hota, R.; Hwang, I.; Xu, D.; Ko, Y. H.; Gu, G. H.; Suh, J. H.; Park, C. G.; Sung, B. J.; Kim, K. Free-Standing, Single-Monomer-Thick Two-Dimensional Polymers through Covalent Self-Assembly in Solution. </span><em><span>J. Am. Chem. Soc.</span></em><span> </span><strong><span>2013</span></strong><span>, </span><em><span>135</span></em><span> (17), 6523–6528. </span><a href='https://doi.org/10.1021/ja4002019' target='_blank' class='url'>https://doi.org/10.1021/ja4002019</a><span>.</span></p><p><span>(8)  Rizvi, A.; Mulvey, J. T.; Carpenter, B. P.; Talosig, R.; Patterson, J. P. A Close Look at Molecular Self-Assembly with the Transmission Electron Microscope. </span><em><span>Chem. Rev.</span></em><span> </span><strong><span>2021</span></strong><span>, </span><em><span>121</span></em><span> (22), 14232–14280. </span><a href='https://doi.org/10.1021/acs.chemrev.1c00189' target='_blank' class='url'>https://doi.org/10.1021/acs.chemrev.1c00189</a><span>.</span></p><p><span>(9)  Farkas, N.; Kramar, J. A. Dynamic Light Scattering Distributions by Any Means. </span><em><span>J Nanopart Res</span></em><span> </span><strong><span>2021</span></strong><span>, </span><em><span>23</span></em><span> (5), 120. </span><a href='https://doi.org/10.1007/s11051-021-05220-6' target='_blank' class='url'>https://doi.org/10.1007/s11051-021-05220-6</a><span>.</span></p><p><span>(10) Richter, R.; Mukhopadhyay, A.; Brisson, A. Pathways of Lipid Vesicle Deposition on Solid Surfaces: A Combined QCM-D and AFM Study. </span><em><span>Biophysical Journal</span></em><span> </span><strong><span>2003</span></strong><span>, </span><em><span>85</span></em><span> (5), 3035–3047. </span><a href='https://doi.org/10.1016/S0006-3495(03)74722-5' target='_blank' class='url'>https://doi.org/10.1016/S0006-3495(03)74722-5</a><span>.</span></p><p><span>(11) Dong, J.; O’Hagan, M. P.; Willner, I. Switchable and Dynamic G-Quadruplexes and Their Applications. </span><em><span>Chem. Soc. Rev.</span></em><span> </span><strong><span>2022</span></strong><span>, </span><em><span>51</span></em><span> (17), 7631–7661. </span><a href='https://doi.org/10.1039/D2CS00317A' target='_blank' class='url'>https://doi.org/10.1039/D2CS00317A</a><span>.</span></p><p>&nbsp;</p></div></div>
+
+<script>
+// 智能加载动画控制
+(function() {
+    const loadingScreen = document.getElementById('loadingScreen');
+    if (!loadingScreen) return;
+    
+    let isHidden = false;
+    
+    function hideLoading() {
+        if (isHidden) return;
+        isHidden = true;
+        loadingScreen.classList.add('hidden');
+        setTimeout(() => loadingScreen.remove(), 200);
+    }
+    
+    // 检查是否需要显示加载动画
+    function shouldShowLoading() {
+        return document.readyState !== 'complete';
+    }
+    
+    // 如果不需要显示，立即隐藏
+    if (!shouldShowLoading()) {
+        hideLoading();
+        return;
+    }
+    
+    // 页面加载完成后隐藏
+    if (document.readyState === 'complete') {
+        hideLoading();
+    } else {
+        document.addEventListener('DOMContentLoaded', hideLoading);
+    }
+    
+    // 2. 图片加载完成后隐藏
+    window.addEventListener('load', hideLoading);
+    
+    // 最多等待500ms
+    setTimeout(hideLoading, 500);
+    
+    // 3秒兜底，防止资源事件未触发
+    setTimeout(hideLoading, 3000);
+    
+    // 用户交互时立即隐藏
+    ['click', 'scroll', 'keydown', 'touchstart'].forEach(event => {
+        document.addEventListener(event, hideLoading, { once: true });
+    });
+})();
+</script>
+
+</body>
+</html>

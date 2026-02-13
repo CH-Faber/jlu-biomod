@@ -1,0 +1,21 @@
+html {overflow-x:hidden;}
+
+.custom_service p img {display: inline; vertical-align:middle;}
+.scrollsidebar{position:absolute; z-index:999; top:350px;right:0}
+.side_content{width:154px; height:auto; overflow:hidden; float:left; }
+.side_content .side_list {width:150px;overflow:hidden; border:2px solid #4695dd; background:#fff;}
+.show_btn{ width:0; height:112px; overflow:hidden; margin-top:50px; float:left; cursor:pointer; background:url(../images/sidebar_tit.png) center 10px no-repeat #4695dd;}
+.show_btn span { font-size:14px; color:#fff; text-align:center; padding-top:30px; width:25px; display:block;}
+.close_btn{width:24px;height:24px;cursor:pointer;}
+.side_title {height:46px; position:relative; background:url(../images/sidebar_tit.png) 10px center no-repeat #4695dd;}
+.side_title h2{ font-weight:normal; color:#fff; font-size:16px; letter-spacing:2px; text-align:center; line-height:46px;}
+.side_center {font-family:Verdana, Geneva, sans-serif; padding:5px 12px; font-size:12px;}
+.close_btn {  display:block; width:21px; height:16px; margin:16px 10px 0 0; _margin:16px 5px 0 0; position:absolute; right:0px; top:0px; background:url(../images/sidebar_close.png) center no-repeat;}
+.close_btn span { display:none;}
+.side_center .custom_service p { text-align:center; padding:6px 0; margin:0; vertical-align:middle;}
+.other  { text-align:center;border-bottom:1px solid #ddd;border-top:1px solid #ddd}
+.other p { padding:5px 0; _height:16px; margin:0;color: #666666;}
+.msgserver { text-align:center; margin-bottom:5px;}
+.msgserver a { background:url(../images/sidebar_tel.png) no-repeat left center; padding-left:22px;}
+
+

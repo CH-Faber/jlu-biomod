@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+
+    <title>Nano-JLU Introduction</title>
+
+    <!-- Justify Styles -->
+    <link href="css/justify.css" rel="stylesheet">
+
+
+    <!--Library Styleds-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/lib/font-awesome.css" rel="stylesheet">
+    <link href="css/lib/nivo-lightbox.css" rel="stylesheet">
+    <link href="css/lib/nivo-themes/default/default.css" rel="stylesheet">
+
+    <!--Template Styles-->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/scheme/purple.css" rel="stylesheet">
+    <link href="css/docs.min.css" rel="stylesheet">
+    <style type="text/css">
+
+body {
+	 background-image:url(images/bgphoto2.png);
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+    background-position:center;
+}
+.bs-docs-sidebar .nav li{line-height:36px;}
+.bs-docs-sidebar .nav>.active>a,.bs-docs-sidebar .nav>li:hover>a{
+    padding-left: 28px;
+    font-weight: 700;
+    color: #563d7c;
+    background-color: transparent;
+    border-left:4px solid #428BCA;
+	box-shadow:1px 1px 3px  #ccc;
+	border-top:none;
+    display:block;
+	width:100%;
+	line-height:36px;
+	text-decoration:none;
+}
+</style>
+
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+
+<script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</script>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+
+
+<!-- Preloader -->
+    <div id="preloader">
+        <div id="status"></div>
+    </div>
+
+
+<!-- Site Navigation -->
+<div id="main-wrapper">
+    <div class="container bs-docs-container">
+      <div class="row">
+
+<!--<link href="index/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+--><link href="index/css/style_n.css" rel="stylesheet" type="text/css" media="all" />
+<!-- header -->
+<div class="header">
+  <div class="container">
+    <nav class="navbar navbar-default">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" style="margin-top:2.3em;">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand logo" href="index.html"><img class="logo1"  src="images/nanojlu.gif" alt="Nano-JLU" style="height: 60px; margin-top:10px;"></a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+        <nav class="menu menu--francisco">
+          <ul class="nav navbar-nav menu__list">
+            <li class="menu__item"><a href="index.html" class="menu__link"><span class="menu__helper">Home</span></a></li>
+            <li class="menu__item menu__item--current"><a href="introduction.html" class="menu__link"><span class="menu__helper">INTRODUCTION</span></a></li>
+            <li class="menu__item"><a href="design.html" class="menu__link"><span class="menu__helper">DESIGN</span></a></li>
+            <li class="menu__item"><a href="protocol.html" class="menu__link"><span class="menu__helper">EXPERIMENT</span></a></li>
+            <li class="menu__item"><a href="result.html" class="menu__link"><span class="menu__helper">RESULT</span></a></li>
+            <li class="menu__item"><a href="labbook.html" class="menu__link"><span class="menu__helper">LABBOOK</span></a></li>
+            <li class="menu__item"><a href="team.html" class="menu__link"><span class="menu__helper">TEAM</span></a></li>
+          </ul>
+        </nav>
+      </div>
+      <!-- /.navbar-collapse -->
+    </nav>
+  </div>
+</div>
+<!-- //header -->
+<div class="col-md-3">
+        <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" role="complementary" style="margin-top:50px;position: fixed;">
+            <ul class="nav bs-docs-sidenav">
+				 <a class="back-to-top" href="#top" style="padding-left: 0px;margin-left:-8px;">
+  <p style="font-size:14px;color:#000">Back to top</p></a>
+				<li class="active"><a href="#Abstract">Abstract</a></li>
+				<li><a href="#video">Video</a></li>
+				<li ><a href="#introduction">Introduction</a></li>
+				<li><a href="#reference">REFERENCES</a></li>
+            </ul>
+            
+        </div>
+</div>
+          <div class="col-md-9" role="main">
+            <div class="bs-dos-section">
+  <h2 id="Abstract" class="page-header" style="margin-top:50px;">Abstract</h2>
+  <p>With the development of DNA self-assembly, DNA-protein interactions are increasingly applied to synthesize nano-architectures. The assemblies whom based on DNA templates attracting proteins show great potential in many fields due to the functional diversity of proteins. TMV, the most promising biomolecular complex in nanotechnology application, starts up self-assembly progress via strong interaction between quantity of coat protein (CP) and a specific single strand RNA. Here we designed a transformable DNA nano-cage through Chain Displacement Reaction by DNA origami, which used for catching the self-assembled TMV CP specifically through a particular sequence of RNA containing the TMV origin of assembly. We hope our DNA nano-structure would apply to not only capture or delivery but also catalysis, enrichment, biosensor and etc.</p>
+</div>
+            <div class="bs-dos-section">
+  <h2 id="video" class="page-header">Video</h2>
+  <div><iframe width="800" height="504" src="https://www.youtube.com/embed/6jo-yD0Wkao" frameborder="0" allowfullscreen></iframe></div>
+</div>
+            <div class="bs-dos-section">
+    <h2 id="introduction" class="page-header">Introduction</h2>
+    <p>DNA origami has been widely applied in various fields in the past decade due to its strong designability and diversity. Complex shapes and lattices can be constructed based on a scaffold, a single DNA strand derived from plasmid, and numerous ssDNA staples, such as nanoscale DNA box, intricate interior cavities and tunnels.<sup>1-5</sup>Several studies about the binding, encapsulation, load and release of certain protein by DNA-based nanodevice were reported continuously, demonstrating the feasibility and potential of DNA origami in protein-related application.<sup>6-9</sup>The capture of enzyme horseradish peroxidase by DNA cage have been achieved via the denaturation and renaturation of DNA hairpin by temperature alteration, which provides a new path for DNA-cage-conducted protein encapsulation.<sup>10-11</sup>Thus, new design to enhance both the cavity volume and detection accuracy on DNA cage for protein seizure would be of great interest.</p>
+    <p>Great efforts have been devoted to constructing DNA-protein conjugation for multi-purpose, with a wide range of strategies emerging, such as biotin-streptavidin<sup>12</sup>, aptamer-protein<sup>13</sup>, antigen-antibody<sup>14</sup>, junction-binding proteins<sup>15</sup>, oligonucleotide linkers<sup>16</sup>, polyamide recognition<sup>17</sup>, amyloid self-assembly<sup>10</sup>and etc. Recently, new strategies of virus coat protein (CP) conjugation to DNA inspired by virus DNA-guided protein assembly came into view and raised many researchers’ interest<sup>18</sup>. Although one-dimensional DNA-templated protein assembly strategy has been adopted to construct virus-like nanotube with CP, there’s no report about virus CP binding to DNA nanodevice<sup>19</sup>, which let us to sketch out an idea of CP encapsulation by DNA cage.</p>
+    
+    <p>Tobacco mosaic virus (TMV) has attracted enormous attention in self-assembly technology by utilizing the specific recognition between TMV RNA and CP subunits.<sup>20-21</sup>The strong and precise interaction of CPs to a characteristic RNA loop (origin of assembly, OA) is believed as the start-up of TMV self-assembly, which is often employed to build programmed biomolecular materials.<sup>22-24</sup>Hybridizing the OA-containing RNA with modified DNA had facilitated the controllable synthesis and regulation of protein-inorganic composites: the TMV-liked nanorod<sup>25</sup>,the nanostar colloids of gold core with TMV-liked tubes<sup>26</sup>and the TMV derived nanotube array<sup>27</sup>were reported before. Therefore, it’s entirely possible to modify DNA origami with functional RNA for additional versatilities.</p>
+    <p>Inspired by the convenient RNA-directed bottom-up assembly strategy, we introduce the OA RNA into a three-dimensional DNA origami structure for virus protein detection without any chemical modification on DNA strand. In this study, we chose tetrahedron, the simplest structure among all of polyhedrons, for DNA cage design. The elaborate cage can be opened and closed manually by adding and removing ‘fuel’ strand of DNA that controls CPs entry. One protruding strand of OA-containing RNA was added into the cage to detect CPs and induce the subsequent self-assembly. We expect that our boldly proposed design can contribute to the enrichment of DNA-origami-based protein encapsulation and give some inspirations for new design of reconfigurable three-dimensional DNA nanostructure.</p>
+</div>
+            <div class="bs-dos-section">
+  <h2 id="reference" class="page-header">REFERENCES</h2>
+  <p style="text-indent:0em;font-family: unifrakturcook;"><a name="OLE_LINK24"></a>
+   <a name="OLE_LINK23">1. S. M. Douglas , A. H. Marblestone , S.Teerapittayanon, A. Vazquez , G. M. Church, W. M. Shih, <em>Nucleic Acids Research </em> <strong>2009,</strong> <em>37</em> (15),5001-5006.</a>
+    <br>
+    2.	Andersen, E. S.; Dong, M.; Nielsen, M. M.; Jahn, K.; Subramani, R.; Mamdouh, W.; Golas, M. M.; Sander, B.; Stark, H.; Oliveira, C. L., Self-assembly of a nanoscale DNA box with a controllable lid. <em>Nature</em> <strong>2009,</strong><em>459</em> (7243), 73.
+     <br>
+3.	Ke, Y.; Ong, L. L.; Shih, W. M.; Yin, P., Three-dimensional structures self-assembled from DNA bricks. <em>science</em> <strong>2012,</strong> <em>338</em> (6111), 1177-1183.
+ <br>
+4.	Pal, S.; Deng, Z.; Ding, B.; Yan, H.; Liu, Y., DNA‐origami‐directed self‐assembly of discrete silver‐nanoparticle architectures. <em>Angewandte Chemie International Edition</em> <strong>2010,</strong> <em>49</em> (15), 2700-2704.
+ <br>
+5.	Ding, B.; Deng, Z.; Yan, H.; Cabrini, S.; Zuckermann, R. N.; Bokor, J., Gold nanoparticle self-similar chain structure organized by DNA origami. <em>Journal of the American Chemical Society</em> <strong>2010,</strong> <em>132</em> (10), 3248-3249.
+ <br>
+6.	Zhang, C.; Tian, C.; Guo, F.; Liu, Z.; Jiang, W.; Mao, C., DNA-directed three-dimensional protein organization. <em>Angew Chem Int Ed Engl</em> <strong>2012,</strong> <em>51</em> (14), 3382-5.
+ <br>
+7.	Linko, V.; Eerikainen, M.; Kostiainen, M. A., A modular DNA origami-based enzyme cascade nanoreactor. <em>Chem Commun (Camb)</em> <strong>2015,</strong> <em>51</em> (25), 5351-4.
+ <br>
+8.	Juul, S.; Iacovelli, F.; Falconi, M.; Kragh, S. L.; Christensen, B.; Frohlich, R.; Franch, O.; Kristoffersen, E. L.; Stougaard, M.; Leong, K. W.; Ho, Y. P.; Sorensen, E. S.; Birkedal, V.; Desideri, A.; Knudsen, B. R., Temperature-Controlled Encapsulation and Release of an Active Enzyme in the Cavity of a Self-Assembled DNA Nanocage. <em>Acs Nano</em> <strong>2013,</strong> <em>7</em> (11), 9724-9734.
+ <br>
+9.	Douglas, S. M.; Bachelet, I.; Church, G. M., A Logic-Gated Nanorobot for Targeted Transport of Molecular Payloads. <em>Science</em> <strong>2012,</strong> <em>335</em> (6070), 831-834.
+ <br>
+10.	Udomprasert, A.; Bongiovanni, M. N.; Sha, R.; Sherman, W. B.; Wang, T.; Arora, P. S.; Canary, J. W.; Gras, S. L.; Seeman, N. C., Amyloid fibrils nucleated and organized by DNA origami constructions. <em>Nat Nanotechnol</em> <strong>2014,</strong> <em>9</em> (7), 537-41.
+ <br>
+11.	Goodman, R. P.; Erben, C. M.; Malo, J.; Ho, W. M.; McKee, M. L.; Kapanidis, A. N.; Turberfield, A. J., A facile method for reversibly linking a recombinant protein to DNA. <em>Chembiochem</em> <strong>2009,</strong> <em>10</em> (9), 1551-7.
+ <br>
+12.	Li, H.; Park, S. H.; Reif, J. H.; LaBean, T. H.; Yan, H., DNA-templated self-assembly of protein and nanoparticle linear arrays. <em>Journal of the American Chemical Society</em> <strong>2004,</strong> <em>126</em> (2), 418-419.
+ <br>
+13.	Liu, Y.; Lin, C.; Li, H.; Yan, H., Aptamer‐directed self‐assembly of protein arrays on a DNA nanostructure. <em>Angewandte Chemie</em> <strong>2005,</strong> <em>117</em> (28), 4407-4412.
+ <br>
+14.	He, Y.; Tian, Y.; Ribbe, A. E.; Mao, C., Antibody nanoarrays with a pitch of∼ 20 nanometers. <em>Journal of the American Chemical Society</em> <strong>2006,</strong> <em>128</em> (39), 12664-12665.
+ <br>
+15.	Malo, J.; Mitchell, J. C.; Vénien‐Bryan, C.; Harris, J. R.; Wille, H.; Sherratt, D. J.; Turberfield, A. J., Engineering a 2D protein–DNA crystal. <em>Angewandte Chemie</em> <strong>2005,</strong> <em>117</em> (20), 3117-3121.
+ <br>
+16.	Nykypanchuk, D.; Maye, M. M.; Van Der Lelie, D.; Gang, O., DNA-guided crystallization of colloidal nanoparticles. <em>Nature</em> <strong>2008,</strong> <em>451</em> (7178), 549.
+ <br>
+17.	Cohen, J. D.; Sadowski, J. P.; Dervan, P. B., Addressing single molecules on DNA nanostructures. <em>Angewandte Chemie</em> <strong>2007,</strong> <em>119</em> (42), 8102-8105.
+ <br>
+18.	Mukherjee, S.; Pfeifer, C. M.; Johnson, J. M.; Liu, J.; Zlotnick, A., Redirecting the coat protein of a spherical virus to assemble into tubular nanostructures. <em>Journal of the American Chemical Society</em> <strong>2006,</strong> <em>128</em> (8), 2538-2539.
+ <br>
+19.	Hou, C.; Guan, S.; Wang, R.; Zhang, W.; Meng, F.; Zhao, L.; Xu, J.; Liu, J., Supramolecular Protein Assemblies Based on DNA Templates. <em>J Phys Chem Lett</em> <strong>2017,</strong> <em>8</em> (17), 3970-3979.
+ <br>
+20.	Song, L.; Wang, H.; Wang, S.; Zhang, H.; Cong, H.; Tien, P., Memory effect of reversibly thermoswitchable self-assembly-competent recombinant TMV coat protein with multi-binding moieties with potential applications in nanoparticle purification. <em>Journal of materials science</em> <strong>2014,</strong> <em>49</em> (7), 2693-2704.
+ <br>
+21.	Kadri, A.; Wege, C.; Jeske, H., In vivo self-assembly of TMV-like particles in yeast and bacteria for nanotechnological applications. Journal of virological methods 2013, 189 (2), 328-340.
+22.	Zimmern, D., The nucleotide sequence at the origin for assembly on tobacco mosaic virus RNA. <em>Cell</em> <strong>1977,</strong> <em>11</em> (3), 463-482.
+ <br>
+23.	Turner, D.; Butler, P., Essential features of the assembly origin of tobacco mosaic virus RNA as studied by directed mutagenesis. <em>Nucleic acids research</em> <strong>1986,</strong> <em>14</em> (23), 9229-9242.
+ <br>
+24.	Turner, D. R.; Joyce, L. E.; Butler, P. J. G., The tobacco mosaic virus assembly origin RNA: functional characteristics defined by directed mutagenesis. <em>Journal of molecular biology</em> <strong>1988,</strong> <em>203</em> (3), 531-547.
+ <br>
+25.	Ma, D.; Xie, Y.; Zhang, J.; Ouyang, D.; Yi, L.; Xi, Z., Self-assembled controllable virus-like nanorods as templates for construction of one-dimensional organic-inorganic nanocomposites. <em>Chem Commun (Camb)</em> <strong>2014,</strong> <em>50</em> (98), 15581-4.
+ <br>
+26.	Eber, F. J.; Eiben, S.; Jeske, H.; Wege, C., Bottom-up-assembled nanostar colloids of gold cores and tubes derived from tobacco mosaic virus. Angew Chem Int Ed Engl 2013, 52 (28), 7203-7.
+27.	Mueller, A.; Eber, F. J.; Azucena, C.; Petershans, A.; Bittner, A. M.; Gliemann, H.; Jeske, H.; Wege, C., Inducible Site-Selective Bottom-Up Assembly of Virus-Derived Nanotube Arrays on RNA-Equipped Wafers. <em>Acs Nano</em> <strong>2011,</strong> <em>5</em> (6), 4512-4520.
+   </p>
+</div>
+          </div>
+      </div>
+    </div>
+</div>
+
+
+<!-- Footer
+================================================== -->
+<footer class="bs-docs-footer" role="contentinfo">
+  <div class="container">
+
+
+    <p>Designed and built by @Nano-JLU</p>
+    <p> Welcome to contact us: <a href="mailto:biomodnanojlu2016@gmail.com">Nano-JLU</a> biomodnanojlu2016@gmail.com</p>
+    <p>Copyright © 2016 BIOMOD Nano-JLU 2016 All Rights Reserved.</p>
+
+  </div>
+</footer>
+
+
+
+
+
+<!-- Library Scripts -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/lib/jquery.preloader.js"></script>
+    <script src="js/lib/nivo-lightbox.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/lib/jquery.superslides.min.js"></script>
+    <script src="js/lib/smoothscroll.js"></script>
+    <script src="js/lib/jquery.sudoslider.min.js"></script>
+    <script src="js/lib/jquery.bxslider.min.js"></script>
+    <script src="js/lib/jquery.mixitup.min.js"></script>
+    <script src="js/lib/jquery.backtotop.js"></script>
+    <script src="js/lib/jquery.carouFredSel-6.2.1-packed.js"></script>
+    <script src="js/lib/retina.min.js"></script>
+    <script src="js/docs.min.js"></script>
+<script type="text/javascript">
+	$(function () { $('#collapseFour').collapse({
+		toggle: false
+	})});
+	$(function () { $('#collapseTwo').collapse('show')});
+	$(function () { $('#collapseThree').collapse('toggle')});
+	$(function () { $('#collapseOne').collapse('hide')});</script>
+
+
+
+    <!-- Custom Script -->
+<script src="js/main.js"></script>
+
+<script src="js/h.js" type="text/javascript"></script>
+
+
+
+
+
+<script>
+function dragable(id){var d=document,o=d.getElementById(id),s=o.style,x,y,p='onmousemove';o.onmousedown=function(e){e=e||event;x=e.clientX-o.offsetLeft;y=e.clientY-o.offsetTop;d[p]=function(e){e=e||event;s.left=e.clientX-x+'px';s.top=e.clientY-y+'px'};d.onmouseup=function(){d[p]=null}}}
+dragable("demo");
+</script>
+
+
+</body>
+
+</html>

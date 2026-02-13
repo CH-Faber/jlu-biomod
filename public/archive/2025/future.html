@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biomod - Future</title>
+    <style>
+      body { 
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; 
+        margin: 0; 
+        background-color: #fff; 
+        color: #212529;
+        line-height: 1.6;
+      }
+      a { color: inherit; text-decoration: none; }
+      .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+      header { 
+        position: sticky; 
+        top: 0; 
+        z-index: 100; 
+        backdrop-filter: saturate(120%) blur(6px); 
+        background: rgba(255,255,255,0.8); 
+        width: 100%;
+      }
+      header .container { max-width: none; margin: 0; padding: 0 16px; }
+      .nav { display: flex; align-items: center; height: 56px; width: 100%; padding: 0 16px; }
+      .brand { font-weight: 700; color: #1f2937; }
+      .spacer { flex: 1; }
+      .nav-links { display: none; gap: 16px; font-size: 16px; }
+      .nav-links a { color: #334155; font-weight: 500; transition: color 0.2s; }
+      .nav-links a:hover { color: #007bff; }
+      .nav-links a.active {
+        color: #007bff;
+        font-weight: 700;
+      }
+      .hamburger { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 10px; border: 1px solid #e5e7eb; background: #fff; cursor: pointer; }
+      .hamburger span, .hamburger span:before, .hamburger span:after { content: ''; display: block; height: 2px; width: 20px; background: #334155; border-radius: 2px; transition: all 0.3s; }
+      .hamburger span:before { transform: translateY(-6px); }
+      .hamburger span:after { transform: translateY(6px); }
+      .mobile-menu { position: fixed; inset: 0; background: rgba(15,23,42,0.5); display: none; z-index: 1000; }
+      .mobile-menu.open { display: block; }
+      .mobile-panel { position: absolute; top: 0; right: 0; width: 78vw; max-width: 360px; height: 100%; background: #ffffff; box-shadow: -8px 0 32px rgba(0,0,0,0.15); padding: 20px; box-sizing: border-box; }
+      .mobile-panel a { display: block; padding: 14px 8px; font-size: 18px; color: #0f172a; border-bottom: 1px solid #f1f5f9; }
+      
+      @media (min-width: 960px) { 
+        .nav-links { display: flex; } 
+        .hamburger { display: none; } 
+      }
+      
+      main {
+        padding: 40px 0;
+      }
+      .content-wrapper {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        /* The following properties were removed to solve the issue */
+        /* background-color: #ffffff; */
+        /* border-radius: 8px; */
+        /* box-shadow: 0 4px 8px rgba(0,0,0,0.05); */
+      }
+      h1 {
+        font-size: 2.5rem;
+        color: #343a40;
+        text-align: center;
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+      }
+      h2 {
+        font-size: 1.5rem;
+        color: #495057;
+        margin-top: 40px;
+        padding-bottom: 5px;
+      }
+      p {
+        text-align: justify;
+        margin-bottom: 15px;
+        font-size: 1rem;
+      }
+      .interjection {
+        text-align: center;
+        font-style: italic;
+        color: #6c757d;
+        margin: 40px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+        <div class="container nav">
+          <a href="index.html" class="brand">Biomod</a>
+          <div class="spacer"></div>
+          <nav class="nav-links">
+            <a href="index.html">Project</a> 
+            <a href="background/background.html">Background</a>
+            <a href="design/Design.html">Design</a>
+            <a href="material and method/Materials and Method.html">Method</a>
+            <a href="labbook/LABBOOK.html">Labbook</a>
+            <a href="result and discussion/Results and Discussion.html">Results</a>
+            <a href="about us/about-us.html">About Us</a>
+            <a href="future.html" class="active">Future</a>
+            <a href="ELSI/ELSI.html">ELSI</a>
+          </nav>
+          <button id="open-menu" class="hamburger" aria-label="Open menu"><span></span></button>
+        </div>
+        <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+            <div class="mobile-panel">
+              <a href="index.html">Project</a>
+              <a href="background/background.html">Background</a>
+              <a href="design/Design.html">Design</a>
+              <a href="material and method/Materials and Method.html">Method</a>
+              <a href="labbook/LABBOOK.html">Labbook</a>
+              <a href="result and discussion/Results and Discussion.html">Results</a>
+              <a href="about us/about-us.html">About Us</a>
+              <a href="future.html">Future</a>
+              <a href="ELSI/ELSI.html">ELSI</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+      <div class="content-wrapper">
+        <h1>Prospect and Future</h1>
+
+        <h2>1. Ion-controlled conformational transformation</h2>
+        <p>
+            We will explore the precise ionic conditions that regulate the reversible transformation between the planar 2D membrane and the vesicle-like 3D capsule.
+        </p>
+        <p>
+            By systematically adjusting the concentration and species of monovalent cations (K⁺, Na⁺, Li⁺), we aim to construct a phase diagram describing the boundaries between flat, curved, and closed states.
+        </p>
+        <p>
+            High-resolution AFM and cryo-TEM imaging will be employed to monitor the dynamic folding process in real time.
+        </p>
+        <p>
+            These results will deepen our understanding of ion-gated supramolecular mechanics and provide a foundation for designing programmable soft materials.
+        </p>
+
+        <h2>2. Cargo encapsulation and release</h2>
+        <p>
+            The vesicle-like DNA capsules formed by our system offer natural compartments for molecular encapsulation.
+        </p>
+        <p>
+            We plan to explore the loading of small-molecule drugs, peptides, or fluorescent tracers into the cavity of the capsule during its folding process.
+        </p>
+        <p>
+            By modulating ionic concentration or temperature, we will achieve controlled encapsulation and release of cargo molecules.
+        </p>
+        <p>
+            This strategy opens a pathway toward ion-responsive nanocarriers for precision delivery or localized therapy.
+        </p>
+
+        <p class="interjection">
+            More than these！
+        </p>
+
+        <h2>3. Mimicking exosome-like communication</h2>
+        <p>
+            Because our DNA vesicles share structural features with natural exosomes, we will investigate their potential as artificial communication units.
+        </p>
+        <p>
+            Functional nucleic acids or aptamers can be displayed on the vesicle surface to recognize specific cell receptors, while the internal space can carry signal molecules or therapeutic oligonucleotides.
+        </p>
+        <p>
+            By combining structural programmability and biological targeting, we aim to simulate exosome-mediated communication and explore applications in synthetic biology and intercellular signaling.
+        </p>
+
+        <h2>4. Expanding the design paradigm of DNA materials</h2>
+        <p>
+            Our work provides a new design strategy that bridges two traditionally separate regimes of DNA nanotechnology — 2D lattices and 3D compartments.
+        </p>
+        <p>
+            In the future, we will further extend this approach to multi-responsive systems (e.g., light, pH, or temperature triggers) to build reconfigurable, adaptive DNA architectures.
+        </p>
+        <p>
+            Ultimately, this research may lead to next-generation smart nanomaterials capable of morphogenesis, molecular communication, and autonomous regulation.
+        </p>
+      </div>
+    </main>
+
+    <script>
+      (function() {
+        const openMenuBtn = document.getElementById('open-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        openMenuBtn.addEventListener('click', function() {
+          mobileMenu.classList.toggle('open');
+        });
+        
+        mobileMenu.addEventListener('click', function(event) {
+          if (event.target === mobileMenu) {
+            mobileMenu.classList.remove('open');
+          }
+        });
+      })();
+    </script>
+    
+    <script src="./ai-assistant.js" defer></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // initAIAssistant('dec4b5e652464152976117f453d9d3c1', 'bubble');
+      });
+    </script>
+  </body>
+</html>

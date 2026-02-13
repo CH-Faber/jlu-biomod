@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biomod - Project</title>
+    <style>
+      body { 
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; 
+        margin: 0; 
+        min-height: 100vh;
+        background-color: transparent;
+        overflow-x: hidden;
+      }
+      a { color: inherit; text-decoration: none; }
+      .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+      header { position: sticky; top: 0; z-index: 1000; backdrop-filter: saturate(120%) blur(6px); background: rgba(255,255,255,0.8); border-bottom: 1px solid #eef2f7; width: 100%; box-sizing: border-box; }
+      header .container { max-width: none; margin: 0; }
+      .nav { display: flex; align-items: center; height: 56px; width: 100%; padding: 0 16px; }
+      .brand { font-weight: 700; color: #1f2937; }
+      .spacer { flex: 1; }
+        .nav-links { display: none; gap: 16px; font-size: 16px; }
+      .nav-links a { color: #334155; font-weight: 500; transition: color 0.2s; text-decoration: none; }
+      .nav-links a:hover { color: #007bff; }
+      .nav-links a.active { color: #007bff; font-weight: 700; }
+      .hamburger { width: 40px; height: 40px; border-radius: 10px; border: 1px solid #e5e7eb; display: grid; place-items: center; background: #fff; }
+      @media (min-width: 960px) { .nav-links { display: flex; } .hamburger { display: none; } }
+      .mobile-menu { position: fixed; inset: 0; background: rgba(15,23,42,0.5); display: none; z-index: 1000; }
+      .mobile-menu.open { display: block; }
+      .mobile-panel { position: absolute; top: 0; right: 0; width: 78vw; max-width: 360px; height: 100%; background: #ffffff; box-shadow: -8px 0 32px rgba(0,0,0,0.15); padding: 20px; overflow: auto; }
+      
+      .animation-wrapper { height: 200vh; position: relative; background-color: transparent; }
+      .animation-container { position: sticky; top: 0; width: 100%; height: 100vh; overflow: hidden; z-index: 1; }
+      .blackhole-image, .black-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transform-origin: center center; }
+      .black-overlay { background-color: #020f23; z-index: 2; }
+      .blackhole-image { z-index: 3; }
+      .sidedown-image { position: absolute; top: 5%; left: 50%; transform: translateX(-50%); width: 100%; max-width: 1176px; height: auto; z-index: 4; object-fit: contain; transition: transform 0.1s ease-out; }
+      .nanojlu-image { position: absolute; top: 15%; left: 50%; transform: translateX(-50%); width: 100%; max-width: 1200px; height: auto; z-index: 6; object-fit: contain; transition: transform 0.1s ease-out; }
+      .animation-container { background-color: #020f23; }
+
+      .loading-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./images/ing-back.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; display: flex; justify-content: center; align-items: center; z-index: 9999; transition: opacity 0.5s ease-out; }
+      .loading-screen.hidden { opacity: 0; pointer-events: none; }
+      .loading-gif { width: 450px; height: auto; max-width: 100vw; max-height: 100vh; }
+
+      /* 关键：让 main-content 成为“文档坐标”的定位容器 */
+      .main-content { background-color: transparent; position: relative; }
+
+      .cobweb-section { position: relative; width: 100%; overflow: hidden; }
+      .cobweb-section img { width: 100%; height: auto; display: block; }
+
+      .spider-image {
+        position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+        width: 30vw; min-width: 200px; max-width: 500px; height: auto; z-index: 9; /* ↓ 放到 header(1000) 下方 */
+        object-fit: contain; transition: none;
+        opacity: 0; visibility: hidden; /* 出现在网中心之前先隐藏（初始一瞬） */
+      }
+      .spider-image.falling {
+        position: fixed; left: 50%; transform: translate(-50%, -50%);
+        z-index: 9; opacity: 1; visibility: visible; /* ↓ 仍低于 header */
+      }
+
+      .spider-thread {
+        position: fixed; width: 3px; height: 0; background: transparent; box-shadow: none; z-index: 8; /* ↓ 丝线更低 */
+        transform-origin: top center; pointer-events: none;
+        opacity: 0; display: none; visibility: hidden; left: -9999px; top: -9999px; transform: translateX(-50%);
+      }
+
+      .cloud-section { width: 100%; position: relative; }
+      .cloud-section img { width: 100%; height: auto; display: block; }
+
+      .cobweb-section, .cloud-section { background-color: #020f23; }
+
+      .content-page { 
+        min-height: 100vh; display: flex; align-items: center; justify-content: center; 
+        padding: 40px 0; margin-top: 0; 
+        background: #020f23 url('./images/first.jpg') center / cover no-repeat fixed; 
+      }
+      .content-page .inner { max-width: 800px; text-align: left; }
+      .content-page h1 { font-size: 2.5rem; margin-bottom: 1rem; text-align: center; }
+      .content-page h2 { font-size: 1.8rem; margin-top: 2rem; margin-bottom: 1rem; color: #1e293b; }
+      .content-page p { font-size: 1rem; line-height: 1.7; color: #334155; margin-bottom: 1rem; }
+      .content-page ul { margin: 1rem 0; padding-left: 25px; }
+      .content-page li { font-size: 1rem; line-height: 1.7; color: #475569; margin-bottom: 0.5rem; }
+      .image-container { text-align: center; margin: 30px 0; }
+      .image-container img { max-width: 100%; height: auto; border-radius: 4px; }
+    </style>
+  </head>
+  <body>
+    <!-- 加载动画屏幕 -->
+    <div class="loading-screen" id="loading-screen">
+      <img src="./images/666.gif" alt="Loading" class="loading-gif">
+    </div>
+    
+    <!-- 蜘蛛丝线 -->
+    <div class="spider-thread" id="spider-thread"></div>
+    
+    <div class="animation-wrapper">
+      <div class="animation-container" id="animation-container">
+        <div id="black-overlay" class="black-overlay"></div>
+        <img id="blackhole-image" class="blackhole-image" src="./images/blackhole-2.0.jpg" alt="Black Hole" />
+        <img id="sidedown-image" class="sidedown-image" src="./images/sidedown.png" alt="Side Down" />
+        <img id="nanojlu-image" class="nanojlu-image" src="./images/nanojlu.png" alt="Nano JLU" />
+      </div>
+    </div>
+
+    <main class="main-content" id="main-root">
+      <section class="cobweb-section">
+        <img src="./images/net.png" alt="Net" />
+        <img class="spider-image" id="spider-image" src="./images/Upside-down-spider.png" alt="Spider" />
+      </section>
+
+      <section class="cloud-section">
+        <img src="./images/end.jpg" alt="End" id="end-img"/>
+      </section>
+      
+      <header>
+        <div class="container nav">
+          <a href="index.html" class="brand">NanoJLU-2025</a>
+          <div class="spacer"></div>
+          <nav class="nav-links">
+            <a href="project.html" class="active">Project</a> 
+            <a href="background/background.html">Background</a>
+            <a href="design/Design.html">Design</a>
+            <a href="material and method/Materials and Method.html">Method</a>
+            <a href="labbook/LABBOOK.html">Labbook</a>
+            <a href="result and discussion/Results and Discussion.html">Results</a>
+            <a href="about us/about-us.html">About Us</a>
+            <a href="Future/prospect and future.html">Future</a>
+            <a href="ELSI/ELSI.html">ELSI</a>
+          </nav>
+          <button id="open-menu" class="hamburger" aria-label="Open menu"><span></span></button>
+        </div>
+        <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+            <div class="mobile-panel">
+              <a href="project.html">Project</a>
+              <a href="background/background.html">Background</a>
+              <a href="design/Design.html">Design</a>
+              <a href="material and method/Materials and Method.html">Method</a>
+              <a href="labbook/LABBOOK.html">Labbook</a>
+              <a href="result and discussion/Results and Discussion.html">Results</a>
+              <a href="about us/about-us.html">About Us</a>
+              <a href="Future/prospect and future.html">Future</a>
+              <a href="ELSI/ELSI.html">ELSI</a>
+            </div>
+        </div>
+      </header>
+      
+      <section class="content-page">
+        <div class="container inner">
+          <h1>Abstract</h1>
+          <p>Substrate-free two-dimensional (2D) materials are planar assemblies formed directly in solution without relying on any supporting surface or template.</p>
+          <div class="image-container">
+            <img src="./images/homepage-1.gif" alt="Animation showing substrate-free growth of 2D Materials">
+          </div>
+          <p>Despite these advantages, achieving controllable substrate-free 2D growth remains challenging. Without the guiding effect of a substrate, flexible monomers and weak noncovalent interactions often lead to random branching, interlayer stacking, or 3D cross-linking, which compromise single-layer uniformity and long-range order. Balancing structural stability and dynamic reconfigurability requires fine-tuning between rigidity (to maintain lattice integrity) and flexibility (to enable defect correction and curvature programming). In life-science contexts, these difficulties are further amplified: assembly must occur in aqueous environments with physiological ionic strength, resist protein adsorption and biochemical disturbances, and avoid cytotoxic components. However, substrate-free systems that simultaneously combine biocompatibility, molecular programmability, and precise 2D-to-3D transformation remain rare, leaving practical bio-oriented solutions largely unresolved.</p>
+          <div class="image-container">
+            <img src="./images/homepage-2.gif" alt="Animation representing random branching and interlayer stacking">
+          </div>
+          
+          <h2>Our Solution</h2>
+          <p>To address these challenges, we designed a novel system using tetrahedral DNA nanostructures (TDNs) as rigid framework units and G-quadruplexes (G4s) as ion-responsive linking nodes. The TDNs provide modularity and chemical modifiability, while the G4 motifs introduce reversible ion-responsiveness and dynamic connectivity. The integration of the two components achieves a synergistic balance between structural robustness and adaptability, embodying a "1 + 1 > 2" innovation effect.</p>
+          <div class="image-container">
+            <img src="./images/homepage-3.png" alt="Diagram showing the integration of TDNs and G4s to form a membrane">
+          </div>
+          <ul>
+            <li>Programmable self-assembly enables substrate-free growth of stable 2D DNA membranes.</li>
+            <li>Ion-responsive G-quadruplex linkers provide dynamic, reversible connections for ordered membrane growth.</li>
+            <li>Synergistic integration of rigid TDNs and flexible G4 linkers achieves precise structural control and scalability.</li>
+          </ul>
+          <p>Beyond achieving a stable 2D material, we further realized precise regulation of curvature and closure. Under finely controlled ionic conditions, the DNA membrane spontaneously folds into large-scale, hollow 3D vesicles—successfully achieving a programmable transition from planar to spherical architectures. This breakthrough opens new opportunities for constructing biocompatible, stimuli-responsive DNA nanovesicles, with broad potential in targeted delivery, biomimetic systems, and intelligent therapeutic platforms.</p>
+          <div class="image-container">
+            <img src="./images/homepage-4.png" alt="Animation illustrating the transition from a 2D DNA membrane to a 3D nanovesicle">
+          </div>
+          <ul>
+            <li>Fine-tuned ionic regulation drives curvature transformation from 2D sheets to 3D vesicles.</li>
+            <li>Reversible G4 interactions enable self-correcting folding toward energy-minimized vesicle configurations.</li>
+            <li>Exosome-like DNA nanovesicles offer an intelligent, biomimetic platform for targeted delivery and microenvironment modulation.</li>
+          </ul>
+          
+          <!-- YouTube Video Link -->
+          <div class="image-container" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
+            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-bottom: 15px;">Watch our project demonstration:</p>
+            <a href="https://youtu.be/nscJUBw9NYk" target="_blank" style="display: inline-block; padding: 12px 24px; background-color: #dc2626; color: white; text-decoration: none; border-radius: 8px; font-weight: 500; transition: background-color 0.2s;">
+              📺 Watch on YouTube
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <script>
+      // 立即隐藏丝线，防止刷新时闪现
+      (function() {
+        const spiderThread = document.getElementById('spider-thread');
+        if (spiderThread) {
+          spiderThread.removeAttribute('style');
+          spiderThread.style.display = 'none';
+          spiderThread.style.opacity = '0';
+          spiderThread.style.visibility = 'hidden';
+          spiderThread.style.background = 'transparent';
+          spiderThread.style.boxShadow = 'none';
+          spiderThread.style.left = '-9999px';
+          spiderThread.style.top = '-9999px';
+        }
+      })();
+      
+      document.addEventListener('DOMContentLoaded', function() {
+        // 智能加载动画控制
+        (function() {
+          const loadingScreen = document.getElementById('loading-screen');
+          if (!loadingScreen) return;
+          
+          let isHidden = false;
+          
+          function hideLoading() {
+            if (isHidden) return;
+            isHidden = true;
+            loadingScreen.classList.add('hidden');
+            setTimeout(() => loadingScreen.remove(), 200);
+          }
+          
+          // 检查是否需要显示加载动画
+          function shouldShowLoading() {
+            return document.readyState !== 'complete';
+          }
+          
+          // 如果不需要显示，立即隐藏
+          if (!shouldShowLoading()) {
+            hideLoading();
+            return;
+          }
+          
+          // 需要显示时的控制逻辑
+          // 1. DOM 加载完成后立即隐藏
+          if (document.readyState === 'complete') {
+            hideLoading();
+          } else {
+            document.addEventListener('DOMContentLoaded', hideLoading);
+          }
+          
+          // 2. 图片加载完成后隐藏
+          window.addEventListener('load', hideLoading);
+          
+          // 3. 最长等待时间：500ms后强制隐藏
+          setTimeout(hideLoading, 500);
+          
+          // 4. 3秒兜底，防止资源事件未触发
+          setTimeout(hideLoading, 3000);
+          
+          // 5. 用户交互时立即隐藏
+          ['click', 'scroll', 'keydown', 'touchstart'].forEach(event => {
+            document.addEventListener(event, hideLoading, { once: true });
+          });
+        })();
+
+        // 黑洞滚动缩放动画（原样）
+        (function() {
+          const animationWrapper = document.querySelector('.animation-wrapper');
+          if (!animationWrapper) return;
+          
+          const blackholeImage = document.getElementById('blackhole-image');
+          const blackOverlay = document.getElementById('black-overlay');
+          const sidedownImage = document.getElementById('sidedown-image');
+          const nanojluImage = document.getElementById('nanojlu-image');
+          if (!blackholeImage || !blackOverlay || !sidedownImage || !nanojluImage) return;
+          
+          const ANIMATION_SCROLL_DISTANCE = animationWrapper.offsetHeight - window.innerHeight;
+          
+          function updateScrollAnimation() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop <= ANIMATION_SCROLL_DISTANCE) {
+              const scrollProgress = scrollTop / ANIMATION_SCROLL_DISTANCE;
+              const scale = 1 + (scrollProgress * 4); // 从1倍放大到5倍
+              blackholeImage.style.transform = `scale(${scale})`;
+              
+              const moveDistance = scrollProgress * 100; // 向上移动100vh
+              sidedownImage.style.transform = `translateX(-50%) translateY(-${moveDistance}vh)`;
+              
+              const nanojluMoveDistance = scrollProgress * 80;
+              nanojluImage.style.transform = `translateX(-50%) translateY(${nanojluMoveDistance}vh)`;
+              
+              if (scrollProgress > 0.8) {
+                const fadeProgress = (scrollProgress - 0.8) / 0.2;
+                const opacity = 1 - fadeProgress;
+                blackholeImage.style.opacity = opacity;
+                blackOverlay.style.opacity = opacity;
+                sidedownImage.style.opacity = opacity;
+                nanojluImage.style.opacity = opacity;
+              } else {
+                blackholeImage.style.opacity = 1;
+                blackOverlay.style.opacity = 1;
+                sidedownImage.style.opacity = 1;
+                nanojluImage.style.opacity = 1;
+              }
+            }
+          }
+          
+          let ticking = false;
+          function handleScroll() {
+            if (!ticking) {
+              window.requestAnimationFrame(() => {
+                updateScrollAnimation();
+                ticking = false;
+              });
+              ticking = true;
+            }
+          }
+          window.addEventListener('scroll', handleScroll);
+          updateScrollAnimation();
+        })();
+
+        // 移动端菜单控制（原样）
+        (function(){
+          const menuBtn = document.getElementById('open-menu');
+          const mobileMenu = document.getElementById('mobile-menu');
+          if (!menuBtn || !mobileMenu) return;
+
+          function closeMenu() {
+              mobileMenu.classList.remove('open');
+              mobileMenu.setAttribute('aria-hidden', 'true');
+          }
+          function openMenu() {
+              mobileMenu.classList.add('open');
+              mobileMenu.setAttribute('aria-hidden', 'false');
+          }
+          
+          menuBtn.addEventListener('click', openMenu);
+          mobileMenu.addEventListener('click', function(e) {
+              if (e.target === mobileMenu || e.target.tagName === 'A') {
+                  closeMenu();
+              }
+          });
+        })();
+
+        /* ── 蜘蛛：可上下联动；60% 冻结/回滚解冻；网中心时“常驻且定在网中心” ── */
+        (function(){
+          if (window.__SPIDER_LOCK__) return;
+          window.__SPIDER_LOCK__ = true;
+
+          const FREEZE_RATIO = 0.57;
+          const ANCHOR_HYST = 2;
+          const THAW_HYST   = 6;
+
+          const spider   = document.getElementById('spider-image');
+          const thread   = document.getElementById('spider-thread');
+          const webSec   = document.querySelector('.cobweb-section');
+          const endImg   = document.getElementById('end-img');
+          const root     = document.getElementById('main-root');
+          if (!spider || !thread || !webSec || !endImg || !root) return;
+
+          const STATE = { HIDDEN:0, LINKING:1, FROZEN:2 };
+          let state = STATE.HIDDEN;
+
+          // 冻结尺寸（用于解冻后保持大小一致）
+          let lastLockW = null;
+          let lastLockH = null;
+          let keepLockedSize = false;
+
+          let anchorAbsY = 0;
+          let anchorScreenX = 0;
+          let anchorLeftInRoot = 0;
+
+          function st(){ return window.pageYOffset || document.documentElement.scrollTop || 0; }
+          function vh(){ return window.innerHeight || document.documentElement.clientHeight || 0; }
+          function vpCenterAbs(){ return st() + vh()*0.5; }
+
+          function rootAbsTop(){ const r = root.getBoundingClientRect(); return st() + r.top; }
+          function rootScreenLeft(){ return root.getBoundingClientRect().left; }
+
+          function computeAnchor(){
+            const net = webSec.querySelector('img[alt="Net"]');
+            if (!net) return false;
+            const r = net.getBoundingClientRect();
+            anchorAbsY     = st() + r.top + r.height/2;
+            anchorScreenX  = r.left + r.width/2;
+            anchorLeftInRoot = (r.left - rootScreenLeft()) + r.width/2;
+            return true;
+          }
+          function computeEndTargetAbsY(){
+            const r = endImg.getBoundingClientRect();
+            const s = st();
+            const absTop = s + r.top;
+            let h = r.height;
+            if (!h || h <= 0) {
+              const nw = endImg.naturalWidth || 0, nh = endImg.naturalHeight || 0;
+              if (nw > 0 && nh > 0) h = nh * (r.width / nw);
+            }
+            return h && h > 0 ? absTop + h * FREEZE_RATIO : null;
+          }
+
+          function showLinking(){
+            if (state === STATE.FROZEN) return;
+            spider.classList.add('falling');
+
+            const sizeStyle = keepLockedSize && lastLockW
+              ? { width:`${lastLockW}px`, maxWidth:`${lastLockW}px`, minWidth:`${lastLockW}px` }
+              : { width:'', maxWidth:'', minWidth:'' };
+
+            Object.assign(spider.style, {
+              position:'fixed', top:'50vh', left:'50%',
+              transform:'translate(-50%, -50%)',
+              zIndex:'9', opacity:'1', visibility:'visible',
+              ...sizeStyle
+            });
+          }
+          function hideSpider(){
+            if (state === STATE.FROZEN) return;
+            spider.classList.remove('falling');
+            Object.assign(spider.style, {
+              position:'absolute', top:'50%', left:'50%',
+              transform:'translate(-50%, -50%)',
+              zIndex:'9', opacity:'0', visibility:'hidden'
+            });
+            Object.assign(thread.style, {
+              opacity:'0', display:'none', visibility:'hidden', height:'0',
+              left:'-9999px', top:'-9999px'
+            });
+          }
+
+          // ★★★ 新增：在“蜘蛛网中心”时常驻并定在网中心 ★★★
+          function showAtWebCenter(){
+            spider.classList.remove('falling');
+
+            const sizeStyle = keepLockedSize && lastLockW
+              ? { width:`${lastLockW}px`, maxWidth:`${lastLockW}px`, minWidth:`${lastLockW}px` }
+              : { width:'', maxWidth:'', minWidth:'' };
+
+            const anchorTopInRoot = anchorAbsY - rootAbsTop();
+
+            Object.assign(spider.style, {
+              position: 'absolute',
+              top: `${anchorTopInRoot}px`,
+              left: `${anchorLeftInRoot}px`,
+              transform: 'translate(-50%, -50%)', // 让图片中心对齐网中心
+              zIndex: '9',
+              opacity: '1',
+              visibility: 'visible',
+              ...sizeStyle
+            });
+
+            // 网中心阶段不需要丝线
+            Object.assign(thread.style, {
+              opacity:'0', display:'none', visibility:'hidden', height:'0',
+              left:'-9999px', top:'-9999px'
+            });
+          }
+          // ★★★ 结束新增 ★★★
+
+          function freezeNow(targetAbsY){
+            if (state === STATE.FROZEN) return;
+            state = STATE.FROZEN;
+
+            const beforeRect = spider.getBoundingClientRect();
+            const lockW = beforeRect.width;
+            const lockH = beforeRect.height;
+
+            lastLockW = lockW;
+            lastLockH = lockH;
+            keepLockedSize = true;
+
+            const rootTopAbs = rootAbsTop();
+            const spiderCenterAbs = targetAbsY;
+            const spiderTopAbs    = spiderCenterAbs - lockH / 2;
+
+            const anchorTopInRoot = anchorAbsY - rootTopAbs;
+            const spiderTopInRoot = spiderTopAbs - rootTopAbs;
+
+            if (spider.parentNode !== root) root.appendChild(spider);
+            if (thread.parentNode !== root) root.appendChild(thread);
+
+            spider.classList.remove('falling');
+            Object.assign(spider.style, {
+              position: 'absolute',
+              top: `${spiderTopInRoot}px`,
+              left: '50%',
+              transform: 'translate(-50%, 0)',
+              zIndex: '9',
+              opacity: '1',
+              visibility: 'visible',
+              width: `${lockW}px`,
+              maxWidth: `${lockW}px`,
+              minWidth: `${lockW}px`
+            });
+
+            const spiderCenterInRoot = spiderTopInRoot + lockH / 2;
+            const lineLen = Math.max(0, spiderCenterInRoot - anchorTopInRoot);
+
+            Object.assign(thread.style, {
+              position: 'absolute',
+              left: `${anchorLeftInRoot}px`,
+              top:  `${anchorTopInRoot}px`,
+              height: `${lineLen}px`,
+              width: '3px',
+              opacity: '1',
+              display: 'block',
+              visibility: 'visible',
+              background: 'linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255,0.8))',
+              boxShadow: '0 0 8px rgba(255,255,255,0.8)',
+              transform: 'translateX(-50%)',
+              zIndex: '8'
+            });
+
+            // 保持监听，以便回滚后解冻
+          }
+
+          function thawFromFrozen(){
+            if (state !== STATE.FROZEN) return;
+            state = STATE.LINKING;
+
+            const w = lastLockW || spider.getBoundingClientRect().width;
+
+            spider.classList.add('falling');
+            Object.assign(spider.style, {
+              position:'fixed', top:'50vh', left:'50%',
+              transform:'translate(-50%, -50%)',
+              zIndex:'9', opacity:'1', visibility:'visible',
+              width:`${w}px`, maxWidth:`${w}px`, minWidth:`${w}px`
+            });
+
+            Object.assign(thread.style, {
+              position:'fixed',
+              opacity:'0', display:'none', visibility:'hidden', height:'0'
+            });
+          }
+
+          function update(){
+            if (!computeAnchor()) return;
+
+            const vp = vpCenterAbs();
+            const targetAbsY = computeEndTargetAbsY();
+            if (targetAbsY == null) return;
+
+            // 冻结态下回滚解冻
+            if (state === STATE.FROZEN) {
+              if (vp <= targetAbsY - THAW_HYST) {
+                thawFromFrozen();
+                // 继续联动绘制
+              } else {
+                return;
+              }
+            }
+
+            // —— 区间逻辑：网中心常驻；区间内联动；过线冻结 —— 
+            if (state !== STATE.FROZEN) {
+              if (vp <= anchorAbsY - ANCHOR_HYST) {
+                state = STATE.HIDDEN;
+                showAtWebCenter(); // ← 原来是 hideSpider()，现在“常驻网中心”
+                return;
+              }
+              if (vp >= targetAbsY) {
+                freezeNow(targetAbsY); 
+                return;
+              }
+              // 联动区间
+              if (state !== STATE.LINKING) state = STATE.LINKING;
+              showLinking();
+
+              // 丝线（联动时 fixed，用屏幕坐标；层级在下）
+              const anchorScreenY = anchorAbsY - st();
+              const spiderScreenY = vh()*0.5;
+              const lineLen = spiderScreenY - anchorScreenY;
+              if (lineLen > 0) {
+                Object.assign(thread.style, {
+                  position:'fixed',
+                  opacity:'1', display:'block', visibility:'visible',
+                  background:'linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255,0.8))',
+                  boxShadow:'0 0 8px rgba(255,255,255,0.8)',
+                  left: `${anchorScreenX}px`,
+                  top:  `${anchorScreenY}px`,
+                  height:`${lineLen}px`,
+                  transform:'translateX(-50%)',
+                  zIndex:'8'
+                });
+              } else {
+                Object.assign(thread.style, { opacity:'0', display:'none', visibility:'hidden', height:'0' });
+              }
+            }
+          }
+
+          let ro = null, ticking = false;
+          function onScroll(){
+            if (!ticking) {
+              window.requestAnimationFrame(() => { ticking = false; update(); });
+              ticking = true;
+            }
+          }
+          function onResize(){ update(); }
+          function onEndLoad(){ update(); }
+          if ('ResizeObserver' in window) {
+            ro = new ResizeObserver(() => { update(); });
+            ro.observe(endImg);
+          }
+          endImg.addEventListener('load', onEndLoad);
+          window.addEventListener('resize', onResize);
+          window.addEventListener('scroll', onScroll);
+
+          // 初始：先隐藏，随后 update() 会把它放到网中心常驻
+          hideSpider();
+          if (endImg.complete && endImg.naturalWidth > 0 && endImg.naturalHeight > 0) update();
+          update();
+        })();
+
+      });
+    </script>
+  </body>
+</html>

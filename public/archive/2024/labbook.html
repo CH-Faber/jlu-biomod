@@ -1,0 +1,2523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+*{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+body{
+width: 100vw;
+height: 100vh;
+}
+.tp{
+width: 100vw;
+height: 10vh;
+background-color: #98b6ec;
+position: fixed;
+top: 0;
+left: 0;
+z-index: 2;
+opacity: 0.9;
+}
+.sym img{
+width: 5vw;
+height: 10vh;
+float: left;
+}
+.menu{
+float: right;
+position: fixed;
+top: 2vh;
+right: 5vw;
+width: 15vw;
+cursor: pointer;
+z-index: 1;
+height: 30vh;
+}
+.b1{
+float: left;
+font-size: 3vmax;
+color: white;
+font-size: 2.5vmax;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-weight: 600;
+}
+.b2{
+float: left;
+margin-left: 2vw;
+}
+input[type = "checkbox"] {
+  -webkit-appearance: none;
+  display: none;
+  visibility: hidden;
+}
+.bar {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  width: 50px;
+  height: 40px;
+}
+.bar span {
+  position: absolute;
+  width: 45px;
+  height: 7px;
+  background: #f1faee;
+  border-radius: 100px;
+  display: inline-block;
+  transition: 0.3s ease;
+  left: 0;
+}
+.bar span.top {
+  top: 0;
+}
+.bar span.middle {
+  top: 17px;
+}
+.bar span.bottom {
+  bottom: 0;
+}
+input[type]:checked ~ span.top {
+  transform: rotate(45deg);
+  transform-origin: top left;
+  width: 48px;
+  left: 5px;
+}
+input[type]:checked ~ span.bottom {
+  transform: rotate(-45deg);
+  transform-origin: top left;
+  width: 48px;
+  bottom: -1px;
+  box-shadow: 0 0 10px #495057;
+}
+
+input[type]:checked ~ span.middle {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+.cai{
+  background-color: grey;
+  position:fixed;
+  width: 15vw;
+  height: 36vh;
+  opacity: 0;
+  z-index: 1;
+  margin-top: 8vh;
+  border-radius: 10px;
+}
+.cai li{
+  text-align: center;
+  height: 4vh;
+}
+.but{
+ width: 15vw;
+ height:4vh;
+ background: grey;
+ border: none;
+ border-radius: 5px;
+ font-weight: bold;
+ cursor: pointer;
+ position: relative;
+ z-index: 1;
+ overflow: hidden;
+}
+.but a{
+  color: white;
+  font-size: 1.5vmax;
+}
+button a:hover {
+ color: grey;
+}
+
+button:after {
+ content: "";
+ background: white;
+ position: absolute;
+ z-index: -1;
+ left: -20%;
+ right: -20%;
+ top: 0;
+ bottom: 0;
+ transform: skewX(-45deg) scale(0, 1);
+ transition: all 0.5s;
+}
+button:hover:after {
+ transform: skewX(-45deg) scale(1, 1);
+ -webkit-transition: all 0.5s;
+ transition: all 0.5s;
+}
+.menu:hover .cai{
+ opacity: 0.7;
+ transition: 0.5s;
+}
+.loader {
+ position: relative;
+ width: 2.5em;
+ height: 2.5em;
+ transform: rotate(165deg);
+}
+.loader:before, .loader:after {
+ content: "";
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ display: block;
+ width: 0.5em;
+ height: 0.5em;
+ border-radius: 0.25em;
+ transform: translate(-50%, -50%);
+}
+.loader:before {
+ animation: before8 2s infinite;
+}
+.loader:after {
+ animation: after6 2s infinite;
+}
+@keyframes before8 {
+ 0% {
+  width: 0.5em;
+  box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+ }
+ 35% {
+  width: 2.5em;
+  box-shadow: 0 -0.5em rgba(225, 20, 98, 0.75), 0 0.5em rgba(111, 202, 220, 0.75);
+ }
+ 70% {
+  width: 0.5em;
+  box-shadow: -1em -0.5em rgba(225, 20, 98, 0.75), 1em 0.5em rgba(111, 202, 220, 0.75);
+ }
+ 100% {
+  box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+ }
+}
+@keyframes after6 {
+ 0% {
+  height: 0.5em;
+  box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+ }
+ 35% {
+  height: 2.5em;
+  box-shadow: 0.5em 0 rgba(61, 184, 143, 0.75), -0.5em 0 rgba(233, 169, 32, 0.75);
+ }
+ 70% {
+  height: 0.5em;
+  box-shadow: 0.5em -1em rgba(61, 184, 143, 0.75), -0.5em 1em rgba(233, 169, 32, 0.75);
+ }
+ 100% {
+  box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+ }
+}
+.loader {
+ position: absolute;
+ top: calc(50% - 1.25em);
+ left: calc(50% - 1.25em);
+}
+.home{
+  float: left;
+  margin-left: 5vw;
+  margin-top: 0.5vh;
+}
+.btn {
+ padding: 1vmax;
+ background: none;
+ border: 2px solid #fff;
+ cursor: pointer;
+ position: relative;
+ overflow: hidden;
+ transition: all 0.3s;
+ border-radius: 12px;
+ box-shadow: 0 2px 0 2px #000;
+ height: 9vh;
+}
+.home a{
+  color: white;
+  font-weight: bolder;
+  font-size: 1.5vmax;
+}
+.btn:before {
+ content: "";
+ position: absolute;
+ width: 100px;
+ height: 120%;
+ background-color: #ff6700;
+ top: 50%;
+ transform: skewX(30deg) translate(-150%, -50%);
+ transition: all 0.5s;
+}
+.btn:hover {
+ background-color: #4cc9f0;
+ color: #fff;
+ box-shadow: 0 2px 0 2px #0d3b66;
+}
+.btn:hover a{
+  color: white;
+}
+.btn:hover::before {
+ transform: skewX(30deg) translate(150%, -50%);
+ transition-delay: 0.1s;
+}
+
+.btn:active {
+ transform: scale(0.9);
+}
+.gu{
+  background-color: grey;
+  width: 8vw;
+  height: 24vh;
+  z-index: 1;
+  border-radius: 10px;
+  position: fixed;
+  top: 40vh;
+  left: -15vw;
+  transition: 0.8s;
+}
+.gu li{
+  text-align: center;
+  height: 6vh;
+}
+.but1{
+ width: 8vw;
+ height:6vh;
+ background: grey;
+ border: none;
+ border-radius: 5px;
+ font-weight: bold;
+ cursor: pointer;
+ position: relative;
+ z-index: 1;
+ overflow: hidden;
+}
+.but1 a{
+  color: white;
+  font-size: 1vmax;
+}
+button a:hover {
+ color: grey;
+}
+button:after {
+ content: "";
+ background: white;
+ position: absolute;
+ z-index: -1;
+ left: -20%;
+ right: -20%;
+ top: 0;
+ bottom: 0;
+ transform: skewX(-45deg) scale(0, 1);
+ transition: all 0.5s;
+}
+button:hover:after {
+ transform: skewX(-45deg) scale(1, 1);
+ -webkit-transition: all 0.5s;
+ transition: all 0.5s;
+}
+.sb{
+  position: fixed;
+  top: 45vh;
+  z-index: 0;
+  width: 2vw;
+  height: 6vh;
+  opacity: 1;
+  cursor: pointer;
+}
+.sb img{
+    width: 8vw;
+    height: 16vh;
+    margin-left: -3.5vw;
+}
+.db:hover .gu{
+  left: 0;
+}
+.db:hover .sb{
+  opacity: 0;
+}
+.bian{
+  width: 5vw;
+  height: 100vh;
+  position: fixed;
+  top:10vh;
+  z-index: -1;
+  background-color: #d8ebff;
+}
+.bian1{
+  width: 5vw;
+  height: 100vh;
+  position: fixed;
+  top:10vh;
+  z-index: -1;
+  right: 0;
+  background-color: #d8ebff;
+}
+#DNAo{
+    font-size: 5vmax;
+    display: flex;
+    justify-content: center;
+}
+.A1{
+    font-size: 1.8vmax; 
+    margin-left: 10vw;
+    font-weight: 600;
+    margin-top: 5vh;
+}
+.A2{
+    font-size: 1.5vmax;
+    margin-left: 10vw;
+    width: 80vw;
+}
+.A3{
+    font-size: 1.8vmax;
+    margin-top: 5vh;
+    margin-left: 10vw;
+    width: 80vw;
+}
+.A4{
+    margin-left: 10vw;
+}
+.A4 img{
+    width: 80vw;
+    height: 55vh;
+}
+.A5{
+    font-size: 1.5vmax;
+    width: 80vw;
+    margin-left: 10vw;
+}
+.Yin{
+    display: none;
+    margin-left: 25vw;
+}
+.Yin img{
+  width: 50vw;
+  height: 120vh;
+}
+input:checked + .Yin{
+    display: block;
+}
+.btn-12,
+.btn-12 *,
+.btn-12 :after,
+.btn-12 :before,
+.btn-12:after,
+.btn-12:before {
+  border: 0 solid;
+  box-sizing: border-box;
+}
+.btn-12 {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: button;
+  background-color: #ffe4b2;
+  background-image: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-size: 2vmax;
+  font-weight: 900;
+  text-align: center;
+  line-height: 1.5;
+  margin: 0;
+  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+  padding: 0;
+  text-transform: uppercase;
+  width: 40vw;
+  margin-left: 30vw;
+  margin-top: 10vh;
+  border: #000 2px solid;
+}
+
+.btn-12:disabled {
+  cursor: default;
+}
+
+.btn-12:-moz-focusring {
+  outline: auto;
+}
+
+.btn-12 svg {
+  display: block;
+  vertical-align: middle;
+}
+
+.btn-12 [hidden] {
+  display: none;
+}
+
+.btn-12 {
+  border-radius: 99rem;
+  border-width: 2px;
+  overflow: hidden;
+  padding: 0.8rem 3rem;
+  position: relative;
+}
+
+.btn-12 span {
+  mix-blend-mode: difference;
+}
+
+.btn-12:after,
+.btn-12:before {
+  background: linear-gradient(
+    90deg,
+    #fff 25%,
+    transparent 0,
+    transparent 50%,
+    #fff 0,
+    #fff 75%,
+    transparent 0
+  );
+  content: "";
+  inset: 0;
+  position: absolute;
+  transform: translateY(var(--progress, 100%));
+  transition: transform 0.2s ease;
+}
+.btn-12:after {
+  --progress: -100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0,
+    transparent 25%,
+    #fff 0,
+    #fff 50%,
+    transparent 0,
+    transparent 75%,
+    #fff 0
+  );
+  z-index: -1;
+}
+.btn-12:hover:after,
+.btn-12:hover:before {
+  --progress: 0;
+}
+.A6{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 30vh;
+}
+.A7{
+  margin-left: 10vw;
+}
+.A7 img{
+  width: 80vw;
+  height: 70vh;
+}
+.A8{
+  font-size: 1.5vmax;
+  margin-left: 10vw;
+  width: 80vw;
+}
+.Yin1{
+  display: none;
+  margin-left: 25vw;
+}
+.Yin1 img{
+  width: 50vw;
+  height: 130vh;
+}
+input:checked + .Yin1{
+  display: block;
+}
+.A9{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 30vh;
+}
+.A10{
+  margin-left: 15vw;
+}
+.A10 img{
+width: 80vw;
+height: 100vh;
+}
+.A11{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+}
+.Yin2{
+  display: none;
+  margin-left: 25vw;
+}
+.Yin2 img{
+  width: 50vw;
+  height: 140vh;
+}
+input:checked + .Yin2{
+  display: block;
+}
+.A12{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 30vh;
+}
+.A13{
+  margin-left: 10vw;
+}
+.A13 img{
+  width: 80vw;
+  height: 60vh;
+}
+.A14{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-top: 5vh;
+  margin-left: 10vw;
+}
+.Yin3{
+  display: none;
+  margin-left: 25vw;
+}
+.Yin3 img{
+  width: 50vw;
+  height: 130vh;
+}
+input:checked + .Yin3{
+  display: block;
+}
+.A15{
+  font-size: 1.8vmax;
+  width: 80vw;
+  margin-top: 30vh;
+  margin-left: 10vw;
+}
+.A16{
+  margin-left: 10vw;
+}
+.A16 img{
+  width: 80vw;
+  height: 80vh;
+}
+.A17{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+  margin-top: 5vh;
+}
+.Yin4{
+  display: none;
+  margin-left: 25vw;
+}
+.Yin4 img{
+  width: 50vw;
+  height: 130vh;
+}
+input:checked + .Yin4{
+  display: block;
+}
+.Yin5{
+  display: none;
+  margin-left: 25vw;
+}
+.Yin5 img{
+  width: 50vw;
+  height: 130vh;
+}
+.A18{
+  font-size: 1.8vmax;
+  margin-top: 30vh;
+  margin-left: 10vw;
+  font-weight: 600;
+}
+.A19{
+  font-size: 1.8vmax;
+  margin-top: 2vh;
+  margin-left: 10vw;
+}
+.A20{
+  margin-left: 20vw;
+}
+.A20 img{
+  width: 60vw;
+  height: 140vh;
+}
+.A21{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+}
+input:checked + .Yin5{
+  display: block;
+}
+.A22{
+font-size: 1.8vmax;
+margin-left: 10vw;
+margin-top: 30vh;
+}
+.A23{
+  margin-left: 25vw;
+}
+.A23 img{
+  width: 50vw;
+  height: 160vh;
+}
+.A24{
+  font-size: 1.5vmax;
+  margin-left: 10vw;
+  width: 80vw;
+}
+.Yin6{
+  display: none;
+  margin-left: 25vw;
+}
+.Yin6 img{
+  width: 50vw;
+  height: 130vh;
+}
+input:checked + .Yin6{
+  display: block;
+}
+.A25{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 30vh;
+}
+.A26{
+  margin-left: 10vw;
+}
+.A26 img{
+  width: 80vw;
+  height: 90vh;
+}
+.A27{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+}
+.Yin7{
+  margin-left: 25vw;
+  display: none;
+}
+.Yin7 img{
+  width: 50vw;
+  height: 130vh;
+}
+input:checked + .Yin7{
+  display: block;
+}
+.A28{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 30vh;
+}
+.A29{
+  margin-left: 10vw;
+  margin-top: 2vh;
+}
+.A29 img{
+  width: 70vw;
+  height: 120vh;
+}
+.A30{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+}
+.Yin8{
+  margin-left: 25vw;
+  display: none;
+}
+.Yin8 img{
+  width: 50vw;
+  height: 130vh;
+}
+input:checked + .Yin8{
+  display: block;
+}
+.A31{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 40vh;
+  font-weight: 600;
+}
+.A32{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 2vh;
+}
+.A33{
+  font-size: 1.5vmax;
+  margin-left: 10vw;
+  margin-top: 2vh;
+}
+.A34{
+  margin-left: 15vw;
+  margin-top: 5vh;
+}
+.A34 img{
+  width: 67vw;
+  height: 80vh;
+}
+.A35{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+}
+.Yin9{
+  margin-left: 25vw;
+  display: none;
+}
+.Yin9 img{
+  width: 50vw;
+  height: 30vh;
+}
+input:checked + .Yin9{
+  display: block;
+}
+.A36{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 30vh;
+}
+.A37{
+  font-size: 1.5vmax;
+  margin-left: 10vw;
+  margin-top: 2vh;
+}
+.A38{
+  margin-left: 15vw;
+  margin-top: 5vh;
+}
+.A38 img{
+  width: 67vw;
+  height: 80vh;
+}
+.A39{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+}
+.Yin10{
+  margin-left: 25vw;
+  display: none;
+}
+.Yin10 img{
+  width: 50vw;
+  height: 30vh;
+}
+input:checked + .Yin10{
+  display: block;
+}
+.A40{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 30vh;
+}
+.A41{
+  font-size: 1.5vmax;
+  margin-top: 2vh;
+  margin-left: 10vw;
+}
+.A42{
+  margin-left: 16vw;
+  margin-top: 5vh;
+}
+.A42 img{
+  width: 67vw;
+  height: 80vh;
+}
+.A43{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+}
+.Yin11{
+  margin-left: 25vw;
+  display: none;
+}
+.Yin11 img{
+  width: 50vw;
+  height: 30vh;
+}
+input:checked + .Yin11{
+  display: block;
+}
+.A44{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 30vh;
+}
+.A45{
+  font-size: 1.5vmax;
+  margin-left: 10vw;
+  margin-top: 2vh;
+}
+.A46{
+  margin-left: 18vw;
+  margin-top: 5vh;
+}
+.A46 img{
+  width: 60vw;
+  height: 37vh;
+}
+.A47{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+}
+.Yin12{
+  margin-left: 25vw;
+  display: none;
+}
+.Yin12 img{
+  width: 50vw;
+  height: 30vh;
+}
+input:checked + .Yin12{
+  display: block;
+}
+.A48{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 30vh;
+}
+.A49{
+  margin-left: 10vw;
+  font-size: 1.5vmax;
+  margin-top: 2vh;
+}
+.A50{
+  margin-left: 18vw;
+  margin-top: 5vh;
+}
+.A50 img{
+  width: 60vw;
+  height: 36vh;
+}
+.A51{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+}
+.Yin13{
+  font-size: 1.5vmax;
+  margin-top: 2vh;
+  margin-left: 10vw;
+  width: 80vw;
+  border: #4cc9f0 2px solid;
+  display: none;
+}
+input:checked + .Yin13{
+  display: block;
+}
+.A52{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 30vh;
+}
+.A53{
+  margin-left: 10vw;
+}
+.A53 img{
+  width: 80vw;
+  height: 40vh;
+}
+.A54{
+  font-size: 1.5vmax;
+  margin-left: 10vw;
+}
+.Yin14{
+  margin-left: 25vw;
+  display: none;
+}
+.Yin14 img{
+  width: 50vw;
+  height: 30vh;
+}
+input:checked + .Yin14{
+  display: block;
+}
+#AuNR{
+  font-size: 5vmax;
+  display: flex;
+  justify-content: center;
+}
+.U1{
+  font-size: 1.8vmax;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+}
+.U2{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 2vh;
+  font-weight: 600;
+}
+.U3{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+  margin-top: 2vh;
+}
+.U4{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 2vh;
+  font-weight: 600;
+}
+.U5{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-top: 2vh;
+  margin-left: 10vw;
+}
+.U6{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 2vh;
+}
+.U7{
+  margin-left: 30vw;
+}
+.U7 img{
+  width: 40vw;
+  height: 70vh;
+}
+.U0{
+  font-size: 1.5vmax;
+  margin-left: 40vw;
+}
+.U8{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+  margin-top: 2vh;
+}
+.Yin15{
+  display: none;
+  margin-left: 25vw;
+}
+.Yin15 img{
+  width: 50vw;
+  height: 40vh;
+}
+input:checked + .Yin15{
+  display: block;
+}
+.U9{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 30vh;
+}
+.U10{
+  margin-left: 30vw;
+}
+.U10 img{
+  width: 40vw;
+  height: 60vh;
+}
+.U11{
+  font-size: 1.5vmax;
+  margin-left: 38vw;
+}
+.U12{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-top: 2vh;
+  margin-left: 10vw;
+}
+.Yin16{
+  display: none;
+  margin-left: 25vw;
+}
+.Yin16 img{
+  width: 50vw;
+  height: 50vh;
+}
+input:checked + .Yin16{
+  display: block;
+}
+.U13{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 30vh;
+  font-weight: 600;
+}
+.U14{
+  font-size: 1.8vmax;
+  margin-top: 2vh;
+  margin-left: 10vw;
+}
+.U15{
+  margin-left: 35vw;
+}
+.U15 img{
+  width: 30vw;
+  height: 45vh;
+}
+.U16{
+  font-size: 1.5vmax;
+  margin-left: 40vw;
+}
+.U17{
+  margin-left: 10vw;
+  width: 80vw;
+  font-size: 1.5vmax;
+  margin-top: 2vh;
+}
+.U18{
+  margin-left: 30vw;
+}
+.U18 img{
+  width: 40vw;
+  height: 60vh;
+}
+.U19{
+  font-size: 1.5vmax;
+  margin-left: 34vw;
+  width: 40vw;
+}
+.U20{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-top: 2vh;
+  margin-left: 10vw;
+}
+.Yin17{
+  display: none;
+  margin-left: 25vw;
+}
+.Yin17 img{
+  width: 50vw;
+  height: 100vh;
+}
+input:checked + .Yin17{
+  display: block;
+}
+.U21{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 30vh;
+}
+.U22{
+  margin-left: 15vw;
+}
+.U22 img{
+  width: 70vw;
+  height: 60vh;
+}
+.U23{
+  font-size: 1.5vmax;
+  width: 65vw;
+  margin-left: 20vw;
+}
+.U24{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+  margin-top: 2vh;
+}
+.U25{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+  margin-top: 1vh;
+}
+.Yin18{
+  margin-left: 25vw;
+  display: none;
+}
+.Yin18 img{
+  width: 50vw;
+  height: 90vh;
+}
+.Y30{
+  font-size: 1.5vmax;
+  width: 80vw;
+}
+.Y31{
+  margin-left: 10vw;
+}
+.Y31 img{
+  width: 60vw;
+  height: 30vh;
+}
+.Y32{
+  font-size: 1.5vmax;
+  margin-left: 30vw;
+}
+.Y33{
+  font-size: 1.5vmax;
+  margin-top: 2vh;
+}
+input:checked + .Yin18{
+  display: block;
+}
+.U26{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 30vh;
+}
+.U27{
+  margin-left: 30vw;
+}
+.U27 img{
+  width: 40vw;
+  height: 60vh;
+}
+.U28{
+  font-size: 1.5vmax;
+  width: 65vw;
+  margin-left: 22vw;
+}
+.U29{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+  margin-top: 2vh;
+}
+.U30{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+  margin-top: 2vh;
+}
+.U31{
+  margin-left: 20vw;
+}
+.U31 img{
+  width: 60vw;
+  height: 50vh;
+}
+.Yin19{
+  display: none;
+  margin-left: 25vw;
+}
+.Yin19 img{
+  width: 50vw;
+  height: 60vh;
+}
+.Y34{
+  font-size: 1.5vmax;
+}
+input:checked + .Yin19{
+  display: block;
+}
+.U32{
+  font-size: 1.8vmax;
+  font-weight: 600;
+  margin-left: 10vw;
+  margin-top: 30vh;
+}
+.U33{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+  margin-top: 2vh;
+}
+.U34{
+  margin-left: 30vw;
+}
+.U34 img{
+  width: 40vw;
+  height: 40vh;
+}
+.U35{
+  font-size: 1.5vmax;
+  margin-left: 38vw;
+}
+.U36{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+}
+.U37{
+  margin-top: 2vh;
+  margin-left: 30vw;
+}
+.U37 img{
+  width: 40vw;
+  height: 35vh
+}
+.U38{
+  margin-left: 30vw;
+}
+.U38 img{
+  width: 40vw;
+  height: 55vh;
+}
+.U39{
+  font-size: 1.5vmax;
+  margin-left: 15vw;
+}
+.U40{
+  margin-left: 30vw;
+}
+.U40 img{
+  width: 40vw;
+  height: 70vh;
+}
+.U41{
+  font-size: 1.5vmax;
+  margin-left: 10vw;
+  width: 80vw;
+}
+.Yin20{
+  display: none;
+  margin-left: 25vw;
+}
+.Yin20 img{
+  width: 50vw;
+  height: 120vh;
+}
+input:checked + .Yin20{
+  display: block;
+}
+.U42{
+  font-size: 1.8vmax;
+  font-weight: 600;
+  margin-top: 30vh;
+  margin-left: 10vw;
+}
+.U43{
+  font-size: 1.8vmax;
+  margin-top: 2vh;
+  margin-left: 10vw;
+}
+.U44{
+  margin-left: 30vw;
+  margin-top: 5vh;
+}
+.U44 img{
+  width: 40vw;
+  height: 120vh;
+}
+.U45{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+}
+.Yin21{
+  margin-left: 10vw;
+  width: 80vw;
+  margin-top: 2vh;
+  display: none;
+}
+.Y35 img{
+  width: 80vw;
+  height: 60vh;
+}
+.Y36 img{
+  width: 80vw;
+  height: 200vh;
+}
+input:checked + .Yin21{
+  display: block;
+}
+.U46{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 30vh;
+}
+.U47{
+  width: 80vw;
+  font-size: 1.5vmax;
+  margin-left: 10vw;
+}
+.U48{
+  margin-left: 20vw;
+}
+.U48 img{
+  width: 60vw;
+  height: 50vh;
+}
+.U49{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+  margin-top: 2vh;
+}
+.Yin22{
+  margin-left: 25vw;
+  display: none;
+}
+.Yin22 img{
+  width: 50vw;
+  height: 40vh;
+}
+input:checked + .Yin22{
+  display: block;
+}
+.U50{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 30vh;
+}
+.U51{
+  font-size: 1.5vmax;
+  margin-left: 10vw;
+  margin-top: 2vh;
+}
+.U52{
+  margin-left: 30vw;
+}
+.U52 img{
+  width: 40vw;
+  height: 60vh;
+}
+.U53{
+  font-size: 1.5vmax;
+  margin-left: 10vw;
+  width: 80vw;
+}
+.U54{
+  font-size: 1.5vmax;
+  margin-left: 10vw;
+  margin-top: 2vh;
+  width: 80vw;
+}
+.U55{
+  margin-left: 10vw;
+}
+.U55 img{
+  width: 80vw;
+  height: 80vh;
+}
+.U56{
+  font-size: 1.5vmax;
+  margin-left: 10vw;
+  width: 80vw;
+  margin-top: 2vh;
+}
+.U57{
+  margin-left: 20vw;
+}
+.U57 img{
+  width: 60vw;
+  height: 50vh;
+}
+.U58{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+}
+.Yin23{
+ margin-left: 25vw;
+ display: none;
+}
+.Yin23 img{
+  width: 50vw;
+  height: 130vh;
+}
+input:checked + .Yin23{
+  display: block;
+}
+#DOARA{
+  font-size: 5vmax;
+  display: flex;
+  justify-content: center;
+}
+.do2{
+  font-size: 1.8vmax;
+  font-weight: 600;
+  margin-left: 10vw;
+  margin-top: 5vh;
+}
+.do3{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 2vh;
+}
+.do4{
+  margin-left: 30vw;
+}
+.do4 img{
+  width: 30vw;
+  height: 90vh;
+}
+.do6{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+}
+.Yin24{
+ display: none;
+ margin-left: 25vw;
+}
+.Yin24 img{
+  width: 50vw;
+  height: 140vh;
+}
+input:checked + .Yin24{
+  display: block;
+}
+.do7{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 30vh;
+}
+.do8{
+  margin-left: 20vw;
+  margin-top: 2vh;
+}
+.do8 img{
+  width: 60vw;
+  height: 80vh;
+}
+.do9{
+  margin-left: 7vw;
+}
+.do9 img{
+  width: 60vw;
+  height: 90vh;
+}
+.do10{
+  font-size: 1.5vmax;
+  margin-left: 10vw;
+  width: 80vw;
+}
+.Yin25{
+  display: none;
+  margin-left: 25vw;
+}
+.Yin25 img{
+  width: 50vw;
+  height: 140vh;
+}
+input:checked + .Yin25{
+  display: block;
+}
+.do11{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 30vh;
+}
+.do12{
+  margin-left: 25vw;
+}
+.do12 img{
+  width: 50vw;
+  height: 110vh;
+}
+.do13{
+  margin-left: 10vw;
+}
+.do13 img{
+  width: 50vw;
+  height: 130vh;
+}
+.do14{
+  font-size: 1.5vmax;
+  margin-left: 10vw;
+  width: 80vw;
+}
+.Yin26{
+  margin-left: 25vw;
+  display: none;
+}
+.Yin26 img{
+  width: 50vw;
+  height: 140vh;
+}
+input:checked + .Yin26{
+  display: block;
+}
+.do15{
+  font-size: 1.8vmax;
+  font-weight: 600;
+  margin-top: 30vh;
+  margin-left: 10vw;
+}
+.do16{
+  font-size: 1.8vmax;
+  margin-top: 2vh;
+  margin-left: 10vw;
+}
+.do17{
+  font-size: 1.5vmax;
+  margin-top: 2vh;
+  margin-left: 10vw;
+}
+.do18{
+  margin-left: 20vw;
+  margin-top: 5vh;
+}
+.do18 img{
+  width: 60vw;
+  height: 72vh;
+}
+.do19{
+  font-size: 1.5vmax;
+  margin-left: 10vw;
+  width: 80vw;
+}
+.Yin27{
+  margin-left: 25vw;
+  display: none;
+}
+.Yin27 img{
+  width: 50vw;
+  height: 30vh;
+}
+input:checked + .Yin27{
+  display: block;
+}
+.do20{
+  font-size: 1.8vmax;
+  margin-top: 30vh;
+  margin-left: 10vw;
+}
+.do21{
+  font-size: 1.5vmax;
+  margin-left: 10vw;
+  margin-top: 2vh;
+}
+.do22{
+  margin-left: 20vw;
+  margin-top: 5vh;
+}
+.do22 img{
+  width: 60vw;
+  height: 72vh;
+}
+.do23{
+  width: 80vw;
+  font-size: 1.5vmax;
+  margin-left: 10vw;
+}
+.Yin28{
+ margin-left: 25vw;
+  display: none;
+}
+.Yin28 img{
+  width: 50vw;
+  height: 30vh;
+}
+input:checked + .Yin28{
+  display: block;
+}
+.do24{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 30vh;
+}
+.do25{
+  font-size: 1.5vmax;
+  margin-top: 2vh;
+  margin-left: 10vw;
+}
+.do26{
+  margin-left: 20vw;
+  margin-top: 5vh;
+}
+.do26 img{
+  width: 60vw;
+  height: 37vh;
+}
+.do27{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+}
+.Yin29{
+  margin-left: 25vw;
+  display: none;
+}
+.Yin29 img{
+  width: 50vw;
+  height: 30vh;
+}
+input:checked + .Yin29{
+  display: block;
+}
+.do28{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 30vh;
+}
+.do29{
+  font-size: 1.5vmax;
+  margin-left: 10vw;
+  margin-top: 2vh;
+}
+.do30{
+  margin-left: 20vw;
+}
+.do30 img{
+  width: 60vw;
+  height: 55vh;
+}
+.do31{
+  margin-left: 9vw;
+}
+.do31 img{
+  width: 29vw;
+  height: 60vh;
+}
+.do32{
+  font-size: 1.5vmax;
+  margin-left: 10vw;
+  margin-top: 2vh;
+}
+.Yin30{
+  margin-left: 25vw;
+  display: none;
+}
+.Yin30 img{
+  width: 50vw;
+  height: 30vh;
+}
+input:checked + .Yin30{
+  display: block;
+}
+.do33{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 30vh;
+}
+.do34{
+  font-size: 1.5vmax;
+  margin-left: 10vw;
+  margin-top: 2vh;
+}
+.do35{
+  margin-left: 25vw;
+  margin-top: 5vh;
+}
+.do35 img{
+  width: 50vw;
+  height: 90vh;
+}
+.do36{
+  font-size: 1.5vmax;
+  margin-left: 10vw;
+}
+.Yin31{
+  margin-left: 25vw;
+  display: none;
+}
+.Yin31 img{
+  width: 50vw;
+  height: 50vh;
+}
+input:checked + .Yin31{
+  display: block;
+}
+.hh{
+  margin-top: 5vh;
+}
+.GG{
+color: white;
+font-size: 2.5vmax;
+font-weight: 600;
+position: fixed;
+top: 2vh;
+left: 25vw;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#FL{
+  font-size: 5vmax;
+  display: flex;
+  justify-content: center;
+
+}
+.F1{
+  font-size: 1.8vmax;
+  font-weight: 600;
+  margin-top: 5vh;
+  margin-left: 10vw;
+}
+.F2{
+  font-size: 1.5vmax;
+  margin-left: 10vw;
+  width: 80vw;
+}
+.F3{
+  margin-left: 10vw;
+}
+.F3 img{
+  width: 80vw;
+  height: 50vh;
+}
+.F4{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 5vh;
+}
+.F5{
+  margin-left: 20vw;
+}
+.F5 img{
+  width: 60vw;
+  height: 80vh;
+}
+.F6{
+  margin-left: 20vw;
+}
+.F6 img{
+  width: 60vw;
+  height: 80vh;
+}
+.F7{
+  margin-left: 20vw;
+}
+.F7 img{
+  width: 60vw;
+  height: 80vh;
+}
+.wheel-and-hamster {
+  --dur: 1s;
+  position: relative;
+  margin-top: 30vh;
+  margin-left: 42vw;
+  width: 12em;
+  height: 12em;
+  font-size: 14px;
+}
+
+.wheel,
+.hamster,
+.hamster div,
+.spoke {
+  position: absolute;
+}
+
+.wheel,
+.spoke {
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wheel {
+  background: radial-gradient(100% 100% at center,hsla(0,0%,60%,0) 47.8%,hsl(0,0%,60%) 48%);
+  z-index: 2;
+}
+
+.hamster {
+  animation: hamster var(--dur) ease-in-out infinite;
+  top: 50%;
+  left: calc(50% - 3.5em);
+  width: 7em;
+  height: 3.75em;
+  transform: rotate(4deg) translate(-0.8em,1.85em);
+  transform-origin: 50% 0;
+  z-index: 1;
+}
+
+.hamster__head {
+  animation: hamsterHead var(--dur) ease-in-out infinite;
+  background: hsl(30,90%,55%);
+  border-radius: 70% 30% 0 100% / 40% 25% 25% 60%;
+  box-shadow: 0 -0.25em 0 hsl(30,90%,80%) inset,
+		0.75em -1.55em 0 hsl(30,90%,90%) inset;
+  top: 0;
+  left: -2em;
+  width: 2.75em;
+  height: 2.5em;
+  transform-origin: 100% 50%;
+}
+
+.hamster__ear {
+  animation: hamsterEar var(--dur) ease-in-out infinite;
+  background: hsl(0,90%,85%);
+  border-radius: 50%;
+  box-shadow: -0.25em 0 hsl(30,90%,55%) inset;
+  top: -0.25em;
+  right: -0.25em;
+  width: 0.75em;
+  height: 0.75em;
+  transform-origin: 50% 75%;
+}
+
+.hamster__eye {
+  animation: hamsterEye var(--dur) linear infinite;
+  background-color: hsl(0,0%,0%);
+  border-radius: 50%;
+  top: 0.375em;
+  left: 1.25em;
+  width: 0.5em;
+  height: 0.5em;
+}
+
+.hamster__nose {
+  background: hsl(0,90%,75%);
+  border-radius: 35% 65% 85% 15% / 70% 50% 50% 30%;
+  top: 0.75em;
+  left: 0;
+  width: 0.2em;
+  height: 0.25em;
+}
+
+.hamster__body {
+  animation: hamsterBody var(--dur) ease-in-out infinite;
+  background: hsl(30,90%,90%);
+  border-radius: 50% 30% 50% 30% / 15% 60% 40% 40%;
+  box-shadow: 0.1em 0.75em 0 hsl(30,90%,55%) inset,
+		0.15em -0.5em 0 hsl(30,90%,80%) inset;
+  top: 0.25em;
+  left: 2em;
+  width: 4.5em;
+  height: 3em;
+  transform-origin: 17% 50%;
+  transform-style: preserve-3d;
+}
+
+.hamster__limb--fr,
+.hamster__limb--fl {
+  clip-path: polygon(0 0,100% 0,70% 80%,60% 100%,0% 100%,40% 80%);
+  top: 2em;
+  left: 0.5em;
+  width: 1em;
+  height: 1.5em;
+  transform-origin: 50% 0;
+}
+
+.hamster__limb--fr {
+  animation: hamsterFRLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,80%) 80%,hsl(0,90%,75%) 80%);
+  transform: rotate(15deg) translateZ(-1px);
+}
+
+.hamster__limb--fl {
+  animation: hamsterFLLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,90%) 80%,hsl(0,90%,85%) 80%);
+  transform: rotate(15deg);
+}
+
+.hamster__limb--br,
+.hamster__limb--bl {
+  border-radius: 0.75em 0.75em 0 0;
+  clip-path: polygon(0 0,100% 0,100% 30%,70% 90%,70% 100%,30% 100%,40% 90%,0% 30%);
+  top: 1em;
+  left: 2.8em;
+  width: 1.5em;
+  height: 2.5em;
+  transform-origin: 50% 30%;
+}
+
+.hamster__limb--br {
+  animation: hamsterBRLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,80%) 90%,hsl(0,90%,75%) 90%);
+  transform: rotate(-25deg) translateZ(-1px);
+}
+
+.hamster__limb--bl {
+  animation: hamsterBLLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,90%) 90%,hsl(0,90%,85%) 90%);
+  transform: rotate(-25deg);
+}
+
+.hamster__tail {
+  animation: hamsterTail var(--dur) linear infinite;
+  background: hsl(0,90%,85%);
+  border-radius: 0.25em 50% 50% 0.25em;
+  box-shadow: 0 -0.2em 0 hsl(0,90%,75%) inset;
+  top: 1.5em;
+  right: -0.5em;
+  width: 1em;
+  height: 0.5em;
+  transform: rotate(30deg) translateZ(-1px);
+  transform-origin: 0.25em 0.25em;
+}
+
+.spoke {
+  animation: spoke var(--dur) linear infinite;
+  background: radial-gradient(100% 100% at center,hsl(0,0%,60%) 4.8%,hsla(0,0%,60%,0) 5%),
+		linear-gradient(hsla(0,0%,55%,0) 46.9%,hsl(0,0%,65%) 47% 52.9%,hsla(0,0%,65%,0) 53%) 50% 50% / 99% 99% no-repeat;
+}
+
+/* Animations */
+@keyframes hamster {
+  from, to {
+    transform: rotate(4deg) translate(-0.8em,1.85em);
+  }
+
+  50% {
+    transform: rotate(0) translate(-0.8em,1.85em);
+  }
+}
+
+@keyframes hamsterHead {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(8deg);
+  }
+}
+
+@keyframes hamsterEye {
+  from, 90%, to {
+    transform: scaleY(1);
+  }
+
+  95% {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes hamsterEar {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(12deg);
+  }
+}
+
+@keyframes hamsterBody {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(-2deg);
+  }
+}
+
+@keyframes hamsterFRLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(50deg) translateZ(-1px);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(-30deg) translateZ(-1px);
+  }
+}
+
+@keyframes hamsterFLLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(-30deg);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(50deg);
+  }
+}
+
+@keyframes hamsterBRLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(-60deg) translateZ(-1px);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(20deg) translateZ(-1px);
+  }
+}
+
+@keyframes hamsterBLLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(20deg);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(-60deg);
+  }
+}
+
+@keyframes hamsterTail {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(30deg) translateZ(-1px);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(10deg) translateZ(-1px);
+  }
+}
+
+@keyframes spoke {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(-1turn);
+  }
+}
+.WRRRR{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #98b6ec;
+}
+.BBBB{
+  height: 50vh;
+}
+</style>
+<body>
+    <div class="tp">
+        <div class="sym"><img src="网站/队徽.png"></div>
+<div class="loader"></div>
+<div class="home"><button class="btn"><a href="index.html">HOME</a> </button></div>
+<div class="GG">Labbook</div>
+    <div class="menu">
+        <div class="b1">MENU</div>
+<div class="b2"><label class="bar" for="check">
+<input type="checkbox" id="check">
+<span class="top"></span>
+<span class="middle"></span>
+<span class="bottom"></span>
+</label></div>
+<ul class="cai">
+  <li><button class="but"><a href="project.html">Project</a></button></li>
+    <li><button class="but"><a href="design.html">Design</a></button></li>
+    <li><button class="but"><a href="feasibility.html">Feasibility</a></button></li>
+    <li><button class="but"><a href="method.html">Method</a></button></li>
+    <li><button class="but"><a href="labbook.html">Labbook</a></button></li>
+    <li><button class="but"><a href="result.html">Result</a></button></li>
+    <li><button class="but"><a href="about us.html">About us</a></button></li>
+    <li><button class="but"><a href="ELSI.html">ELSI</a></button></li>
+    <li><button class="but"><a href="Future.html">Future</a></button></li>
+</ul>
+ </div>
+    </div>
+    <div class="db">
+        <div class="dao">
+        <ul class="gu">
+    <li><button class="but1"><a href="#DNAo">DNA origami</a></button></li>
+    <li><button class="but1"><a href="#AuNR">AuNR</a></button></li>
+    <li><button class="but1"><a href="#DOARA">DOARA</a></button></li>
+    <li><button class="but1"><a href="#FL">Fluorescence</a></button></li>
+    </ul>
+    </div>
+    <div class="sb"><img src="网站/jian.png"></div>
+    <div class="bian"></div>
+    <div class="bian1"></div>
+    </div>
+    <div class="DNA">
+        <h2 id="DNAo"><br>DNA origami</h2>
+        <div class="A1">1. DNA origami folding</div>
+        <div class="A2">Overview: In this part, we utilized a PCR instrument to facilitate the gradual annealing of scaffold and staples, thereby enabling their proper assembly and preventing base mismatching. This approach ensures the accurate formation of DNA origami.</div>
+        <div class="A3">Jun. 28th, 2024</div>
+        <div class="A4"><img src="网站/L1.png"></div>
+        <div class="A5">We have observed an absence of DNA origami bands, which we hypothesize may be attributed to the insufficient annealing time of 10 hours and 30 hours, potentially inadequate for the proper folding of DNA origami structures. Consequently, we have decided to extend the annealing time to enhance the likelihood of achieving correctly folded DNA origami.</div>
+    </div>
+    <label for="menu1">
+      <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+    </label>
+    <input type="checkbox" id="menu1">
+    <div class="Yin"><img src="网站/labbook的图/Labbook的图_00.png"></div>
+    <div class="DNA2">
+      <div class="A6">Jun. 29th, 2024</div>
+      <div class="A7"><img src="网站/L5.png"></div>
+      <div class="A8">Despite increasing the annealing time to 50 hours, we have not been able to observe the DNA origami band, leading us to suspect that the current annealing procedure may not be compatible with our origami design. Additionally, we have noticed a bright sample well, which we hypothesize may be due to DNA aggregation caused by the high concentration of Mg<sup>2+</sup> in the TAE buffer and agarose gel. Consequently, we have decided to modify the annealing protocol and reduce the Mg<sup>2+</sup> concentration in both the TAE buffer and agarose gel to mitigate this issue.</div>
+    </div>
+    <label for="menu2">
+      <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+    </label>
+    <input type="checkbox" id="menu2">
+    <div class="Yin1"><img src="网站/labbook的图/Labbook的图_01.png">
+    </div>
+    <div class="DNA3">
+      <div class="A9">Jul 1st, 2024</div>
+      <div class="A10"><img src="网站/L8.png"></div>
+      <div class="A11">After modifying the annealing protocol, DNA origami bands have become visible; however, a majority of the structures are in a polydisperse state. We hypothesize that the elevated Mg<sup>2+</sup> concentration within the DNA origami sample may be responsible for this issue. Consequently, we intend to explore a DNA origami folding protocol with varying Mg<sup>2+</sup> concentrations, ranging from 1-4 mM, to optimize the folding conditions.</div>
+    </div>
+    <label for="menu3">
+      <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+    </label>
+    <input type="checkbox" id="menu3">
+    <div class="Yin2"><img src="网站/labbook的图/Labbook的图_02.png">
+    </div>
+    <div class="DNA4">
+      <div class="A12">Jul. 7th, 2024</div>
+      <div class="A13"><img src="网站/L12.png"></div>
+      <div class="A14">Upon setting the Mg<sup>2+</sup> concentration to 1 mM, a distinct DNA origami band was observed, signifying the successful folding of the DNA origami. Nevertheless, the trailing effect adjacent to the band suggests the presence of incompletely formed DNA origami. Aggregation phenomena were noted under alternative Mg<sup>2+</sup> conditions. Therefore, we have resolved to refine the concentration used for the folding of DNA origami and to further diminish the Mg<sup>2+</sup> ion concentration within the TAE buffer and agarose gel to mitigate these issues.</div>
+    </div>
+    <label for="menu4">
+      <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+    </label>
+    <input type="checkbox" id="menu4">
+    <div class="Yin3"><img src="网站/labbook的图/Labbook的图_03.png">
+    </div>
+    <div class="DNA5">
+      <div class="A15">Jul. 15th, 2024</div>
+      <div class="A16"><img src="网站/L15.png"></div>
+      <div class="A17">The DNA origami has been successfully folded, as evidenced by a highly distinct band. The presence of some dimers has been observed, which, according to literature review, is a common occurrence. We have determined that a Mg<sup>2+</sup> concentration of 4 mM is the optimal condition for the synthesis of DNA origami and will utilize this concentration in forthcoming folding experiments.</div>
+    </div>
+    <label for="menu5">
+      <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+    </label>
+    <input type="checkbox" id="menu5">
+    <div class="Yin4"><img src="网站/labbook的图/Labbook的图_04.png">
+    </div>
+    <div class="DNA6">
+      <div class="A18">2. DNA origami Purification</div>
+      <div class="A19">Jul. 18th, 2024</div>
+      <div class="A20"><img src="网站/L19.png"></div>
+      <div class="A21">The purification results show aggregation of DNA origami, with faint bands and trailing, and a low yield of purified product. We suspect that the purification solution was not completely removed after centrifugation, resulting in the aggregation of DNA origami induced by the high concentration of Mg<sup>2+</sup> in the purification solution. Therefore, we are preparing to set up a series of control experiments, one group with the complete removal of PEG purification solution, and another group with approximately 2 µl of PEG purification solution remaining, to conduct comparative experiments.</div>
+    </div>
+    <label for="menu6">
+      <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+    </label>
+    <input type="checkbox" id="menu6">
+    <div class="Yin5"><img src="网站/labbook的图/Labbook的图_05.png">
+    </div>
+    <div class="DNA7">
+      <div class="A22">Jul. 21st, 2024</div>
+      <div class="A23"><img src="网站/L23.png"></div>
+      <div class="A24">We found that the group from which the PEG solution was completely removed showed a significantly increased purification efficiency, while the group with residual PEG solution exhibited aggregation.</div>
+    </div>
+    <label for="menu7">
+      <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+    </label>
+    <input type="checkbox" id="menu7">
+    <div class="Yin6"><img src="网站/labbook的图/Labbook的图_06.png">
+    </div>
+    <div class="DNA8">
+      <div class="A25">Jul. 25th,2024</div>
+      <div class="A26"><img src="网站/L27.png"></div>
+      <div class="A27">We have conducted the experiment again, this time completely removing the PEG solution after centrifugation, and found that the purification efficiency has significantly improved. </div>
+    </div>
+    <label for="menu8">
+      <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+    </label>
+    <input type="checkbox" id="menu8">
+    <div class="Yin7"><img src="网站/labbook的图/Labbook的图_07.png">
+    </div>
+    <div class="DNA9">
+      <div class="A28">Jul. 27th,2024</div>
+      <div class="A29"><img src="网站/L32.png"></div>
+      <div class="A30">Based on our previous experience, we purified the origami again, successfully removing the excess staple strands this time, and obtained high concentration of DNA origami.</div>
+    </div>
+    <label for="menu9">
+      <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+    </label>
+    <input type="checkbox" id="menu9">
+    <div class="Yin8"><img src="网站/labbook的图/Labbook的图_08.png">
+    </div>
+    <div class="DNA10">
+      <div class="A31">3. TEM of DNA origami</div>
+      <div class="A32">Jul. 22nd, 2024</div>
+      <div class="A33">DNA origami negatively staining sample</div>
+      <div class="A34"><img src="网站/L36.png"></div>
+      <div class="A35">In the initial transmission electron microscopy (TEM) characterization, nanoparticles were scarcely visible within the field of view. We hypothesize that the potential causes include aggregation of DNA origami during purification, insufficient negative staining duration leading to poor resolution of DNA origami, and inadequate sample adsorption time resulting in low concentration of DNA origami on the copper grid. Consequently, we intend to refine the purification conditions for DNA origami and extend both the sample adsorption and negative staining periods to enhance the visibility of DNA origami in subsequent TEM analyses.</div>
+    </div>
+    <label for="menu10">
+      <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+    </label>
+    <input type="checkbox" id="menu10">
+    <div class="Yin9"><img src="网站/labbook的图/Labbook的图25.png">
+      </div>
+      <div class="DNA11">
+        <div class="A36">Jul. 26th, 2024</div>
+        <div class="A37">DNA origami negatively staining sample</div>
+        <div class="A38"><img src="网站/L37.png"></div>
+        <div class="A39">We increased the staining time of DNA origami and the absorption time in hopes of achieving a clearer contour of the DNA origami. We also reduced the concentration of Mg<sup>2+</sup> during the folding and purification of DNA origami to minimize aggregation. However, the TEM results revealed that the samples exhibited an entangled fibrous structure. Even when individual nanoparticles were present, their morphology significantly deviated from the designed morphology of our DNA origami. Additionally, a large number of black spots appeared in the field of view, which we attribute to over-staining. Consequently, we have decided to refine the purification protocol for DNA origami until significant aggregation is no longer observed and reconstitute the negative staining agent, and substantially reduce the duration of negative staining.</div>
+      </div>
+      <label for="menu11">
+        <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+      </label>
+      <input type="checkbox" id="menu11">
+      <div class="Yin10"><img src="网站/labbook的图/26.png">
+        </div>
+        <div class="DNA12">
+          <div class="A40">Jul. 28th, 2024</div>
+          <div class="A41">DNA origami negatively staining sample</div>
+          <div class="A42"><img src="网站/L38.png"></div>
+          <div class="A43">After adjusting the staining and purification protocols for DNA origami, we have achieved clearer outline of the DNA origami structure under TEM. However, the concentration of nanoparticles remains low. Therefore, we have decided to modify the sample preparation method for TEM from adsorbing 10 minutes to lefting the samples to dry before staining.</div>
+        </div>
+        <label for="menu12">
+          <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+        </label>
+        <input type="checkbox" id="menu12">
+        <div class="Yin11"><img src="网站/labbook的图/27.png">
+        </div>
+        <div class="DNA13">
+          <div class="A44">Jul. 31st, 2024</div>
+          <div class="A45">DNA origami negatively staining sample:</div>
+          <div class="A46"><img src="网站/L39.png"></div>
+          <div class="A47">We have successfully characterized the structure of DNA origami using TEM. The results reveal that the shape and size of the DNA origami are in accordance with expectations, and a high number of DNA origami structures are visible within the same field of view. However, the presence of the negative staining agent results in some blurring of the DNA origami contours. We plan to recharacterize the DNA origami using a protocol that does not involve negative staining.</div>
+        </div>
+        <label for="menu13">
+          <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+        </label>
+        <input type="checkbox" id="menu13">
+        <div class="Yin12"><img src="网站/labbook的图/28.png">
+        </div>
+        <div class="DNA 14">
+          <div class="A48">Aug. 2nd, 2024</div>  
+          <div class="A49">DNA origami sample:</div>     
+          <div class="A50"><img src="网站/L40.png"></div> 
+          <div class="A51">We can observe the DNA origami structure while it is not clear enough, We decide to replace TEM and re-characterize the structure of origami.</div>
+          </div>
+          <label for="menu14">
+            <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+          </label>
+          <input type="checkbox" id="menu14">
+          <div class="Yin13"><img src="网站/labbook的图/29.png">
+          </div>
+          <div class="DNA15">
+            <div class="A52">Aug. 5th, 2024</div>
+            <div class="A53"><img src="网站/L41.png"></div>
+            <div class="A54">The morphology of DNA origami has been successfully characterized.</div>
+          </div>
+          <label for="menu15">
+            <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+          </label>
+          <input type="checkbox" id="menu15">
+          <div class="Yin14"><img src="网站/labbook的图/30.png">
+          </div>
+          <div class="au1">
+            <h2 id="AuNR"><br>AuNR</h2>
+            <div class="U1">The dimensions of the gold nanorod were chosen to be: length 80 nm, diameter 20 nm.</div>
+            <div class="U2">1. Synthesis of gold nanorods</div>
+            <div class="U3">Overview: The synthesis of gold nanorods encompassed two distinct steps: seed synthesis and seed growth. The seeds acted as a foundational platform for the subsequent growth of gold nanorods within the growth solution, ultimately leading to the obtainment of larger-sized gold nanorods.</div>
+            <div class="U4">1.1Preparation of seeds</div>
+            <div class="U5">The initial step in the synthesis of gold nanorods involved the preparation of gold seeds, serving as the initial nucleation points for the subsequent growth of gold nanorods. During the subsequent growth stages, gold atoms anisotropically adhered to the surface of these seeds, progressively growing until the desired dimensions of 80 nm in length and 20 nm in diameter for the gold nanorods were achieved. Consequently, the synthesis of gold seeds was pivotal to the successful fabrication of gold nanorods.</div>
+            <div class="U6">Jul. 1st, 2024</div>
+            <div class="U7"><img src="网站/L42.png"></div>
+            <div class="U8">Three sets of gold nanorod were synthesized in parallel, and it was found that the color of this synthesized gold nanorod was too light and differed from the reasonable color compared with the colour showed in the literature, so the synthesis failed and the experimental operation needed to be improved.
+              The potential failure may have been attributed to a lack of standardization in the preparation of the NaBH4 solution, which is inherently unstable and prone to deliquescence. Therefore, during the weighing process, it was imperative that NaBH4 be weighed only once and as swiftly as possible to minimize exposure. Additionally, prior to use, it should have been immersed in ice water to prevent deterioration.</div>
+          </div>
+          <label for="menu16">
+            <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+          </label>
+          <input type="checkbox" id="menu16">
+          <div class="Yin15"><img src="网站/labbook的图/31.png">
+          </div>
+          <div class="au2">
+            <div class="U9">Jul. 2nd, 2024</div>
+            <div class="U10"><img src="网站/L43.png"></div>
+            <div class="U12">According to the new procedure, the color of the synthesized seed was dark brownish red, which was a relatively reasonable seed color. The seed synthesis can be considered successful and the growth of the gold-nanorods which is the following step of the experiment can be carried out.</div>
+          </div>
+          <label for="menu17">
+            <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+          </label>
+          <input type="checkbox" id="menu17">
+          <div class="Yin16"><img src="网站/labbook的图/32.png">
+          </div>
+          <div class="au3">
+            <div class="U13">1.2 Preparation of growth solution</div>
+            <div class="U14">Jul. 3rd, 2024</div>
+            <div class="U15"><img src="网站/L44.png"></div>
+            <div class="U17">After the re-growth of the gold nanorods, the color of the solution was darker. Subsequently, 100 µL of this gold nanorod solution was withdrawn, diluted ten fold, transferred to a cuvette, and the UV-Vis-NIR absorption was monitored. The data obtained were organized and plotted as follows:</div>
+            <div class="U18"><img src="网站/L45.png"></div>
+            <div class="U20">In the UV-Vis-NIR absorption spectrum of the product, the horizontal axis represented the incident wavelength (nm), while the vertical axis stands for the absorbance intensity. It was observed that two prominent absorption peaks were present at 522 nm and 760 nm. The peak at 522 nm indicated the presence of a significant quantity of spherical nanoparticles within the product mixture. Additionally, the absorption peak at 760 nm suggested that the aspect ratio (length-to-diameter ratio) of the gold nanorods did not match the targeted value of 4:1. Consequently, this synthesis was failed.In the synthesis process, AgNO3 served as a crucial agent for controlling the growth direction of the nanostructures. We hypothesized that the excessive production of gold nanorods indicated an error in the step involving the use of AgNO3. Given that AgNO3 solutions are prone to decomposition in the presence of light, they require airtight storage and protection from light. Prolonged storage further leads to a reduction in the effective concentration of AgNO3. Consequently, it was clear that the AgNO3 solution used in the initial experiment had been stored for an excessively long period. A freshly prepared AgNO3 solution is needed to solve this problem.</div>
+          </div>
+          <label for="menu18">
+            <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+          </label>
+          <input type="checkbox" id="menu18">
+          <div class="Yin17"><img src="网站/labbook图2/1.png">
+            </div>
+            <div class="au4">
+              <div class="U21">Jul. 6th, 2024</div>
+              <div class="U22"><img src="网站/L47.png"></div>
+              <div class="U25">Given the inherent challenges in precisely controlling the synthesis size of gold nanorods, it was determined to be impractical to achieve gold nanorods with an optimal absorption peak at 800 nm, a length of 80 nm, and a diameter of 20 nm. Moreover, considering that variations in rod size had minimal impact on subsequent surface modifications, such as ligand exchange and sulfhydryl-DNA modification, we made a decision to go ahead with the gold nanorods we made to get familiar with the whole experiment.Furthermore, recognizing the limitation in synthesizing gold nanorods compared with the size we want, we decided to buy gold nanorods which have a more precise particle size and a more uniform particle size distribution for subsequent experiments which can further enhance the quality of the experimental outcomes.</div>
+            </div>
+            <label for="menu19">
+              <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+            </label>
+            <input type="checkbox" id="menu19">
+            <div class="Yin18"><img src="网站/labbook图2/2.png"></div>
+              <div class="au5">
+                <div class="U26">Jul. 14th, 2024</div>
+                <div class="U27"><img src="网站/L49.png"></div>
+                <div class="U29">The full band scan of gold nanorods is shown above.The absorption peak positions are located at 510 nm and 800 nm.</div>
+                <div class="U30">We tested the zeta potential of the purchased gold nanorods and the data are as follows:</div>
+                <div class="U31"><img src="网站/L50.png"></div>
+              </div>
+              <label for="menu20">
+                <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+              </label>
+              <input type="checkbox" id="menu20">
+              <div class="Yin19"><img src="网站/labbook图2/3.png">
+              </div>
+              <div class="au6">
+                <div class="U32">2.Substitution of ligands on the surface of gold nanorods</div>
+                <div class="U33">Overview：Upon reviewing the literature, we concluded that gold nanorods with BSPP as the ligand could bind to sulfhydryl-DNA more easily. Therefore, following the synthesis of the gold nanorods, we designed the experiments to replace the ligand on their surface: from CTAB to BSPP. The structure of the ligand, BSPP, is showed in the Fig.9.</div>
+                <div class="U34"><img src="网站/L51.png"></div>
+                <div class="U36">Jul. 20th, 2024</div>
+                <div class="U37"><img src="网站/L52.png"></div>
+                <div class="U38"><img src="网站/L53.png"></div>
+                <div class="U40"><img src="网站/L54.png"></div>
+                <div class="U41">Based on the changes observed in the zeta potential before and after the process, it could be concluded that the ligand substitution was successful. However, it was noted that the concentration of the product obtained after concentration was not significant. It was hypothesized that during the procedure, a color change from orange to blue-violet occurred in the gold nanorods. Due to the subsequent increase in ionic strength within the solution, the stability of the gold nanorods was decreased, leading to the aggregation and denaturation. Consequently, a greater loss of gold nanorods was occured. Therefore, these steps should be avoided during the ligand exchange process.Between 0825 and 0915, we conducted three ligand substitution attempts, both before and after the main procedure, yet failed to achieve the desired results. Given that the ligand replacement step necessitated multiple centrifugations, sonication, and significant alterations in the solution's ionic strength, which could readily induce aggregation and precipitation of the gold nanorods, our team, following an extensive review of the literature, discovered that gold nanorods coated with sodium citrate ligands could be directly subjected to subsequent DNA modification steps without the need for ligand replacement. Consequently, we chosen to deleted the ligand replacement step.</div>
+              </div>
+              <label for="menu21">
+                <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+              </label>
+              <input type="checkbox" id="menu21">
+              <div class="Yin20"><img src="网站/labbook图2/4.png">
+                </div>
+                <div class="au7">
+                  <div class="U42">3.Modification of sulfhydryl-DNA on the surface of gold nanorods</div>
+                  <div class="U43">Jul. 30th, 2024</div>
+                  <div class="U44"><img src="网站/L55.png"></div>
+                  <div class="U45">We found that after the modification steps, the absorption peak at 800 nm of the gold nanorod solution was significantly broadened and reduced in intensity, indicating a substantial concentration decrease and significant loss of gold nanorods during the process. We hypothesized that certain reagents utilized in the process were responsible for the aggregation and deposition of the gold nanorods. Consequently, further tests were conducted on all solutions involved in the process.</div>
+                </div>
+                <label for="menu22">
+                  <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+                </label>
+                <input type="checkbox" id="menu22">
+                <div class="Yin21">
+                     <div class="Y36"><img src="网站/L56.png"></div>
+                </div>
+                <div class="au8">
+                <div class="U46">Aug. 4th, 2024</div>
+                <div class="U47">In our efforts to identify suitable buffers for resuspending the gold nanorods, we screened a variety of options. However, we discovered that several buffers caused the gold nanorods to aggregation, resulting in a change in color from reddish brown to blackish gray which were provided below:</div>
+                <div class="U48"><img src="网站/L58.png"></div>
+                <div class="U49">From left to right, the gold nanorod solution was added to TCEP, TAE, NaCl, sulfhydryl-DNA, and TBE solutions. The sixth tube contained the gold nanorod solution alone for color comparison. After allowing the mixtures to stand at room temperature for 2 hours, it was observed that TAE and TBE solutions caused the color of the solution to change from light orange to blue-gray, indicative of gold nanorod aggregation and denaturation. Therefore, it was indicated that TAE and TBE buffers should be avoided as resuspension solutions.</div>
+                </div>
+                <label for="menu23">
+                  <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+                </label>
+                <input type="checkbox" id="menu23">
+                <div class="Yin22"><img src="网站/labbook图2/5.png">
+                </div>
+<div class="au9">
+  <div class="U50">Aug. 10th, 2024</div>
+  <div class="U51">The obtained data are shown below:</div>
+  <div class="U52"><img src="网站/L59.png"></div>
+  <div class="U54">We conducted the modification of sulfhydryl-DNA onto the surface of gold nanorods  and subsequently concentrated the product. After the concentration, an aliquot was withdrawn and diluted 20-fold for the purpose of assessing its absorption curve, as illustrated in Figure 16.Based on the data presented in Figure 16, the concentration of the product gold nanorods was calculated to be 1.04 nM (representing a 20-fold concentration of the tested sample). Notably, there was no changes in the absorption peak positions or peak shapes, indicating that the gold nanorods did not undergo aggregation and denaturation. Furthermore, the ratio of the primary to secondary peak heights ranged between 3 and 4, which is indicative of the high quality of the produced gold nanorods.</div>
+  <div class="U55"><img src="网站/L60.png"></div>
+  <div class="U56">The hydration radius of the gold nanorods increased after the modification of sulfhydryl-DNA, and a change in the Zeta potential on their surface was observed, thereby providing evidence for the successful modification of sulfhydryl-DNA.</div>
+  <div class="U57"><img src="网站/L61.png"></div>
+  <div class="U58">In summary of the aforementioned experiments, we successfully completed the synthesis of gold nanorods and the surface modification with sulfhydryl-DNA. Furthermore, we summarized and explored the standard experimental protocols, establishing a foundation for the subsequent binding of sulfhydryl-DNA modified gold nanorods to DNA-origami.</div>
+</div>
+<label for="menu24">
+  <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+</label>
+<input type="checkbox" id="menu24">
+<div class="Yin23"><img src="网站/labbook图2/6.png"><img src="网站/labbook图2/7.png">
+  </div>
+  <div class="DO1">
+    <h2 id="DOARA"><br>DOARA</h2>
+    <div class="do2">1. DNA origami-AuNR assembly</div>
+    <div class="do3">Aug. 11th, 2024</div>
+    <div class="do4"><img src="网站/L65.png"></div>
+    <div class="do6">We employed PCR instrument to facilitate the assembly of DNA origami and AuNR. Given the significantly higher molecular weight of AuNR (approximately 50 times that of the DNA origami), blockage of the sample wells was observed during agarose gel electrophoresis following successful assembly with DNA origami. The electrophoresis results confirmed the successful assembly of DNA origami with AuNR. However, subsequent TEM characterization revealed a limited number of suitable assemblies within the same field of view. We posit that the abbreviated annealing time and low concentration of sample have resulted in inadequate assembly. Consequently, we have decided to modify the assembly annealing procedure and reattempt the assembly process.</div>
+    </div>
+    <label for="menu25">
+      <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+    </label>
+    <input type="checkbox" id="menu25">
+    <div class="Yin24"><img src="网站/labbook图2/8.png"></div>
+    <div class="DO2">
+      <div class="do7">Aug. 13th, 2024</div>
+      <div class="do8"><img src="网站/L68.png"></div>
+      <div class="do10">We modified the annealing procedure for the assembly of DNA origami with AuNR. Subsequent experiment via TEM revealed that a limited number of DNA origami-AuNR complexes had successfully assembled. We surmise that this low yield is attributable to both an inappropriate molar ratio and insufficient concentrations of AuNR and DNA origami in the assembly mixture. Consequently, we have resolved to elevate the concentrations of AuNR and DNA origami and to re-evaluate the molar ratio during the assembly process.</div>
+    </div>
+    <label for="menu26">
+      <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+    </label>
+    <input type="checkbox" id="menu26">
+    <div class="Yin25"><img src="网站/L70.png"></div>
+    <div class="DO3">
+      <div class="do11">Aug. 15th, 2024</div>
+      <div class="do12"><img src="网站/L71.png"></div>
+      <div class="do14">We adjusted the concentrations of DNA origami and AuNR, as well as the molar ratio during assembly. The TEM characterization demonstrated a marked improvement in the assembly efficacy.</div>
+    </div>
+    <label for="menu27">
+      <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+    </label>
+    <input type="checkbox" id="menu27">
+    <div class="Yin26"><img src="网站/L73.png"></div>
+    <div class="DO4">
+      <div class="do15">2. TEM of Doara</div>
+      <div class="do16">Aug. 12th, 2024</div>
+      <div class="do17">DNA origami-AuNR negatively staining sample</div>
+      <div class="do18"><img src="网站/L74.png"></div>
+      <div class="do19">No DNA origami was observed to be conjugated to AuNR. We attribute this to the annealing process during the assembly of AuNR with DNA origami, where the annealing time was too short and the temperature was excessively high. We have decided to reconfigure the annealing protocol.</div>
+    </div>
+    <label for="menu28">
+      <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+    </label>
+    <input type="checkbox" id="menu28">
+    <div class="Yin27"><img src="网站/labbook图2/9.png"></div>
+      <div class="DO5">
+        <div class="do20">Aug. 14th, 2024</div>
+        <div class="do21">DNA origami-AuNR negatively staining sample</div>
+        <div class="do22"><img src="网站/L75.png"></div>
+        <div class="do23">Consistent with the previous experiment, no DNA origami was observed to be conjugated to AuNR under TEM, and we noted a limited number of nanoparticles in the field of view. We have decided to increase the concentrations of both AuNR and DNA origami and repeat the experiment.</div>
+      </div>
+      <label for="menu29">
+        <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+      </label>
+      <input type="checkbox" id="menu29">
+      <div class="Yin28"><img src="网站/labbook图2/10.png"></div>
+        <div class="DO6">
+          <div class="do24">Aug. 16th, 2024</div>
+          <div class="do25">DNA origami-AuNR assembly negatively staining sample</div>
+          <div class="do26"><img src="网站/L76.png"></div>
+          <div class="do27">We observed the formation of assembly of AuNR and DNA origami, however, the quantity remained scarce. We suspect that the low assembly efficiency may be due to an improper molar ratio during the assembly process of DNA origami and AuNR. Therefore, we have decided to further increase the concentration and investigate the optimal molar ratio for the assembly of DNA origami and AuNR to enhance the efficiency of the assembly process.</div>
+        </div>
+        <label for="menu30">
+          <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+        </label>
+        <input type="checkbox" id="menu30">
+        <div class="Yin29"><img src="网站/labbook图2/11.png">
+          </div>
+          <div class="DO7">
+            <div class="do28">Aug. 19th, 2024</div>
+            <div class="do29">DNA origami-AuNR negatively staining sample</div>
+            <div class="do30"><img src="网站/L77.png"></div>
+            <div class="do32">We have successfully obtained a higher density of DNA origami-AuNR assembly (Doara) in our field of view, with morphology that align with our expectations.</div>
+          </div>
+          <label for="menu31">
+            <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+          </label>
+          <input type="checkbox" id="menu31">
+          <div class="Yin30"><img src="网站/labbook图2/12.png"></div>
+        <div class="DO8">
+          <div class="do33">Aug. 21st, 2024</div>
+          <div class="do34">DNA origami-AuNR negatively staining sample</div>
+          <div class="do35"><img src="网站/L79.png"></div>
+          <div class="do36">We have conducted TEM characterization on Doara once again, with the expectation of achieving better results.</div>
+        </div>
+        <label for="menu32">
+          <div class="btn-12"><span>Click here to see our Detail Data</span></div>
+        </label>
+        <input type="checkbox" id="menu32">
+        <div class="Yin31"><img src="网站/labbook图2/13.png"></div>
+        <div class="GU">
+          <h2 id="FL"><br>Fluorescence</h2>
+          <div class="F1">1. Characterization of DNA origami-AuNR assembly.</div>
+          <div class="F2">Overview: We modified the upper and lower layers of the DNA origami with Cy5 fluorophore and BHQ-2 quencher. When the DNA origami is not conjugated with gold nanorods or exposed to near-infrared light, it exhibits fluorescence. However, upon conjugation with gold nanorods and closure, the fluorescence is quenched. We employed a fluorescence spectrometer to detect the fluorescence of the DNA origami.</div>
+          <div class="F3"><img src="网站/G2.png"></div>
+          <div class="F4">Aug. 22nd, 2024</div>
+          <div class="F5"><img src="网站/G3.jpg"></div>
+          <div class="F2">We observed that DNA origami conjugated with Cy5 fluorescent dye did not exhibit fluorescence. We performed a NanoDrop assay on the sample and calculated the DNA origami concentration to be only 3 nM. We attributed the absence of a detectable fluorescence signal in the fluorescence spectrometer to the low concentration of the sample. Consequently, we decided to conduct concentration tests with the fluorescent dye to determine the lowest concentration capable of emitting a detectable fluorescence signal.</div>
+          <div class="F4">Aug. 26th, 2024</div>
+          <div class="F6"><img src="网站/G4.jpg"></div>
+          <div class="F2">We conducted a concentration gradient test with the fluorescent dye and found that a distinct fluorescence peak was observable at 8 nM, while samples with concentrations below 6 nM did not exhibit fluorescence. Therefore, we decided to increase the concentration of DNA origami and perform the test again.</div>
+          <div class="F4">Aug. 30th, 2024</div>
+          <div class="F7"><img src="网站/G5.jpg"></div>
+          <div class="F2">In this experiment, the DNA origami and DNA origami-AuNR assembly were prepared at a concentration of 12 nM. We observed that the DNA origami exhibited a distinct fluorescence peak, while the DNA origami-AuNR assembly showed no fluorescence, indicating that the assembly of AuNRs led to the closure of the DNA origami structure, resulting in fluorescence quenching. We utilized a fluorescence spectrometer to detect the fluorescence of the DNA origami.</div>
+        </div>
+        <div class="WRRRR">
+          <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
+            <div class="wheel"></div>
+            <div class="hamster">
+              <div class="hamster__body">
+                <div class="hamster__head">
+                  <div class="hamster__ear"></div>
+                  <div class="hamster__eye"></div>
+                  <div class="hamster__nose"></div>
+                </div>
+                <div class="hamster__limb hamster__limb--fr"></div>
+                <div class="hamster__limb hamster__limb--fl"></div>
+                <div class="hamster__limb hamster__limb--br"></div>
+                <div class="hamster__limb hamster__limb--bl"></div>
+                <div class="hamster__tail"></div>
+              </div>
+            </div>
+            <div class="spoke"></div>
+          </div>
+        </div>
+        <div class="BBBB"></div>
+        <script src="网站/jquery/jquery-3.7.1.js"></script>
+        <script src="网站/jquery/jquery-3.7.1.min.js"></script>
+        <script>
+          $(window).on("load",function(){
+            $(".WRRRR").fadeOut("slow");
+          });
+        </script>
+        <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+*{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+body{
+width: 100vw;
+height: 100vh;
+}
+.tp{
+width: 100vw;
+height: 10vh;
+background-color: #98b6ec;
+position: fixed;
+top: 0;
+left: 0;
+opacity: 0.9;
+}
+.sym img{
+width: 5vw;
+height: 10vh;
+float: left;
+}
+.menu{
+float: right;
+position: fixed;
+top: 2vh;
+right: 5vw;
+width: 15vw;
+cursor: pointer;
+z-index: 1;
+height: 30vh;
+}
+.b1{
+float: left;
+font-size: 3vmax;
+color: white;
+font-size: 2.5vmax;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-weight: 600;
+}
+.b2{
+float: left;
+margin-left: 2vw;
+}
+input[type = "checkbox"] {
+  -webkit-appearance: none;
+  display: none;
+  visibility: hidden;
+}
+.bar {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  width: 50px;
+  height: 40px;
+}
+.bar span {
+  position: absolute;
+  width: 45px;
+  height: 7px;
+  background: #f1faee;
+  border-radius: 100px;
+  display: inline-block;
+  transition: 0.3s ease;
+  left: 0;
+}
+.bar span.top {
+  top: 0;
+}
+.bar span.middle {
+  top: 17px;
+}
+.bar span.bottom {
+  bottom: 0;
+}
+input[type]:checked ~ span.top {
+  transform: rotate(45deg);
+  transform-origin: top left;
+  width: 48px;
+  left: 5px;
+}
+input[type]:checked ~ span.bottom {
+  transform: rotate(-45deg);
+  transform-origin: top left;
+  width: 48px;
+  bottom: -1px;
+  box-shadow: 0 0 10px #495057;
+}
+
+input[type]:checked ~ span.middle {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+.cai{
+  background-color: grey;
+  position:fixed;
+  width: 15vw;
+  height: 36vh;
+  opacity: 0;
+  z-index: 1;
+  margin-top: 8vh;
+  border-radius: 10px;
+}
+.cai li{
+  text-align: center;
+  height: 4vh;
+}
+.but{
+ width: 15vw;
+ height:4vh;
+ background: grey;
+ border: none;
+ border-radius: 5px;
+ font-weight: bold;
+ cursor: pointer;
+ position: relative;
+ z-index: 1;
+ overflow: hidden;
+}
+.but a{
+  color: white;
+  font-size: 1.5vmax;
+}
+button a:hover {
+ color: grey;
+}
+
+button:after {
+ content: "";
+ background: white;
+ position: absolute;
+ z-index: -1;
+ left: -20%;
+ right: -20%;
+ top: 0;
+ bottom: 0;
+ transform: skewX(-45deg) scale(0, 1);
+ transition: all 0.5s;
+}
+
+button:hover:after {
+ transform: skewX(-45deg) scale(1, 1);
+ -webkit-transition: all 0.5s;
+ transition: all 0.5s;
+}
+
+.menu:hover .cai{
+ opacity: 0.7;
+ transition: 0.5s;
+}
+.loader {
+ position: relative;
+ width: 2.5em;
+ height: 2.5em;
+ transform: rotate(165deg);
+}
+.loader:before, .loader:after {
+ content: "";
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ display: block;
+ width: 0.5em;
+ height: 0.5em;
+ border-radius: 0.25em;
+ transform: translate(-50%, -50%);
+}
+.loader:before {
+ animation: before8 2s infinite;
+}
+.loader:after {
+ animation: after6 2s infinite;
+}
+@keyframes before8 {
+ 0% {
+  width: 0.5em;
+  box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+ }
+ 35% {
+  width: 2.5em;
+  box-shadow: 0 -0.5em rgba(225, 20, 98, 0.75), 0 0.5em rgba(111, 202, 220, 0.75);
+ }
+ 70% {
+  width: 0.5em;
+  box-shadow: -1em -0.5em rgba(225, 20, 98, 0.75), 1em 0.5em rgba(111, 202, 220, 0.75);
+ }
+ 100% {
+  box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+ }
+}
+@keyframes after6 {
+ 0% {
+  height: 0.5em;
+  box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+ }
+ 35% {
+  height: 2.5em;
+  box-shadow: 0.5em 0 rgba(61, 184, 143, 0.75), -0.5em 0 rgba(233, 169, 32, 0.75);
+ }
+ 70% {
+  height: 0.5em;
+  box-shadow: 0.5em -1em rgba(61, 184, 143, 0.75), -0.5em 1em rgba(233, 169, 32, 0.75);
+ }
+ 100% {
+  box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+ }
+}
+.loader {
+ position: absolute;
+ top: calc(50% - 1.25em);
+ left: calc(50% - 1.25em);
+}
+.home{
+  float: left;
+  margin-left: 5vw;
+  margin-top: 0.5vh;
+}
+.btn {
+ padding: 1vmax;
+ background: none;
+ border: 2px solid #fff;
+ cursor: pointer;
+ position: relative;
+ overflow: hidden;
+ transition: all 0.3s;
+ border-radius: 12px;
+ box-shadow: 0 2px 0 2px #000;
+ height: 9vh;
+}
+.home a{
+  color: white;
+  font-weight: bolder;
+  font-size: 1.5vmax;
+}
+.btn:before {
+ content: "";
+ position: absolute;
+ width: 100px;
+ height: 120%;
+ background-color: #ff6700;
+ top: 50%;
+ transform: skewX(30deg) translate(-150%, -50%);
+ transition: all 0.5s;
+}
+
+.btn:hover {
+ background-color: #4cc9f0;
+ color: #fff;
+ box-shadow: 0 2px 0 2px #0d3b66;
+}
+.btn:hover a{
+  color: white;
+}
+.btn:hover::before {
+ transform: skewX(30deg) translate(150%, -50%);
+ transition-delay: 0.1s;
+}
+
+.btn:active {
+ transform: scale(0.9);
+}
+.gu{
+  background-color: grey;
+  width: 8vw;
+  height: 24vh;
+  z-index: 1;
+  border-radius: 10px;
+  position: fixed;
+  top: 40vh;
+  left: -15vw;
+  transition: 0.8s;
+}
+.gu li{
+  text-align: center;
+  height: 6vh;
+}
+.but1{
+ width: 8vw;
+ height:6vh;
+ background: grey;
+ border: none;
+ border-radius: 5px;
+ font-weight: bold;
+ cursor: pointer;
+ position: relative;
+ z-index: 1;
+ overflow: hidden;
+}
+.but1 a{
+  color: white;
+  font-size: 1vmax;
+}
+button a:hover {
+ color: grey;
+}
+button:after {
+ content: "";
+ background: white;
+ position: absolute;
+ z-index: -1;
+ left: -20%;
+ right: -20%;
+ top: 0;
+ bottom: 0;
+ transform: skewX(-45deg) scale(0, 1);
+ transition: all 0.5s;
+}
+button:hover:after {
+ transform: skewX(-45deg) scale(1, 1);
+ -webkit-transition: all 0.5s;
+ transition: all 0.5s;
+}
+.sb{
+  position: fixed;
+  top: 45vh;
+  z-index: 0;
+  opacity: 1;
+  cursor: pointer;
+}
+.sb img{
+    width: 8vw;
+    height: 16vh;
+    margin-left: -3.5vw;
+}
+.db:hover .gu{
+  left: 0;
+}
+.db:hover .sb{
+  opacity: 0;
+}
+.bian{
+  width: 5vw;
+  height: 100vh;
+  position: fixed;
+  top:10vh;
+  z-index: -1;
+  background-color: #d8ebff;
+}
+.bian1{
+  width: 5vw;
+  height: 100vh;
+  position: fixed;
+  top:10vh;
+  z-index: -1;
+  right: 0;
+  background-color: #d8ebff;
+}
+#DNAorigami{
+  font-size: 5vmax;
+  display: flex;
+  justify-content: center;
+}
+.D1{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 5vh;
+  font-weight: 600;
+}
+.D2{
+  font-size: 1.5vmax;
+  margin-left: 10vw;
+  width: 80vw;
+}
+.D3{
+  margin-left: 30vw;
+  margin-top: 5vh;
+}
+.D3 img{
+  width: 40vw;
+  height: 40vh;
+}
+.D4{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 2vh;
+  font-weight: 600;
+}
+.D5{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+}
+#AuNR{
+  font-size: 5vmax;
+  display: flex;
+  justify-content:center ;
+}
+.A1{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 5vh;
+  font-weight: 600;
+}
+.A2{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+}
+#Doara{
+  font-size: 5vmax;
+  display: flex;
+  justify-content: center;
+}
+.R1{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 5vh;
+  font-weight: 600;
+}
+.R2{
+  font-size: 1.5vmax;
+  margin-left: 10vw;
+  width: 80vw;
+}
+#Characterization{
+  font-size: 5vmax;
+  display: flex;
+  justify-content: center;
+}
+.C1{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 5vh;
+  font-weight: 600;
+}
+.C2{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+}
+.C3{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 5vh;
+  font-weight: 600;
+}
+.C4{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+}
+.C5{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+  margin-top: 2vh;
+}
+.C6{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  margin-top: 5vh;
+  font-weight: 600;
+}
+.C7{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+}
+.C8{
+  margin-left: 10vw;
+  font-weight: 600;
+  margin-top: 5vh;
+  font-size: 1.8vmax;
+}
+.C9{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+  }
+.C10{
+  font-size: 1.8vmax;
+  margin-left: 10vw;
+  font-weight: 600;
+  margin-top: 5vh;
+}
+.C11{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+}
+.Ma{
+  display: none;
+}
+#Materials{
+  font-size: 5vmax;
+  display: flex;
+  justify-content: center;
+  margin-top: 10vh;
+}
+.M1{
+  margin-left: 10vw;
+  margin-top: 5vh;
+}
+.M1 img{
+  width: 80vw;
+  height: 220vh;
+}
+input:checked + .Ma{
+  display: block;
+}
+.Equ{
+  display: none;
+}
+#Equipments{
+  font-size: 5vmax;
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
+}
+.E1{
+  margin-left: 10vw;
+  margin-top: 5vh;
+}
+.E1 img{
+  width: 80vw;
+  height: 130vh;
+}
+input:checked + .Equ{
+  display: block;
+}
+.DN{
+  display: none;
+}
+#DNAsequence{
+  font-size: 5vmax;
+  display: flex;
+  justify-content: center;
+}
+.N1{
+  font-size: 1.8vmax;
+  display: flex;
+  justify-content: center;
+}
+.N2{
+  margin-left: 10vw;
+ margin-top: 5vh;
+}
+.N2 img{
+  width: 80vw;
+  height: 150vh;
+}
+.N3{
+  margin-left: 10vw;
+  margin-top: -1vh;
+}
+.N3 img{
+  width: 80vw;
+  height: 150vh;
+}
+.N4{
+  margin-left: 10vw;
+}
+.N4 img{
+  width: 80vw;
+  height: 100vh;
+}
+.N5{
+  margin-left: 10vw;
+}
+.N5 img{
+  width: 80vw;
+  height: 150vh;
+}
+.N6{
+  margin-left: 10vw;
+}
+.N6 img{
+  width: 80vw;
+  height: 100vh;
+}
+.N7{
+  margin-left: 10vw;
+  margin-top: -1vh;
+}
+.N7 img{
+  width: 80vw;
+  height: 150vh;
+}
+.N8{
+  margin-left: 10vw;
+}
+.N8 img{
+  width: 80vw;
+  height: 100vh;
+}
+.N9{
+  margin-left: 10vw;
+}
+.N9 img{
+  width: 80vw;
+  height: 100vh;
+}
+input:checked + .DN{
+  display: block;
+}
+.btn-12,
+.btn-12 *,
+.btn-12 :after,
+.btn-12 :before,
+.btn-12:after,
+.btn-12:before {
+  border: 0 solid;
+  box-sizing: border-box;
+}
+.btn-12 {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: button;
+  background-color: #ffe4b2;
+  background-image: none;
+  color: wheat;
+  cursor: pointer;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-size: 2vmax;
+  font-weight: 900;
+  text-align: center;
+  line-height: 1.5;
+  margin: 0;
+  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+  padding: 0;
+  text-transform: uppercase;
+  width: 40vw;
+  margin-left: 30vw;
+  margin-top: 10vh;
+  border: #000 ;
+}
+
+.btn-12:disabled {
+  cursor: default;
+}
+
+.btn-12:-moz-focusring {
+  outline: auto;
+}
+
+.btn-12 svg {
+  display: block;
+  vertical-align: middle;
+}
+
+.btn-12 [hidden] {
+  display: none;
+}
+
+.btn-12 {
+  border-radius: 99rem;
+  border-width: 2px;
+  overflow: hidden;
+  padding: 0.8rem 3rem;
+  position: relative;
+}
+
+.btn-12 span {
+  mix-blend-mode: difference;
+}
+
+.btn-12:after,
+.btn-12:before {
+  background: linear-gradient(
+    90deg,
+    #fff 25%,
+    transparent 0,
+    transparent 50%,
+    #fff 0,
+    #fff 75%,
+    transparent 0
+  );
+  content: "";
+  inset: 0;
+  position: absolute;
+  transform: translateY(var(--progress, 100%));
+  transition: transform 0.2s ease;
+}
+
+.btn-12:after {
+  --progress: -100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0,
+    transparent 25%,
+    #fff 0,
+    #fff 50%,
+    transparent 0,
+    transparent 75%,
+    #fff 0
+  );
+  z-index: -1;
+}
+
+.btn-12:hover:after,
+.btn-12:hover:before {
+  --progress: 0;
+}
+.GG{
+color: white;
+font-size: 2.5vmax;
+font-weight: 600;
+position: fixed;
+top: 2vh;
+left: 25vw;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.wheel-and-hamster {
+  --dur: 1s;
+  position: relative;
+  margin-top: 30vh;
+  margin-left: 42vw;
+  width: 12em;
+  height: 12em;
+  font-size: 14px;
+}
+
+.wheel,
+.hamster,
+.hamster div,
+.spoke {
+  position: absolute;
+}
+
+.wheel,
+.spoke {
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wheel {
+  background: radial-gradient(100% 100% at center,hsla(0,0%,60%,0) 47.8%,hsl(0,0%,60%) 48%);
+  z-index: 2;
+}
+
+.hamster {
+  animation: hamster var(--dur) ease-in-out infinite;
+  top: 50%;
+  left: calc(50% - 3.5em);
+  width: 7em;
+  height: 3.75em;
+  transform: rotate(4deg) translate(-0.8em,1.85em);
+  transform-origin: 50% 0;
+  z-index: 1;
+}
+
+.hamster__head {
+  animation: hamsterHead var(--dur) ease-in-out infinite;
+  background: hsl(30,90%,55%);
+  border-radius: 70% 30% 0 100% / 40% 25% 25% 60%;
+  box-shadow: 0 -0.25em 0 hsl(30,90%,80%) inset,
+		0.75em -1.55em 0 hsl(30,90%,90%) inset;
+  top: 0;
+  left: -2em;
+  width: 2.75em;
+  height: 2.5em;
+  transform-origin: 100% 50%;
+}
+
+.hamster__ear {
+  animation: hamsterEar var(--dur) ease-in-out infinite;
+  background: hsl(0,90%,85%);
+  border-radius: 50%;
+  box-shadow: -0.25em 0 hsl(30,90%,55%) inset;
+  top: -0.25em;
+  right: -0.25em;
+  width: 0.75em;
+  height: 0.75em;
+  transform-origin: 50% 75%;
+}
+
+.hamster__eye {
+  animation: hamsterEye var(--dur) linear infinite;
+  background-color: hsl(0,0%,0%);
+  border-radius: 50%;
+  top: 0.375em;
+  left: 1.25em;
+  width: 0.5em;
+  height: 0.5em;
+}
+
+.hamster__nose {
+  background: hsl(0,90%,75%);
+  border-radius: 35% 65% 85% 15% / 70% 50% 50% 30%;
+  top: 0.75em;
+  left: 0;
+  width: 0.2em;
+  height: 0.25em;
+}
+
+.hamster__body {
+  animation: hamsterBody var(--dur) ease-in-out infinite;
+  background: hsl(30,90%,90%);
+  border-radius: 50% 30% 50% 30% / 15% 60% 40% 40%;
+  box-shadow: 0.1em 0.75em 0 hsl(30,90%,55%) inset,
+		0.15em -0.5em 0 hsl(30,90%,80%) inset;
+  top: 0.25em;
+  left: 2em;
+  width: 4.5em;
+  height: 3em;
+  transform-origin: 17% 50%;
+  transform-style: preserve-3d;
+}
+
+.hamster__limb--fr,
+.hamster__limb--fl {
+  clip-path: polygon(0 0,100% 0,70% 80%,60% 100%,0% 100%,40% 80%);
+  top: 2em;
+  left: 0.5em;
+  width: 1em;
+  height: 1.5em;
+  transform-origin: 50% 0;
+}
+
+.hamster__limb--fr {
+  animation: hamsterFRLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,80%) 80%,hsl(0,90%,75%) 80%);
+  transform: rotate(15deg) translateZ(-1px);
+}
+
+.hamster__limb--fl {
+  animation: hamsterFLLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,90%) 80%,hsl(0,90%,85%) 80%);
+  transform: rotate(15deg);
+}
+
+.hamster__limb--br,
+.hamster__limb--bl {
+  border-radius: 0.75em 0.75em 0 0;
+  clip-path: polygon(0 0,100% 0,100% 30%,70% 90%,70% 100%,30% 100%,40% 90%,0% 30%);
+  top: 1em;
+  left: 2.8em;
+  width: 1.5em;
+  height: 2.5em;
+  transform-origin: 50% 30%;
+}
+
+.hamster__limb--br {
+  animation: hamsterBRLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,80%) 90%,hsl(0,90%,75%) 90%);
+  transform: rotate(-25deg) translateZ(-1px);
+}
+
+.hamster__limb--bl {
+  animation: hamsterBLLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,90%) 90%,hsl(0,90%,85%) 90%);
+  transform: rotate(-25deg);
+}
+
+.hamster__tail {
+  animation: hamsterTail var(--dur) linear infinite;
+  background: hsl(0,90%,85%);
+  border-radius: 0.25em 50% 50% 0.25em;
+  box-shadow: 0 -0.2em 0 hsl(0,90%,75%) inset;
+  top: 1.5em;
+  right: -0.5em;
+  width: 1em;
+  height: 0.5em;
+  transform: rotate(30deg) translateZ(-1px);
+  transform-origin: 0.25em 0.25em;
+}
+
+.spoke {
+  animation: spoke var(--dur) linear infinite;
+  background: radial-gradient(100% 100% at center,hsl(0,0%,60%) 4.8%,hsla(0,0%,60%,0) 5%),
+		linear-gradient(hsla(0,0%,55%,0) 46.9%,hsl(0,0%,65%) 47% 52.9%,hsla(0,0%,65%,0) 53%) 50% 50% / 99% 99% no-repeat;
+}
+
+/* Animations */
+@keyframes hamster {
+  from, to {
+    transform: rotate(4deg) translate(-0.8em,1.85em);
+  }
+
+  50% {
+    transform: rotate(0) translate(-0.8em,1.85em);
+  }
+}
+
+@keyframes hamsterHead {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(8deg);
+  }
+}
+
+@keyframes hamsterEye {
+  from, 90%, to {
+    transform: scaleY(1);
+  }
+
+  95% {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes hamsterEar {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(12deg);
+  }
+}
+
+@keyframes hamsterBody {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(-2deg);
+  }
+}
+
+@keyframes hamsterFRLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(50deg) translateZ(-1px);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(-30deg) translateZ(-1px);
+  }
+}
+
+@keyframes hamsterFLLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(-30deg);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(50deg);
+  }
+}
+
+@keyframes hamsterBRLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(-60deg) translateZ(-1px);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(20deg) translateZ(-1px);
+  }
+}
+
+@keyframes hamsterBLLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(20deg);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(-60deg);
+  }
+}
+
+@keyframes hamsterTail {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(30deg) translateZ(-1px);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(10deg) translateZ(-1px);
+  }
+}
+
+@keyframes spoke {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(-1turn);
+  }
+}
+.WRRRR{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #98b6ec;
+}
+.BBBB{
+  height: 50vh;
+}
+</style>
+</head>
+<body>
+     <div class="tp">
+        <div class="sym"><img src="网站/队徽.png"></div>
+<div class="loader"></div>
+<div class="home"><button class="btn"><a href="index.html">HOME</a> </button></div>
+<div class="GG">Method</div>
+    <div class="menu">
+        <div class="b1">MENU</div>
+<div class="b2"><label class="bar" for="check">
+<input type="checkbox" id="check">
+<span class="top"></span>
+<span class="middle"></span>
+<span class="bottom"></span>
+</label></div>
+<ul class="cai">
+  <li><button class="but"><a href="project.html">Project</a></button></li>
+    <li><button class="but"><a href="design.html">Design</a></button></li>
+    <li><button class="but"><a href="feasibility.html">Feasibility</a></button></li>
+    <li><button class="but"><a href="method.html">Method</a></button></li>
+    <li><button class="but"><a href="labbook.html">Labbook</a></button></li>
+    <li><button class="but"><a href="result.html">Result</a></button></li>
+    <li><button class="but"><a href="about us.html">About us</a></button></li>
+    <li><button class="but"><a href="ELSI.html">ELSI</a></button></li>
+    <li><button class="but"><a href="Future.html">Future</a></button></li>
+</ul>
+ </div>
+    </div>
+    <div class="db">
+      <div class="dao">
+      <ul class="gu">
+  <li><button class="but1"><a href="#DNAorigami">DNA origami</a></button></li>
+  <li><button class="but1"><a href="#AuNR">AuNR</a></button></li>
+  <li><button class="but1"><a href="#Doara">Doara</a></button></li>
+  <li><button class="but1"><a href="#Characterization">Characterization</a></button></li>
+  </ul>
+  </div><div class="sb"><img src="网站/jian.png"></div>
+  </div>
+  <div class="bian"></div>
+<div class="bian1"></div>
+  <div class="DNA">
+    <h2 id="DNAorigami"><br>DNA origami</h2>
+    <div class="D1">DNA origami folding</div>
+    <div class="D2">DNA origami structures were designed utilizing the cadnano software and folded by mixing a final concentration of 10 nM p7249 scaffold, 100 nM each of the staple strands, 1x TE buffer (containing 10 mM Tris, 1 mM EDTA, pH 8) and 4 mM MgCl<sub>2</sub>. A total volume of 25 μL of this mixture was subjected to annealing in a PCR instrument to facilitate the proper folding of the DNA origami structures. The annealing protocol is as follows:</div>
+    <div class="D3"><img src="网站/D1.png"></div>
+    <div class="D4">DNA origami purification</div>
+    <div class="D5">To remove excess staple strands, 100 µL of the annealed DNA origami solution was diluted with 1x TE buffer and 20 mM MgCl<sub>2</sub> to a final volume of 500 µL, and then mixed with PEG purification solution (15% w/v PEG-8000, 500 mM NaCl, and 1x TE) in a 1:1 volume ratio, waiting 10 min for the samples to equilibriate and then centrifuging at 20,000 RCF and 4℃for 30 min. After centrifugation, the supernatant was carefully removed, and the pellet was resuspended in 20 µL resuspension buffer (1x TE buffer and 4 mM MgCl<sub>2</sub>) by shaking it overnight at 37℃with a shaking speed of 200 rpm on an shaker. After re-suspension, the DNA concentration was measured with a Nanodrop and adjusted to 12 nM concentration of DNA origami.</div>
+    </div>
+    <div class="Au">
+    <h2 id="AuNR"><br>AuNR</h2>
+    <div class="A1">DNA modification</div>
+    <div class="A2">Thiol DNA was prepared into a 100 µM concentration aqueous solution. Take 20 µL of thiol DNA solution into an EP tube, add 4 µL of 1 M TCEP solution, 2.6 µL of distilled water, and let it stand at room temperature for 1 hour. Afterwards, use a pipette to transfer the mixture into 4.46 mL of gold nanorod solution, mix evenly, and incubate at room temperature for 24 hours. After the reaction is complete, centrifuge the solution at 3000 rpm for about 15 minutes. Once the centrifugation is complete, use a pipette to remove the supernatant and resuspend it in 150 µL distilled water to obtain surface thiol DNA modified gold nanorods.</div>
+  </div>
+  <div class="Doa">
+    <h2 id="Doara"><br>Doara</h2>
+    <div class="R1">DNA origami & AuNP assembly</div>
+    <div class="R2">AuNR and DNA origami were mixed at a molar ratio of 3:2, then the mixture was annealed from 37 °C to room temperature in water bath overnight.</div>
+  </div>
+  <div class="Ch">
+    <h2 id="Characterization"><br>Characterization</h2>
+    <div class="C1">Agarose gel electropherosis</div>
+    <div class="C2">1% agarose gel was prepared by mixing 50 mL 1x TAE buffer, 0.5 g agarose, and 200 μL 1 M MgCl<sub>2</sub>. The gel was run in 1x TAE buffer containing 4 mM Mg<sup>2+</sup> at 60 V and 4°C for two hours.</div>
+    <div class="C3">TEM sample preparation</div>
+    <div class="C4">Unstained sample: The preparation of unstained samples involved treating copper grids with a plasma cleaner for 25 seconds, followed by dropping 5 μL sample to the grids and left to dry. The samples were imaged with a TEM operating at 100 kV.</div>
+    <div class="C5">Negative stain sample: The preparation of negatively stained samples involved treating copper grids with a plasma cleaner for 25 seconds. Then drop 5 μL sample to the grids and left to dry. Subsequently, 5 μL of 2% uranyl acetate was dropped to the grids for negative staining for 2 minutes. The excess stain was wicked away with filter paper, and the grids were left to dry. The samples were imaged with a TEM operating at 100 kV.</div>
+    <div class="C6">Zeta potential</div>
+    <div class="C7">Transfer 20 µL of the test solution into a 1.5 mL EP tube, and dilute with distilled water to 1000 µL. After mixing evenly, use a pipette to transfer 700 µL into a Malvern Zetasizer Nano Series and then place it in a Malvern Nanoparticle Size and Zeta Potential Analyzer. Scan time 30 seconds, scan 3 times, start testing.</div>
+    <div class="C8">Dynamic light scattering</div>
+    <div class="C9">Transfer 20 µL of the test solution into a 1.5 mL EP tube, and dilute with distilled water to 1000 µL. After mixing evenly, all samples were transferred into Malvern Glass Cuvettes and loaded into the Nanoparticle Size and Zeta Potential Analyzer. Scan time 30 seconds, scan 3 times, start testing.</div>
+    <div class="C10">UV-Vis spectroscopy</div>
+    <div class="C11">Use a pipette to take 50 µL of the test solution, place it in a 50 µL High Precision Cell, and then place it in the UV-Vis-NIR Spectrometer.Set the parameters: scan wavelength from 1100 nm to 400 nm, scan interval of 2 nm, use distilled water as a reference, and start scanning.</div>
+  </div>
+  <label for="menu">
+    <div class="btn-12"><span>Click here to see our material</span></div>
+  </label>
+  <input type="checkbox" id="menu">
+  <div class="Ma">
+    <h2 id="Materials">Materials</h2>
+    <div class="M1"><img src="网站/D2.png"></div>
+  </div>
+  <label for="menu2">
+    <div class="btn-12"><span>Click here to see our equipment</span></div>
+  </label>
+  <input type="checkbox" id="menu2">
+  <div class="Equ">
+    <h2 id="Equipments">Equipments</h2>
+    <div class="E1"><img src="网站/D3.png"></div>
+  </div>
+  <label for="menu1">
+    <div class="btn-12"><span>Click here to see our DNA sequence</span></div>
+  </label>
+  <input type="checkbox" id="menu1">
+  <div class="DN">
+    <h2 id="DNAsequence">DNA sequence</h2>
+    <div class="N1">DNA origami sequence</div>
+    <div class="N2"><img src="网站/D7.png"></div>
+    <div class="N3"><img src="网站/D8.png"></div>
+    <div class="N4"><img src="网站/D9.png"></div>
+    <div class="N5"><img src="网站/D10.png"></div>
+    <div class="N6"><img src="网站/D11.png"></div>
+    <div class="N7"><img src="网站/D12.png"></div>
+    <div class="N8"><img src="网站/D13.png"></div>
+    <div class="N9"><img src="网站/D14.png"></div>
+  </div>
+  <div class="BBBB"></div>
+  <div class="WRRRR">
+    <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
+      <div class="wheel"></div>
+      <div class="hamster">
+        <div class="hamster__body">
+          <div class="hamster__head">
+            <div class="hamster__ear"></div>
+            <div class="hamster__eye"></div>
+            <div class="hamster__nose"></div>
+          </div>
+          <div class="hamster__limb hamster__limb--fr"></div>
+          <div class="hamster__limb hamster__limb--fl"></div>
+          <div class="hamster__limb hamster__limb--br"></div>
+          <div class="hamster__limb hamster__limb--bl"></div>
+          <div class="hamster__tail"></div>
+        </div>
+      </div>
+      <div class="spoke"></div>
+    </div>
+  </div>
+  <script src="网站/jquery/jquery-3.7.1.js"></script>
+  <script src="网站/jquery/jquery-3.7.1.min.js"></script>
+  <script>
+    $(window).on("load",function(){
+      $(".WRRRR").fadeOut("slow");
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+	<link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+  <title>Nano-JLU Experiment</title>
+
+  <!-- Justify Styles -->
+  <link href="css/justify.css" rel="stylesheet">
+
+  <!--Library Styles-->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/lib/font-awesome.css" rel="stylesheet">
+  <link href="css/lib/nivo-lightbox.css" rel="stylesheet">
+  <link href="css/lib/nivo-themes/default/default.css" rel="stylesheet">
+
+  <!--Template Styles-->
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/scheme/purple.css" rel="stylesheet">
+  <link href="css/docs.min.css" rel="stylesheet">
+  <style type="text/css">
+    body {
+      background-image: url(images/bgphoto.png);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      ;
+    }
+	.bs-docs-sidebar .nav li{line-height:36px;}
+	.bs-docs-sidebar .nav>.active>a,.bs-docs-sidebar .nav>li:hover>a{
+    padding-left: 28px;
+    font-weight: 700;
+    color: #563d7c;
+    background-color: transparent;
+    border-left:4px solid #428BCA;
+	box-shadow:1px 1px 3px  #ccc;
+	border-top:none;
+    display:block;
+	width:100%;
+	line-height:36px;
+	text-decoration:none;
+}
+  </style>
+
+  <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+  <script type="text/javascript">
+    function MM_swapImgRestore() { //v3.0
+      var i, x, a = document.MM_sr;
+      for (i = 0; a && i < a.length && (x = a[i]) && x.oSrc; i++) x.src = x.oSrc;
+    }
+
+    function MM_preloadImages() { //v3.0
+      var d = document;
+      if (d.images) {
+        if (!d.MM_p) d.MM_p = new Array();
+        var i, j = d.MM_p.length,
+          a = MM_preloadImages.arguments;
+        for (i = 0; i < a.length; i++)
+          if (a[i].indexOf("#") != 0) {
+            d.MM_p[j] = new Image;
+            d.MM_p[j++].src = a[i];
+          }
+      }
+    }
+
+    function MM_findObj(n, d) { //v4.01
+      var p, i, x;
+      if (!d) d = document;
+      if ((p = n.indexOf("?")) > 0 && parent.frames.length) {
+        d = parent.frames[n.substring(p + 1)].document;
+        n = n.substring(0, p);
+      }
+      if (!(x = d[n]) && d.all) x = d.all[n];
+      for (i = 0; !x && i < d.forms.length; i++) x = d.forms[i][n];
+      for (i = 0; !x && d.layers && i < d.layers.length; i++) x = MM_findObj(n, d.layers[i].document);
+      if (!x && d.getElementById) x = d.getElementById(n);
+      return x;
+    }
+
+    function MM_swapImage() { //v3.0
+      var i, j = 0,
+        x, a = MM_swapImage.arguments;
+      document.MM_sr = new Array;
+      for (i = 0; i < (a.length - 2); i += 3)
+        if ((x = MM_findObj(a[i])) != null) {
+          document.MM_sr[j++] = x;
+          if (!x.oSrc) x.oSrc = x.src;
+          x.src = a[i + 2];
+        }
+    }
+  </script>
+
+</head>
+
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div id="status"></div>
+  </div>
+  <!-- Site Navigation -->
+  <div id="main-wrapper">
+    <div class="container bs-docs-container">
+      <div class="row">
+        <link href="index/css/style_n.css" rel="stylesheet" type="text/css" media="all" />
+        <!-- header -->
+        <div class="header">
+          <div class="container">
+            <nav class="navbar navbar-default">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" style="margin-top:2.3em;">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand logo" href="index.html"><img class="logo1"  src="images/nanojlu.gif" alt="Nano-JLU" style="height: 60px; margin-top:10px;"></a>
+              </div>
+
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                <nav class="menu menu--francisco">
+                  <ul class="nav navbar-nav menu__list">
+                    <li class="menu__item"><a href="index.html" class="menu__link"><span class="menu__helper">Home</span></a></li>
+                    <li class="menu__item"><a href="introduction.html" class="menu__link"><span class="menu__helper">INTRODUCTION</span></a></li>
+                    <li class="menu__item"><a href="design.html" class="menu__link"><span class="menu__helper">DESIGN</span></a></li>
+                    <li class="menu__item menu__item--current"><a href="protocol.html" class="menu__link"><span class="menu__helper">EXPERIMENT</span></a></li>
+                    <li class="menu__item"><a href="result.html" class="menu__link"><span class="menu__helper">RESULT</span></a></li>
+                    <li class="menu__item"><a href="labbook.html" class="menu__link"><span class="menu__helper">LABBOOK</span></a></li>
+                    <li class="menu__item"><a href="team.html" class="menu__link"><span class="menu__helper">TEAM</span></a></li>
+                  </ul>
+                </nav>
+                <!--<div class="phone">
+						<p><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>Call-  <span>+0123 45</span></p>
+					</div>-->
+              </div>
+              <!-- /.navbar-collapse -->
+            </nav>
+          </div>
+        </div>
+        <!-- //header -->
+        <div class="col-md-3">
+          <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" role="complementary" style="margin-top:50px;position: fixed;">
+            <ul class="nav bs-docs-sidenav">
+                       <a class="back-to-top" href="#top" style="padding-left: 0px;margin-left:-8px;">
+  <p style="font-size:14px;color:#000">Back to top</p></a>
+              <li class="active">
+                <a href="#overall">An Overall View</a>
+              </li>
+
+              <li><a href="#generation">Generation of Scaffold</a>
+              </li>
+              <li><a href="#identification">Identification and purification</a></li>
+              <li><a href="#origami">Origami reaction protocol</a>
+                <ul class="nav">
+                  <li><a href="#prepare">Prepare the reaction</a></li>
+                  <li><a href="#annealing">Annealing</a></li>
+                </ul>
+              </li>
+              <li><a href="#structural">Structural change</a>
+                <ul class="nav">
+                  <li><a href="#expansion">Expansion</a></li>
+                  <li><a href="#constriction">Constriction</a></li>
+                </ul>
+              </li>
+              <li><a href="#purification">Purification of Origami products</a></li>
+              <li><a href="#afm">AFM protocol</a></li>
+              <li><a href="#tem">TEM protocol</a></li>
+              <li><a href="#dynamic">Dynamic Light Scattering</a></li>
+              <li><a href="#capture">Capture of the TMV disc</a></li>
+            </ul>
+          </div>
+        </div>
+        <!---->
+
+
+        <div class="col-md-9" role="main">
+
+
+          <div>
+            <!-- doc started-->
+
+            <div class="bs-dos-section">
+              <h2 id="overall" class="page-header" style="margin-top:50px;">An Overall View</h2>
+              <div class="labbooktablediv" align="center"><img src="images/protocol/overview.png" width="100%"></div>
+            </div>
+
+            <div class="bs-dos-section">
+              <h2 id="generation" class="page-header protocolh">Generation of Scaffold</h2>
+              <ul class="labbookul"><li>To minimize excess ssDNA in the final structure, which may result in nonspecific object aggregation or otherwise interfere with folding, we decided to perform asymmetric PCR ( αPCR ) to generate object-specific scaffolds for folding.
+				</li></ul>
+              <div class="labbooktablediv" align="center"><img src="images/protocol/2.png" width="70%"></div>
+              <ul class="labbookul"><li>αPCR was performed with a sense primer concentration of 1 mM, an anti-sense primer concentration of 20 nM, 50 ng of M13mp18 dsDNA template, 200 mM dNTPs mixed in a final volume of 50 μl and 1 unit of Q5<sup>TM</sup> High-Fidelity DNA Polymerase（NEB）. The aPCR program used is as follows: 95°C, 4 min for the initial denaturation; followed by 35 to 40 cycles of 95°C, 30 s; 55° , 30 s; 72°C, 5min; 72℃for final extention, and hold at 4℃.</li>
+			  </ul>
+           </div>
+           
+            <div class="bs-dos-section">
+              <h2 id="identification" class="page-header protocolh">Identification and purification</h2>
+              <ul class="labbookul"><li>The aPCR products were run through 0.8% low-melting temperature agarose gel ( 0.2g agarose, 25ml 1&times; TAE), under a constant voltage of 80V. The products were extracted and purified by Gel DNA recovery kit.</li></ul>
+            </div>
+
+
+            <div class="bs-dos-section">
+              <h2 id="origami" class="page-header protocolh">Origami reaction protocol</h2>
+
+              <div class="bs-dos-section">
+                <h3 id="prepare" class="page-header protocolh">Prepare the reaction</h3>
+               <ul class="labbookul"><li>All staples were diluted with ddH2O to a concentration of 500 nM. Scaffold is mixed with 10 times concentration of staple strands in 1&times; TAE-Mg<sup>2+</sup>. You can see the details in Table 1</li></ul>
+                 <div class="labbooktablediv" style="width:680px;" align="center"><table class="table table-bordered labbooktable" style="background-color:transparent;width:80%;">
+<caption  style="text-align:center">Table 1</caption>
+ <tr>
+<th></th>
+<th>Concentration</th>
+<th>[μl]</th>
+<th>Final concentration</th>
+</tr>
+<tr>
+<th>Scaffold</th>
+<td>10~20 nM </td>
+<td>25</td>
+<td>5~10 nM</td>
+</tr>
+ <tr>
+<th>Staple</th>
+<td>167~333 nM</td>
+<td>15</td>
+<td>50~100 nM</td>
+</tr> 
+  <tr>
+<th>10X TAE</th>
+<td>——</td>
+<td>5</td>
+<td>1&times; TAE</td>
+</tr> 
+  <tr>
+<th>10&times; Mg<sup>2+</sup> buffer</th>
+<td>100~200 mM</td>
+<td>5</td>
+<td>10~20 mM</td>
+</tr> 
+	  </table>
+	  </div>  
+              </div>
+
+              <div class="bs-dos-section">
+                <h3 id="annealing" class="page-header protocolh">Annealing </h3>
+                <ul class="labbookul">
+                  <li>The temperature was lowered from 80 ℃ to 60℃ at 4min ℃<sup>-1</sup>, then from 60℃ to 24℃ at 20 min/℃<sup>-1</sup> .</li>
+                  <li>Hold at 4℃</li>
+				</ul>
+              </div>
+          
+
+
+            <div class="bs-dos-section">
+              <h2 id="structural" class="page-header protocolh">Structural change</h2>
+               <div class="bs-dos-section">
+                <h3 id="expansion" class="page-header protocolh">Expansion</h3>
+              <ul class="labbookul"><li>Take 25μl Origami sample and mix with 25μl fuel strand solution, which is 15 times the concentration of the Origami products.</li>
+				  <li>Incubate at 37℃ for 30 min, then cool to 15℃ by 3℃/min.</li></ul>
+               <div class="labbooktablediv" align="center"><img src="images/protocol/3.png" width="80%"></div>
+              </div>
+              <div class="bs-dos-section">
+                <h3 id="constriction" class="page-header protocolh">Constriction</h3>
+                  <ul class="labbookul"><li>Take 25μl expansion sample and mix with 25μl anti-fuel strand solution, making the fuel strand: anti-fuel strand ratio of 5:1.</li>
+					  <li>Incubate at 37℃ for 30 min, then cool to 15℃ by 3℃/min.</li></ul>
+              </div>
+            </div>
+
+
+            <div class="bs-dos-section">
+              <h2 id="purification" class="page-header protocolh">Purification of Origami products</h2>
+              <ul class="labbookul"><li>The aPCR products were run through 2% low-melting temperature agarose gel (0.5 g agarose, 25ml 1&times; TAE) under a constant voltage of 80V, then be extracted and purified with Gel DNA recovery kit(厂名).
+              </li></ul>
+            </div>
+            <div class="bs-dos-section">
+              <h2 id="afm" class="page-header protocolh">AFM protocol</h2>
+              <ul class="labbookul"><li>Take a 5μl volume of the sample for AFM, let it be deposited onto a freshly cleaved mica and left to adsorb to the surface for 5 min. Then wash with ddH2O to remove the salt, allow it to air dry and wait for imaging.</li><li>The DNA samples were imaged in tapping mode.</li></ul>
+            </div>
+
+            <div class="bs-dos-section">
+              <h2 id="tem" class="page-header protocolh">TEM protocol</h2>
+              <ul class="labbookul"><li>Drop 5μl of the sample solution on the grid and left to adsorb for 5 min. For staining, the grid was touched with a drop of 2% uranyl acetate solution for 1min. Let the grid dry and keep it at room temperature.</li></ul>
+            </div>
+            <div class="bs-dos-section">
+              <h2 id="dynamic" class="page-header protocolh">Dynamic Light Scattering</h2>
+              <ul class="labbookul"><li>For the measurement, 100μl sample solutions were measured at a concentration of 10 nM in 1&times; TAE Buffer. The sample temperature was maintained at 25℃ during measurement.</li></ul>
+            </div>
+            <div class="bs-dos-section">
+              <h2 id="assembly" class="page-header protocolh">Assembly of TMV coat protein（CP）</h2>
+              <div class="labbooktablediv" align="center"><img src="images/protocol/4.png" width="80%"></div>
+           
+              <ul class="labbookul"><li>The TMV coat proteins purified by DEAE anion exchange chromatography were disaggregated through dialyzing in the PBS buffer (PH 8.0) at 4℃ for 48h, and for assembly of TMV disc, the disaggregated proteins were dialyzed in PBS buffer (PH 7.0) at 4℃ for more than 24h.</li></ul>
+            </div>
+            <div class="bs-dos-section">
+              <h2 id="capture" class="page-header protocolh">Capture of the TMV disc</h2>
+              <div class="labbooktablediv" align="center"><img src="images/protocol/5.png" width="80%"></div>
+              <ul class="labbookul"><li>The assembled TMV disc were incubated with the open cage at 20℃，12h. Then the mixture was added with anti-fuel strands and incubating for another 40 min to close the cage.</li></ul>
+            </div>
+
+          </div>
+          <!-- doc ended-->
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer
+================================================== -->
+    <footer class="bs-docs-footer" role="contentinfo">
+      <div class="container">
+
+
+        <p>Designed and built by @Nano-JLU</p>
+        <p> Welcome to contact us: <a href="mailto:biomodnanojlu2016@gmail.com">Nano-JLU</a> biomodnanojlu2016@gmail.com</p>
+        <p>Copyright © 2016 BIOMOD Nano-JLU 2016 All Rights Reserved.</p>
+
+      </div>
+    </footer>
+
+
+
+
+
+    <!-- Library Scripts -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/lib/jquery.preloader.js"></script>
+    <script src="js/lib/nivo-lightbox.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/lib/jquery.superslides.min.js"></script>
+    <script src="js/lib/smoothscroll.js"></script>
+    <script src="js/lib/jquery.sudoslider.min.js"></script>
+    <script src="js/lib/jquery.bxslider.min.js"></script>
+    <script src="js/lib/jquery.mixitup.min.js"></script>
+    <script src="js/lib/jquery.backtotop.js"></script>
+    <script src="js/lib/jquery.carouFredSel-6.2.1-packed.js"></script>
+    <script src="js/lib/retina.min.js"></script>
+    <script src="js/docs.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        $('#collapseFour').collapse({
+          toggle: false
+        })
+      });
+      $(function() {
+        $('#collapseTwo').collapse('show')
+      });
+      $(function() {
+        $('#collapseThree').collapse('toggle')
+      });
+      $(function() {
+        $('#collapseOne').collapse('hide')
+      });
+    </script>
+
+
+
+    <!-- Custom Script -->
+    <script src="js/main.js"></script>
+
+    <script src="js/h.js" type="text/javascript"></script>
+
+
+    <script>
+      function dragable(id) {
+        var d = document,
+          o = d.getElementById(id),
+          s = o.style,
+          x, y, p = 'onmousemove';
+        o.onmousedown = function(e) {
+          e = e || event;
+          x = e.clientX - o.offsetLeft;
+          y = e.clientY - o.offsetTop;
+          d[p] = function(e) {
+            e = e || event;
+            s.left = e.clientX - x + 'px';
+            s.top = e.clientY - y + 'px'
+          };
+          d.onmouseup = function() {
+            d[p] = null
+          }
+        }
+      }
+      dragable("demo");
+    </script>
+
+
+</body>
+
+</html>

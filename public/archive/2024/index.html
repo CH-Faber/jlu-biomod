@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <title>Document</title>
+    <style>
+*{
+margin: 0;
+padding: 0;
+list-style: none;
+text-decoration: none;
+box-sizing: border-box;
+}
+body{
+  width: 100vw;
+  height: 100vh;
+}
+.head{
+  width: 100vw;
+  height: 10vh;
+  z-index: 2;
+}
+.sym2 img{
+  width: 5vw;
+  height: 10vh;
+  float: left;
+}
+.menu2{
+float: right;
+margin-right: 5vw;
+margin-top: 2vh;
+width: 15vw;
+cursor: pointer;
+height: 30vh;
+}
+.btn {
+  margin-top: -1vh;
+  width: 15vw;
+  height: 8vh;
+  border-radius: 5px;
+  border: none;
+  transition: all 0.5s ease-in-out;
+  font-size: 2.5vmax;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  line-height: 10vh;
+  color: gray;
+}
+.btn .icon {
+  position: absolute;
+  height: 10vh;
+  width: 7vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+}
+.menu2 .text {
+  transform: translateX(4vmax);
+}
+.menu2:hover .icon {
+  width: 17vw;
+}
+.menu2:hover .text {
+  transition: all 0.5s;
+  opacity: 0;
+}
+.menu2:focus {
+  outline: none;
+}
+.menu2:active .icon {
+  transform: scale(0.85);
+}
+.cai2{
+  opacity: 0;
+  background-color: grey;
+  width: 15vw;
+  height: 36vh;
+  z-index: 1;
+  border-radius: 10px;
+}
+.menu2:hover .cai2{
+ opacity: 0.7;
+ transition: 0.5s;
+}
+.all{
+background-size: cover; 
+background-position: center;
+width: 100vw;
+height: 110vh;
+background-image: url("网站/背景.jpg");
+}
+.tp{
+width: 100vw;
+height: 10vh;
+background-color: #98b6ec;
+position: fixed;
+z-index: -1;
+top: 0;
+left: 0;
+opacity: 0;
+transition: opacity 0.2s;
+}
+.tp.show{
+  opacity: 1;
+  z-index: 3;
+}
+.sym img{
+width: 5vw;
+height: 10vh;
+float: left;
+}
+.menu{
+float: right;
+margin-right: 5vw;
+margin-top: 2vh;
+width: 15vw;
+cursor: pointer;
+z-index: 1;
+height: 30vh;
+}
+.b1{
+float: left;
+font-size: 3vmax;
+color: white;
+font-size: 2.5vmax;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-weight: 600;
+}
+.b2{
+float: left;
+margin-left: 2vw;
+}
+
+
+input[type = "checkbox"] {
+  -webkit-appearance: none;
+  display: none;
+  visibility: hidden;
+}
+.bar {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  width: 50px;
+  height: 40px;
+}
+.bar span {
+  position: absolute;
+  width: 45px;
+  height: 7px;
+  background: #f1faee;
+  border-radius: 100px;
+  display: inline-block;
+  transition: 0.3s ease;
+  left: 0;
+}
+.bar span.top {
+  top: 0;
+}
+.bar span.middle {
+  top: 17px;
+}
+.bar span.bottom {
+  bottom: 0;
+}
+input[type]:checked ~ span.top {
+  transform: rotate(45deg);
+  transform-origin: top left;
+  width: 48px;
+  left: 5px;
+}
+input[type]:checked ~ span.bottom {
+  transform: rotate(-45deg);
+  transform-origin: top left;
+  width: 48px;
+  bottom: -1px;
+  box-shadow: 0 0 10px #495057;
+}
+
+input[type]:checked ~ span.middle {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+.cai{
+  background-color: grey;
+  position:fixed;
+  width: 15vw;
+  height: 36vh;
+  opacity: 0;
+  z-index: 1;
+  margin-top: 8vh;
+  border-radius: 10px;
+}
+.cai li{
+  text-align: center;
+  height: 4vh;
+}
+.but{
+ width: 15vw;
+ height:4vh;
+ background: grey;
+ border: none;
+ border-radius: 5px;
+ font-weight: bold;
+ cursor: pointer;
+ position: relative;
+ z-index: 1;
+ overflow: hidden;
+}
+.but a{
+  color: white;
+  font-size: 1.5vmax;
+}
+button a:hover {
+ color: grey;
+}
+
+button:after {
+ content: "";
+ background: white;
+ position: absolute;
+ z-index: -1;
+ left: -20%;
+ right: -20%;
+ top: 0;
+ bottom: 0;
+ transform: skewX(-45deg) scale(0, 1);
+ transition: all 0.5s;
+}
+
+button:hover:after {
+ transform: skewX(-45deg) scale(1, 1);
+ -webkit-transition: all 0.5s;
+ transition: all 0.5s;
+}
+
+.menu:hover .cai{
+ opacity: 0.7;
+ transition: 0.5s;
+}
+
+.ab3{
+  font-size: 2vmax;
+}
+.doara{
+  margin-left: 32vw;
+  float: left;
+  margin-top: -90vh;
+}
+.D{
+  float: left;
+  opacity: 0;
+}
+.D img{
+  width: 40vw;
+  height: 50.6vh;
+}
+.O{
+  float: left;
+  margin-top: -51vh;
+  opacity: 0;
+}
+.O img{
+  width: 40vw;
+  height: 50vh;
+}
+.A{
+  float: left;
+  margin-top: -51vh;
+  opacity: 0;
+}
+.A img{
+  width: 40vw;
+  height: 50vh;
+}
+.R{
+  float: left;
+  margin-top: -51vh;
+  opacity: 0;
+}
+.R img{
+  width: 40vw;
+  height: 50vh;
+}
+.A2{
+  float: left;
+  margin-top: -51vh;
+  opacity: 0;
+}
+.A2 img{
+  width: 40vw;
+  height: 50vh;
+}
+.p{
+  margin-left: 29vw;
+  font-family:'Times New Roman', Times, serif;
+  float: left;
+  margin-top: -50vh;
+}
+.p img{
+  width: 40vw;
+  height: 50vh;
+}
+.fb1{
+  width: 100vw;
+  height: 100vh;
+  background-image: url("网站/背景.png.jpg");
+  background-position: center;
+  background-size: cover;
+  margin-top: 40vh;
+}
+.cb{
+  margin-top: -60vh;
+}
+.ab1{
+  font-size: 5vmax;
+  margin-left: 26vw;
+  font-weight: 600;
+}
+.ab2{
+  font-size: 3vmax;
+  margin-left: 17vw;
+  margin-top: 10vh;
+  font-weight: 600;
+}
+.ab3{
+font-size: 1.5vmax;
+margin-top: 30vh;
+width: 40vw;
+margin-left: 10vw;
+float: left;
+}
+.fb2{
+  width: 100vw;
+  height:70vh;
+  margin-top: 30vh;
+}
+.ab4{
+  float: left;
+  margin-left: 5vw;
+  margin-top: 20vh;
+}
+.ab4 img{
+  width: 30vw;
+  height: 55vh;
+}
+.fb3{
+width: 100vw;
+height: 80vh;
+}
+.ab5{
+  font-size: 1.5vmax;
+  margin-top: 30vh;
+  width: 35vw;
+  float: left;
+  margin-left: 10vw;
+}
+.ab6{
+  float: left;
+  margin-top: 21vh;
+  margin-left: 10vw;
+}
+.ab6 img{
+  width: 38vw;
+  height: 49vh;
+}
+.fb4{
+  width: 100vw;
+  height: 70vh;
+  margin-top: 20vh;
+}
+.ab7{
+  margin-left: 10vw;
+  margin-top: 12vh;
+}
+.aaa{
+  font-size: 1.5vmax;
+  width: 40vw;
+  margin-left: 31vw;
+}
+.bbb{
+  font-size: 1.5vmax;
+  width: 50vw;
+  margin-left: 31vw;
+  margin-top: 5vh;
+}
+.ccc{
+  font-size: 1.5vmax;
+  width: 50vw;
+  margin-left: 31vw;
+  margin-top: 5vh;
+}
+.ddd{
+  font-size: 1.5vmax;
+  width: 50vw;
+  margin-left: 31vw;
+  margin-top: 5vh;
+}
+.ab8{
+  margin-left: 10vw;
+  margin-top: -55vh;
+}
+.ab8 img{
+  width: 30vw;
+  height: 50vh;
+}
+.eee img{
+  width: 25vw;
+  height: 62vh;
+}
+.fff{
+  font-size: 2vmax;
+}
+.fb5{
+  width: 100vw;
+  height: 80vh;
+}
+.ab9{
+  font-size: 1.5vmax;
+  width: 40vw;
+  margin-top: 35vh;
+  margin-left: 10vw;
+  float: left;
+}
+.ab10{
+  float: left;
+  margin-top: 15vh;
+  margin-left: 12vw;
+}
+.ab10 img{
+  width: 30vw;
+  height: 63vh;
+}
+.fb6{
+  font-size: 1.5vmax;
+  width: 80vw;
+  margin-left: 10vw;
+  margin-top: 10vh;
+  font-weight: 600;
+}
+.loader {
+ position: relative;
+ width: 2.5em;
+ height: 2.5em;
+ transform: rotate(165deg);
+}
+.loader:before, .loader:after {
+ content: "";
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ display: block;
+ width: 0.5em;
+ height: 0.5em;
+ border-radius: 0.25em;
+ transform: translate(-50%, -50%);
+}
+.loader:before {
+ animation: before8 2s infinite;
+}
+.loader:after {
+ animation: after6 2s infinite;
+}
+@keyframes before8 {
+ 0% {
+  width: 0.5em;
+  box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+ }
+ 35% {
+  width: 2.5em;
+  box-shadow: 0 -0.5em rgba(225, 20, 98, 0.75), 0 0.5em rgba(111, 202, 220, 0.75);
+ }
+ 70% {
+  width: 0.5em;
+  box-shadow: -1em -0.5em rgba(225, 20, 98, 0.75), 1em 0.5em rgba(111, 202, 220, 0.75);
+ }
+ 100% {
+  box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+ }
+}
+@keyframes after6 {
+ 0% {
+  height: 0.5em;
+  box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+ }
+ 35% {
+  height: 2.5em;
+  box-shadow: 0.5em 0 rgba(61, 184, 143, 0.75), -0.5em 0 rgba(233, 169, 32, 0.75);
+ }
+ 70% {
+  height: 0.5em;
+  box-shadow: 0.5em -1em rgba(61, 184, 143, 0.75), -0.5em 1em rgba(233, 169, 32, 0.75);
+ }
+ 100% {
+  box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+ }
+}
+.loader {
+ position: absolute;
+ top: calc(50% - 1.25em);
+ left: calc(50% - 1.25em);
+}
+.rf{
+  font-size: 1.8vmax;
+  font-weight: 600;
+  margin-left: 10vw;
+  margin-top: 5vh;
+}
+.R1{
+  font-size: 1.5vmax;
+  font-weight: 100;
+  margin-left: 10vw;
+  width: 80vw;
+}
+.R2{
+  font-size: 1.5vmax;
+  font-weight: 100;
+  margin-left: 10vw;
+  width: 80vw;
+  margin-top: 5vh;
+}
+/* From Uiverse.io by vinodjangid07 */ 
+/* From Uiverse.io by Nawsome */ 
+.wheel-and-hamster {
+  --dur: 1s;
+  position: relative;
+  margin-top: 30vh;
+  margin-left: 42vw;
+  width: 12em;
+  height: 12em;
+  font-size: 14px;
+}
+
+.wheel,
+.hamster,
+.hamster div,
+.spoke {
+  position: absolute;
+}
+
+.wheel,
+.spoke {
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wheel {
+  background: radial-gradient(100% 100% at center,hsla(0,0%,60%,0) 47.8%,hsl(0,0%,60%) 48%);
+  z-index: 2;
+}
+
+.hamster {
+  animation: hamster var(--dur) ease-in-out infinite;
+  top: 50%;
+  left: calc(50% - 3.5em);
+  width: 7em;
+  height: 3.75em;
+  transform: rotate(4deg) translate(-0.8em,1.85em);
+  transform-origin: 50% 0;
+  z-index: 1;
+}
+
+.hamster__head {
+  animation: hamsterHead var(--dur) ease-in-out infinite;
+  background: hsl(30,90%,55%);
+  border-radius: 70% 30% 0 100% / 40% 25% 25% 60%;
+  box-shadow: 0 -0.25em 0 hsl(30,90%,80%) inset,
+		0.75em -1.55em 0 hsl(30,90%,90%) inset;
+  top: 0;
+  left: -2em;
+  width: 2.75em;
+  height: 2.5em;
+  transform-origin: 100% 50%;
+}
+
+.hamster__ear {
+  animation: hamsterEar var(--dur) ease-in-out infinite;
+  background: hsl(0,90%,85%);
+  border-radius: 50%;
+  box-shadow: -0.25em 0 hsl(30,90%,55%) inset;
+  top: -0.25em;
+  right: -0.25em;
+  width: 0.75em;
+  height: 0.75em;
+  transform-origin: 50% 75%;
+}
+
+.hamster__eye {
+  animation: hamsterEye var(--dur) linear infinite;
+  background-color: hsl(0,0%,0%);
+  border-radius: 50%;
+  top: 0.375em;
+  left: 1.25em;
+  width: 0.5em;
+  height: 0.5em;
+}
+
+.hamster__nose {
+  background: hsl(0,90%,75%);
+  border-radius: 35% 65% 85% 15% / 70% 50% 50% 30%;
+  top: 0.75em;
+  left: 0;
+  width: 0.2em;
+  height: 0.25em;
+}
+
+.hamster__body {
+  animation: hamsterBody var(--dur) ease-in-out infinite;
+  background: hsl(30,90%,90%);
+  border-radius: 50% 30% 50% 30% / 15% 60% 40% 40%;
+  box-shadow: 0.1em 0.75em 0 hsl(30,90%,55%) inset,
+		0.15em -0.5em 0 hsl(30,90%,80%) inset;
+  top: 0.25em;
+  left: 2em;
+  width: 4.5em;
+  height: 3em;
+  transform-origin: 17% 50%;
+  transform-style: preserve-3d;
+}
+
+.hamster__limb--fr,
+.hamster__limb--fl {
+  clip-path: polygon(0 0,100% 0,70% 80%,60% 100%,0% 100%,40% 80%);
+  top: 2em;
+  left: 0.5em;
+  width: 1em;
+  height: 1.5em;
+  transform-origin: 50% 0;
+}
+
+.hamster__limb--fr {
+  animation: hamsterFRLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,80%) 80%,hsl(0,90%,75%) 80%);
+  transform: rotate(15deg) translateZ(-1px);
+}
+
+.hamster__limb--fl {
+  animation: hamsterFLLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,90%) 80%,hsl(0,90%,85%) 80%);
+  transform: rotate(15deg);
+}
+
+.hamster__limb--br,
+.hamster__limb--bl {
+  border-radius: 0.75em 0.75em 0 0;
+  clip-path: polygon(0 0,100% 0,100% 30%,70% 90%,70% 100%,30% 100%,40% 90%,0% 30%);
+  top: 1em;
+  left: 2.8em;
+  width: 1.5em;
+  height: 2.5em;
+  transform-origin: 50% 30%;
+}
+
+.hamster__limb--br {
+  animation: hamsterBRLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,80%) 90%,hsl(0,90%,75%) 90%);
+  transform: rotate(-25deg) translateZ(-1px);
+}
+
+.hamster__limb--bl {
+  animation: hamsterBLLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,90%) 90%,hsl(0,90%,85%) 90%);
+  transform: rotate(-25deg);
+}
+
+.hamster__tail {
+  animation: hamsterTail var(--dur) linear infinite;
+  background: hsl(0,90%,85%);
+  border-radius: 0.25em 50% 50% 0.25em;
+  box-shadow: 0 -0.2em 0 hsl(0,90%,75%) inset;
+  top: 1.5em;
+  right: -0.5em;
+  width: 1em;
+  height: 0.5em;
+  transform: rotate(30deg) translateZ(-1px);
+  transform-origin: 0.25em 0.25em;
+}
+
+.spoke {
+  animation: spoke var(--dur) linear infinite;
+  background: radial-gradient(100% 100% at center,hsl(0,0%,60%) 4.8%,hsla(0,0%,60%,0) 5%),
+		linear-gradient(hsla(0,0%,55%,0) 46.9%,hsl(0,0%,65%) 47% 52.9%,hsla(0,0%,65%,0) 53%) 50% 50% / 99% 99% no-repeat;
+}
+
+/* Animations */
+@keyframes hamster {
+  from, to {
+    transform: rotate(4deg) translate(-0.8em,1.85em);
+  }
+
+  50% {
+    transform: rotate(0) translate(-0.8em,1.85em);
+  }
+}
+
+@keyframes hamsterHead {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(8deg);
+  }
+}
+
+@keyframes hamsterEye {
+  from, 90%, to {
+    transform: scaleY(1);
+  }
+
+  95% {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes hamsterEar {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(12deg);
+  }
+}
+
+@keyframes hamsterBody {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(-2deg);
+  }
+}
+
+@keyframes hamsterFRLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(50deg) translateZ(-1px);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(-30deg) translateZ(-1px);
+  }
+}
+
+@keyframes hamsterFLLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(-30deg);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(50deg);
+  }
+}
+
+@keyframes hamsterBRLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(-60deg) translateZ(-1px);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(20deg) translateZ(-1px);
+  }
+}
+
+@keyframes hamsterBLLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(20deg);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(-60deg);
+  }
+}
+
+@keyframes hamsterTail {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(30deg) translateZ(-1px);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(10deg) translateZ(-1px);
+  }
+}
+
+@keyframes spoke {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(-1turn);
+  }
+}
+.WRRRR{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #98b6ec;
+}
+.S1{
+  font-size: 4vmax;
+  margin-left: 34vw;
+  margin-top: -50vh;
+  font-weight: 600;
+  color: #1a69b4;
+  opacity: 0;
+}
+.uu{
+  color: green;
+}
+.ww{
+  color: #f4c71f;
+}
+.xx{
+  color: #d12b17;
+}
+.yy{
+    font-size: 1vmax;
+    margin-top: 2vh;
+}
+.vv{
+  color: #f4c71f;
+}
+.video-wrapper{
+  margin-left: 15vw;
+  margin-top: 5vh;
+}
+.videonano{
+  width: 69vw;
+  height: 79.5vh;
+}
+.vvv{
+  font-size: 2vmax;
+  margin-top: 5vh;
+  justify-content: center;
+  display: flex;
+  font-weight: 600;
+}
+.BBBB{
+  height: 50vh;
+}
+    </style>
+</head>
+<body>
+  <div class="head">
+    <div class="sym2"><img src="网站/队徽.png"></div>
+<div class="menu2">
+  <div class="btn">
+      <span class="icon">
+          <svg viewBox="0 0 175 80" width="40" height="40">
+              <rect  width="7vw" height="3vh" fill="gray" rx="10"></rect>
+              <rect y="5vh" width="7vw" height="3vh" fill="gray" rx="10"></rect>
+              <rect y="10vh" width="7vw" height="3vh" fill="gray" rx="10"></rect>
+          </svg>
+      </span>
+      <span class="text">MENU</span>
+  </div>
+<ul class="cai2">
+  <li><button class="but"><a href="project.html">Project</a></button></li>
+  <li><button class="but"><a href="design.html">Design</a></button></li>
+  <li><button class="but"><a href="feasibility.html">Feasibility</a></button></li>
+  <li><button class="but"><a href="method.html">Method</a></button></li>
+  <li><button class="but"><a href="labbook.html">Labbook</a></button></li>
+  <li><button class="but"><a href="result.html">Result</a></button></li>
+  <li><button class="but"><a href="about us.html">About us</a></button></li>
+  <li><button class="but"><a href="ELSI.html">ELSI</a></button></li>
+  <li><button class="but"><a href="Future.html">Future</a></button></li>
+</ul>
+</div>
+</div>
+
+    <div class="tp">
+        <div class="sym"><img src="网站/队徽.png"></div>
+<div class="loader"></div>
+    <div class="menu">
+        <div class="b1">MENU</div>
+<div class="b2"><label class="bar" for="check">
+<input type="checkbox" id="check">
+<span class="top"></span>
+<span class="middle"></span>
+<span class="bottom"></span>
+</label></div>
+<ul class="cai">
+  <li><button class="but"><a href="project.html">Project</a></button></li>
+  <li><button class="but"><a href="design.html">Design</a></button></li>
+  <li><button class="but"><a href="feasibility.html">Feasibility</a></button></li>
+  <li><button class="but"><a href="method.html">Method</a></button></li>
+  <li><button class="but"><a href="labbook.html">Labbook</a></button></li>
+  <li><button class="but"><a href="result.html">Result</a></button></li>
+  <li><button class="but"><a href="about us.html">About us</a></button></li>
+  <li><button class="but"><a href="ELSI.html">ELSI</a></button></li>
+  <li><button class="but"><a href="Future.html">Future</a></button></li>
+</ul>
+ </div>
+    </div>
+    <div class="all"></div>
+       <div class="doara">
+       <div class="D"><img src="网站/D.png"></div>
+      <div class="O"><img src="网站/O.png"></div>
+      <div class="A"><img src="网站/A.png"></div>
+      <div class="R"><img src="网站/R.png"></div>
+      <div class="A2"><img src="网站/A(2).webp"></div>
+    </div>
+    <div class="S1"><span class="xx">D<span class="yy">na</span></span>&nbsp;<span class="ww">O<span class="yy">rigami</span></span>&nbsp;<span class="uu">A<span class="yy">u</span>&nbsp;<span class="yy">nano</span></span>R<span class="yy">od</span>&nbsp;<span class="vv">A<span class="yy">ssembly</span></span></div>
+    <div class="p"><img src="网站/Ph.png"></div>
+    <div class="fb1"></div>
+    <div class="cb"><div class="ab1">Photothermal Switch</div>
+    <div class="ab2">A remote conformational switch of DNA origami</div>
+ 
+<div class="fb2">
+  <div class="ab3">DNA nanorobotics with various conformational switches, including azobenzene<sup>[1]</sup>, toehold mediated strand displacement reaction<sup>[2]</sup> and i-motif<sup>[3]</sup>, hold a great promise as nanoscale machines with controllable structures and functions. These switches empower DNA nanorobots to execute sophisticated and complex tasks.<sup>[4]</sup></div> 
+<div class="ab4"><img src="网站/DNA1.png"></div>
+</div>
+<div class="fb3">
+  <div class="ab5">However, achieving remote control of DNA origami robots in vivo using current switches still poses challenges, such as the low stability of molecular switches within biological environments<sup>[5]</sup>, slow responsiveness<sup>[6]</sup>, and the restrictions on pH and ion concentration within biological entities.  </div>
+  <div class="ab6"><img src="网站/DNA2.png"></div>
+</div>
+<div class="fb6">Herein, we design an in vivo remotely and real-time controllable nanorobot with near-infrared photothermal-responsive switches by utilizing DNA origami coupled with gold nanorods.</div>
+<div class="fb4">
+  <div class="ab7">
+    <div class="aaa">  In this study, we utilized photoexcitated large-size gold nanorods as our switch to induce conformational change of Doara. By modifying the design of DNA origami to accommodate large-size gold nanorods and irradiating it with near-infrared light to excite surface plasmon resonance.</div>
+  <div class="bbb">I. Photothermal Effect as a dynamic conformational control "Switch".</div>
+  <div class="ccc">II. Remote near-infrared light activation and tissue Penetration. </div>
+  <div class="ddd">III. Rapid response and reversible conformational changes of DNA nanostructures.</div>
+</div>
+  <div class="ab8">
+  <img src="网站/DNA3.png"></div>
+</div>
+
+<div class="fb5">
+  <div class="ab9">Therefore, we address the challenges of remote control and real-time responsiveness in vivo for DNA nanorobots. Additionally, equipping Doara with tumor-targeting monoclonal antibodies allows for near-infrared light activation specifically at tumor sites, facilitating precise, targeted cancer therapy.</div>
+  <div class="ab10"><img src="网站/DNA4.png"></div>
+</div>
+<div class="vvv">Watch our video</div>
+<div class="video-wrapper">
+  <iframe class="videonano" src="https://www.youtube.com/embed/wlscs8AbVTM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+
+
+
+<div class="RF">
+  <div class="rf">References</div>
+  <div class="R1">[1]   Kuzyk A, Yang Y, Duan X, et al. A light-driven three-dimensional plasmonic nanosystem that translates molecular motion into reversible chiroptical function. Nat Commun. 2016;7:10591. Published 2016 Feb 2. doi:10.1038/ncomms10591.</div>
+  <div class="R2">[2]   Kim M, Lee C, Jeon K, et al. Harnessing a paper-folding mechanism for reconfigurable DNA origami. Nature. 2023;619(7968):78-86. doi:10.1038/s41586-023-06181-7.</div>
+  <div class="R2">[3]   Li L, Yin J, Ma W, et al. A DNA origami device spatially controls CD95 signalling to induce immune tolerance in rheumatoid arthritis. Nat Mater. 2024;23(7):993-1001. doi:10.1038/s41563-024-01865-5.</div>
+  <div class="R2">[4]   Nummelin S, Shen B, Piskunen P, Liu Q, Kostiainen MA, Linko V. Robotic DNA Nanostructures. ACS Synth Biol. 2020;9(8):1923-1940. doi:10.1021/acssynbio.0c00235.</div>
+  <div class="R2">[5]   Shen J, Zhao Y, Pham NT, et al. Deciphering the mechanism of processive ssDNA digestion by the Dna2-RPA ensemble. Nat Commun. 2022;13(1):359. Published 2022 Jan 18. doi:10.1038/s41467-021-27940-y.</div>
+  <div class="R2">[6]   Simmel FC, Yurke B, Singh HR. Principles and Applications of Nucleic Acid Strand Displacement Reactions. Chem Rev. 2019;119(10):6326-6369. doi:10.1021/acs.chemrev.8b00580.</div>
+ <div class="BBBB"></div>
+ 
+</div>
+<div class="WRRRR">
+  <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
+    <div class="wheel"></div>
+    <div class="hamster">
+      <div class="hamster__body">
+        <div class="hamster__head">
+          <div class="hamster__ear"></div>
+          <div class="hamster__eye"></div>
+          <div class="hamster__nose"></div>
+        </div>
+        <div class="hamster__limb hamster__limb--fr"></div>
+        <div class="hamster__limb hamster__limb--fl"></div>
+        <div class="hamster__limb hamster__limb--br"></div>
+        <div class="hamster__limb hamster__limb--bl"></div>
+        <div class="hamster__tail"></div>
+      </div>
+    </div>
+    <div class="spoke"></div>
+  </div>
+</div>
+<script src="网站/jquery/jquery-3.7.1.js"></script>
+<script src="网站/jquery/jquery-3.7.1.min.js"></script>
+<script>
+  $(window).on("load",function(){
+    $(".WRRRR").fadeOut("slow");
+  });
+</script>
+<script src="script.js"></script>
+</body>
+</html>

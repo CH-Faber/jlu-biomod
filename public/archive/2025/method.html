@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biomod - Method</title>
+    <style>
+        /* --- Original Page Styles --- */
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; margin: 0; background-color: #e7f7ff; }
+        a { color: inherit; text-decoration: none; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+        header { position: sticky; top: 0; z-index: 100; backdrop-filter: saturate(120%) blur(6px); background: rgba(255,255,255,0.8); border-bottom: 1px solid #eef2f7; width: 100%; }
+        header .container { max-width: none; margin: 0; padding: 0 16px; }
+        .nav { display: flex; align-items: center; height: 56px; width: 100%; padding: 0 16px; }
+        .brand { font-weight: 700; color: #1f2937; }
+        .spacer { flex: 1; }
+        .nav-links { display: none; gap: 16px; font-size: 16px; }
+        .nav-links a { color: #334155; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: #007bff; }
+        .nav-links a.active { color: #007bff; font-weight: 700; }
+        .hamburger { width: 40px; height: 40px; border-radius: 10px; border: 1px solid #e5e7eb; display: grid; place-items: center; background: #fff; }
+        @media (min-width: 960px) { .nav-links { display: flex; } .hamburger { display: none; } }
+        .mobile-menu { position: fixed; inset: 0; background: rgba(15,23,42,0.5); display: none; z-index: 1000; }
+        .mobile-menu.open { display: block; }
+        .mobile-panel { position: absolute; top: 0; right: 0; width: 78vw; max-width: 360px; height: 100%; background: #ffffff; box-shadow: -8px 0 32px rgba(0,0,0,0.15); padding: 20px; overflow: auto; }
+        .mobile-panel a { display: block; padding: 14px 8px; font-size: 18px; color: #0f172a; border-bottom: 1px solid #f1f5f9; }
+        
+        /* --- Styles for new content --- */
+        .content-section {
+            padding: 40px 0;
+            line-height: 1.6;
+            color: #333;
+        }
+        .content-section .inner {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left; /* Override centered text for content */
+        }
+        .content-section h1, .content-section h2, .content-section h3, .content-section h4, .content-section h5, .content-section h6 {
+            color: #2c3e50;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 10px;
+        }
+        .content-section h1 { font-size: 2.5em; text-align: center; }
+        .content-section h2 { font-size: 2em; margin-top: 1.5em; }
+        .content-section h3 { font-size: 1.5em; margin-top: 1.2em; }
+        .content-section p, .content-section li { font-size: 1em; }
+        /* Adjusted figure styling to better match the new content structure */
+        .content-section figure { margin: 20px 0; text-align: center; }
+        .content-section img { max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px; }
+        /* Style for the h6 used as a figcaption in the new content */
+        .content-section h6 { margin-top: 8px; font-style: italic; color: #555; border-bottom: none; font-size: 0.9em; font-weight: normal; }
+        .content-section table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .content-section th, .content-section td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        .content-section th { background-color: #f2f2f2; font-weight: bold; }
+        .content-section tr:nth-child(even) { background-color: #f9f9f9; }
+        .content-section ol, .content-section ul { padding-left: 30px; }
+        .content-section hr { border: 0; height: 1px; background-color: #eaeaea; margin: 2em 0; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+          <a href="index.html" class="brand">Biomod</a>
+          <div class="spacer"></div>
+          <nav class="nav-links">
+            <a href="index.html">Project</a> 
+            <a href="background/background.html">Background</a>
+            <a href="design/Design.html">Design</a>
+            <a href="material and method/Materials and Method.html" class="active">Method</a>
+            <a href="labbook/LABBOOK.html">Labbook</a>
+            <a href="result and discussion/Results and Discussion.html">Results</a>
+            <a href="about us/about-us.html">About Us</a>
+            <a href="Future/prospect and future.html">Future</a>
+            <a href="ELSI/ELSI.html">ELSI</a>
+          </nav>
+          <button id="open-menu" class="hamburger" aria-label="Open menu"><span></span></button>
+        </div>
+        <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+            <div class="mobile-panel">
+              <a href="index.html">Project</a>
+              <a href="background/background.html">Background</a>
+              <a href="design/Design.html">Design</a>
+              <a href="material and method/Materials and Method.html">Method</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="content-section">
+        <div class="container inner">
+            <!-- === Embedded from 'Materials and Method.html' === -->
+            <h1 id='materials-and-methods'><span>Materials and Methods</span></h1>
+            <h3 id='material-preparation'><span>Material preparation</span></h3>
+            <h5 id='assembly-of-dna-tetrahedron-'><strong><span>Assembly of DNA tetrahedron</span></strong><span> :</span></h5>
+            <p><span>	</span><span>Mix S1,GS2,GS3 and GS4 in equal parts. After annealing in a metal bath for 24h, we can acquire a DNA tetrahedron. (See Figure 1 for the detailed procedure.)</span></p>
+            <p><img src="image-20251010193409310.png" referrerpolicy="no-referrer" alt="Diagram showing the synthesis of DNA tetrahedron"></p>
+            <h6 id='fig1-the-synthesis-of-the-dna-tetrahedron'><em><span>Fig.1: The synthesis of the DNA tetrahedron</span></em></h6>
+            <hr />
+            <h5 id='assembly-of-dna-supramolecular-'><span>Assembly of DNA supramolecular :  </span></h5>
+            <p><span>	</span><span>Mix the solution of DNA tetrahedron with the corresponding ion solution in a 1:1 ratio.(See Figure 2 for the detailed procedure.)</span></p>
+            <p><img src="image-20251010193602864.png" referrerpolicy="no-referrer" alt="Diagram showing the synthesis of DNA supramolecular"></p>
+            <h6 id='fig-2-the-synthesis-of-dna-supramolecular'><em><span>Fig. 2: The synthesis of DNA supramolecular</span></em></h6>
+            <hr />
+            <h3 id='material-characterization'><span>Material characterization</span></h3>
+            <h5 id='1-agarose-gel-electrophoresis-'><span>1. Agarose Gel Electrophoresis :</span></h5>
+            <p><span>	</span><span>Take 3.1 μL of the DNA sample, then add 2 μL of 6 × DNA loading buffer and 4.9 μL of DEPC water, and mix well. Load the mixture into the wells of a pre-prepared agarose gel. Use 0.5 × TBE buffer as the electrophoresis buffer and run the electrophoresis at 80 V for 70 minutes.</span></p>
+            <h5 id='2-observing-by-transmission-electron-microscope-'><span>2. Observing by Transmission Electron Microscope :</span></h5>
+            <p><span>	</span><span>The preparation of unstained samples involves treating copper grids with a plasma cleaner for 15 seconds, followed by dropping 1.5 μL sample onto the grids and leaving them to dry. The samples are imaged with a TEM operating at 200 kV.</span></p>
+            <h5 id='3-atomic-force-microscopy-characterization-'><span>3. Atomic force microscopy characterization :</span></h5>
+            <p><span>	</span><span>Treat the mica sheets with a smooth surface with a 10 μM nickel chloride solution for 3 minutes, then wash off the residual solution with ultrapure water. Pipette 10 μL of the DNA sample, and evenly drop it onto the treated mica sheet. After standing for 8 minutes, rinse it with ultrapure water 5 times, and gently dry it with a nitrogen blower. In atomic force microscopy, select the tapping mode in gas phase for testing.</span></p>
+            <h5 id='4-dynamic-light-scattering-'><span>4. Dynamic light scattering :</span></h5>
+            <p><span>	</span><span>Transfer 20 µL of the test solution into a 1.5 mL EP tube, and dilute with distilled water to 1000 µL. After mixing evenly, all samples are transferred into Malvern Glass Cuvettes and loaded into the Nanoparticle Size and Zeta Potential Analyzer. Scan time 30 seconds 3 times, then start testing.</span></p>
+            <h5 id='5-circle-dichromatography-'><span>5. Circle dichromatography :</span></h5>
+            <p><span>	</span><span>In this study, a circular dichroism spectrometer was used to obtain the circular dichroism spectral data of DNA. The optical path length of the sample cell in the experiment was 1 mm, and the concentration of DNA used in the CD experiments was 2 μM for all samples. For each sample, the instrument recorded spectral values in the range of 200~400 nm. The reference for each sample was a solution containing the corresponding salt but without DNA.</span></p>
+
+            <h3 id='experimental-materials'><span>Experimental materials</span></h3>
+            <h4 id='table1---experimental-materials'><span>Table.1 :  Experimental materials</span></h4>
+            <table>
+                <thead>
+                    <tr><th><span>Category</span></th><th><span>Cat. NO.</span></th><th><span>Mfrs</span></th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><span>DNA Oligo</span></td><td>&nbsp;</td><td><span>Beijing Liuhe Huada Gene Technology Co., Ltd.</span></td></tr>
+                    <tr><td><span>Lithium chloride solution</span></td><td><span>R30508-100ml</span></td><td><span>Yuanye</span></td></tr>
+                    <tr><td><span>DEPC water(DNase、RNase free)</span></td><td><span>B501005-0500</span></td><td><span>Sangon Biotech</span></td></tr>
+                    <tr><td><span>SYBR Safe nucleic acid dye</span></td><td><span>A616699-0100</span></td><td><span>Sangon Biotech</span></td></tr>
+                    <tr><td><span>DNA Marker (50~1031 bp)</span></td><td><span>B500345-0050</span></td><td><span>Sangon Biotech</span></td></tr>
+                    <tr><td><span>DNA Marker（500~15000 bp）</span></td><td><span>B500353-0500</span></td><td><span>Sangon Biotech</span></td></tr>
+                    <tr><td><span>5X TBE buffer</span></td><td><span>B548102-0500</span></td><td><span>Sangon Biotech</span></td></tr>
+                    <tr><td><span>2M potassium chloride</span></td><td><span>ST340</span></td><td><span>Beyotime Biotechnology</span></td></tr>
+                    <tr><td><span>1M magnesium chloride</span></td><td><span>ST269</span></td><td><span>Beyotime Biotechnology</span></td></tr>
+                    <tr><td><span>Red fluorescent DNA loading buffer</span></td><td><span>D0076</span></td><td><span>Beyotime Biotechnology</span></td></tr>
+                    <tr><td><span>18-crown 6-ether</span></td><td><span>C105797-5g</span></td><td><span>Aladdin</span></td></tr>
+                    <tr><td><span>6X DNA Loading Buffer (Tricolor)</span></td><td><span>C767005-2×1ml</span></td><td><span>Aladdin</span></td></tr>
+                    <tr><td><span>Anhydrous ethanol</span></td><td><span>E111992-500ml</span></td><td><span>Aladdin</span></td></tr>
+                    <tr><td><span>10 × T4 DNA ligase buffer</span></td><td><span>B0202S</span></td><td><span>New England Biolabs</span></td></tr>
+                    <tr><td><span>TE buffer, 10X, pH 8.0</span></td><td><span>T885254</span></td><td><span>Macklin</span></td></tr>
+                    <tr><td><span>Agarose</span></td><td><span>BS081-100g</span></td><td><span>Biosharp</span></td></tr>
+                </tbody>
+            </table>
+
+            <h4 id='table2---equipments'><span>Table.2 :  Equipments</span></h4>
+            <table>
+                <thead>
+                    <tr><th><span>Category</span></th><th><span>Cat. NO.</span></th><th><span>Mfrs</span></th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><span>Transmission electron microscopy</span></td><td><span>JEM-2100F</span></td><td><span>JEOL</span></td></tr>
+                    <tr><td><span>Transmission electron microscopy</span></td><td><span>H800</span></td><td><span>HITACHI</span></td></tr>
+                    <tr><td><span>Transmission electron microscopy</span></td><td><span>JEM-F200</span></td><td><span>JEOL</span></td></tr>
+                    <tr><td><span>Atomic force microscopy</span></td><td><span>Cypher ES</span></td><td><span>Oxford Instruments</span></td></tr>
+                    <tr><td><span>Nanoparticle Size and Zeta Potential Analyzer</span></td><td><span>NS-90Z</span></td><td><span>OMEC</span></td></tr>
+                    <tr><td><span>Thermal cycler</span></td><td><span>A-100</span></td><td><span>LongGene</span></td></tr>
+                    <tr><td><span>Circular dichromatograph</span></td><td><span>Chirascan-plus</span></td><td><span>Applied Photophysics</span></td></tr>
+                    <tr><td><span>Vortex oscillator</span></td><td><span>MTV-1</span></td><td><span>Allsheng</span></td></tr>
+                    <tr><td><span>centrifuge</span></td><td><span>Centrifuge 5810 R</span></td><td><span>Eppendorf</span></td></tr>
+                    <tr><td><span>centrifuge</span></td><td><span>D1012U</span></td><td><span>DLAB</span></td></tr>
+                    <tr><td><span>electrophoresis</span></td><td><span>EPS 300</span></td><td><span>Tanon</span></td></tr>
+                    <tr><td><span>Plasma instrument</span></td><td><span>PDC-002</span></td><td><span>HARRICK</span></td></tr>
+                </tbody>
+            </table>
+
+            <h4 id='table3---dna-sequence'><span>Table.3 :  DNA sequence</span></h4>
+            <table>
+                <thead>
+                    <tr><th><span>Id</span></th><th><span>Description</span></th><th><span>Sequence 5’ - 3’</span></th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><span>1</span></td><td><span>RDT-A1-G4</span></td><td><span>AATCGACAGGAACAGCAATGAACTAGCCATAGTCAATACACACCTCTAGACTTCAGATGAGAGCACTGACCCTCAGGTACCGTGGGGAATGGGG</span></td></tr>
+                    <tr><td><span>2</span></td><td><span>RDT-A2</span></td><td><span>CGGACTCGGACGTCTTGCGAGGTCATCTGAAGTCTAGAGGTGTGACAAAGTAACTGAATCTAACGACCAGATAAGGAACTCA</span></td></tr>
+                    <tr><td><span>3</span></td><td><span>RDT-A3</span></td><td><span>GTCAGTGCTCCCTCGCAAGACGTCCGAGTCCGAACATACAGTAGAGCTGGACACAACAGAAGATCCATTGCGGTACCTGAGG</span></td></tr>
+                    <tr><td><span>4</span></td><td><span>RDT-B1-G4</span></td><td><span>GGGGAATGGGGTTATTGACTATGGCTAGTTCATTGCTGTTCCTGTCGATTGACCTCTACGCGGCAGAGTCCACTGAGTGAGATCCGCACGTTGA</span></td></tr>
+                    <tr><td><span>5</span></td><td><span>RDT-B2</span></td><td><span>TCTCACTCAGTATACTTCCAGATCAATGTCTAGACGTCGTTCATCTCGAGAGCTGTAACCAATGTAATTTTCAACGTGCGGA</span></td></tr>
+                    <tr><td><span>6</span></td><td><span>RDT-B3</span></td><td><span>TAGACATTGATCTGGAAGTATATGGACTCTGCCGCGTAGAGGTCTCAAGAGTTAGGAATATCCCTGGAAAGGTTACACATCG</span></td></tr>
+                    <tr><td><span>7</span></td><td><span>RDT-C1-G4</span></td><td><span>GGGGAATGGGGTCTAGACCTATGTACCTATGTACCGCCGACTACGAACTGCTTGGTCAATGGATCTTCTGTTGTGTCCAGCTCTACTGTATGTT</span></td></tr>
+                    <tr><td><span>8</span></td><td><span>RDT-C2</span></td><td><span>GTGAGTGCTAGTACATAGGTACATAGGTCTAGCGTACTGGTCACGGTTCACCATCGCTCGTATAGGCCATGTCCACATGCTC</span></td></tr>
+                    <tr><td><span>9</span></td><td><span>RDT-C3</span></td><td><span>GTAGTCGGCGTAGCACTCACGAGCATGTGGACCGATGTGTAACCTTTCCAGGGATATTCCTAACTCTTGAACCAAGCAGTTC</span></td></tr>
+                    <tr><td><span>10</span></td><td><span>RDT-D1-S1</span></td><td><span>TTAGAACATTCCATGTGCTATTTTTACCGTATGCGTACCCATTTATTACATTGGTTACAGCTCTCGAGATGAACGACGTCTTTCTAGTAATTGGCCT</span></td></tr>
+                    <tr><td><span>11</span></td><td><span>RDT-D2</span></td><td><span>TTTTGGGTACGCATACGGTATTTTTCGCTTACTGCCAATCGGTTAGAGTTCCTTATCTGGTCGTTAGATTCAGTTACTTTGT</span></td></tr>
+                    <tr><td><span>12</span></td><td><span>RDT-D3</span></td><td><span>TTCCGATTGGCAGTAAGCGTTTTTTAGCACATGGAATGTTCTATGGCCTATACGAGCGATGGTGAACCGTGACCAGTACGTT</span></td></tr>
+                    <tr><td><span>13</span></td><td><span>RDT-B1</span></td><td><span>TATTGACTATGGCTAGTTCATTGCTGTTCCTGTCGATTGACCTCTACGCGGCAGAGTCCACTGAGTGAGATCCGCACGTTGA</span></td></tr>
+                    <tr><td><span>14</span></td><td><span>RDT-C1</span></td><td><span>CTAGACCTATGTACCTATGTACCGCCGACTACGAACTGCTTGGTCAATGGATCTTCTGTTGTGTCCAGCTCTACTGTATGTT</span></td></tr>
+                    <tr><td><span>15</span></td><td><span>RDT-C2</span></td><td><span>GTCCACATGCTCGTGAGTGCTAGTACATAGGTACATAGGTCTAGCGTACTGGTCACGGTTCACCATCGCTCGTATAGGCCAT</span></td></tr>
+                    <tr><td><span>16</span></td><td><span>S1</span></td><td><span>ATGCAACTGTTCAACTCGCTCGTAACTACACTGTGCAATACTCTGGTGACC</span></td></tr>
+                    <tr><td><span>17</span></td><td><span>GS2</span></td><td><span>GGGGAATGGGGTTCTGACGTAGTGTATGCACAGTGTAGTAAGGACCCTCGCAT</span></td></tr>
+                    <tr><td><span>18</span></td><td><span>GS3</span></td><td><span>GGGGAATGGGGTACGAGCGAGTTGATGTGATGCAAGCTGAATGCGAGGGTCCT</span></td></tr>
+                    <tr><td><span>19</span></td><td><span>GS4</span></td><td><span>GGGGAATGGGGTACACTACGTCAGAACAGCTTGCATCACTGGTCACCAGAGTA</span></td></tr>
+                </tbody>
+            </table>
+            <!-- === End embedded content === -->
+        </div>
+    </main>
+
+    <script>
+      // 移动端菜单控制JS
+      (function(){ 
+          const openMenuBtn = document.getElementById('open-menu');
+          const mobileMenu = document.getElementById('mobile-menu');
+          
+          openMenuBtn.addEventListener('click', function() {
+              const isMenuOpen = mobileMenu.classList.contains('open');
+              if (isMenuOpen) {
+                  mobileMenu.classList.remove('open');
+                  mobileMenu.setAttribute('aria-hidden', 'true');
+              } else {
+                  mobileMenu.classList.add('open');
+                  mobileMenu.setAttribute('aria-hidden', 'false');
+              }
+          });
+          
+          mobileMenu.addEventListener('click', function(event) {
+              if (event.target === mobileMenu) {
+                  mobileMenu.classList.remove('open');
+                  mobileMenu.setAttribute('aria-hidden', 'true');
+              }
+          });
+      })();
+    </script>
+</body>
+</html>

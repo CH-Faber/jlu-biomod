@@ -1,0 +1,1041 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+    
+    <title>Nano-JLU Labbook</title>
+
+    <!-- Justify Styles -->
+    <link href="css/justify.css" rel="stylesheet">
+
+    <!--Library Styles-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/lib/font-awesome.css" rel="stylesheet">
+    <link href="css/lib/nivo-lightbox.css" rel="stylesheet">
+    <link href="css/lib/nivo-themes/default/default.css" rel="stylesheet">
+
+    <!--Template Styles-->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/scheme/purple.css" rel="stylesheet">
+    <link href="css/docs.min.css" rel="stylesheet">
+    <style type="text/css">
+
+body {
+	background-image: url(images/bgphoto.png);
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+    background-position:center;
+}
+.bs-docs-sidebar .nav li{line-height:36px;}
+.bs-docs-sidebar .nav>.active>a,.bs-docs-sidebar .nav>li:hover>a{
+    padding-left: 28px;
+    font-weight: 700;
+    color: #563d7c;
+    background-color: transparent;
+    border-left:4px solid #428BCA;
+	box-shadow:1px 1px 3px  #ccc;
+	border-top:none;
+    display:block;
+	width:100%;
+	line-height:36px;
+	text-decoration:none;
+}
+    </style>
+
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+ <script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</script>
+
+
+</head>
+
+<!-- Preloader -->
+    <div id="preloader">
+        <div id="status"></div>
+    </div>
+    <!-- Site Navigation -->
+    <body>
+  <div id="main-wrapper">
+
+
+
+
+
+    <div class="container bs-docs-container">
+
+
+
+
+
+
+      <div class="row">
+
+  <!--11111111111111111111111111111111111111111111111-->
+<!--<link href="index/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+--><link href="index/css/style_n.css" rel="stylesheet" type="text/css" media="all" />
+<!-- header -->
+<div class="header">
+  <div class="container">
+    <nav class="navbar navbar-default">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" style="margin-top:2.3em;">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand logo" href="index.html"><img class="logo1"  src="images/nanojlu.gif" alt="Nano-JLU" style="height: 60px; margin-top:10px;"></a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+        <nav class="menu menu--francisco">
+          <ul class="nav navbar-nav menu__list">
+           <li class="menu__item"><a href="index.html" class="menu__link"><span class="menu__helper">Home</span></a></li>
+            <li class="menu__item"><a href="introduction.html" class="menu__link"><span class="menu__helper">INTRODUCTION</span></a></li>
+            <li class="menu__item"><a href="design.html" class="menu__link"><span class="menu__helper">DESIGN</span></a></li>
+            <li class="menu__item"><a href="protocol.html" class="menu__link"><span class="menu__helper">EXPERIMENT</span></a></li>
+            <li class="menu__item"><a href="result.html" class="menu__link"><span class="menu__helper">RESULT</span></a></li>
+            <li class="menu__item menu__item--current"><a href="labbook.html" class="menu__link"><span class="menu__helper">LABBOOK</span></a></li>
+            <li class="menu__item"><a href="team.html" class="menu__link"><span class="menu__helper">TEAM</span></a></li>
+          </ul>
+        </nav>
+        <!--<div class="phone">
+						<p><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>Call-  <span>+0123 45</span></p>
+					</div>-->
+      </div>
+      <!-- /.navbar-collapse -->
+    </nav>
+  </div>
+</div>
+<!-- //header -->
+
+
+
+        <!---->
+       <div class="col-md-3" style="position:relative;">
+    <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" role="complementary" style="margin-top:10px;position: fixed;">
+      <ul class="nav bs-docs-sidenav">
+      <a class="back-to-top" href="#top" style="padding-left: 0px;margin-left:-8px;">
+  <p style="font-size:14px;
+              color:#000">Back to top</p>
+  </a>
+    <li><a href="#530">May</a>
+      <ul class="nav">
+        <li> <a href="#530">May 30<sup>th</sup></a>
+          <ul class="nav">
+            <li><a href="#5301">Dilute the primers</a></li>
+		    <li><a href="#5302">Run the PCR according to the<br> following condition.</a></li>
+			<li><a href="#5303">Preparation and condition for<br> agarose gel electrophoresis（0.8%）</a></li>
+		  </ul>
+		</li>
+        <li><a href="#531">May 31<sup>st</sup></a>
+          <ul class="nav">
+            <li><a href="#5311">Gel recovery procedure</a></li>
+          </ul>
+        </li>
+		</ul>
+		  </li>
+    <li><a href="#601">June</a>
+     <ul class="nav">
+      <li> <a href="#601">June 1<sup>st</sup></a>
+          <ul class="nav">
+            <li><a href="#6011">The first assembly</a></li>
+            <li><a href="#6012">The annealing reaction </a></li>
+          </ul>
+      </li>
+      <li> <a href="#605">June 5<sup>th</sup></a>
+          <ul class="nav">
+            <li><a href="#6051">Preparation for the silicon slice </a></li>
+			<li><a href="#6052">Sample adsorption </a></li>
+          </ul>
+      </li>
+      <li> <a href="#606">June 6<sup>th</sup></a>
+          <ul class="nav">
+            <li><a href="#6061">The first characterization of<br> DNA Origami</a></li>
+          </ul>
+      </li>
+      <li> <a href="#608">June 8<sup>th</sup></a>
+     </li>
+	  <li> <a href="#609">June 9<sup>th</sup></a>
+      <ul class="nav">
+            <li><a href="#6091">The annealing reaction </a></li>
+		  </ul>
+		 </li>
+		 <li> <a href="#614">June 14<sup>th</sup></a>
+      <ul class="nav">
+            <li><a href="#6141">The characterization of<br>closed-state structure.</a></li>
+		  </ul>
+		 </li>
+		 <li> <a href="#630">June 30<sup>th</sup></a>
+		 </li>
+	 </ul>
+   </li>
+   <li><a href="#705">July</a>
+     <ul class="nav">
+		  <li> <a href="#705">July 5<sup>th</sup></a></li>
+         <li> <a href="#711">July 11<sup>st</sup></a>
+           <ul class="nav">
+			  <li><a href="#7111">Regulation </a></li>
+		   </ul>
+		 </li>
+		 <li> <a href="#712">July 12<sup>nd</sup></a>
+           <ul class="nav">
+             <li><a href="#7121">The characterization of<br>closed-state structure.</a></li>
+		   </ul>
+		 </li>
+		 <li> <a href="#714">July 14<sup>th</sup></a>
+           <ul class="nav">
+			  <li><a href="#7141">50&#215; TAE buffer</a></li>
+			  <li><a href="#7142">10&#215; Mg<sup>2+</sup> buffer(120mM)</a></li>
+			  <li><a href="#7143">The annealing reaction </a></li>
+			  <li><a href="#7144">Regulation </a></li>
+		  </ul>
+		 </li>
+		  <li> <a href="#715">July 15<sup>th</sup></a>
+           <ul class="nav">
+			  <li><a href="#7151">Regulation </a></li>
+		  </ul>
+		 </li>
+		 <li> <a href="#718">July 18<sup>th</sup></a>
+          <ul class="nav">
+          <li><a href="#7181">The characterization of <br>open-state structure.</a></li>
+		  </ul>
+		 </li>
+		 <li> <a href="#721">July 21<sup>st</sup></a>
+		 <ul class="nav">
+			  <li><a href="#7211">The annealing reaction  </a></li>
+			  <li><a href="#7222">Preparation for TEM</a></li>
+		  </ul>
+		 </li>
+		  <li> <a href="#725">July 25<sup>th</sup></a>
+          <ul class="nav">
+          <li><a href="#7251">
+The characterization of<br> open-state structure.</a></li>
+		  </ul>
+		 </li>
+		   <li> <a href="#726">July 26<sup>th</sup></a></li>
+		   <li> <a href="#728">July 28<sup>th</sup></a>
+          <ul class="nav">
+          <li><a href="#7281">
+The characterization of<br> closed-state structure.</a></li>
+		  </ul>
+		 </li>
+		 <li> <a href="#731">July 31<sup>st</sup></a>
+          <ul class="nav">
+          <li><a href="#7311">
+The characterization of <br>closed-state structure.</a></li>
+	      <li><a href="#7312">The first step of TMV assembly</a></li>
+		  </ul>
+		 </li>
+	 </ul>
+   </li>
+
+ <li><a href="#802">August</a>
+     <ul class="nav">
+     <li> <a href="#802">August 2<sup>nd</sup></a>
+        <ul class="nav">
+          <li><a href="#8021">The second step of TMV assembly</a></li>
+	    </ul>
+	 </li>
+     <li><a href="#824">August 24<sup>th</sup></a>
+     <ul class="nav">
+          <li><a href="#8241">The annealing reaction </a></li>
+	    </ul>
+	    </li>
+     <li><a href="#826">August 26<sup>th</sup></a>
+        <ul class="nav">
+          <li><a href="#8261">DLS</a></li>
+	    </ul>
+	 </li>
+     <li><a href="#829">August 29<sup>th</sup></a>
+        <ul class="nav">
+          <li><a href="#8291">The characterization of TMV assembly <br>and closed-state DNA Origami</a></li>
+	    </ul>
+	 </li>
+     <li><a href="#831">August 31<sup>st</sup></a>
+        <ul class="nav">
+          <li><a href="#8311">The characterization of TMV assembly <br>and closed-state DNA Origami</a></li>
+	    </ul>
+	 </li>
+	 </ul>
+		  </li>
+	<li><a href="#904">September</a>
+      <ul class="nav">
+     	<li> <a href="#904">September 4<sup>th</sup></a>
+          <ul class="nav">
+          <li><a href="#9041">The characterization of TMV assembly <br>and closed-state DNA Origami</a></li>
+	      </ul>
+	    </li>
+	    <li> <a href="#915">September 15<sup>th</sup></a>
+          <ul class="nav">
+          <li><a href="#9151">The annealing reaction </a></li>
+	      </ul>
+	    </li>
+	     <li> <a href="#918">September 18<sup>th</sup></a>
+          <ul class="nav">
+          <li><a href="#9181">The characterization of TMV assembly<br> and open-state DNA Origami</a></li>
+	      </ul>
+	    </li>
+	     <li> <a href="#923">September 23<sup>rd</sup></a>
+          <ul class="nav">
+          <li><a href="#9231">The first step of TMV assembly</a></li>
+          <li><a href="#9232">The annealing reaction </a></li>
+          <li><a href="#9233">The second step of TMV assembly</a></li>
+	      </ul>
+	    </li>
+	    <li> <a href="#925">September 25<sup>th</sup></a>
+          <ul class="nav">
+          <li><a href="#9251">The annealing reaction </a></li>
+          <li><a href="#9252">The second step of TMV assembly</a></li>
+	      </ul>
+	    </li>
+	    <li> <a href="#926">September 26<sup>th</sup></a>
+	    </li>
+	       <li> <a href="#927">September 27<sup>th</sup></a>
+          <ul class="nav">
+          <li><a href="#9271">The annealing reaction </a></li>
+	      </ul>
+	    </li>
+	    <li> <a href="#929">September 29<sup>th</sup></a>
+          <ul class="nav">
+          <li><a href="#9291">The characterization of open-state and<br> closed-state DNA Origami</a></li>
+	      </ul>
+	    </li>
+		</ul>
+		  </li>
+
+
+  
+		</ul>
+  </div>
+
+   </div>
+
+
+
+
+
+
+
+        <div class="col-md-9" role="main">
+
+
+<div class="bs-dos-section">
+  <h2 id="530" class="page-header labbookh" style="margin-top:40px;">May 30<sup>th</sup></h2>
+    <h3 class="labbookh" id="5301">Dilute the primers</h3>
+  <ul class="labbookul">
+    <li>Add 10 times the volume of water into primer dry powder to turn the concentration into 100 μM. （1 nmol primer add 10 μl ddH2O）</li>
+    <li>Dilute sense primer to a concentration of 50 μM, and dilute anti-sense primer to 1 μM.</li>
+  </ul>
+<div class="labbooktablediv" style="width:680px" align="center"><table class="table table-bordered labbooktable" style="background-color:transparent;font-family:Cambria, Hoefler Text, Liberation Serif, Times, Times New Roman, serif;border-width:1px;width:80%;">
+<caption style="margin-top: 5px;margin-bottom: 5px;font-weight: bolder;">Prepare three 50 μl PCR reactions according to the following table.</caption>
+<tr>
+  <td></td>
+  <th>μl</th>
+  <th>Final concentration</th>
+</tr>
+<tr>
+  <th>5&#215; Reaction Buffer</th>
+  <td>10</td>
+  <td>1&#215;</td>
+</tr>
+<tr>
+  <th>Sense Primer</th>
+  <td>1</td>
+  <td>1 μM</td>
+</tr>
+<tr>
+  <th>Anti-sense Primer</th>
+  <td>1</td>
+  <td>20 nM</td>
+</tr>
+<tr>
+  <th>M13 RF</th>
+  <td>0.5</td>
+  <td>5ng</td>
+</tr>
+<tr>
+  <th>dNTP</th>
+  <td>1</td>
+  <td></td>
+</tr>
+<tr>
+  <th>Q5</th>
+  <td>0.5</td>
+  <td>1U</td>
+</tr>
+<tr>
+  <th>ddH<sub>2</sub>O</th>
+  <td>36</td>
+  <td></td>
+</tr>
+	</table>
+	</div>
+<h3 class="labbookh" id="5302">Run the PCR according to the following condition.</h3>
+	<ul class="labbookul">
+	  <li>Pre-denaturation at 95℃ for 4 min. Denaturation at 95℃ for 30s, annealing at 55℃ for 30s, extension at 72℃ for 5min 30s, 35 cycle. Final extension at 72℃ for 5min and store at 4℃.</li>
+    </ul>
+<h3 class="labbookh" id="5303">Preparation and condition for agarose gel electrophoresis(0.8%)</h3>
+	
+    <div><p><span style="float:right"><img src="images/labbook/53031.png" width="50%"></span><p><ul class="labbookul">
+	  <li>Mix 0.2g agarose with 25ml 1&#215; TAE, heat to boil for three times.</li>
+	  <li>Add 5μl EtBr when the gel is less than 50℃.</li>
+	  <li>Mix 50μl PCR product with 5.5μl 10&#215; loading buffer.</li>
+	  <li>Each channel of the agarose gel was added by 25μl of the PCR mixture. </li>
+	  <li>Run at 80V, 400mA, for 30min.</li>
+	</ul>
+	  </p></p></div><br><br><br><br>
+		</div>
+
+			
+<div class="bs-docs-section">
+  <h2 id="531" class="page-header labbookh">May 31<sup>st</sup></h2>
+  <h3 class="labbookh" id="5311">Gel recovery procedure</h3>
+  <ul class="labbookul">
+       <li>Excise the DNA fragment from the agarose gel.</li>
+       <li>Weigh the gel slice and add 3 volumes of Extraction Buffer to 1 volume of gel（100mg=100μl）.
+The gel slices’ weight were 0.2766g，0.2591g and 0.2121g.</li>
+       <li>Incubate at 50℃ until the gel melts in a heating block and vortex the tube every 2-3 minutes during the incubation.</li>
+       <li>Apply the sample to Spin column, centrifuge for 1min at 6000xg. Discard the flow-through.</li>
+       <li>Add 500μl Extraction Buffer to Spin column, centrifuge for 60s at 12000xg. Discard the flow-through.</li>
+       <li>Add 750μl Wash Buffer to Spin column, wait for 3minutes, than centrifuge for 60s at 12000xg. Discard the flow-through. </li>
+       <li>Centrifuge for an additional 1 min at 12000xg and transfer the Spin column to a sterile 1.5 ml micro-centrifuge tube.</li>
+       <li>Add 50μl elution buffer to the Spin column and let it stand for 1 minute at room temperature.</li>
+       <li>Centrifuge for 1min at 12000xg. The Buffer in the microcentrifuge tube contained the DNA.</li>
+       <li>The OD260 that measured was 0.120 OD</li>
+  </ul>
+</div>
+
+<div class="bs-docs-section">
+<h2 id="601" class="page-header labbookh">June 1<sup>st</sup></h2>
+
+<h3 class="labbookh" id="6011">The first assembly</h3>
+<ul class="labbookul">
+<li>Dilute everyone of the 118 staples to a concentration of 100 μM. Take 10μl of each and add 820 μl ddH2O to make the concentration of the staple mixture 500 nM.</li>
+<li>For the Tris-Hcl（Mg<sup>2+</sup>）Buffer, 0.012g Tris base, 0.0268g MgAc and 80μl HCL were added to reach a final concentration of 10mM Tris and 12.5mM Mg<sup>2+</sup>.</li>
+</ul>
+<h3 class="labbookh" id="6012">The annealing reaction </h3>
+<ul class="labbookul">
+<li>The reaction was set as the following table(Scaffold:Staple=1:10)</li>
+<div class="labbooktablediv" style="width:680px" align="center"><table class="table table-bordered labbooktable" style="background-color:transparent;font-family:Cambria, Hoefler Text, Liberation Serif, Times, Times New Roman, serif;border-width:1px;width:80%;">
+<caption style="margin-top: 5px;margin-bottom: 5px;font-weight: bolder;">The reaction was set as the following table(Scaffold:Staple=1:10)</caption>
+<tr>
+<th></th>
+<th>Volume</th>
+<th>Final concentration</th>
+</tr>
+<tr>
+<th>Scaffold</th>
+<td>15μl</td>
+<td>1.7nM</td>
+</tr>
+<tr>
+<th>Staple</th>
+<td>5μl</td>
+<td>17nM</td>
+</tr>
+<tr>
+<th>Reaction buffer(Tris)</th>
+<td>30μl </td>
+<td>6mM Tris, 7.5mM MgAc</td>
+</tr>
+	</table>
+	</div>
+<li>Reaction condition: 50℃ for 1h , stored at 4℃</li>
+<li>The staple mixture (500nM) was diluted into a concentration of 170nM, then added into the reaction tube.</li>
+</ul>
+</div>
+
+<div class="bs-docs-section">
+<h2 id="605" class="page-header labbookh">June 5<sup>th</sup></h2>
+<h3 class="labbookh" id="6051">Preparation for the silicon slice</h3>
+<ul class="labbookul">
+<li>Heat the slice in a mixture of 35ml Dense H<sub>2</sub>SO<sub>4</sub> and 15ml H<sub>2</sub>O<sub>2</sub> for 20min, until there are no bubbles</li>
+<li>Discard the solution. Wash the slice with water for several times then put them into a clean beaker.</li>
+<li>Add ultrapure water for liquid sealing and seal the beaker with sealing film.</li>
+	</ul>
+<h3 class="labbookh" id="6052">Sample adsorption</h3>
+<ul class="labbookul">
+<li>Take a 5μl volume of the sample, let it be deposited onto the silicon slice.</li>
+<li>Left to adsorb for 5 min.</li>
+<li>Wash with ddH2O to remove the salt, then let it to air dry and wait for imaging.</li>
+	</ul>
+	</div>
+<div class="bs-docs-section">
+<h2 id="606" class="page-header labbookh">June 6<sup>th</sup></h2>
+<h3 class="labbookh" id="6061">Characterization of the nanostructure by AFM （Sample from June 1<sup>st</sup>）</h3>
+<div class="labbooktablediv" align="center"><img src="images/labbook/60611.png" width="70%"></div>
+		</div>
+<div class="bs-docs-section" style="margin-bottom:80px;">
+<h2 id="608" class="page-header labbookh">June 8<sup>th</sup></h2>
+<div><p><span style="float:right"><img src="images/labbook/6081.png" width="50%"></span><p><br>
+<ul class="labbookul">
+  <li>Repeat the αPCR and agarose gel electrophoresis on May 30<sup>th</sup>.</li>
+  <li>Repeat the gel recovery as the procedure on May 31<sup>st</sup>.</li>
+  <li>The OD260 that measured was 0.107 OD.</li>
+	</ul></p></p></div></div>
+
+
+
+
+
+<div class="bs-docs-section" >
+<h2 id="609" class="page-header labbookh">June 9<sup>th</sup></h2>
+<h3 class="labbookh" id="6091">The annealing reaction</h3>
+<ul class="labbookul">
+	<li>The reaction was set as the following table(Scaffold:Staple=1:10&1:5)</li>
+<div class="labbooktablediv" style="width:680px" align="center"><table class="table table-bordered labbooktable" style="background-color:transparent;font-family:Cambria, Hoefler Text, Liberation Serif, Times, Times New Roman, serif;border-width:1px;width:80%;"><caption style="margin-top: 5px;margin-bottom: 5px;font-weight: bolder;">The reaction was set as the following table(Scaffold:Staple=1:10&1:5)</caption>
+<tr>
+<th></th>
+<th>Volume</th>
+<th>Final concentration</th>
+</tr>
+<tr>
+<th>Scaffold</th>
+<td>15μl </td>
+<td>0.6nM</td>
+</tr>
+<tr>
+<th>Staple</th>
+<td>5μl</td>
+<td>6nM/3nM</td>
+</tr>
+<tr>
+<th>Reaction buffer(Tris)</th>
+<td>30μl </td>
+<td>6mM Tris, 7.5mM MgAc</td>
+</tr>
+	</table>
+	</div>
+<li>Reaction condition: Pre-denaturation at 95℃ for 4 min. Denaturation at 95℃ for 30s, annealing at 60℃ for 30s, extension at 72℃ for 5min, Denaturation at 95℃ for 30s, annealing at 50℃ for 30s, extension at 72℃ for 5min, 4 cycle. Final extension at 72℃ for 5min, 37℃ for 30min and store at 4℃</li>
+	<li>The staple mixture (500nM) was diluted into a concentration of 60nM and 30nM, then added into the reaction tube.</li>
+	</ul>
+</div>
+<div class="bs-docs-section">
+<h2 id="614" class="page-header labbookh">June 14<sup>th</sup></h2>
+<h3 class="labbookh" id="6141">The characterization of closed-state structure.</h3>
+<div class="labbooktablediv" align="center"><img src="images/labbook/61411.png" width="70%"></div>
+		
+</div>
+<div class="bs-docs-section">
+<h2 id="630" class="page-header labbookh">June 30<sup>th</sup></h2>
+<ul class="labbookul">
+  <li>Dilute Fuel strand and Anti-fuel strand to a concentration of 100μM.</li>
+  <li>Take 10μl from each Fuel tube. Mix it with 80μl ddH2O to make a mixture of two different Fuel strands at a concentration of 10μM.</li>
+  <li>Dilute the Anti-fuel strands in the same way.</li>
+  </ul>
+  </div>
+  <div class="bs-docs-section">
+<h2 id="705" class="page-header labbookh">July 5<sup>th</sup></h2>
+ <div><div style="float:right;width:50%;"><img src="images/labbook/7051.png" width="80%"></div><div  style="width: 50%;">
+  <ul class="labbookul">
+  <li>Use the newly designed primer to perform an αPCR in the same way we did on May 30<sup>th</sup>, except the PCR cycle was changed into 40 times.</li>
+  <li>Analyze the products by agarose gel electrophoresis（0.8%）</li> 
+  <li>Repeat the gel recovery as the procedure on May 31<sup>st</sup>.</li>
+  <li>The OD260 that measured was 0.109 OD.</li>
+  <li>Repeat the annealing reaction in the same procedure as the procedure on June 9<sup>th</sup>.</li>
+	 </ul></div>
+	  </div></div>
+
+  
+  <div class="bs-docs-section">
+<h2 id="711" class="page-header labbookh">July 11<sup>st</sup></h2>
+ <h3 class="labbookh" id="7111">Regulation</h3>
+  <ul class="labbookul">
+  <li>Dilute the Fuel strand mixture to a concentration of 9nM.</li>
+  <li>The scaffold was mixed with the newly diluted Fuel solution by 1:1( 15μl each).</li>
+  <li>Perform an annealing reaction in a condition of 37℃ for 30min.</li>
+  </ul>
+  </div>
+   <div class="bs-docs-section">
+<h2 id="712" class="page-header labbookh">July 12<sup>th</sup></h2>
+ <h3 class="labbookh" id="7121">Characterization of the nanostructure by AFM(sample from July 9<sup>th</sup>)</h3>
+ <div class="labbooktablediv" align="center"><img src="images/labbook/71211.png" width="70%"></div>
+  </div>
+  <div class="bs-docs-section">
+<h2 id="714" class="page-header labbookh">July 14<sup>th</sup></h2>
+ <h3 class="labbookh" id="7141">50&#215; TAE buffer</h3>
+ <ul class="labbookul">
+  <li>242g Tris, 18.612g EDTA, 57.1ml Glacial Acetic Acid and 800ml deionized water were added to a beaker.</li>
+  <li>Its PH was adjusted to 8.3 with NaOH.</li>
+  </ul>
+  <h3 class="labbookh" id="7142">10&#215; Mg<sup>2+</sup> buffer(120mM)</h3>
+  <ul class="labbookul">
+  <li>0. 1143g MgCl<sub>2</sub> were added to 10ml ddH2O.</li>
+  </ul>
+  <h3 class="labbookh" id="7143">The annealing reaction </h3>
+  <div class="labbooktablediv" style="width:680px" align="center"><table class="table table-bordered labbooktable" style="background-color:transparent;font-family:Cambria, Hoefler Text, Liberation Serif, Times, Times New Roman, serif;border-bottom-color:black;border-width:2px;width:80%;">
+<caption style="margin-top: 5px;margin-bottom: 5px;font-weight: bolder;">The reaction was set as the following table( Scaffold:Staple=1:10)</caption>
+ <tr>
+<th></th>
+<th>Volume</th>
+<th>Final concentration</th>
+</tr>
+<tr>
+<th>Scaffold</th>
+<td>25μl </td>
+<td>3.25nM</td>
+</tr>
+ <tr>
+<th>Staple</th>
+<td>15μl </td>
+<td>32.5nM</td>
+</tr>
+  <tr>
+<th>10&#215; TAE</th>
+<td>5μl</td>
+<td>1&#215;</td>
+</tr>
+  <tr>
+<th>10&#215; Mg<sup>2+</sup> buffer</th>
+<td>5μl</td>
+<td>12mM</td>
+</tr>
+	  </table>
+	  </div>
+	  <ul class="labbookul">
+  <li>Reaction condition: lower the temperature form 80℃ to 40℃ at 4min/2℃, maintain 37℃ for 30min，store at 4℃.</li>
+  </ul>
+</div>
+  
+  <div class="bs-docs-section">
+<h2 id="715" class="page-header labbookh">July 15<sup>th</sup></h2>
+<h3 class="labbookh" id="7151">Regulation </h3>
+ <ul class="labbookul">
+  <li>Dilute the Fuel strand mixture to a concentration of 48.75nM.(Diluted with 1&#215; TAE).</li>
+  <li>The scaffold was mixed with the newly diluted Fuel solution by 1:1(15μl each).</li>
+  <li>Perform an annealing reaction in a condition of 37℃ for 30min, then the temperature slowly decrease to 16℃ at a rate of 3℃/min</li>
+  <li>Mix the Fuel+ products with Anti-fuel strand (5nM) by 1:1(15μl each).</li>
+  <li>Repeat the third step.</li>
+  </ul>
+</div>
+  <div class="bs-docs-section">
+<h2 id="718" class="page-header labbookh">July 18<sup>th</sup></h2>
+<h3 class="labbookh" id="7181">The characterization of open-state structure.</h3>
+	  <div class="labbooktablediv" align="center"><img src="images/labbook/71811.png" width="70%"></div>
+</div>
+ <div class="bs-docs-section">
+<h2 id="721" class="page-header labbookh">July 21<sup>st</sup></h2>
+ <h3 class="labbookh" id="7211">The annealing reaction</h3>
+  <ul class="labbookul">
+	  <li>Repeat the annealing reaction in the same procedure on June 9<sup>th</sup></li>
+  </ul>
+  <h3 class="labbookh" id="7212">Preparation for TEM</h3>
+  <div>
+  <div style="width:30%;float:right;"><img src="images/labbook/72121.png" width="80%"></div>
+  <div style="width:70%;"><ul class="labbookul">
+	  <li>Drop 4μl of the sample solution on the grid, left to adsorb for 1 min.</li>
+	  <li>Wash away the excess salt by a drop of ddH2O, then touch the edge of the grid with a filter paper to wick away excess water.</li>
+	  <li>Touch the grid with a drop of 5% Phosphotungstic acid solution.</li>
+	  <li>Remove it quickly and touch with a second drop for 30s.</li>
+	  <li>Let the grid dry and keep it at room temperature. </li>
+	  <li>Analyze the Fuel+ and Anti+ products by agarose gel electrophoresis (2%)</li>	  
+	  </ul></div>
+	 
+</div>
+  </div>
+  <div class="bs-docs-section">
+<h2 id="725" class="page-header labbookh">July 25<sup>th</sup></h2>
+<h3 class="labbookh" id="7251">The characterization of open-state structure.</h3>
+	  <div class="labbooktablediv" align="center"><img src="images/labbook/7251.png" width="70%"></div>
+</div>
+ <div class="bs-docs-section">
+<h2 id="726" class="page-header labbookh">July 26<sup>th</sup></h2>
+  <ul class="labbookul">
+  <li>Perform an αPCR in the same way that did on July 5<sup>th</sup></li>
+  <li>Recover the products by repeating the steps on May 31<sup>st</sup>, except for the Elution buffer was changed into ddH2O.</li>
+  <li>The gel slices’ weight were 0.2445g, 0.1679g, 0.1413g.</li>
+  <li>The OD260 that measured was 0.480 OD.</li>
+  </ul>
+  </div>
+  
+  <div class="bs-docs-section">
+<h2 id="728" class="page-header labbookh">July 28<sup>th</sup></h2>
+<h3 class="labbookh" id="7281">The characterization of closed-state structure.</h3>
+	  <div class="labbooktablediv" align="center"><img src="images/labbook/72811.png" width="70%"></div>
+	 
+</div>
+ <div class="bs-docs-section">
+<h2 id="731" class="page-header labbookh">July 31<sup>st</sup></h2>
+    <h3 class="labbookh" id="7311">The characterization of closed-state structure.</h3>
+	  <div class="labbooktablediv" align="center"><img src="images/labbook/73111.png" width="70%"></div>
+	<h3 class="labbookh" id="7312">The first step of TMV assembly</h3>
+	  <ul class="labbookul">
+  <li>0.1654g NaH<sub>2</sub>PO<sub>4</sub>•2H<sub>2</sub>O, 6.9237g Na<sub>2</sub>HPO<sub>4</sub>•12H<sub>2</sub>O were added to 100ml ddH2O.(PBS buffer, PH 8.0).</li>
+  <li>Dialyse the TMV protein at 4℃ in PBS buffer（PH 8.0）for 2 days.</li>
+  </ul>
+</div>
+ <div class="bs-docs-section">
+<h2 id="802" class="page-header labbookh">August 2<sup>nd</sup></h2>
+<h3 class="labbookh" id="8021">The second step of TMV assembly</h3>
+	  <ul class="labbookul">
+  <li>1.22g NaH<sub>2</sub>PO<sub>4</sub>•2H<sub>2</sub>O, 4.37g Na<sub>2</sub>HPO<sub>4</sub>•12H<sub>2</sub>O were added to 100ml ddH2O.(PBS buffer, PH 7.0).</li>
+  <li>Change the buffer for dialysis into PBS buffer(PH 7.0).</li>
+  <li>Dialyse at 4℃ for 1day.</li>
+  </ul>
+</div>
+  <div class="bs-docs-section">
+<h2 id="824" class="page-header labbookh">August 24<sup>th</sup></h2>
+<h3 class="labbookh" id="8241">The annealing reaction</h3>
+<div class="labbooktablediv" style="width:680px" align="center"><table class="table table-bordered labbooktable" style="background-color:transparent;font-family:Cambria, Hoefler Text, Liberation Serif, Times, Times New Roman, serif;border-width:1px;width:80%;">
+<caption style="margin-top: 5px;margin-bottom: 5px;font-weight: bolder;">The reaction was set as the following table( Scaffold:Staple=1:10) New</caption>
+ <tr>
+<th></th>
+<th>Volume</th>
+<th>Final concentration</th>
+</tr>
+<tr>
+<th>Scaffold</th>
+<td>10μl </td>
+<td>10nM</td>
+</tr>
+ <tr>
+<th>Staple</th>
+<td>20μl </td>
+<td>100nM</td>
+</tr>
+  <tr>
+<th>10&#215; TAE</th>
+<td>10μl</td>
+<td>1X</td>
+</tr>
+  <tr>
+<th>10&#215; Mg<sup>2+</sup> buffer</th>
+<td>10μl</td>
+<td>12mM</td>
+</tr>
+  <tr>
+<th>ddH<sub>2</sub>O</th>
+<td>50μl</td>
+<td></td>
+</tr>
+	  </table>
+	  </div>
+	  <ul class="labbookul">
+  <li>Reaction condition</li>
+  
+  <p style="text-indent: 0px;">80℃&rarr;70℃&nbsp;&nbsp;&nbsp;4min/2℃
+   64℃&rarr;48℃&nbsp;&nbsp;&nbsp;4min/2℃
+	  46℃&rarr;40℃&nbsp;&nbsp;&nbsp;4min/2℃</p>
+		 
+  <li>Take 10μl the NEB single strand M13 as the scaffold.</li>
+  </ul>
+</div>
+
+ <div class="bs-docs-section">
+<h2 id="826" class="page-header labbookh">August 26<sup>th</sup></h2>
+<h3 class="labbookh" id="8261">DLS</h3>
+	  <ul class="labbookul">
+  <li>The sample temperature was maintained at 25℃ during measurement. </li>
+  <li>The sample was measured at a concentration of 10 nM.</li>
+  </ul>
+  <div class="labbooktablediv" align="center"><img src="images/labbook/82611.png" width="70%"></div>
+  <div class="labbooktablediv" align="center"><img src="images/labbook/82612.png" width="70%"></div>
+</div>
+
+ <div class="bs-docs-section">
+<h2 id="829" class="page-header labbookh">August 29<sup>th</sup></h2>
+<h3 class="labbookh" id="8291">The characterization of TMV assembly and closed-state DNA Origami</h3>
+	  <div class="labbooktablediv" align="center"><img src="images/labbook/82911.png" width="70%"></div>
+	  </div>
+	  
+  <div class="bs-docs-section">
+<h2 id="831" class="page-header labbookh">August 31<sup>st</sup></h2>
+<h3 class="labbookh" id="8311">Characterization of the nanostructure by AFM (sample from August 24<sup>th</sup>)</h3>
+	  <div class="labbooktablediv" align="center"><img src="images/labbook/83111.png" width="70%"></div>
+</div>
+
+ <div class="bs-docs-section">
+<h2 id="904" class="page-header labbookh">September 4<sup>th</sup></h2>
+<h3 class="labbookh" id="9041">The characterization of TMV assembly and closed-state DNA Origami</h3>
+	  <div class="labbooktablediv" align="center"><img src="images/labbook/90411.png" width="70%"></div>
+ </div>
+
+<div class="bs-docs-section">
+<h2 id="915" class="page-header labbookh">September 15<sup>th</sup></h2>
+<h3 class="labbookh" id="9151">The annealing reaction</h3>
+<div class="labbooktablediv" style="width:680px" align="center"><table class="table table-bordered labbooktable" style="background-color:transparent;font-family:Cambria, Hoefler Text, Liberation Serif, Times, Times New Roman, serif;border-width:1px;width:80%;">
+<caption style="margin-top: 5px;margin-bottom: 5px;font-weight: bolder;">The reaction was set as the following table( Scaffold:Staple=1:10)</caption>
+ <tr>
+<th></th>
+<th>Volume</th>
+<th>Final concentration</th>
+</tr>
+<tr>
+<th>Scaffold</th>
+<td>2μl </td>
+<td>10nM</td>
+</tr>
+ <tr>
+<th>Staple</th>
+<td>4μl </td>
+<td>100nM</td>
+</tr>
+  <tr>
+<th>10&#215; TAE</th>
+<td>2μl</td>
+<td>1&#215;</td>
+</tr>
+  <tr>
+<th>10&#215; Mg<sup>2+</sup> buffer</th>
+<td>2μl</td>
+<td>12mM</td>
+</tr>
+  <tr>
+<th>ddH<sub>2</sub>O</th>
+<td>10μl</td>
+<td></td>
+</tr>
+	  </table>
+	  </div>
+	  </div>
+	  
+ <div class="bs-docs-section">
+<h2 id="918" class="page-header labbookh">September 18<sup>th</sup></h2>
+<h3 class="labbookh" id="9181">The characterization of TMV assembly and open-state DNA Origami</h3>
+	  <div class="labbooktablediv" align="center"><img src="images/labbook/91811.png" width="70%"></div>
+ </div>
+
+<div class="bs-docs-section">
+<h2 id="923" class="page-header labbookh">September 23<sup>th</sup></h2>
+ <h3 class="labbookh" id="9231">The first step of TMV assembly</h3>
+  <ul class="labbookul">
+  <li>0.2481g NaH<sub>2</sub>PO<sub>4</sub>•2H<sub>2</sub>O, 10.3856g Na<sub>2</sub>HPO<sub>4</sub>•12H<sub>2</sub>O were added to 150ml ddH<sub>2</sub>O.(PBS buffer, PH 8.0).</li>
+   <li>Dialyse the TMV protein at 4℃ in PBS buffer（PH 8.0）for 2 days.
+September 25th </li>
+	</ul>
+		</div>
+		
+	 
+ 
+<div class="bs-docs-section">
+<h2 id="925" class="page-header labbookh">September 25<sup>th</sup></h2>
+<h3 class="labbookh" id="9251">The annealing reaction</h3>
+<div class="labbooktablediv" style="width:680px" align="center"><table class="table table-bordered labbooktable" style="background-color:transparent;font-family:Cambria, Hoefler Text, Liberation Serif, Times, Times New Roman, serif;border-width:1px;width:80%;">
+<caption style="margin-top: 5px;margin-bottom: 5px;font-weight: bolder;">The reaction was set as the following table( Scaffold:Staple=1:10)</caption>
+     <tr>
+      <th>C<sub>Mg<sup>2+</sup></sub></th>
+      <td>10mM</td>
+      <td>12mM</td>
+      <td>14mM</td>
+      <td>16mM</td>
+      <td>18mM</td>
+      <td>20mM</td>
+	</tr>
+  <tr>
+      <th>Scaffold</th>
+      <td>2μl</td>
+      <td>2μl</td>
+      <td>2μl</td>
+      <td>2μl</td>
+      <td>2μl</td>
+      <td>2μl</td>
+	</tr>
+  <tr>
+      <th>Staple</th>
+      <td>4μl</td>
+      <td>4μl</td>
+      <td>4μl</td>
+      <td>4μl</td>
+      <td>4μl</td>
+      <td>4μl</td>
+	</tr>
+  <tr>
+      <th>10&times; TAE</th>
+      <td>2μl</td>
+      <td>2μl</td>
+      <td>2μl</td>
+      <td>2μl</td>
+      <td>2μl</td>
+      <td>2μl</td>
+	</tr>
+  <tr>
+      <th>10&times; Mg<sup>2+</sup></th>
+      <td>2μl</td>
+      <td>2μl</td>
+      <td>2μl</td>
+      <td>2μl</td>
+      <td>2μl</td>
+      <td>2μl</td>
+	</tr>
+  <tr>
+      <th>ddH<sub>2</sub>O</th>
+      <td>10μl</td>
+      <td>10μl</td>
+      <td>10μl</td>
+      <td>10μl</td>
+      <td>10μl</td>
+      <td>10μl</td>
+	</tr>
+	  </table>
+	  </div>
+	  <ul class="labbookul">
+  <li>Reaction condition</li>
+  <p style="text-indent: 0px;">80℃&rarr;70℃&nbsp;&nbsp;&nbsp;4min/2℃
+   64℃&rarr;48℃&nbsp;&nbsp;&nbsp;4min/2℃
+	  46℃&rarr;40℃&nbsp;&nbsp;&nbsp;4min/2℃</p>
+		 
+		 <p style="text-indent: 0px;">37℃ &nbsp;&nbsp;30min 4℃ &nbsp;&nbsp;&#8734;</p>
+  </ul>
+  <h3 class="labbookh" id="9252">The second step of TMV assembly</h3>
+  <ul class="labbookul">
+  <li>1.83g NaH<sub>2</sub>PO<sub>4</sub>•2H<sub>2</sub>O, 6.555g Na<sub>2</sub>HPO<sub>4</sub>•12H<sub>2</sub>O were added to 150ml ddH<sub>2</sub>O. (PBS buffer, PH 7.0).</li>
+  <li>Change the buffer for dialysis into PBS buffer (PH 7.0).</li>
+  <li>Dialyse at 4℃ more than one day.</li>
+	</ul>
+</div>
+
+<div class="bs-docs-section">
+<h2 id="926" class="page-header labbookh">September 26<sup>th</sup></h2>
+  <ul class="labbookul">
+  <li>Analyze the assembly through agarose gel electrophoresis (2%)</li>
+	</ul>
+	  <div class="labbooktablediv" align="center"><img src="images/labbook/9261.png" width="40%"></div>
+ </div>
+ 
+ <div class="bs-docs-section">
+<h2 id="927" class="page-header labbookh">September 27<sup>th</sup></h2>
+<h3 class="labbookh" id="9271">The annealing reaction</h3>
+<div class="labbooktablediv" style="width:680px" align="center"><table class="table table-bordered labbooktable" style="background-color:transparent;font-family:Cambria, Hoefler Text, Liberation Serif, Times, Times New Roman, serif;border-width:1px;width:80%;">
+<caption style="margin-top: 5px;margin-bottom: 5px;font-weight: bolder;">The reaction was set as the following table( Scaffold:Staple=1:10)</caption>
+ <tr>
+<th></th>
+<th>Volume</th>
+<th>Final concentration</th>
+</tr>
+<tr>
+<th>Scaffold</th>
+<td>3μl </td>
+<td>10nM</td>
+</tr>
+ <tr>
+<th>Staple</th>
+<td>6μl </td>
+<td>100nM</td>
+</tr>
+  <tr>
+<th>10&#215; TAE</th>
+<td>3μl</td>
+<td>1&#215;</td>
+</tr>
+  <tr>
+<th>10&#215; Mg<sup>2+</sup> buffer</th>
+<td>3μl</td>
+<td>12mM</td>
+</tr>
+  <tr>
+<th>ddH<sub>2</sub>O</th>
+<td>15μl</td>
+<td></td>
+</tr>
+	  </table>
+	  </div>
+	  </div>
+	  
+<div class="bs-docs-section">
+<h2 id="929" class="page-header labbookh">September 29<sup>th</sup></h2>
+<h3 class="labbookh" id="9291">The characterization of open-state and closed-state DNA Origami</h3>
+	  <div class="labbooktablediv" align="center"><img src="images/labbook/91811.png" width="70%"></div>
+ </div>
+
+
+
+
+
+</div><!--div main ends-->
+      </div>
+
+
+        <!---->
+        <!---->
+    </div>
+    </div>
+   
+
+    <!-- Footer
+================================================== -->
+<footer class="bs-docs-footer" role="contentinfo">
+  <div class="container">
+
+
+    <p>Designed and built by @Nano-JLU</p>
+    <p> Welcome to contact us: <a href="mailto:biomodnanojlu2016@gmail.com">Nano-JLU</a> biomodnanojlu2016@gmail.com</p>
+    <p>Copyright © 2016 BIOMOD Nano-JLU 2016 All Rights Reserved.</p>
+
+  </div>
+</footer>
+
+
+
+
+
+    <!-- Library Scripts -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/lib/jquery.preloader.js"></script>
+    <script src="js/lib/nivo-lightbox.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/lib/jquery.superslides.min.js"></script>
+    <script src="js/lib/smoothscroll.js"></script>
+    <script src="js/lib/jquery.sudoslider.min.js"></script>
+    <script src="js/lib/jquery.bxslider.min.js"></script>
+    <script src="js/lib/jquery.mixitup.min.js"></script>
+    <script src="js/lib/jquery.backtotop.js"></script>
+    <script src="js/lib/jquery.carouFredSel-6.2.1-packed.js"></script>
+    <script src="js/lib/retina.min.js"></script>
+    <script src="js/docs.min.js"></script>
+<script type="text/javascript">
+	$(function () { $('#collapseFour').collapse({
+		toggle: false
+	})});
+	$(function () { $('#collapseTwo').collapse('show')});
+	$(function () { $('#collapseThree').collapse('toggle')});
+	$(function () { $('#collapseOne').collapse('hide')});</script>
+
+
+
+    <!-- Custom Script -->
+<script src="js/main.js"></script>
+
+<script src="js/h.js" type="text/javascript"></script>
+
+
+ <script>
+function dragable(id){var d=document,o=d.getElementById(id),s=o.style,x,y,p='onmousemove';o.onmousedown=function(e){e=e||event;x=e.clientX-o.offsetLeft;y=e.clientY-o.offsetTop;d[p]=function(e){e=e||event;s.left=e.clientX-x+'px';s.top=e.clientY-y+'px'};d.onmouseup=function(){d[p]=null}}}
+dragable("demo");
+</script>
+
+
+</body>
+
+</html>

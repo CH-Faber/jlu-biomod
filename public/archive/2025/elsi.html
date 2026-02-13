@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biomod - ELSI</title>
+    <style>
+      body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif; margin: 0; background-color: #fff; line-height: 1.6; color: #333; }
+      a { color: inherit; text-decoration: none; }
+      .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+      header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; backdrop-filter: saturate(120%) blur(6px); background: rgba(255,255,255,0.95); border-bottom: 1px solid #e5e7eb; width: 100%; }
+      header .container { max-width: none; margin: 0; padding: 0 16px; }
+      .nav { display: flex; align-items: center; height: 56px; width: 100%; padding: 0 16px; }
+      .brand { font-weight: 700; color: #1f2937; }
+      .spacer { flex: 1; }
+      .nav-links { display: none; gap: 16px; font-size: 16px; }
+      .nav-links a { color: #334155; font-weight: 500; transition: color 0.2s; text-decoration: none; }
+      .nav-links a:hover { color: #007bff; }
+      .nav-links a.active { color: #007bff; font-weight: 700; }
+      .hamburger { width: 40px; height: 40px; border-radius: 10px; border: 1px solid #e5e7eb; display: grid; place-items: center; background: #fff; }
+      @media (min-width: 960px) { .nav-links { display: flex; } .hamburger { display: none; } }
+      .mobile-menu { position: fixed; inset: 0; background: rgba(15,23,42,0.5); display: none; z-index: 1000; }
+      .mobile-menu.open { display: block; }
+      .mobile-panel { position: absolute; top: 0; right: 0; width: 78vw; max-width: 360px; height: 100%; background: #ffffff; box-shadow: -8px 0 32px rgba(0,0,0,0.15); padding: 20px; overflow: auto; }
+      .mobile-panel a { display: block; padding: 14px 8px; font-size: 18px; color: #0f172a; }
+      
+      .content-page {
+        min-height: calc(100vh - 56px);
+        display: flex;
+        justify-content: center;
+        padding: 40px 0;
+        margin-top: 56px;
+      }
+      .content-page .inner {
+        max-width: 800px;
+        width: 100%;
+        text-align: left; /* Adjusted for readability of long text */
+      }
+      .content-page h1 {
+        font-size: 2.5rem; /* Adjusted for a better fit */
+        margin-bottom: 0.3rem;
+        color: #1f2937;
+        text-align: center;
+      }
+      .content-page h2 {
+        font-size: 1.8rem;
+        color: #1f2937;
+        margin-top: 0;
+        margin-bottom: 2em;
+      }
+      .content-page h3 {
+        font-size: 1.4rem;
+        color: #334155;
+        margin-top: 1.5em;
+      }
+      .content-page p, .content-page li {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: #334155;
+        margin-bottom: 10px;
+      }
+      .content-page ul {
+        padding-left: 20px;
+      }
+      .content-page strong {
+        color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+        <div class="container nav">
+          <a href="index.html" class="brand">Biomod</a>
+          <div class="spacer"></div>
+          <nav class="nav-links">
+            <a href="index.html">Project</a> 
+            <a href="background/background.html">Background</a>
+            <a href="design/Design.html">Design</a>
+            <a href="material and method/Materials and Method.html">Method</a>
+            <a href="labbook/LABBOOK.html">Labbook</a>
+            <a href="result and discussion/Results and Discussion.html">Results</a>
+            <a href="about us/about-us.html">About Us</a>
+            <a href="Future/prospect and future.html">Future</a>
+            <a href="ELSI/ELSI.html" class="active">ELSI</a>
+          </nav>
+          <button id="open-menu" class="hamburger" aria-label="Open menu"><span></span></button>
+        </div>
+        <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+            <div class="mobile-panel">
+              <a href="index.html">Project</a>
+              <a href="background/background.html">Background</a>
+              <a href="design/Design.html">Design</a>
+              <a href="material and method/Materials and Method.html">Method</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="content-page">
+      <div class="container inner">
+        
+        <h1>ELSI</h1>
+        <h2>Ethical, Legal, and Social Implications</h2>
+
+        <h2>Overview</h2>
+        <p>Our project aims to develop an ion-regulated, self-assembling DNA nanomaterial that can reversibly transform from a planar 2D membrane into a vesicle-like 3D nanostructure, mimicking biological exosomes.</p>
+        <p>This programmable folding behavior introduces new opportunities for molecular delivery and microenvironmental regulation but also raises ethical, legal, and social considerations.</p>
+        <p>The following sections discuss these issues and the measures our team has implemented to ensure responsible research and innovation.</p>
+    
+        <h2>1. Ethical Considerations</h2>
+        <h3>1.1 Research Ethics</h3>
+        <p><strong>Human and Animal Ethics:</strong> Our study involves only synthetic nucleic acid materials and does not use any human or animal subjects.</p>
+        <p><strong>Autonomy and Informed Consent:</strong> Interviews or public engagements conducted for the social section were voluntary and approved by all participants.</p>
+        <p><strong>Data Integrity:</strong> All experimental data are recorded and verified by multiple team members, ensuring reproducibility and transparency.</p>
+        <p><strong>Privacy Protection:</strong> Interview participants’ identities are anonymized, and no personal information is disclosed.</p>
+        
+        <h3>1.2 Scientific Responsibility</h3>
+        <p>We are committed to transparency and reproducibility in scientific practice.</p>
+        <p>All non-sensitive design sequences and assembly conditions will be made publicly available for academic purposes.</p>
+        <p>The research is conducted under the supervision of qualified faculty and adheres to institutional biosafety regulations.</p>
+    
+        <h2>2. Legal and Safety Aspects</h2>
+        <h3>2.1 Biosafety</h3>
+        <ul>
+            <li>Our project involves only non-pathogenic and non-infectious DNA strands. The scaffold strand is a commercially available M13mp18 derivative that poses no biological risk.</li>
+            <li>We use non-toxic dyes instead of ethidium bromide for gel electrophoresis.</li>
+            <li>The assembly and imaging procedures strictly comply with university safety guidelines, including proper waste disposal for all reagents.</li>
+            <li>Any experiments involving heavy metal stains (e.g., uranyl acetate for TEM) are conducted under instructor supervision in designated laboratories.</li>
+        </ul>
+    
+        <h3>2.2 Information and Intellectual Property Security</h3>
+        <ul>
+            <li>All DNA sequences used are artificial and non-genomic, eliminating concerns about genetic information misuse.</li>
+            <li>Design software (e.g., caDNAno, CanDo) is used within its licensing scope, and no patented technology is used without authorization.</li>
+            <li>Project data is stored in secure institutional servers with controlled access.</li>
+        </ul>
+    
+        <h3>2.3 Future Clinical and Environmental Impact</h3>
+        <p>Although our current work is purely experimental, potential future applications (e.g., targeted delivery or diagnostic systems) will require strict compliance with Good Clinical Practice (GCP) and environmental safety regulations.</p>
+        <p>Any clinical translation must undergo full ethical review and regulatory approval.</p>
+    
+        <h2>3. Social Implications</h2>
+        <h3>3.1 Potential Impact</h3>
+        <p>Our project introduces a new class of biomimetic nanomaterials that combine structural programmability with dynamic behavior. Such materials may benefit:</p>
+        <ul>
+            <li><strong>Biomedical research:</strong> as responsive drug carriers or diagnostic platforms;</li>
+            <li><strong>Environmental applications:</strong> as controllable molecular capture or sensing systems;</li>
+            <li><strong>Education and communication:</strong> by inspiring new interdisciplinary learning about nanoscience.</li>
+        </ul>
+    
+        <h3>3.2 Public Perception and Responsibility</h3>
+        <p>Public understanding of DNA nanotechnology remains limited. To promote transparency and trust, our team actively communicates scientific principles in accessible language through outreach events and visual demonstrations.</p>
+        <p>We emphasize that our system is <strong>fully synthetic, non-living, and non-genetic</strong>, ensuring it poses no biological threat.</p>
+        
+        <h3>3.3 Ethical Reflection on Bioinspired Design</h3>
+        <p>By mimicking exosomes, our project draws inspiration from natural biological systems.</p>
+        <p>We recognize that biomimetic technologies can blur boundaries between synthetic and living systems, raising philosophical questions about artificial life and technological responsibility.</p>
+        <p>Our team upholds a strict boundary: our constructs do not replicate or evolve, and their function is purely physicochemical and controllable.</p>
+    
+        <h2>4. Conclusion</h2>
+        <p>As controllable DNA nanostructures evolve toward increasing complexity and functionality, new ethical and social responsibilities emerge.</p>
+        <p>Our work demonstrates a commitment to safe, transparent, and ethically grounded research, ensuring that the development of programmable biomimetic materials contributes positively to science and society.</p>
+        <p>We advocate for ongoing interdisciplinary dialogue to anticipate potential consequences and promote responsible innovation in molecular nanotechnology.</p>
+
+      </div>
+    </main>
+
+    <script src="./ai-assistant.js" defer></script>
+    <script>
+      // 移动端菜单控制JS
+      (function(){ 
+        const openMenuBtn = document.getElementById('open-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        openMenuBtn.addEventListener('click', function() {
+          const isOpen = mobileMenu.classList.contains('open');
+          if (isOpen) {
+            mobileMenu.classList.remove('open');
+            mobileMenu.setAttribute('aria-hidden', 'true');
+          } else {
+            mobileMenu.classList.add('open');
+            mobileMenu.setAttribute('aria-hidden', 'false');
+          }
+        });
+        
+        mobileMenu.addEventListener('click', function(event) {
+          if (event.target === mobileMenu) {
+            mobileMenu.classList.remove('open');
+            mobileMenu.setAttribute('aria-hidden', 'true');
+          }
+        });
+      })();
+      
+      // 初始化AI助手 - 气泡模式
+      document.addEventListener('DOMContentLoaded', function() {
+        // Assuming initAIAssistant is defined in your ai-assistant.js file
+        // initAIAssistant('dec4b5e652464152976117f453d9d3c1', 'bubble');
+      });
+    </script>
+  </body>
+</html>

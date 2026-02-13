@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+  
+  <title>Nano-JLU Design</title>
+
+  <!-- Justify Styles -->
+  <link href="css/justify.css" rel="stylesheet">
+
+  <!--Library Styles-->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/lib/font-awesome.css" rel="stylesheet">
+  <link href="css/lib/nivo-lightbox.css" rel="stylesheet">
+  <link href="css/lib/nivo-themes/default/default.css" rel="stylesheet">
+
+  <!--Template Styles-->
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/scheme/purple.css" rel="stylesheet">
+  <link href="css/docs.min.css" rel="stylesheet">
+
+
+
+  <style type="text/css">
+    body {
+      background-image: url(images/bgphoto.png);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+    }
+    /*div.logo {
+      margin-top: -20px;
+    }*/
+	.bs-docs-sidebar .nav li{line-height:36px;}
+	.bs-docs-sidebar .nav>.active>a,.bs-docs-sidebar .nav>li:hover>a{
+    padding-left: 28px;
+    font-weight: 700;
+    color: #563d7c;
+    background-color: transparent;
+    border-left:4px solid #428BCA;
+	box-shadow:1px 1px 3px  #ccc;
+	border-top:none;
+    display:block;
+	width:100%;
+	line-height:36px;
+	text-decoration:none;
+}
+  </style>
+
+  <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+  <script type="text/javascript">
+    function MM_swapImgRestore() { //v3.0
+      var i, x, a = document.MM_sr;
+      for (i = 0; a && i < a.length && (x = a[i]) && x.oSrc; i++) x.src = x.oSrc;
+    }
+
+    function MM_preloadImages() { //v3.0
+      var d = document;
+      if (d.images) {
+        if (!d.MM_p) d.MM_p = new Array();
+        var i, j = d.MM_p.length,
+          a = MM_preloadImages.arguments;
+        for (i = 0; i < a.length; i++)
+          if (a[i].indexOf("#") != 0) {
+            d.MM_p[j] = new Image;
+            d.MM_p[j++].src = a[i];
+          }
+      }
+    }
+
+    function MM_findObj(n, d) { //v4.01
+      var p, i, x;
+      if (!d) d = document;
+      if ((p = n.indexOf("?")) > 0 && parent.frames.length) {
+        d = parent.frames[n.substring(p + 1)].document;
+        n = n.substring(0, p);
+      }
+      if (!(x = d[n]) && d.all) x = d.all[n];
+      for (i = 0; !x && i < d.forms.length; i++) x = d.forms[i][n];
+      for (i = 0; !x && d.layers && i < d.layers.length; i++) x = MM_findObj(n, d.layers[i].document);
+      if (!x && d.getElementById) x = d.getElementById(n);
+      return x;
+    }
+
+    function MM_swapImage() { //v3.0
+      var i, j = 0,
+        x, a = MM_swapImage.arguments;
+      document.MM_sr = new Array;
+      for (i = 0; i < (a.length - 2); i += 3)
+        if ((x = MM_findObj(a[i])) != null) {
+          document.MM_sr[j++] = x;
+          if (!x.oSrc) x.oSrc = x.src;
+          x.src = a[i + 2];
+        }
+    }
+  </script>
+
+</head>
+
+<body>
+
+
+
+
+
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div id="status"></div>
+  </div>
+  <!-- Site Navigation -->
+  <div id="main-wrapper">
+
+    <div class="container bs-docs-container">
+
+      <div class="row">
+
+        <link href="index/css/style_n.css" rel="stylesheet" type="text/css" media="all" />
+        <!-- header -->
+        <div class="header">
+          <div class="container">
+            <nav class="navbar navbar-default">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" style="margin-top:2.3em;"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                <div class="logo">
+                  <a class="navbar-brand logo" href="index.html"><img class="logo1" src="images/nanojlu.gif" alt="Nano-JLU" style="height: 60px; margin-top:10px;"></a>
+
+                </div>
+              </div>
+
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                <nav class="menu menu--francisco">
+                  <ul class="nav navbar-nav menu__list">
+                    <li class="menu__item"><a href="index.html" class="menu__link"><span class="menu__helper">Home</span></a></li>
+                    <li class="menu__item"><a href="introduction.html" class="menu__link"><span class="menu__helper">INTRODUCTION</span></a></li>
+                    <li class="menu__item menu__item--current"><a href="design.html" class="menu__link"><span class="menu__helper">DESIGN</span></a></li>
+                    <li class="menu__item"><a href="protocol.html" class="menu__link"><span class="menu__helper">EXPERIMENT</span></a></li>
+                    <li class="menu__item"><a href="result.html" class="menu__link"><span class="menu__helper">RESULT</span></a></li>
+                    <li class="menu__item"><a href="labbook.html" class="menu__link"><span class="menu__helper">LABBOOK</span></a></li>
+                    <li class="menu__item"><a href="team.html" class="menu__link"><span class="menu__helper">TEAM</span></a></li>
+                  </ul>
+                </nav>
+                <!--<div class="phone">
+						<p><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>Call-  <span>+0123 45</span></p>
+					</div>-->
+              </div>
+              <!-- /.navbar-collapse -->
+            </nav>
+          </div>
+        </div>
+        <!-- //header -->
+        <div class="col-md-3">
+          <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" role="complementary" style="margin-top:30px;position: fixed;">
+            <ul class="nav bs-docs-sidenav">
+             <a class="back-to-top" href="#top" style="padding-left: 0px;margin-left:-8px;">
+  <p style="font-size:14px;color:#000">Back to top</p></a>          
+			   <li class="active"><a href="#Generalization">Generalization</a></li>
+               <li><a href="#rod">Structure</a>
+                 <ul class="nav">
+                  <li><a href="#rod">The rod</a></li>
+			      <li><a href="#joint">The joint</a></li>
+				  <li><a href="#hairpin">The hairpin strands</a></li>
+				  <li><a href="#RNA">The RNA loop</a></li>
+                 </ul>
+               </li>
+               <li><a href="#conformational">Mechanism</a>
+                 <ul class="nav">
+                  <li><a href="#conformational">The conformational change<br> mechanism</a></li>
+                  <li><a href="#protein">The protein encapsulation<br> mechanism</a></li>
+                  <li><a href="#references">REFERENCES</a></li>
+                 </ul>
+               </li>
+			  </ul>
+            </div>
+        </div>
+        <!---->
+
+
+        <div class="col-md-9" role="main">
+          <!--<div style="background:url(images/logo.png); background-position:center; background-size:600px 600px; background-repeat: no-repeat; background-attachment:fixed; background-position:center;"></div>-->
+          <div class="bs-dos-section">
+            <h2 id="Generalization" class="page-header" style="margin-top:50px;">Generalization</h2>
+            <p style="font-family:unifrakturcook;text-indent:1em;">To make DNA nano-cage transformable, we designed an adamantane-like structure equipped with several DNA hairpins which could work as fuelbetween edges. We utilized caDNAno to finish our design this nano-cage-like DNA origami with 5319 bps part of the M13mp18 chosen to beas the scaffold.</p>
+            <p style="font-family:unifrakturcook;text-indent:1em;">Our nano-cage has two conformations, one is the adamantane-like conformation (open state) and the other is the tetrahedron-like conformation (closed state). These two states have the potential to turn into each other by adding fuel or antifuel strands,respectively.</p>
+            <p style="font-family:unifrakturcook;text-indent:1em;">The nano-cage consists of 12 rods, 10 joints and 6 hairpin strands. Each section has its own function: the rods serve as basic holder, the joints provide the flexible area and the hairpin strands stimulate the whole structure to transform.</p>
+            <div align="center">
+            <div style="float: left;margin-left: 40px;margin-right: 15px;"><img src="images/design/shousuoxuanzhuan.gif" style="width:350px;"></div>
+            
+            <div style="float:right;margin-left: 15px;margin-right: 40px;"><img src="images/design/shuzhangxuanzhuan.gif" style="width:350px;"></div></div>
+          </div>
+
+
+          <div class="bs-dos-section" style="margin-top:300px;">
+            <h2 id="rod" class="page-header protocolh">The rod</h2>
+            <p style="font-family:unifrakturcook;text-indent:1em;">The rod was designed to be rigid enough to maintain the basic DNA nano-cage structure and to avoid disconnection in the shift of state. Since the natural DNA helix has a twist of 10.5 bps per turn, or 7 bps for 240 degrees of rotation, we insert 14 base pairs between each two adjacent crossovers, according to other documents’ origami design<sup>1-2</sup>, to make it twist naturally and therefore to gain the maximum stiffness （Figure 2）. Each staple in the rod varies from 70 bps to 14 bps in length, but they all contribute to the construction of each rod in the form of six-helix helix-bundle honeycomb. In each rod, there are 8 staples, 8 crossovers and hence the rod’s length should be 63 bps or 21.4nm.</p>
+             </div>
+
+
+
+          <div class="bs-dos-section">
+            <h2 id="joint" class="page-header protocolh">The joint</h2>
+ <p style="font-family:unifrakturcook;text-indent:1em;">To endow our ball nano-cage with the potential to transform, we add flexible joints at both termini of each rods. The single strand of DNA is the best nominee for the joint due to its lower persistence length compared to the double strand of DNA. As the picture shows, each joint is a flexible area that contains only two or three single strands of scaffolds in the length of 12 bps. Among Ten ten joints, which three of them located aton four vertexes with three strands and the other six joints located at the middle of six edges with two strands, are incorporated into the nano-cage for rotational motion. The arrangement and freedom of the joints coupled with the stiff rods determine the reversible conformational change in our design.</p>
+              
+          </div>
+          <div class="bs-dos-section">
+            <h2 id="hairpin" class="page-header protocolh">The hairpin strands</h2>
+            <p style="font-family:unifrakturcook;text-indent:1em;">
+             After finishingFollowing the DNA nano-cage design, we had to deal with the energy problem: how to transform the state of nano-cage. We chose the DNA hairpin strands to solve the problem for its reconfigurability. We adjusted the state alterations by adding fuel strands to make the hairpins opened or by adding antifuel strands sequentially to make the hairpin closed. Along with the operation on hairpins, the nano-cage can also switch its forms between open and closed states.</p>
+             <div class="labbooktablediv" style="width:680px" align="center"><table class="table table-bordered labbooktable" style="background-color:transparent;font-family:Cambria, Hoefler Text, Liberation Serif, Times, Times New Roman, serif;border-width:1px;width:80%;">
+<tr>
+  <th>start</th>
+  <th>end</th>
+  <th>Hairpin sequence</th>
+</tr>
+<tr>
+  <th>20[83]</th>
+  <th>9[118]</th>
+  <th>AGCTGAAATCCAATGGAGACATAACGCGTAACAATCGCGAAAACGCGTAACAATC<br>GCGAAAACGCGTAACAATCGCGAAAACGCGTAACAATCGCGAAAACGCGTAACAA<br>TCGCGAAGACATGCGCCAATTCC</th>
+</tr>
+<tr>
+  <th>8[118]</th>
+  <th>2[112]</th>
+  <th>AGAATTATCAGACATAACCCCTAACAATGGGGAAAACCCCTAACAATGGGGAAAA<br>CCCCTAACAATGGGGAAAACCCCTAACAATGGGGAAAACCCCTAACAATGGGGAA<br>GACATGGCTAGCGAACCGCTCAA</th>
+</tr>
+<tr>
+  <th>33[112]</th>
+  <th>29[118]</th>
+  <th>AGAATGACAGACCAGGAGACATAACGCGTAACAATCGCGAAAACGCGTAACAATC<br>GCGAAAACGCGTAACAATCGCGAAAACGCGTAACAATCGCGAAAACGCGTAACAA<br>TCGCGAAGACATGCGCGGCACCA</th>
+</tr>
+<tr>
+  <th>28[118]</th>
+  <th>20[112]</th>
+  <th>CGTTAATTCAGACATAACCCCTAACAATGGGGAAAACCCCTAACAATGGGGAAAAC<br>CCCTAACAATGGGGAAAACCCCTAACAATGGGGAAAACCCCTAACAATGGGGAAG<br>ACATGGCTACCGTTCACCTTTA</th>
+</tr>
+<tr>
+  <th>2[83]</th>
+  <th>16[77]</th>
+  <th>CTGAACATTATCATGGAGACATAACGCGTAACAATCGCGAAAACGCGTAACAATCG<br>CGAAAACGCGTAACAATCGCGAAAACGCGTAACAATCGCGAAAACGCGTAACAAT<br>CGCGAAGACATGCGCTTTGCCT</th>
+</tr>
+<tr>
+  <th>17[77]</th>
+  <th>33[83]</th>
+  <th>GGAGGTTTCAGACATAACCCCTAACAATGGGGAAAACCCCTAACAATGGGGAAAA<br>CCCCTAACAATGGGGAAAACCCCTAACAATGGGGAAAACCCCTAACAATGGGGAA<br>GACATGGCTCGAACTATGAGATT</th>
+</tr>
+	</table>
+	</div>
+              <p style="font-family:unifrakturcook;text-indent:1em;">
+            To guarantee the ability of the nano-cage being spatially abundantfor protein encapsulation, we only stuck 6 hairpins on three ball’s faces while the other one being empty. This strategy will allow the encapsulation and release of CP easily when nuclestion site is incorporated. It’s sure been proven that 6 hairpins are adequate to drive the rods to move according to the AFM result.</p><div align="center">
+            <div style="float: left;margin-left: 40px;margin-right: 15px;"><img src="images/design/open-state.gif" style="width:350px;"></div>
+            
+            <div style="float:right;margin-left: 15px;margin-right: 40px;"><img src="images/design/closed-state.gif" style="width:350px;"></div></div>
+          </div>
+
+          <div class="bs-dos-section" style="margin-top:230px;">
+            <h2 id="RNA" class="page-header protocolh">The RNA loop</h2>
+            <p>As we mentioned in introduction, the CP self-assembly begins at the (origin of assembly, )OAs region which we fixed into the nano-cage as CP detector. We designed an extended staple strand which reach out from an edge of the rod for hybridization with OAs. The sequence of OAs we picked up and the staple for fixing the OAs are shown in the table below.</p>
+            <div class="labbooktablediv" style="width:680px" align="center"><table class="table table-bordered labbooktable" style="background-color:transparent;font-family:Cambria, Hoefler Text, Liberation Serif, Times, Times New Roman, serif;border-width:1px;width:80%;">
+
+<tr>
+  <th>strand</th>
+  <th>sequence</th>
+</tr>
+<tr>
+  <th>RNA OAs</th>
+  <th>CCAUGGAACUUA CAGAAGAAGU CGUUGAUGAG UUCAUGGUAUAUAUA</th>
+</tr>
+<tr>
+  <th>DNA staple</th>
+  <th>GGAGGGAACAACTAAAGGAATTTTTTATACCGATAGTTGCCTTTCCGTATATATA</th>
+</tr>
+	</table>
+	</div>
+          </div>
+ <div class="bs-dos-section">
+            <h2 id="conformational" class="page-header protocolh">The conformational change mechanism</h2>
+            <p style="font-family:unifrakturcook;text-indent:1em;">When the fuel strands are added, the hybridization between hairpins and fuel strands results in the open state of hairpin and subsequently the tension reduction in apex joints, which benefits the increasing angle between rods. This transformation can be explained by the persistence length that quantify the stiffness of polymer. Informally, for pieces of the polymer shorter than the persistence length, the molecule behaves rather like a rigid rod/beam, while for pieces of the polymer longer than the persistence length, the molecule is much more flexible1. The persistence length of double stranded DNA from 100 bps to 160 bps is almost equal to the its physical length2, from which we assumed that the open hairpins are rigid enough to open the nano-cage. The AFM images have demonstrated that our assumption is correct.</p><p style="font-family:unifrakturcook;text-indent:1em;">In contrast, the complementary antifuel strands will remove the fuel strands from hairpins, leaving hairpins alone to form stem-loop structure that reduce the angle between rods. Considered the single stranded DNA (ssDNA) in joint are extremely flexible2 and hairpin has tendency to form secondary structure, it’s theoretically possible that the tension from the formation of stem-loop structure can overcome the bending energy from ssDNA, leading to the closed state of nano-cage consequently.</p>
+          </div>
+           <div class="bs-dos-section">
+            <h2 id="protein" class="page-header protocolh">The protein encapsulation mechanism</h2>
+            <p style="font-family:unifrakturcook;text-indent:1em;">In a longthe presence of TMV genome RNA, 34 CP units strongly interact with the OAs, forming a double-layered disk. Upon a transition of the double-disk into a helical “lockwasher”, the 5’ portion of the RNA is pulled “up” through the hole, allowing further CP disks to be concomitantly added to one end of the growing nanotube, intruding and coiling the RNA strand into the proteinaceous shell. Different from this mechanism of the RNA's 5’ end encapsidation, its 3’ end is thought to be packaged slowly by CP of lower oligomerization state and thus to remain accessible until the process is complete. </p>
+            <div align="center"><img src="images/design/shensuo.gif" style="width:400px;"></div>
+            <p style="font-family:unifrakturcook;text-indent:1em;">Because we picked only the partial OAs for the design, we believed the CP units will form the double-layered disk around the OAs and stop growing to become a helical “lockwasher” due to the fact that the length is not long enough for further elongation. When the nano-cage is open, CP units will aggregate assemble around OAs and fulfill the volume of nano-cage. When we added the antifuel, the nano-cage will turn into closed state, leading to the encapsulation of CP aggregate. Thus, the goal of catching TMV CP specifically is theoretically achieved.</p>
+          </div>
+
+
+          <div class="bs-dos-section">
+            <h2 id="references" class="page-header protocolh"> REFERENCES </h2>
+            <p style="text-indent:0em;font-family: unifrakturcook;">1.	Kuzyk, A.; Yang, Y.; Duan, X.; Stoll, S.; Govorov, A. O.; Sugiyama, H.; Endo, M.; Liu, N., A light-driven three-dimensional plasmonic nanosystem that translates molecular motion into reversible chiroptical function. <em>Nat Commun</em> <strong>2016,</strong> <em>7,</em> 10591.
+            <br>
+2.	Douglas, S. M.; Dietz, H.; Liedl, T.; Hogberg, B.; Graf, F.; Shih, W. M., Self-assembly of DNA into nanoscale three-dimensional shapes. <em>Nature</em> <strong>2009,</strong> <em>459</em> (7245), 414-8.
+            <br>
+            3.	Gutjahr, P.; Lipowsky, R.; Kierfeld, J., Persistence length of semiflexible polymers and bending rigidity renormalization. <em>EPL (Europhysics Letters)</em> <strong>2006,</strong> <em>76</em> (6), 994.
+4.	Ouldridge, T. E.; Louis, A. A.; Doye, J. P., Structural, mechanical, and thermodynamic properties of a coarse-grained DNA model. <em>The Journal of chemical physics</em> <strong>2011,</strong> <em>134</em> (8), 02B627.
+            </p>
+
+          </div>
+
+        </div>
+        <!---->
+        <!---->
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Footer
+================================================== -->
+  <footer class="bs-docs-footer" role="contentinfo">
+    <div class="container">
+
+
+      <p>Designed and built by @Nano-JLU</p>
+      <p> Welcome to contact us: <a href="mailto:biomodnanojlu2016@gmail.com">Nano-JLU</a> biomodnanojlu2016@gmail.com</p>
+      <p>Copyright © 2016 BIOMOD Nano-JLU 2016 All Rights Reserved.</p>
+
+    </div>
+  </footer>
+
+
+
+
+
+  <!-- Library Scripts -->
+  <script src="js/jquery-1.10.2.min.js"></script>
+  <script src="js/lib/jquery.preloader.js"></script>
+  <script src="js/lib/nivo-lightbox.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/lib/jquery.superslides.min.js"></script>
+  <script src="js/lib/smoothscroll.js"></script>
+  <script src="js/lib/jquery.sudoslider.min.js"></script>
+  <script src="js/lib/jquery.bxslider.min.js"></script>
+  <script src="js/lib/jquery.mixitup.min.js"></script>
+  <script src="js/lib/jquery.backtotop.js"></script>
+  <script src="js/lib/jquery.carouFredSel-6.2.1-packed.js"></script>
+  <script src="js/lib/retina.min.js"></script>
+  <script src="js/docs.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      $('#collapseFour').collapse({
+        toggle: false
+      })
+    });
+    $(function() {
+      $('#collapseTwo').collapse('show')
+    });
+    $(function() {
+      $('#collapseThree').collapse('toggle')
+    });
+    $(function() {
+      $('#collapseOne').collapse('hide')
+    });
+  </script>
+
+
+
+  <!-- Custom Script -->
+  <script src="js/main.js"></script>
+
+  <script src="js/h.js" type="text/javascript"></script>
+
+  <script>
+    function dragable(id) {
+      var d = document,
+        o = d.getElementById(id),
+        s = o.style,
+        x, y, p = 'onmousemove';
+      o.onmousedown = function(e) {
+        e = e || event;
+        x = e.clientX - o.offsetLeft;
+        y = e.clientY - o.offsetTop;
+        d[p] = function(e) {
+          e = e || event;
+          s.left = e.clientX - x + 'px';
+          s.top = e.clientY - y + 'px'
+        };
+        d.onmouseup = function() {
+          d[p] = null
+        }
+      }
+    }
+    dragable("demo");
+  </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>【测试】动画功能验证</title>
+    <style>
+      body { font-family: sans-serif; margin: 0; background-color: #000; }
+      .animation-wrapper { height: 200vh; position: relative; }
+      .animation-container { position: sticky; top: 0; width: 100%; height: 100vh; overflow: hidden; }
+      .main-content { position: relative; z-index: 10; background-color: #fff; padding: 50px; text-align: center; }
+      h1 { font-size: 3rem; }
+    </style>
+  </head>
+  <body>
+    <div class="animation-wrapper">
+      <div class="animation-container" id="animation-container">
+        <svg viewBox="0 0 1920 1080" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs><radialGradient id="blackholeGradient" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:#000000;stop-opacity:1" /><stop offset="100%" style="stop-color:#1c1428;stop-opacity:1" /></radialGradient><radialGradient id="glowGradient" cx="50%" cy="50%" r="50%"><stop offset="60%" style="stop-color:rgba(255, 215, 0, 0.1);stop-opacity:1" /><stop offset="100%" style="stop-color:rgba(255, 215, 0, 0);stop-opacity:0" /></radialGradient></defs>
+            <rect width="100%" height="100%" fill="url(#blackholeGradient)" />
+            <g id="blackhole-group" style="transform-origin: center;"><circle id="blackhole-glow" cx="960" cy="540" r="400" fill="url(#glowGradient)"><animateTransform attributeName="transform" type="rotate" from="0 960 540" to="360 960 540" dur="20s" repeatCount="indefinite"/></circle><circle cx="960" cy="540" r="250" fill="none" stroke="#ffd700" stroke-width="2" opacity="0.6"></circle><circle cx="960" cy="540" r="200" fill="none" stroke="#ffd700" stroke-width="3" opacity="0.8"></circle><circle cx="960" cy="540" r="150" fill="#000000"></circle></g>
+        </svg>
+      </div>
+    </div>
+
+    <main class="main-content">
+      <h1>动画测试页</h1>
+      <p>如果滚动时上方的黑洞动画能够正常缩放，则证明动画脚本本身没有问题。</p>
+    </main>
+
+    <script>
+      // 动画脚本
+      (function() {
+        const animationWrapper = document.querySelector('.animation-wrapper');
+        if (!animationWrapper) return;
+        
+        const animationContainer = document.getElementById('animation-container');
+        const blackholeGroup = document.getElementById('blackhole-group');
+        const ANIMATION_SCROLL_DISTANCE = animationWrapper.offsetHeight - window.innerHeight;
+        
+        function updateScrollAnimation() {
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          if (scrollTop <= ANIMATION_SCROLL_DISTANCE) {
+            const scrollProgress = scrollTop / ANIMATION_SCROLL_DISTANCE;
+            const scale = 1 + (scrollProgress * 19);
+            let opacity = 1;
+            if (scrollProgress > 0.8) {
+              opacity = 1 - (scrollProgress - 0.8) / 0.2;
+            }
+            blackholeGroup.setAttribute('transform', `scale(${scale})`);
+            animationContainer.style.opacity = opacity;
+          }
+        }
+        
+        let ticking = false;
+        function handleScroll() {
+          if (!ticking) {
+            window.requestAnimationFrame(() => {
+              updateScrollAnimation();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        }
+        window.addEventListener('scroll', handleScroll);
+        updateScrollAnimation();
+      })();
+    </script>
+  </body>
+</html>

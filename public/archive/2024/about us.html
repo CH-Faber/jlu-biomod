@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.2/gsap.min.js"></script>
+    <title>Document</title>
+    <style>
+ *{
+margin: 0;
+padding: 0;
+list-style: none;
+text-decoration: none;
+} 
+body{
+width: 100vw;
+height: 100vh;
+background-image: url("网站/us.jpg");
+}
+.tp{
+width: 100vw;
+height: 10vh;
+background-color: #98b6ec;
+position: fixed;
+top: 0;
+left: 0;
+opacity: 0.9;
+}
+.sym img{
+width: 5vw;
+height: 10vh;
+float: left;
+}
+.menu{
+float: right;
+position: fixed;
+top: 2vh;
+right: 5vw;
+width: 15vw;
+cursor: pointer;
+z-index: 1;
+height: 30vh;
+}
+.b1{
+float: left;
+font-size: 3vmax;
+color: white;
+font-size: 2.5vmax;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-weight: 600;
+}
+.b2{
+float: left;
+margin-left: 2vw;
+}
+input[type = "checkbox"] {
+  -webkit-appearance: none;
+  display: none;
+  visibility: hidden
+}
+.bar {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  width: 50px;
+  height: 40px;
+}
+.bar span {
+  position: absolute;
+  width: 45px;
+  height: 7px;
+  background: #f1faee;
+  border-radius: 100px;
+  display: inline-block;
+  transition: 0.3s ease;
+  left: 0;
+}
+.bar span.top {
+  top: 0;
+}
+.bar span.middle {
+  top: 17px;
+}
+.bar span.bottom {
+  bottom: 0;
+}
+input[type]:checked ~ span.top {
+  transform: rotate(45deg);
+  transform-origin: top left;
+  width: 48px;
+  left: 5px;
+}
+input[type]:checked ~ span.bottom {
+  transform: rotate(-45deg);
+  transform-origin: top left;
+  width: 48px;
+  bottom: -1px;
+  box-shadow: 0 0 10px #495057;
+}
+
+input[type]:checked ~ span.middle {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+.cai{
+  background-color: grey;
+  position:fixed;
+  width: 15vw;
+  height: 36vh;
+  opacity: 0;
+  z-index: 1;
+  margin-top: 8vh;
+  border-radius: 10px;
+}
+.cai li{
+  text-align: center;
+  height: 4vh;
+}
+.but{
+ width: 15vw;
+ height:4vh;
+ background: grey;
+ border: none;
+ border-radius: 5px;
+ font-weight: bold;
+ cursor: pointer;
+ position: relative;
+ z-index: 1;
+ overflow: hidden;
+}
+.but a{
+  color: white;
+  font-size: 1.5vmax;
+}
+button a:hover {
+ color: grey;
+}
+
+button:after {
+ content: "";
+ background: white;
+ position: absolute;
+ z-index: -1;
+ left: -20%;
+ right: -20%;
+ top: 0;
+ bottom: 0;
+ transform: skewX(-45deg) scale(0, 1);
+ transition: all 0.5s;
+}
+
+button:hover:after {
+ transform: skewX(-45deg) scale(1, 1);
+ -webkit-transition: all 0.5s;
+ transition: all 0.5s;
+}
+
+.menu:hover .cai{
+ opacity: 0.7;
+ transition: 0.5s;
+}
+.loader {
+ position: relative;
+ width: 2.5em;
+ height: 2.5em;
+ transform: rotate(165deg);
+}
+.loader:before, .loader:after {
+ content: "";
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ display: block;
+ width: 0.5em;
+ height: 0.5em;
+ border-radius: 0.25em;
+ transform: translate(-50%, -50%);
+}
+.loader:before {
+ animation: before8 2s infinite;
+}
+.loader:after {
+ animation: after6 2s infinite;
+}
+@keyframes before8 {
+ 0% {
+  width: 0.5em;
+  box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+ }
+ 35% {
+  width: 2.5em;
+  box-shadow: 0 -0.5em rgba(225, 20, 98, 0.75), 0 0.5em rgba(111, 202, 220, 0.75);
+ }
+ 70% {
+  width: 0.5em;
+  box-shadow: -1em -0.5em rgba(225, 20, 98, 0.75), 1em 0.5em rgba(111, 202, 220, 0.75);
+ }
+ 100% {
+  box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+ }
+}
+@keyframes after6 {
+ 0% {
+  height: 0.5em;
+  box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+ }
+ 35% {
+  height: 2.5em;
+  box-shadow: 0.5em 0 rgba(61, 184, 143, 0.75), -0.5em 0 rgba(233, 169, 32, 0.75);
+ }
+ 70% {
+  height: 0.5em;
+  box-shadow: 0.5em -1em rgba(61, 184, 143, 0.75), -0.5em 1em rgba(233, 169, 32, 0.75);
+ }
+ 100% {
+  box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+ }
+}
+.loader {
+ position: absolute;
+ top: calc(50% - 1.25em);
+ left: calc(50% - 1.25em);
+}
+.home{
+  float: left;
+  margin-left: 5vw;
+  margin-top: 0.5vh;
+}
+.btn {
+ padding: 1vmax;
+ background: none;
+ border: 2px solid #fff;
+ cursor: pointer;
+ position: relative;
+ overflow: hidden;
+ transition: all 0.3s;
+ border-radius: 12px;
+ box-shadow: 0 2px 0 2px #000;
+ height: 9vh;
+}
+.home a{
+  color: white;
+  font-weight: bolder;
+  font-size: 1.5vmax;
+}
+.btn:before {
+ content: "";
+ position: absolute;
+ width: 100px;
+ height: 120%;
+ background-color: #ff6700;
+ top: 50%;
+ transform: skewX(30deg) translate(-150%, -50%);
+ transition: all 0.5s;
+}
+
+.btn:hover {
+ background-color: #4cc9f0;
+ color: #fff;
+ box-shadow: 0 2px 0 2px #0d3b66;
+}
+.btn:hover a{
+  color: white;
+}
+.btn:hover::before {
+ transform: skewX(30deg) translate(150%, -50%);
+ transition-delay: 0.1s;
+}
+
+.btn:active {
+ transform: scale(0.9);
+}
+.gu{
+  background-color: grey;
+  width: 8vw;
+  height: 18vh;
+  z-index: 1;
+  border-radius: 10px;
+  position: fixed;
+  top: 45vh;
+  left: -15vw;
+  transition: 0.8s;
+}
+.gu li{
+  text-align: center;
+  height: 6vh;
+}
+.but1{
+ width: 8vw;
+ height:6vh;
+ background: grey;
+ border: none;
+ border-radius: 5px;
+ font-weight: bold;
+ cursor: pointer;
+ position: relative;
+ z-index: 1;
+ overflow: hidden;
+}
+.but1 a{
+  color: white;
+  font-size: 1vmax;
+}
+button a:hover {
+ color: grey;
+}
+button:after {
+ content: "";
+ background: white;
+ position: absolute;
+ z-index: -1;
+ left: -20%;
+ right: -20%;
+ top: 0;
+ bottom: 0;
+ transform: skewX(-45deg) scale(0, 1);
+ transition: all 0.5s;
+}
+button:hover:after {
+ transform: skewX(-45deg) scale(1, 1);
+ -webkit-transition: all 0.5s;
+ transition: all 0.5s;
+}
+.sb{
+  position: fixed;
+  top: 45vh;
+  z-index: 0;
+  width: 2vw;
+  height: 6vh;
+  opacity: 1;
+  cursor: pointer;
+}
+.sb img{
+    width: 8vw;
+    height: 16vh;
+    margin-left: -3.5vw;
+}
+.db:hover .gu{
+  left: 0;
+}
+.db:hover .sb{
+  opacity: 0;
+}
+.bian{
+    width: 5vw;
+    height: 100vh;
+    position: fixed;
+    background-color: #d8ebff;
+    z-index: -1;
+    top: 10vh;
+}
+.bian1{
+    width: 5vw;
+    height: 100vh;
+    position: fixed;
+    background-color: #d8ebff;
+    z-index: -1;
+    right: 0;
+    top: 10vh;
+}
+#IN{
+    font-size: 5vmax;
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+
+}
+.TT{
+  float: left;
+  margin-top: 25vh;
+  margin-left: 10vw;
+}
+.T3 img{
+  width: 25vw;
+  height: 40vh;
+}
+.T4{
+  font-size: 2vmax;
+  font-weight: 600;
+  margin-left: 5vw;
+}
+.T5{
+  font-size: 1.5vmax;
+  margin-left: 3vw;
+  margin-top: 2vh;
+}
+.T6{
+  font-size: 1.5vmax;
+  margin-top: 2vh;
+  width: 27vw;
+}
+.TT1{
+ float: left;
+ margin-top: 10vh;
+ margin-left: 5vw;
+}
+.T7 img{
+  width: 20vw;
+  height: 55vh;
+}
+.T8{
+  font-size: 2vmax;
+  font-weight: 600;
+  margin-left: 7vw;
+}
+.T9{
+  font-size: 1.5vmax;
+  margin-left: 5vw;
+  margin-top: 2vh;
+}
+.T10{
+  font-size: 1.5vmax;
+  margin-top: 2vh;
+  width: 20vw;
+  margin-left:2vw;
+}
+.TT2{
+  margin-left: 70vw;
+}
+.T11{
+  margin-top: 10vh;
+}
+.T11 img{
+  width: 22vw;
+  height: 55vh;
+}
+.T12{
+  font-size: 2vmax;
+  font-weight: 600;
+  margin-left: 7vw;
+}
+.T13{
+  font-size: 1.5vmax;
+  margin-top: 2vh;
+  margin-left: 3vw;
+}
+.T14{
+  font-size: 1.5vmax;
+  margin-top: 2vh;
+  margin-left: 2vw;
+  width: 20vw;
+}
+.TT3{
+  width: 100vw;
+  height: 100vh;
+}
+#TE{
+  font-size: 5vmax;
+  display: flex;
+  justify-content: center;
+}
+.T15{
+  margin-top: 10vh;
+  margin-left: 20vw;
+}
+.T15 img{
+  width: 25vw;
+  height: 65vh;
+}
+.T16{
+  font-size: 3vmax;
+  font-weight: 600;
+  margin-left: 51vw;
+  margin-top: -60vh;
+}
+.T17{
+  font-size: 2vmax;
+  margin-left: 51vw;
+  margin-top: 15vh;
+}
+.T18{
+  font-size: 2vmax;
+  margin-left: 51vw;
+  margin-top: 15vh;
+  width:50vw;
+}
+.TT4{
+  width: 100vw;
+  height: 100vh;
+}
+.T19{
+  margin-top: 40vh;
+  margin-left: 10vw;
+}
+.T19 img{
+  width: 35vw;
+  height: 50vh;
+}
+.T20{
+  font-size: 3vmax;
+  font-weight: 600;
+  margin-left: 51vw;
+  margin-top: -46vh;
+}
+.T21{
+  font-size: 2vmax;
+  margin-left: 51vw;
+  margin-top: 10vh;
+}
+.T22{
+  font-size: 2vmax;
+  margin-left: 51vw;
+  margin-top: 10vh;
+  width: 50vw;
+}
+.TT5{
+  width: 100vw;
+  height: 100vh;
+}
+.T23{
+  margin-top: 10vh;
+  margin-left: 15vw;
+}
+.T23 img{
+  width: 30vw;
+  height: 57vh;
+}
+.T24{
+  font-size: 3vmax;
+  font-weight: 600;
+  margin-left: 51vw;
+  margin-top: -50vh;
+}
+.T25{
+  font-size: 2vmax;
+  margin-top: 8vh;
+  margin-left: 51vw;
+}
+.T26{
+  font-size: 2vmax;
+  margin-top: 10vh;
+  margin-left: 51vw;
+  width: 40vw
+}
+.TT6{
+  width: 100vw;
+  height: 100vh;
+}
+.T27{
+  margin-left: 20vw;
+  margin-top: 10vh;
+}
+.T27 img{
+   width: 25vw;
+   height: 65vh;
+}
+.T28{
+  font-size: 3vmax;
+  font-weight: 600;
+  margin-left: 51vw;
+  margin-top: -60vh;
+}
+.T29{
+  font-size: 2vmax;
+  margin-left: 51vw;
+  margin-top: 15vh;
+  width: 40vw;
+}
+.T30{
+  font-size: 2vmax;
+  margin-left: 51vw;
+  margin-top: 15vh;
+}
+.TT7{
+  width: 100vw;
+  height: 100vh;
+}
+.T31{
+margin-left: 10vw;
+margin-top: 10vh;
+}
+.T31 img{
+  width: 35vw;
+  height: 55vh;
+}
+.T32{
+  font-size: 3vmax;
+  font-weight: 600;
+  margin-left: 51vw;
+  margin-top: -50vh;
+}
+.T33{
+  font-size: 2vmax;
+  margin-left: 51vw;
+  margin-top: 10vh;
+}
+.T34{
+  font-size: 2vmax;
+  margin-left: 51vw;
+  margin-top: 10vh;
+  width: 40vw;
+}
+.TT8{
+  width: 100vw;
+  height: 100vh;
+}
+.T35{
+  margin-left: 20vw;
+  margin-top: 10vh;
+}
+.T35 img{
+  width: 25vw;
+  height: 75vh;
+}
+.T36{
+  font-size: 3vmax;
+  margin-left: 51vw;
+  font-weight: 600;
+  margin-top: -70vh;
+}
+.T37{
+  font-size: 2vmax;
+  margin-left: 51vw;
+  margin-top: 15vh;
+}
+.T38{
+  font-size: 2vmax;
+  margin-left: 51vw;
+  margin-top: 17vh;
+  width: 40vw;
+}
+.TT9{
+  width: 100vw;
+  height: 100vh;
+}
+.T39{
+  margin-left: 20vw;
+  margin-top: 10vh;
+}
+.T39 img{
+  width: 25vw;
+  height: 65vh;
+}
+.T40{
+  font-size: 3vmax;
+  margin-left: 51vw;
+  margin-top: -60vh;
+  font-weight: 600;
+}
+.T41{
+  font-size: 2vmax;
+  margin-left: 51vw;
+  margin-top: 15vh;
+}
+.T42{
+  font-size: 2vmax;
+  margin-left: 51vw;
+  margin-top: 15vh;
+  width: 40vw;
+}
+.T43{
+  margin-left: 15vw;
+  margin-top: 10vh;
+}
+.T43 img{
+  width: 30vw;
+  height: 60vh;
+}
+.T44{
+  font-size: 3vmax;
+  font-weight: 600;
+  margin-left: 51vw;
+  margin-top: -55vh;
+}
+.T45{
+  font-size: 2vmax;
+  margin-top: 12vh;
+  margin-left: 51vw;
+}
+.T46{
+  font-size: 2vmax;
+  margin-top: 12vh;
+  margin-left: 51vw;
+  width: 40vw;
+}
+.TT11{
+  width: 100vw;
+  height: 100vh;
+}
+#SP{
+  font-size: 5vmax;
+ margin-left: 34vw;
+}
+.TT11{
+  margin-left: 10vw;
+  margin-top: 25vh;
+}
+.T47 img{
+width: 25vw;
+height: 40vh;
+}
+.T48{
+  font-size: 2vmax;
+  font-weight: 600;
+  margin-left: 6vw;
+}
+.T49{
+  font-size: 1.5vmax;
+  margin-left: 4vw;
+  margin-top: 2vh;
+}
+.T50{
+  font-size: 1.5vmax;
+  width: 30vw;
+  margin-top: 2vh;
+  margin-left: -2vw;
+}
+.TT12{
+  margin-left: 40vw;
+  margin-top: -110vh;
+}
+.T51 img{
+  width: 17vw;
+  height: 50vh;
+}
+.T52{
+  font-size: 2vmax;
+  font-weight: 600;
+  margin-left: 4vw;
+}
+.T53{
+  font-size: 1.5vmax;
+  margin-top: 2vh;
+  margin-left: 3vw;
+}
+.T54{
+  width: 18vw;
+  margin-top: 2vh;
+  margin-left: 1vw;
+  font-size: 1.5vmax;
+}
+.TT13{
+  margin-left: 65vw;
+  margin-top: -75vh;
+}
+.T55 img{
+  width: 20vw;
+  height: 50vh;
+}
+.T56{
+  font-size: 2vmax;
+  font-weight: 600;
+  margin-left: 4vw;
+}
+.T57{
+  font-size: 1.5vmax;
+  margin-top: 2vh;
+  margin-left: 3vw;
+}
+.T58{
+  font-size: 1.5vmax;
+  margin-top: 2vh;
+  margin-left: 3vw;
+  width: 20vw;
+}
+.TT14{
+  margin-left: 10vw;
+  margin-top: 10vh;
+}
+.T59 img{
+  width: 20vw;
+  height: 55vh;
+}
+.T60{
+  font-size: 2vmax;
+  font-weight: 600;
+  margin-left: 4vw;
+}
+.T61{
+  font-size: 1.5vmax;
+  margin-top: 2vh;
+  margin-left: 3vw;
+}
+.T62{
+  font-size: 1.5vmax;
+  margin-top: 2vh;
+  margin-left: -1vw;
+  width: 22vw;
+}
+.TT15{
+  margin-left: 35vw;
+  margin-top: -80vh;
+}
+.T63 img{
+  width: 25vw;
+  height: 50vh;
+}
+.T64{
+  font-size: 2vmax;
+  margin-left: 4vw;
+  font-weight: 600;
+}
+.T65{
+  font-size: 1.5vmax;
+  margin-left: 4vw;
+  margin-top: 2vh;
+}
+.T66{
+  font-size: 1.5vmax;
+  width: 29vw;
+  margin-left: 0vw;
+  margin-top: 2vh;
+}
+.TT16{
+  margin-left: 65vw;
+  margin-top: -58vh;
+}
+.T67 img{
+  width: 25vw;
+  height: 40vh;
+}
+.T68{
+  font-size: 2vmax;
+  font-weight: 600;
+  margin-left: 4vw;
+}
+.T69{
+  font-size: 1.5vmax;
+  margin-top: 2vh;
+  margin-left: 2vw;
+}
+.T70{
+  font-size: 1.5vmax;
+  margin-left: 2vw;
+  width: 22vw;
+  margin-top: 2vh;
+}
+.TT17{
+  margin-left: 10vw;
+  margin-top: 10vh;
+}
+.T71 img{
+  width: 18vw;
+  height: 50vh;
+}
+.T72{
+  font-size: 2vmax;
+  font-weight: 600;
+  margin-left:  4vw;
+}
+.T73{
+  font-size: 1.5vmax;
+  margin-top: 2vh;
+}
+.T74{
+  font-size: 1.5vmax;
+  width: 20vw;
+  margin-top: 2vh;
+}
+.TT18{
+  margin-left: 35vw;
+  margin-top: -77vh;
+}
+.T75 img{
+  width: 25vw;
+  height: 50vh;
+}
+.T76{
+  font-size: 2vmax;
+  font-weight: 600;
+  margin-left: 6vw;
+}
+.T77{
+  font-size: 1.5vmax;
+  margin-left: 3vw;
+  margin-top: 2vh;
+}
+.T78{
+  font-size: 1.5vmax;
+  margin-left: 4vw;
+  width: 25vw;
+  margin-top: 2vh;
+}
+.TT19{
+  margin-left: 65vw;
+  margin-top: -68vh;
+}
+.T79 img{
+  width: 20vw;
+  height: 50vh;
+}
+.T80{
+  font-size: 2vmax;
+  font-weight: 600;
+  margin-left: 5vw;
+}
+.T81{
+  font-size: 1.5vmax;
+  margin-left: 3vw;
+  margin-top: 2vh;
+}
+.T82{
+  font-size: 1.5vmax;
+  margin-top: 2vh;
+  width: 23vw;
+}
+.TT20{
+  margin-left: 10vw;
+  margin-top: 10vh;
+}
+.T83 img{
+  width: 28vw;
+  height: 45vh;
+}
+.T84{
+  font-size: 2vmax;
+  font-weight: 600;
+  margin-left: 7vw;
+}
+.T85{
+  font-size: 1.5vmax;
+  margin-top: 2vh;
+  margin-left: 5vw;
+}
+.T86{
+  font-size: 1.5vmax;
+  margin-top: 2vh;
+  width: 28vw;
+}
+.TT21{
+  margin-left: 45vw;
+  margin-top: -68vh;
+}
+.T87 img{
+  width: 28vw;
+  height: 45vh;
+}
+.T88{
+  font-size: 2vmax;
+  font-weight: 600;
+  margin-left: 8vw;
+}
+.T89{
+font-size: 1.5vmax;
+margin-top: 2vh;
+margin-left: 3vw;
+}
+.T90{
+  font-size: 1.5vmax;
+  margin-top: 2vh;
+  margin-left: 2vw;
+  width: 28vw;
+}
+.GG{
+color: white;
+font-size: 2.5vmax;
+font-weight: 600;
+position: fixed;
+top: 2vh;
+left: 25vw;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.wheel-and-hamster {
+  --dur: 1s;
+  position: relative;
+  margin-top: 30vh;
+  margin-left: 42vw;
+  width: 12em;
+  height: 12em;
+  font-size: 14px;
+}
+
+.wheel,
+.hamster,
+.hamster div,
+.spoke {
+  position: absolute;
+}
+
+.wheel,
+.spoke {
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wheel {
+  background: radial-gradient(100% 100% at center,hsla(0,0%,60%,0) 47.8%,hsl(0,0%,60%) 48%);
+  z-index: 2;
+}
+
+.hamster {
+  animation: hamster var(--dur) ease-in-out infinite;
+  top: 50%;
+  left: calc(50% - 3.5em);
+  width: 7em;
+  height: 3.75em;
+  transform: rotate(4deg) translate(-0.8em,1.85em);
+  transform-origin: 50% 0;
+  z-index: 1;
+}
+
+.hamster__head {
+  animation: hamsterHead var(--dur) ease-in-out infinite;
+  background: hsl(30,90%,55%);
+  border-radius: 70% 30% 0 100% / 40% 25% 25% 60%;
+  box-shadow: 0 -0.25em 0 hsl(30,90%,80%) inset,
+		0.75em -1.55em 0 hsl(30,90%,90%) inset;
+  top: 0;
+  left: -2em;
+  width: 2.75em;
+  height: 2.5em;
+  transform-origin: 100% 50%;
+}
+
+.hamster__ear {
+  animation: hamsterEar var(--dur) ease-in-out infinite;
+  background: hsl(0,90%,85%);
+  border-radius: 50%;
+  box-shadow: -0.25em 0 hsl(30,90%,55%) inset;
+  top: -0.25em;
+  right: -0.25em;
+  width: 0.75em;
+  height: 0.75em;
+  transform-origin: 50% 75%;
+}
+
+.hamster__eye {
+  animation: hamsterEye var(--dur) linear infinite;
+  background-color: hsl(0,0%,0%);
+  border-radius: 50%;
+  top: 0.375em;
+  left: 1.25em;
+  width: 0.5em;
+  height: 0.5em;
+}
+
+.hamster__nose {
+  background: hsl(0,90%,75%);
+  border-radius: 35% 65% 85% 15% / 70% 50% 50% 30%;
+  top: 0.75em;
+  left: 0;
+  width: 0.2em;
+  height: 0.25em;
+}
+
+.hamster__body {
+  animation: hamsterBody var(--dur) ease-in-out infinite;
+  background: hsl(30,90%,90%);
+  border-radius: 50% 30% 50% 30% / 15% 60% 40% 40%;
+  box-shadow: 0.1em 0.75em 0 hsl(30,90%,55%) inset,
+		0.15em -0.5em 0 hsl(30,90%,80%) inset;
+  top: 0.25em;
+  left: 2em;
+  width: 4.5em;
+  height: 3em;
+  transform-origin: 17% 50%;
+  transform-style: preserve-3d;
+}
+
+.hamster__limb--fr,
+.hamster__limb--fl {
+  clip-path: polygon(0 0,100% 0,70% 80%,60% 100%,0% 100%,40% 80%);
+  top: 2em;
+  left: 0.5em;
+  width: 1em;
+  height: 1.5em;
+  transform-origin: 50% 0;
+}
+
+.hamster__limb--fr {
+  animation: hamsterFRLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,80%) 80%,hsl(0,90%,75%) 80%);
+  transform: rotate(15deg) translateZ(-1px);
+}
+
+.hamster__limb--fl {
+  animation: hamsterFLLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,90%) 80%,hsl(0,90%,85%) 80%);
+  transform: rotate(15deg);
+}
+
+.hamster__limb--br,
+.hamster__limb--bl {
+  border-radius: 0.75em 0.75em 0 0;
+  clip-path: polygon(0 0,100% 0,100% 30%,70% 90%,70% 100%,30% 100%,40% 90%,0% 30%);
+  top: 1em;
+  left: 2.8em;
+  width: 1.5em;
+  height: 2.5em;
+  transform-origin: 50% 30%;
+}
+
+.hamster__limb--br {
+  animation: hamsterBRLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,80%) 90%,hsl(0,90%,75%) 90%);
+  transform: rotate(-25deg) translateZ(-1px);
+}
+
+.hamster__limb--bl {
+  animation: hamsterBLLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,90%) 90%,hsl(0,90%,85%) 90%);
+  transform: rotate(-25deg);
+}
+
+.hamster__tail {
+  animation: hamsterTail var(--dur) linear infinite;
+  background: hsl(0,90%,85%);
+  border-radius: 0.25em 50% 50% 0.25em;
+  box-shadow: 0 -0.2em 0 hsl(0,90%,75%) inset;
+  top: 1.5em;
+  right: -0.5em;
+  width: 1em;
+  height: 0.5em;
+  transform: rotate(30deg) translateZ(-1px);
+  transform-origin: 0.25em 0.25em;
+}
+
+.spoke {
+  animation: spoke var(--dur) linear infinite;
+  background: radial-gradient(100% 100% at center,hsl(0,0%,60%) 4.8%,hsla(0,0%,60%,0) 5%),
+		linear-gradient(hsla(0,0%,55%,0) 46.9%,hsl(0,0%,65%) 47% 52.9%,hsla(0,0%,65%,0) 53%) 50% 50% / 99% 99% no-repeat;
+}
+.BBBB{
+ height: 50vh;
+}
+
+@keyframes hamster {
+  from, to {
+    transform: rotate(4deg) translate(-0.8em,1.85em);
+  }
+
+  50% {
+    transform: rotate(0) translate(-0.8em,1.85em);
+  }
+}
+
+@keyframes hamsterHead {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(8deg);
+  }
+}
+
+@keyframes hamsterEye {
+  from, 90%, to {
+    transform: scaleY(1);
+  }
+
+  95% {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes hamsterEar {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(12deg);
+  }
+}
+
+@keyframes hamsterBody {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(-2deg);
+  }
+}
+
+@keyframes hamsterFRLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(50deg) translateZ(-1px);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(-30deg) translateZ(-1px);
+  }
+}
+
+@keyframes hamsterFLLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(-30deg);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(50deg);
+  }
+}
+
+@keyframes hamsterBRLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(-60deg) translateZ(-1px);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(20deg) translateZ(-1px);
+  }
+}
+
+@keyframes hamsterBLLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(20deg);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(-60deg);
+  }
+}
+
+@keyframes hamsterTail {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(30deg) translateZ(-1px);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(10deg) translateZ(-1px);
+  }
+}
+
+@keyframes spoke {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(-1turn);
+  }
+}
+.WRRRR{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #98b6ec;
+}
+  </style>
+</head>
+<body>
+    <div class="tp">
+        <div class="sym"><img src="网站/队徽.png"></div>
+<div class="loader"></div>
+<div class="home"><button class="btn"><a href="index.html">HOME</a> </button></div>
+<div class="GG">About us</div>
+    <div class="menu">
+        <div class="b1">MENU</div>
+<div class="b2"><label class="bar" for="check">
+<input type="checkbox" id="check">
+<span class="top"></span>
+<span class="middle"></span>
+<span class="bottom"></span>
+</label></div>
+<ul class="cai">
+  <li><button class="but"><a href="project.html">Project</a></button></li>
+  <li><button class="but"><a href="design.html">Design</a></button></li>
+  <li><button class="but"><a href="feasibility.html">Feasibility</a></button></li>
+  <li><button class="but"><a href="method.html">Method</a></button></li>
+  <li><button class="but"><a href="labbook.html">Labbook</a></button></li>
+  <li><button class="but"><a href="result.html">Result</a></button></li>
+  <li><button class="but"><a href="about us.html">About us</a></button></li>
+  <li><button class="but"><a href="ELSI.html">ELSI</a></button></li>
+  <li><button class="but"><a href="Future.html">Future</a></button></li>
+</ul>
+ </div>
+    </div>
+    <div class="db">
+      <div class="dao">
+       <ul class="gu">
+        <li><button class="but1"><a href="#TE"><br>Team member</a></button></li>
+      <li><button class="but1"><a href="#IN"><br>Instructor</a></button></li>
+      <li><button class="but1"><a href="#SP"><br>Special thanks</a></button></li>
+      </ul>
+      </div><div class="sb"><img src="网站/jian.png"></div>
+      </div>
+      <div class="bian"></div>
+      <div class="bian1"></div>
+      <div class="TT3">
+        <h2 id="TE"><br>Team member</h2>
+        <div class="T15"><img src="网站/AO.jpg"></div>
+        <div class="T16">Mingyang Ao</div>
+        <div class="T17">aomy1322@jlu.edu.cn</div>
+        <div class="T18">Who has seen the wind? Neither I nor you.</div>
+      </div>
+      <div class="TT4">
+        <div class="T19"><img src="网站/cui.jpg"></div>
+        <div class="T20">Tong Cui</div>
+        <div class="T21">cuitong0808@163.com</div>
+        <div class="T22">Wide awake， no time to waste</div>
+      </div>
+      <div class="TT5">
+        <div class="T23"><img src="网站/hong.jpg"></div>
+        <div class="T24">Hongshan Guo</div>
+        <div class="T25">guohs1322@ mails.jlu.edu.cn</div>
+        <div class="T26">We can not judge the value of a moment until it becomes a memory. </div>
+      </div>
+      <div class="TT6">
+        <div class="T27"><img src="网站/guo.jpg"></div>
+        <div class="T28">Xing Guo</div>
+        <div class="T29">625522008@qq.com</div>
+        <div class="T30">An apple a day keeps the experiment away</div>
+      </div>
+      <div class="TT7">
+        <div class="T31"><img src="网站/ming.jpg"></div>
+        <div class="T32">Minghan Liu</div>
+        <div class="T33">921972545@qq.com</div>
+        <div class="T34">Good luck,in countless tomorrow.</div>
+      </div>
+      <div class="TT8">
+        <div class="T35"><img src="网站/wei.jpg"></div>
+        <div class="T36">Huashen Wei</div>
+        <div class="T37">2085833906@qq.com</div>
+        <div class="T38">How’s the result?” “Not good.” “Fail again?” “Yes.” “Then try again.”</div>
+      </div>
+      <div class="TT9">
+        <div class="T39"><img src="网站/xu.jpg"></div>
+        <div class="T40">Runze Xu</div>
+        <div class="T41">166651869@qq.com</div>
+        <div class="T42">All life so far has failure written all over it, but it doesn't stop me from moving forward.</div>
+      </div>
+      <div class="TT10">
+        <div class="T43"><img src="网站/hao.jpg"></div>
+        <div class="T44">Haoqi Zhang</div>
+        <div class="T45">1346016830@qq.com</div>
+        <div class="T46">The metaphysical is called the Dao, the physical is called the vessel; a gentleman is not a vessel.</div>
+      </div> 
+<h2 id="IN"><br>Instructors</h2>
+<div class="TT">
+    <div class="T3"><img src="网站/guan.jpg"></div>
+    <div class="T4">Shuwen Guan</div>
+    <div class="T5">Guanshuwen@jlu.edu.cn</div>
+    <div class="T6">You are never too old to set another goal or to dream a new dream.</div>
+</div>
+<div class="TT1">
+<div class="T7"><img src="网站/kun.jpg"></div>
+<div class="T8">Kun Liu</div>
+<div class="T9">kliu@jlu.edu.cn</div>
+<div class="T10">The only way to do great work is to love what you do.</div>
+</div>
+<div class="TT2">
+  <div class="T11"><img src="网站/xu (2).jpg"></div>
+  <div class="T12">Yang Xu</div>
+  <div class="T13">xuyang310@jlu.edu.cn</div>
+  <div class="T14">Creativity is intelligence having fun~</div>
+</div>
+<h2 id="SP"><br>Special thanks</h2>
+<div class="TT11">
+  <div class="T47"><img src="网站/Liang.jpg"></div>
+  <div class="T48">Liang Wang</div>
+  <div class="T49">polywang@jlu.edu.cn</div>
+  <div class="T50">It is fortunate to have the opportunity to change your life path through learning</div>
+</div>
+<div class="TT12">
+  <div class="T51"><img src="网站/Ma.jpg"></div>
+  <div class="T52">Qiang Ma</div>
+  <div class="T53">qma@jlu.edu.cn</div>
+  <div class="T54">You can learn more from unexpected experimental results.</div>
+</div>
+<div class="TT13">
+  <div class="T55"><img src="网站/Ying.jpg"></div>
+  <div class="T56">Yingwei Yang</div>
+  <div class="T57">ywyang@jlu.edu.cn</div>
+  <div class="T58">Be healthy, be happy</div>
+</div>
+<div class="TT14">
+  <div class="T59"><img src="网站/hai.jpg"></div>
+  <div class="T60">Haifeng Tang</div>
+  <div class="T61">tanghf@jlu.edu.cn</div>
+  <div class="T62">I thought that learning will let me know more, the reality is the more I learn, the more ignorant I feel!</div>
+  </div>
+  <div class="TT15">
+    <div class="T63"><img src="网站/Ning.jpg"></div>
+    <div class="T64">Ningning Zhang</div>
+    <div class="T65">zhangnn@jlu.edu.cn</div>
+    <div class="T66">Love life to the extreme without regret. </div>
+  </div>
+  <div class="TT16">
+    <div class="T67"><img src="网站/Wu.jpg"></div>
+    <div class="T68">Daiwu Deng</div>
+    <div class="T69">dengdw24@mails.jlu.edu.cn</div>
+    <div class="T70">Success is never final. Failure is never fatal. Courage is what counts. -Sir Winston Churchill</div>
+  </div>
+  <div class="TT17">
+    <div class="T71"><img src="网站/He.jpg"></div>
+    <div class="T72">Linxia He</div>
+    <div class="T73">helx20@mails.jlu.edu.cn</div>
+    <div class="T74">Love what you love, do what you do, without seeking fame or fortune.</div>
+  </div>
+  <div class="TT18">
+    <div class="T75"><img src="网站/zong.jpg"></div>
+    <div class="T76">Zongjun Li</div>
+    <div class="T77">long7timeago@icloud.com</div>
+    <div class="T78">Life needs fiery passion.</div>
+  </div>
+  <div class="TT19">
+    <div class="T79"><img src="网站/Jin.jpg"></div>
+    <div class="T80">Jin Zhang</div>
+    <div class="T81">2770598697@qq.com</div>
+    <div class="T82">I hope that nanorobots will bring great progress to human medicine and science.And gold nanorods is a brilliant idea.</div>
+  </div>
+  <div class="TT20">
+    <div class="T83"><img src="网站/Peng.jpg"></div>
+    <div class="T84">Pengyu Chen</div>
+    <div class="T85">1438827805@qq.com</div>
+    <div class="T86">You can't live without the fire，It's the heat that makes you strong.</div>
+  </div>
+  <div class="TT21">
+    <div class="T87"><img src="网站/cong.jpg"></div>
+    <div class="T88">Cong Chen</div>
+    <div class="T89">chencong1323@mails.jlu.edu.cn</div>
+    <div class="T90">Regard the skeptical glances of others as flickering ghost fires, and boldly go on your night journey.</div>
+  </div>
+  <div class="BBBB"></div>
+  <div class="WRRRR">
+    <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
+      <div class="wheel"></div>
+      <div class="hamster">
+        <div class="hamster__body">
+          <div class="hamster__head">
+            <div class="hamster__ear"></div>
+            <div class="hamster__eye"></div>
+            <div class="hamster__nose"></div>
+          </div>
+          <div class="hamster__limb hamster__limb--fr"></div>
+          <div class="hamster__limb hamster__limb--fl"></div>
+          <div class="hamster__limb hamster__limb--br"></div>
+          <div class="hamster__limb hamster__limb--bl"></div>
+          <div class="hamster__tail"></div>
+        </div>
+      </div>
+      <div class="spoke"></div>
+    </div>
+  </div>
+  <div class="BBBB"></div>
+  <script src="网站/jquery/jquery-3.7.1.js"></script>
+  <script src="网站/jquery/jquery-3.7.1.min.js"></script>
+  <script>
+    $(window).on("load",function(){
+      $(".WRRRR").fadeOut("slow");
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+
+</html>

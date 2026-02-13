@@ -1,0 +1,155 @@
+ body {
+	font-family:Constantia, Lucida Bright, DejaVu Serif, Georgia, serif; 
+    color: rgba(231,219,219,1.00);
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family:
+	"Arial Black", Gadget, sans-serif, Arial;
+	color:#428bca;
+
+}
+h3, h4, h5 {
+    font-family: Constantia, Lucida Bright, DejaVu Serif, Georgia, serif;
+    margin-bottom: 30px;
+}
+
+
+ul,label{
+	margin:0;
+	padding:0;
+}
+body a:hover{
+	text-decoration:none;
+}
+/*-- header --*/
+.navbar-default {
+    background: none;
+    border: none;
+}
+.navbar {
+    margin-bottom: 0;
+	border-radius:0;
+}
+.navbar-brand {
+    height: 55px;
+    padding: 10px;
+    font-size: 1em;
+    text-transform: uppercase;
+    line-height: .9em;
+    letter-spacing: 5px;
+    border: 0px solid;
+	margin:0.44em 0 0;
+}
+.navbar-default .navbar-brand {
+    color: #212121;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: #212121;
+}
+.navbar-default .navbar-nav > li > a {
+    color:#333;
+}
+.navbar-nav > li > a {
+    font-size: 14px;
+    text-transform: uppercase;
+	padding:1em;
+}
+.navbar-nav {
+    margin: 0 0 0 7em;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: #428BCA;
+    background-color: transparent;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #428BCA;
+    background-color: transparent;
+}
+/*-- nav-hover-effect --*/
+.menu__list {
+	position:relative;
+    -webkit-flex-wrap: inherit;
+    flex-wrap: inherit;
+    list-style: none;
+}
+
+.menu__item {
+	display: block;
+	margin: 1em 0;
+}
+
+.menu__link {
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-touch-callout: none;
+	-khtml-user-select: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.menu__link:hover,
+.menu__link:focus {
+	outline: none;
+}
+
+/* Francisco */
+.menu--francisco .menu__item {
+	margin: 0 1.5em;
+}
+
+.menu--francisco .menu__link {
+	position: relative;
+	overflow: hidden;
+	height: 6em;
+    padding: 3em 0 1em;
+	text-align: center;
+	color: #b5b5b5;
+	-webkit-transition: color 0.3s;
+	transition: color 0.3s;
+}
+
+.menu--francisco .menu__link:hover,
+.menu--francisco .menu__link:focus {
+	color: #929292;
+}
+
+.menu--francisco .menu__item--current .menu__link{
+	color: #428BCA;
+}
+
+.menu--francisco .menu__link::before{
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 3px;
+    opacity: 0;
+    background: #428BCA;
+	-webkit-transform: translate3d(0, -3em, 0);
+	transform: translate3d(0, -3em, 0);
+	-webkit-transition: -webkit-transform 0s 0.3s, opacity 0.2s;
+	transition: transform 0s 0.3s, opacity 0.2s;
+}
+
+.menu--francisco .menu__item--current .menu__link::before,.menu--francisco .menu__link:hover::before {
+	opacity: 1;
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	-webkit-transition: -webkit-transform 0.5s, opacity 0.1s;
+	transition: transform 0.5s, opacity 0.1s;
+	-webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu--francisco .menu__helper {
+	display: block;
+	pointer-events: none;
+}
+
+.menu--francisco .menu__item--current .menu__helper,.menu__link:hover  .menu__helper{
+	-webkit-animation: anim-francisco 0.3s forwards;
+	animation: anim-francisco 0.3s forwards;
+}

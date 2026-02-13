@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NanoJLU-2025 - About Us</title>
+    <style>
+      body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; margin: 0; background-color: #e7f7ff; }
+      a { color: inherit; text-decoration: none; }
+      .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+      header { position: sticky; top: 0; z-index: 100; backdrop-filter: saturate(120%) blur(6px); background: rgba(255,255,255,0.8); border-bottom: 1px solid #eef2f7; width: 100%; }
+      header .container { max-width: none; margin: 0; padding: 0 16px; }
+      .nav { display: flex; align-items: center; height: 56px; width: 100%; padding: 0 16px; }
+      .brand { font-weight: 700; color: #1f2937; }
+      .spacer { flex: 1; }
+      .nav-links { display: none; gap: 16px; font-size: 16px; }
+      .nav-links a { color: #334155; font-weight: 500; transition: color 0.2s; }
+      .nav-links a:hover { color: #007bff; }
+      /* --- 为当前激活的导航链接添加高亮样式 --- */
+      .nav-links a.active {
+        color: #007bff;
+        font-weight: 700;
+      }
+      .hamburger { width: 40px; height: 40px; border-radius: 10px; border: 1px solid #e5e7eb; display: grid; place-items: center; background: #fff; }
+      @media (min-width: 960px) { .nav-links { display: flex; } .hamburger { display: none; } }
+      .mobile-menu { position: fixed; inset: 0; background: rgba(15,23,42,0.5); display: none; z-index: 1000; }
+      .mobile-menu.open { display: block; }
+      .mobile-panel { position: absolute; top: 0; right: 0; width: 78vw; max-width: 360px; height: 100%; background: #ffffff; box-shadow: -8px 0 32px rgba(0,0,0,0.15); padding: 20px; overflow: auto; }
+      .mobile-panel a { display: block; padding: 14px 8px; font-size: 18px; color: #0f172a; border-bottom: 1px solid #f1f5f9; }
+      
+      .content-page {
+        min-height: calc(100vh - 56px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 0;
+      }
+      .content-page .inner {
+        max-width: 800px;
+        text-align: center;
+      }
+      .content-page h1 { font-size: 2.5em; margin-bottom: 1rem; text-align: center; color: #2c3e50; }
+      .content-page h2 { font-size: 2em; margin-top: 1.5em; color: #2c3e50; }
+      .content-page h3 { font-size: 1.5em; margin-top: 1.2em; color: #2c3e50; }
+      .content-page p, .content-page li { font-size: 1em; color: #333; }
+      .content-page p { font-size: 1.2rem; line-height: 1.7; color: #334155; }
+      .team-image { width: 100%; max-width: 800px; height: auto; margin: 20px auto; display: block; }
+
+      /* Loading animation */
+      .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('../images/ing-back.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out;
+      }
+      
+      .loading-screen.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      
+      .loading-gif {
+        width: 450px;
+        height: auto;
+        max-width: 120vw;
+        max-height: 120vh;
+      }
+
+      /* Sidebar background styles */
+      body {
+        background-color: #e7f7ff;
+      }
+      
+      /* Left sidebar with blend mode */
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 100vh;
+        background-image: url('../images/left.jpg');
+        background-size: auto 100%;
+        background-position: left top;
+        background-repeat: no-repeat;
+        z-index: 1;
+        pointer-events: none;
+        mix-blend-mode: multiply;
+      }
+      /* Hide sidebars on mobile */
+      @media (max-width: 1200px) {
+        body {
+          background: #e7f7ff;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+      <img src="../images/666.gif" alt="Loading" class="loading-gif">
+    </div>
+    
+    <!-- Right sidebar as separate element -->
+    <div style="position: fixed; top: 0; right: 0; width: 200px; height: 100vh; background-image: url('../images/right.jpg'); background-size: auto 100%; background-position: right top; background-repeat: no-repeat; z-index: 1; pointer-events: none; mix-blend-mode: multiply;"></div>
+    
+    <header>
+        <div class="container nav">
+          <a href="../index.html" class="brand">NanoJLU-2025</a>
+          <div class="spacer"></div>
+          <nav class="nav-links">
+            <a href="../index.html">Project</a> 
+            <a href="../background/background.html">Background</a>
+            <a href="../design/Design.html">Design</a>
+            <a href="../material and method/Materials and Method.html">Method</a>
+            <a href="../labbook/LABBOOK.html">Labbook</a>
+            <a href="../result and discussion/Results and Discussion.html">Results</a>
+            <a href="about-us.html" class="active">About Us</a>
+            <a href="../Future/prospect and future.html">Future</a>
+            <a href="../ELSI/ELSI.html">ELSI</a>
+          </nav>
+          <button id="open-menu" class="hamburger" aria-label="Open menu"><span></span></button>
+        </div>
+        <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+            <div class="mobile-panel">
+              <a href="../index.html">Project</a>
+              <a href="../background/background.html">Background</a>
+              <a href="../design/Design.html">Design</a>
+              <a href="../material and method/Materials and Method.html">Method</a>
+              <a href="../labbook/LABBOOK.html">Labbook</a>
+              <a href="../result and discussion/Results and Discussion.html">Results</a>
+              <a href="about-us.html" class="active">About Us</a>
+              <a href="../Future/prospect and future.html">Future</a>
+              <a href="../ELSI/ELSI.html">ELSI</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="content-page">
+      <div class="container inner">
+        
+        <img src="team-members.png" alt="Team Members" class="team-image">
+        <img src="special.png" alt="Special Members" class="team-image">
+        <img src="mentors.png" alt="Mentors" class="team-image">
+        <img src="s-1.png" alt="Students" class="team-image">
+        <img src="s-2.png" alt="Students 2.0" class="team-image">
+      </div>
+    </main>
+
+    <script>
+      // Mobile menu functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const openMenuBtn = document.getElementById('open-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (openMenuBtn && mobileMenu) {
+          openMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('open');
+            const isOpen = mobileMenu.classList.contains('open');
+            openMenuBtn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+          });
+          
+          // Close menu when clicking outside
+          mobileMenu.addEventListener('click', function(e) {
+            if (e.target === mobileMenu) {
+              mobileMenu.classList.remove('open');
+              openMenuBtn.setAttribute('aria-label', 'Open menu');
+            }
+          });
+        }
+      });
+
+      // 智能加载动画控制
+      (function() {
+        const loadingScreen = document.getElementById('loadingScreen');
+        if (!loadingScreen) return;
+        
+        let isHidden = false;
+        
+        function hideLoading() {
+          if (isHidden) return;
+          isHidden = true;
+          loadingScreen.classList.add('hidden');
+          setTimeout(() => loadingScreen.remove(), 200);
+        }
+        
+    // 检查是否需要显示加载动画
+    function shouldShowLoading() {
+        return document.readyState !== 'complete';
+    }
+        
+        // 如果不需要显示，立即隐藏
+        if (!shouldShowLoading()) {
+          hideLoading();
+          return;
+        }
+        
+        // 需要显示时的控制逻辑
+        // 1. DOM 加载完成后立即隐藏
+        if (document.readyState === 'complete') {
+          hideLoading();
+        } else {
+          document.addEventListener('DOMContentLoaded', hideLoading);
+        }
+        
+        // 2. 图片加载完成后隐藏
+        window.addEventListener('load', hideLoading);
+        
+        // 3. 最长等待时间：300ms后强制隐藏
+        // 最多等待500ms
+        setTimeout(hideLoading, 500);
+        
+        // 3秒兜底，防止资源事件未触发
+        setTimeout(hideLoading, 3000);
+        
+        // 4. 用户交互时立即隐藏
+        ['click', 'scroll', 'keydown', 'touchstart'].forEach(event => {
+          document.addEventListener(event, hideLoading, { once: true });
+        });
+      })();
+    </script>
+  </body>
+</html>
+

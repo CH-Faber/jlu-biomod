@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>项目 - NanoJLU-2025</title>
+    <link rel="stylesheet" href="./agent-widget.css" />
+    <link rel="stylesheet" href="./ai-assistant.css" />
+    <style>
+      body { 
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif; 
+        margin: 0; 
+        background-color: #fff;
+      }
+      header { position: sticky; top: 0; z-index: 100; backdrop-filter: saturate(120%) blur(6px); background: rgba(255,255,255,0.8); border-bottom: 1px solid #eef2f7; width: 100%; }
+      .container { 
+        max-width: 1100px; 
+        margin: 0 auto; 
+        padding: 0 16px; 
+      }
+      header .container { max-width: none; margin: 0; padding: 0 16px; }
+      .nav { 
+        display:flex; 
+        align-items:center; 
+        height:56px; 
+        width: 100%;
+        padding: 0 16px;
+      }
+      .brand { font-weight: 700; color: #1f2937; }
+      .spacer { 
+        flex:1; 
+      }
+      .nav-links { display: none; gap: 16px; font-size: 16px; }
+      .nav-links a { color: #334155; font-weight: 500; transition: color 0.2s; text-decoration: none; }
+      .nav-links a:hover { color: #007bff; }
+      .nav-links a.active { color: #007bff; font-weight: 700; }
+      .hamburger { width: 40px; height: 40px; border-radius: 10px; border: 1px solid #e5e7eb; display: grid; place-items: center; background: #fff; }
+      @media (min-width: 960px) { .nav-links { display: flex; } .hamburger { display: none; } }
+      .mobile-menu { position: fixed; inset: 0; background: rgba(15,23,42,0.5); display: none; z-index: 1000; }
+      .mobile-menu.open { display: block; }
+      .mobile-panel { position: absolute; top: 0; right: 0; width: 78vw; max-width: 360px; height: 100%; background: #ffffff; box-shadow: -8px 0 32px rgba(0,0,0,0.15); padding: 20px; overflow: auto; }
+      .mobile-panel a { display: block; padding: 14px 8px; font-size: 18px; color: #0f172a; }
+      main.container { 
+        padding: 40px 16px; 
+      }
+      h1 {
+        color: #1e293b;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+      h2 {
+        color: #1e293b;
+        font-size: 1.8rem;
+        margin-top: 2em;
+      }
+      p, li {
+        color: #475569;
+        line-height: 1.7;
+        font-size: 1rem;
+      }
+      ul {
+        list-style-type: disc;
+        padding-left: 25px;
+      }
+      .image-container {
+        text-align: center;
+        margin: 30px 0;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px; /* Soft rounded corners for images */
+      }
+
+      /* Loading animation */
+      .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('./images/ing-back.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out;
+      }
+      
+      .loading-screen.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      
+      .loading-gif {
+        width: 450px;
+        height: auto;
+        max-width: 120vw;
+        max-height: 120vh;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+      <img src="./images/666.gif" alt="Loading" class="loading-gif">
+    </div>
+    
+    <header>
+      <div class="container nav">
+        <div class="brand">NanoJLU-2025</div>
+        <div class="spacer"></div>
+          <nav class="nav-links">
+            <a href="index.html">Project</a> 
+            <a href="background/background.html">Background</a>
+            <a href="design/Design.html">Design</a>
+            <a href="material and method/Materials and Method.html">Method</a>
+            <a href="labbook/LABBOOK.html">Labbook</a>
+            <a href="result and discussion/Results and Discussion.html">Results</a>
+            <a href="about us/about-us.html">About Us</a>
+            <a href="Future/prospect and future.html">Future</a>
+            <a href="ELSI/ELSI.html">ELSI</a>
+          </nav>
+          <button id="open-menu" class="hamburger" aria-label="Open menu"><span></span></button>
+        </div>
+        <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+            <div class="mobile-panel">
+              <a href="index.html">Project</a>
+              <a href="background/background.html">Background</a>
+              <a href="design/Design.html">Design</a>
+              <a href="material and method/Materials and Method.html">Method</a>
+              <a href="labbook/LABBOOK.html">Labbook</a>
+              <a href="result and discussion/Results and Discussion.html">Results</a>
+              <a href="about us/about-us.html">About Us</a>
+              <a href="Future/prospect and future.html">Future</a>
+              <a href="ELSI/ELSI.html">ELSI</a>
+            </div>
+        </div>
+      </div>
+    </header>
+    
+    <main class="container">
+        <h1>Abstract</h1>
+        <p>Substrate-free two-dimensional (2D) materials are planar assemblies formed directly in solution without relying on any supporting surface or template.</p>
+        <p>Free from interfacial constraints, these materials can better preserve in-plane order, reduce substrate-induced defects, and be produced at scale under mild, solution-phase conditions. More importantly, the absence of a rigid substrate provides space for structural evolution—such as controlled bending, folding, and closure—thus offering a general strategy to transform planar 2D sheets into higher-order 3D architectures.</p>
+        <div class="image-container">
+            <img src="./images/homepage-1.gif" alt="Animation showing substrate-free growth of 2D Materials">
+        </div>
+        <p>Despite these advantages, achieving controllable substrate-free 2D growth remains challenging. Without the guiding effect of a substrate, flexible monomers and weak noncovalent interactions often lead to random branching, interlayer stacking, or 3D cross-linking, which compromise single-layer uniformity and long-range order. Balancing structural stability and dynamic reconfigurability requires fine-tuning between rigidity (to maintain lattice integrity) and flexibility (to enable defect correction and curvature programming). In life-science contexts, these difficulties are further amplified: assembly must occur in aqueous environments with physiological ionic strength, resist protein adsorption and biochemical disturbances, and avoid cytotoxic components. However, substrate-free systems that simultaneously combine biocompatibility, molecular programmability, and precise 2D-to-3D transformation remain rare, leaving practical bio-oriented solutions largely unresolved.</p>
+        <div class="image-container">
+            <img src="./images/homepage-2.gif" alt="Animation representing random branching and interlayer stacking">
+        </div>
+        
+        <h2>Our Solution</h2>
+        <p>To address these challenges, we designed a novel system using tetrahedral DNA nanostructures (TDNs) as rigid framework units and G-quadruplexes (G4s) as ion-responsive linking nodes. The TDNs provide modularity and chemical modifiability, while the G4 motifs introduce reversible ion-responsiveness and dynamic connectivity. The integration of the two components achieves a synergistic balance between structural robustness and adaptability, embodying a “1 + 1 > 2” innovation effect.</p>
+        <div class="image-container">
+            <img src="./images/homepage-3.png" alt="Diagram showing the integration of TDNs and G4s to form a membrane">
+        </div>
+        <ul>
+            <li>Programmable self-assembly enables substrate-free growth of stable 2D DNA membranes.</li>
+            <li>Ion-responsive G-quadruplex linkers provide dynamic, reversible connections for ordered membrane growth.</li>
+            <li>Synergistic integration of rigid TDNs and flexible G4 linkers achieves precise structural control and scalability.</li>
+        </ul>
+        <p>Beyond achieving a stable 2D material, we further realized precise regulation of curvature and closure. Under finely controlled ionic conditions, the DNA membrane spontaneously folds into large-scale, hollow 3D vesicles—successfully achieving a programmable transition from planar to spherical architectures. This breakthrough opens new opportunities for constructing biocompatible, stimuli-responsive DNA nanovesicles, with broad potential in targeted delivery, biomimetic systems, and intelligent therapeutic platforms.</p>
+        <div class="image-container">
+             <img src="./images/homepage-4.png" alt="Animation illustrating the transition from a 2D DNA membrane to a 3D nanovesicle">
+        </div>
+        <ul>
+            <li>Fine-tuned ionic regulation drives curvature transformation from 2D sheets to 3D vesicles.</li>
+            <li>Reversible G4 interactions enable self-correcting folding toward energy-minimized vesicle configurations.</li>
+            <li>Exosome-like DNA nanovesicles offer an intelligent, biomimetic platform for targeted delivery and microenvironment modulation.</li>
+        </ul>
+    </main>
+    <div id="agent-sidebar" aria-hidden="true">
+      <div class="agent-header">
+        <div class="agent-title">网站助手</div>
+        <button id="agent-close" aria-label="关闭">×</button>
+      </div>
+      <div class="agent-content">
+        <div class="agent-chat" id="agent-chat">
+          <div class="agent-messages" id="agent-messages"></div>
+          <div class="agent-input-row">
+            <textarea id="agent-input" placeholder="输入问题并回车，或点发送…" rows="1"></textarea>
+            <button id="agent-send">发送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button id="agent-bubble" aria-label="打开助手">💬</button>
+
+    <script>
+      // Mobile menu control JS
+      (function(){
+        const openMenuBtn = document.getElementById('open-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        openMenuBtn.addEventListener('click', function() {
+          mobileMenu.classList.toggle('open');
+        });
+
+        mobileMenu.addEventListener('click', function(event) {
+          if (event.target === mobileMenu) {
+            mobileMenu.classList.remove('open');
+          }
+        });
+      })();
+
+      // 智能加载动画控制
+      (function() {
+        const loadingScreen = document.getElementById('loadingScreen');
+        if (!loadingScreen) return;
+        
+        let isHidden = false;
+        
+        function hideLoading() {
+          if (isHidden) return;
+          isHidden = true;
+          loadingScreen.classList.add('hidden');
+          setTimeout(() => loadingScreen.remove(), 200);
+        }
+        
+        // 检查是否需要显示加载动画
+        function shouldShowLoading() {
+            return document.readyState !== 'complete';
+        }
+        
+        // 如果不需要显示，立即隐藏
+        if (!shouldShowLoading()) {
+          hideLoading();
+          return;
+        }
+        
+        // 需要显示时的控制逻辑
+        // 1. DOM 加载完成后立即隐藏
+        if (document.readyState === 'complete') {
+          hideLoading();
+        } else {
+          document.addEventListener('DOMContentLoaded', hideLoading);
+        }
+        
+        // 2. 图片加载完成后隐藏
+        window.addEventListener('load', hideLoading);
+        
+        // 3. 最长等待时间：300ms后强制隐藏
+        // 最多等待500ms
+        setTimeout(hideLoading, 500);
+        
+        // 3秒兜底，防止资源事件未触发
+        setTimeout(hideLoading, 3000);
+        
+        // 4. 用户交互时立即隐藏
+        ['click', 'scroll', 'keydown', 'touchstart'].forEach(event => {
+          document.addEventListener(event, hideLoading, { once: true });
+        });
+      })();
+      
+      window.__AGENT_CONFIG__ = { appId: 'dec4b5e652464152976117f453d9d3c1', proxyEndpoint: '/api/agent-proxy', stream: false };
+    </script>
+    <script src="./agent-widget.js"></script>
+  </body>
+</html>

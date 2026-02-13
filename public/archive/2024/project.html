@@ -1,0 +1,1037 @@
+                                                                               <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+*{
+margin: 0;
+padding: 0;
+list-style: none;
+text-decoration: none;
+box-sizing: border-box;
+}
+body{
+height: 100%;
+width: 100%;
+}
+.tp{
+width: 100vw;
+height: 10vh;
+background-color: #98b6ec;
+position: fixed;
+top: 0;
+left: 0;
+opacity: 0.9;
+}
+.sym img{
+width: 5vw;
+height: 10vh;
+float: left;
+}
+.menu{
+float: right;
+position: fixed;
+top: 2vh;
+right: 5vw;
+width: 15vw;
+cursor: pointer;
+z-index: 1;
+height: 30vh;
+}
+.b1{
+float: left;
+font-size: 3vmax;
+color: white;
+font-size: 2.5vmax;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-weight: 600;
+}
+.b2{
+float: left;
+margin-left: 2vw;
+}
+input[type = "checkbox"] {
+  -webkit-appearance: none;
+  display: none;
+  visibility: hidden;
+}
+.bar {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  width: 50px;
+  height: 40px;
+}
+.bar span {
+  position: absolute;
+  width: 45px;
+  height: 7px;
+  background: #f1faee;
+  border-radius: 100px;
+  display: inline-block;
+  transition: 0.3s ease;
+  left: 0;
+}
+.bar span.top {
+  top: 0;
+}
+.bar span.middle {
+  top: 17px;
+}
+.bar span.bottom {
+  bottom: 0;
+}
+input[type]:checked ~ span.top {
+  transform: rotate(45deg);
+  transform-origin: top left;
+  width: 48px;
+  left: 5px;
+}
+input[type]:checked ~ span.bottom {
+  transform: rotate(-45deg);
+  transform-origin: top left;
+  width: 48px;
+  bottom: -1px;
+  box-shadow: 0 0 10px #495057;
+}
+
+input[type]:checked ~ span.middle {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+.cai{
+  background-color: grey;
+  position:fixed;
+  width: 15vw;
+  height: 36vh;
+  opacity: 0;
+  z-index: 1;
+  margin-top: 8vh;
+  border-radius: 10px;
+}
+.cai li{
+  text-align: center;
+  height: 4vh;
+}
+.but{
+ width: 15vw;
+ height:4vh;
+ background: grey;
+ border: none;
+ border-radius: 5px;
+ font-weight: bold;
+ cursor: pointer;
+ position: relative;
+ z-index: 1;
+ overflow: hidden;
+}
+.but a{
+  color: white;
+  font-size: 1.5vmax;
+}
+button a:hover {
+ color: grey;
+}
+
+button:after {
+ content: "";
+ background: white;
+ position: absolute;
+ z-index: -1;
+ left: -20%;
+ right: -20%;
+ top: 0;
+ bottom: 0;
+ transform: skewX(-45deg) scale(0, 1);
+ transition: all 0.5s;
+}
+
+button:hover:after {
+ transform: skewX(-45deg) scale(1, 1);
+ -webkit-transition: all 0.5s;
+ transition: all 0.5s;
+}
+
+.menu:hover .cai{
+ opacity: 0.7;
+ transition: 0.5s;
+}
+.loader {
+ position: relative;
+ width: 2.5em;
+ height: 2.5em;
+ transform: rotate(165deg);
+}
+.loader:before, .loader:after {
+ content: "";
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ display: block;
+ width: 0.5em;
+ height: 0.5em;
+ border-radius: 0.25em;
+ transform: translate(-50%, -50%);
+}
+.loader:before {
+ animation: before8 2s infinite;
+}
+.loader:after {
+ animation: after6 2s infinite;
+}
+@keyframes before8 {
+ 0% {
+  width: 0.5em;
+  box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+ }
+ 35% {
+  width: 2.5em;
+  box-shadow: 0 -0.5em rgba(225, 20, 98, 0.75), 0 0.5em rgba(111, 202, 220, 0.75);
+ }
+ 70% {
+  width: 0.5em;
+  box-shadow: -1em -0.5em rgba(225, 20, 98, 0.75), 1em 0.5em rgba(111, 202, 220, 0.75);
+ }
+ 100% {
+  box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+ }
+}
+@keyframes after6 {
+ 0% {
+  height: 0.5em;
+  box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+ }
+ 35% {
+  height: 2.5em;
+  box-shadow: 0.5em 0 rgba(61, 184, 143, 0.75), -0.5em 0 rgba(233, 169, 32, 0.75);
+ }
+ 70% {
+  height: 0.5em;
+  box-shadow: 0.5em -1em rgba(61, 184, 143, 0.75), -0.5em 1em rgba(233, 169, 32, 0.75);
+ }
+ 100% {
+  box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+ }
+}
+.loader {
+ position: absolute;
+ top: calc(50% - 1.25em);
+ left: calc(50% - 1.25em);
+}
+.home{
+  float: left;
+  margin-left: 5vw;
+  margin-top: 0.5vh;
+}
+.btn {
+ padding: 1vmax;
+ background: none;
+ border: 2px solid #fff;
+ cursor: pointer;
+ position: relative;
+ overflow: hidden;
+ transition: all 0.3s;
+ border-radius: 12px;
+ box-shadow: 0 2px 0 2px #000;
+ height: 9vh;
+}
+.home a{
+  color: white;
+  font-weight: bolder;
+  font-size: 1.5vmax;
+}
+.btn:before {
+ content: "";
+ position: absolute;
+ width: 100px;
+ height: 120%;
+ background-color: #ff6700;
+ top: 50%;
+ transform: skewX(30deg) translate(-150%, -50%);
+ transition: all 0.5s;
+}
+
+.btn:hover {
+ background-color: #4cc9f0;
+ color: #fff;
+ box-shadow: 0 2px 0 2px #0d3b66;
+}
+.btn:hover a{
+  color: white;
+}
+.btn:hover::before {
+ transform: skewX(30deg) translate(150%, -50%);
+ transition-delay: 0.1s;
+}
+
+.btn:active {
+ transform: scale(0.9);
+}
+.gu{
+  background-color: grey;
+  width: 8vw;
+  height: 30vh;
+  z-index: 1;
+  border-radius: 10px;
+  position: fixed;
+  top: 40vh;
+  left: -15vw;
+  transition: 0.8s;
+}
+.gu li{
+  text-align: center;
+  height: 6vh;
+}
+.but1{
+ width: 8vw;
+ height:6vh;
+ background: grey;
+ border: none;
+ border-radius: 5px;
+ font-weight: bold;
+ cursor: pointer;
+ position: relative;
+ z-index: 1;
+ overflow: hidden;
+}
+.but1 a{
+  color: white;
+  font-size: 1vmax;
+}
+button a:hover {
+ color: grey;
+}
+button:after {
+ content: "";
+ background: white;
+ position: absolute;
+ z-index: -1;
+ left: -20%;
+ right: -20%;
+ top: 0;
+ bottom: 0;
+ transform: skewX(-45deg) scale(0, 1);
+ transition: all 0.5s;
+}
+button:hover:after {
+ transform: skewX(-45deg) scale(1, 1);
+ -webkit-transition: all 0.5s;
+ transition: all 0.5s;
+}
+.db:hover .gu{
+  left: 0;
+}
+.db:hover .sb{
+  opacity: 0;
+}
+.sb{
+  position: fixed;
+  top: 45vh;
+  z-index: 0;
+  width: 2vw;
+  height: 6vh;
+  opacity: 1;
+  cursor: pointer;
+}
+.sb img{
+    width: 8vw;
+    height: 16vh;
+    margin-left: -3.5vw;
+}
+.bian{
+    width: 5vw;
+    height: 100vh;
+    position: fixed;
+    background-color: #d8ebff;
+    z-index: -1;
+}
+.bian1{
+    width: 5vw;
+    height: 100vh;
+    position: fixed;
+    background-color: #d8ebff;
+    z-index: -1;
+    right: 0;
+}
+#Background{
+    font-size: 5vmax;
+    display: flex;
+    justify-content:center ;
+
+    top: 20vh;
+}
+.B1{
+    display: flex;
+    justify-content: center;
+    font-size: 1.8vmax;
+    font-weight: 600;
+    margin-top: 2vh;
+}
+.B2{
+    font-size: 1.5vmax;
+    margin-top: 5vh;
+    margin-left: 10vw;
+    width: 80vw;
+}
+.B3{
+    margin-left: 20vw;
+    margin-top: 5vh;
+}
+.B3 img{
+    width: 60vw;
+    height: 70vh;
+}
+.B4{
+    font-size: 1.5vmax;
+    width: 80vw;
+    margin-left: 10vw;
+    margin-top: 10vh;
+}
+.B5{
+    font-size: 1.5vmax;
+    margin-left: 10vw;
+    width: 45vw;
+    margin-top: 10vh;
+}
+.B6{
+    margin-top: -60vh;
+    margin-left: 57vw;
+}
+.B6 img{
+    width: 34vw;
+    height: 72vh;
+}
+#Problem{
+    font-size: 5vmax;
+    display: flex;
+    justify-content: center;
+
+}
+.P1{
+    font-size: 1.8vmax;
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+    font-weight: 600;
+}
+.P2{
+    font-size: 1.5vmax;
+    margin-left: 10vw;
+    width: 80vw;
+    margin-top: 5vh;
+}
+.P3{
+    font-size: 1.5vmax;
+    margin-left: 10vw;
+    width: 33vw;
+    float: left;
+}
+.P4{
+    margin-left: 50vw;
+    margin-top: 5vh;
+}
+.P4 img{
+    width: 30vw;
+    height: 50vh;
+}
+.P5{
+    font-size: 1.5vmax;
+    margin-left: 10vw;
+    width: 40vw;
+    margin-top: 10vh;
+}
+.P6{
+    margin-left: 55vw;
+    margin-top: -51vh; 
+}
+.P6 img{
+    width: 26vw;
+    height: 53vh;
+}
+.P7{
+    margin-top: 10vh;
+    margin-left: 10vw;
+    float: left;
+}
+.P7 img{
+    width: 32vw;
+    height: 58vh;
+}
+.P8{
+    font-size: 1.5vmax;
+    width: 30vw;
+    margin-top: 20vh;
+    margin-left: 50vw;
+}
+.P9{
+    font-size: 1.5vmax;
+    margin-left: 10vw;
+    width: 80vw;
+    margin-top: 25vh;
+}
+#Idea{
+    font-size: 5vmax;
+    display: flex;
+    justify-content: center;
+}
+.I1{
+    font-size: 1.8vmax;
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+    font-weight: 600;
+}
+.I2{
+    font-size: 1.5vmax;
+    margin-left: 10vw;
+    margin-top: 12vh;
+    width: 50vw;
+    float: left;
+}
+.I3{
+    margin-left: 60vw;
+    margin-top: 0vh;
+}
+.I3 img{
+    width: 37vw;
+    height: 57vh;
+}
+.I4{
+    margin-left: 37vw;
+    margin-top: 5vh;
+}
+.I4 img{
+    width: 25vw;
+    height: 30vh;
+}
+.I5{
+    font-size: 1.5vmax;
+    margin-left: 10vw;
+    width: 80vw;
+    margin-top: 10vh;
+}
+#Solution{
+    font-size: 5vmax;
+    display: flex;
+    justify-content: center;
+}
+.S1{
+    font-size: 1.8vmax;
+    display:flex;
+    justify-content: center;
+    margin-top: 2vh;
+    font-weight: 600;
+}
+.S2{
+    font-size: 1.5vmax;
+    width: 80vw;
+    margin-left: 10vw;
+    margin-top: 5vh;
+}
+.S3{
+    margin-left: 10vw;
+}
+.S3 img{
+    width: 80vw;
+    height: 120vh;
+}
+.S7{
+    font-size: 1.5vmax;
+    margin-left: 42vw;
+    width: 48vw;
+    margin-top: -73vh;
+}
+.S10{
+    font-size: 1.5vmax;
+    width: 35vw;
+    margin-left: 10vw;
+    margin-top: 26vh;
+}
+.S12{
+    font-size: 1.5vmax;
+    margin-top: 15vh;
+    margin-left: 10vw;
+    width: 80vw;
+}
+.GG{
+color: white;
+font-size: 2.5vmax;
+font-weight: 600;
+position: fixed;
+top: 2vh;
+left: 25vw;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.R1{
+    font-size: 1.8vmax;
+    font-weight: 600;
+    margin-left: 10vw;
+    margin-top: 5vh;
+}
+.R2{
+    font-size: 1.5vmax;
+    font-weight: 100;
+    width: 80vw;
+    margin-left: 10vw;
+}
+.R3{
+    font-size: 1.5vmax;
+    font-weight: 100;
+    margin-left: 10vw;
+    width: 80vw;
+    margin-top: 5vh;
+}
+.yy{
+    font-size: 1vmax;
+    margin-top: 2vh;
+}
+#Goal{
+    font-size: 5vmax;
+    display: flex;
+    justify-content: center;
+}
+.gg{
+    margin-left: 20vw;
+}
+.gg img{
+    width: 60vw;
+    height: 170vh;
+}
+hr{
+    border: 1px gray solid;
+    width: 80vw;
+    margin-left: 10vw;
+}
+.wheel-and-hamster {
+  --dur: 1s;
+  position: relative;
+  margin-top: 30vh;
+  margin-left: 42vw;
+  width: 12em;
+  height: 12em;
+  font-size: 14px;
+}
+
+.wheel,
+.hamster,
+.hamster div,
+.spoke {
+  position: absolute;
+}
+
+.wheel,
+.spoke {
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wheel {
+  background: radial-gradient(100% 100% at center,hsla(0,0%,60%,0) 47.8%,hsl(0,0%,60%) 48%);
+  z-index: 2;
+}
+
+.hamster {
+  animation: hamster var(--dur) ease-in-out infinite;
+  top: 50%;
+  left: calc(50% - 3.5em);
+  width: 7em;
+  height: 3.75em;
+  transform: rotate(4deg) translate(-0.8em,1.85em);
+  transform-origin: 50% 0;
+  z-index: 1;
+}
+
+.hamster__head {
+  animation: hamsterHead var(--dur) ease-in-out infinite;
+  background: hsl(30,90%,55%);
+  border-radius: 70% 30% 0 100% / 40% 25% 25% 60%;
+  box-shadow: 0 -0.25em 0 hsl(30,90%,80%) inset,
+		0.75em -1.55em 0 hsl(30,90%,90%) inset;
+  top: 0;
+  left: -2em;
+  width: 2.75em;
+  height: 2.5em;
+  transform-origin: 100% 50%;
+}
+
+.hamster__ear {
+  animation: hamsterEar var(--dur) ease-in-out infinite;
+  background: hsl(0,90%,85%);
+  border-radius: 50%;
+  box-shadow: -0.25em 0 hsl(30,90%,55%) inset;
+  top: -0.25em;
+  right: -0.25em;
+  width: 0.75em;
+  height: 0.75em;
+  transform-origin: 50% 75%;
+}
+
+.hamster__eye {
+  animation: hamsterEye var(--dur) linear infinite;
+  background-color: hsl(0,0%,0%);
+  border-radius: 50%;
+  top: 0.375em;
+  left: 1.25em;
+  width: 0.5em;
+  height: 0.5em;
+}
+
+.hamster__nose {
+  background: hsl(0,90%,75%);
+  border-radius: 35% 65% 85% 15% / 70% 50% 50% 30%;
+  top: 0.75em;
+  left: 0;
+  width: 0.2em;
+  height: 0.25em;
+}
+
+.hamster__body {
+  animation: hamsterBody var(--dur) ease-in-out infinite;
+  background: hsl(30,90%,90%);
+  border-radius: 50% 30% 50% 30% / 15% 60% 40% 40%;
+  box-shadow: 0.1em 0.75em 0 hsl(30,90%,55%) inset,
+		0.15em -0.5em 0 hsl(30,90%,80%) inset;
+  top: 0.25em;
+  left: 2em;
+  width: 4.5em;
+  height: 3em;
+  transform-origin: 17% 50%;
+  transform-style: preserve-3d;
+}
+
+.hamster__limb--fr,
+.hamster__limb--fl {
+  clip-path: polygon(0 0,100% 0,70% 80%,60% 100%,0% 100%,40% 80%);
+  top: 2em;
+  left: 0.5em;
+  width: 1em;
+  height: 1.5em;
+  transform-origin: 50% 0;
+}
+
+.hamster__limb--fr {
+  animation: hamsterFRLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,80%) 80%,hsl(0,90%,75%) 80%);
+  transform: rotate(15deg) translateZ(-1px);
+}
+
+.hamster__limb--fl {
+  animation: hamsterFLLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,90%) 80%,hsl(0,90%,85%) 80%);
+  transform: rotate(15deg);
+}
+
+.hamster__limb--br,
+.hamster__limb--bl {
+  border-radius: 0.75em 0.75em 0 0;
+  clip-path: polygon(0 0,100% 0,100% 30%,70% 90%,70% 100%,30% 100%,40% 90%,0% 30%);
+  top: 1em;
+  left: 2.8em;
+  width: 1.5em;
+  height: 2.5em;
+  transform-origin: 50% 30%;
+}
+
+.hamster__limb--br {
+  animation: hamsterBRLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,80%) 90%,hsl(0,90%,75%) 90%);
+  transform: rotate(-25deg) translateZ(-1px);
+}
+
+.hamster__limb--bl {
+  animation: hamsterBLLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,90%) 90%,hsl(0,90%,85%) 90%);
+  transform: rotate(-25deg);
+}
+
+.hamster__tail {
+  animation: hamsterTail var(--dur) linear infinite;
+  background: hsl(0,90%,85%);
+  border-radius: 0.25em 50% 50% 0.25em;
+  box-shadow: 0 -0.2em 0 hsl(0,90%,75%) inset;
+  top: 1.5em;
+  right: -0.5em;
+  width: 1em;
+  height: 0.5em;
+  transform: rotate(30deg) translateZ(-1px);
+  transform-origin: 0.25em 0.25em;
+}
+
+.spoke {
+  animation: spoke var(--dur) linear infinite;
+  background: radial-gradient(100% 100% at center,hsl(0,0%,60%) 4.8%,hsla(0,0%,60%,0) 5%),
+		linear-gradient(hsla(0,0%,55%,0) 46.9%,hsl(0,0%,65%) 47% 52.9%,hsla(0,0%,65%,0) 53%) 50% 50% / 99% 99% no-repeat;
+}
+
+/* Animations */
+@keyframes hamster {
+  from, to {
+    transform: rotate(4deg) translate(-0.8em,1.85em);
+  }
+
+  50% {
+    transform: rotate(0) translate(-0.8em,1.85em);
+  }
+}
+
+@keyframes hamsterHead {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(8deg);
+  }
+}
+
+@keyframes hamsterEye {
+  from, 90%, to {
+    transform: scaleY(1);
+  }
+
+  95% {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes hamsterEar {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(12deg);
+  }
+}
+
+@keyframes hamsterBody {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(-2deg);
+  }
+}
+
+@keyframes hamsterFRLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(50deg) translateZ(-1px);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(-30deg) translateZ(-1px);
+  }
+}
+
+@keyframes hamsterFLLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(-30deg);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(50deg);
+  }
+}
+
+@keyframes hamsterBRLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(-60deg) translateZ(-1px);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(20deg) translateZ(-1px);
+  }
+}
+
+@keyframes hamsterBLLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(20deg);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(-60deg);
+  }
+}
+
+@keyframes hamsterTail {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(30deg) translateZ(-1px);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(10deg) translateZ(-1px);
+  }
+}
+
+@keyframes spoke {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(-1turn);
+  }
+}
+.WRRRR{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #98b6ec;
+}
+.BAI{
+    width: 100vw;
+    height: 40vh;
+    z-index: 3;
+}
+.BBBB{
+  height: 50vh;
+}
+</style>
+</head>
+<body>
+    <div class="tp">
+        <div class="sym"><img src="网站/队徽.png"></div>
+<div class="loader"></div>
+<div class="home"><button class="btn"><a href="index.html">HOME</a> </button></div>
+<div class="GG">Project</div>
+    <div class="menu">
+        <div class="b1">MENU</div>
+<div class="b2"><label class="bar" for="check">
+<input type="checkbox" id="check">
+<span class="top"></span>
+<span class="middle"></span>
+<span class="bottom"></span>
+</label></div>
+<ul class="cai">
+    <li><button class="but"><a href="project.html">Project</a></button></li>
+    <li><button class="but"><a href="design.html">Design</a></button></li>
+    <li><button class="but"><a href="feasibility.html">Feasibility</a></button></li>
+    <li><button class="but"><a href="method.html">Method</a></button></li>
+    <li><button class="but"><a href="labbook.html">Labbook</a></button></li>
+    <li><button class="but"><a href="result.html">Result</a></button></li>
+    <li><button class="but"><a href="about us.html">About us</a></button></li>
+    <li><button class="but"><a href="ELSI.html">ELSI</a></button></li>
+    <li><button class="but"><a href="Future.html">Future</a></button></li>
+</ul>
+ </div>
+    </div>
+    <div class="db">
+    <div class="dao">
+     <ul class="gu">
+    <li><button class="but1"><a href="#Background">Background</a></button></li>
+    <li><button class="but1"><a href="#Problem">Problem</a></button></li>
+    <li><button class="but1"><a href="#Idea">Idea</a></button></li>
+    <li><button class="but1"><a href="#Solution">Solution</a></button></li>
+    <li><button class="but1"><a href="#Goal">Goal</a></button></li>
+    </ul>
+    </div><div class="sb"><img src="网站/jian.png"></div>
+    </div>
+    <div class="bian"></div>
+    <div class="bian1"></div>
+    <div class="back">
+        <h2 id="Background"><br>Background</h2>
+        <div class="B1">From nanorobot to DNA origami and “switch”</div>
+        <div class="B2"><span style = "font-weight: 600;">Nanorobots</span> offer a solution for programmable and precise manipulation at the microscopic scale which are highly attractive for various applications like medical Imaging, microscale surgery and targeted delivery<sup>[1]</sup>.</div>
+        <div class="B3"><img src="网站/B1.png"></div>
+        <div class="B4">To date, Nanorobots can be composed of materials such as metals<sup>[2]</sup>, polymers<sup>[3]</sup>, and biological macromolecules.<sup>[4]</sup> Among them, nanorobots that constructed from <span style = "font-weight: 600;">biomacromolecules</span> make molecular-level operations within the human body possible due to their <span style = "font-weight: 600;">biocompatibility</span>, endowing them with significant application potential in the field of biomedicine.<sup>[5]</sup></div>
+        
+    <div class="B5">DNA origami technology, with its customizable morphology, nanometer-scale precision, and spatial addressability, serves as one of the pathways for constructing nanorobots using biomacromolecules.<sup>[6]</sup> In fact, many researches have utilized DNA origami technology to construct programmable nanorobots capable of drug delivery<sup>[7]</sup>, molecular computation<sup>[8]</sup> and the detection of target substances and so on. To <span style = "font-weight: 600;">drive the motion</span> of nanorobots and enable them to perform tasks such as drug release<sup>[10]</sup>, reseachers utilized the <span style = "font-weight: 600;">actuating components</span> (we called it “switch”) within the nanorobots, such as DNA strand displacement reaction<sup>[11]</sup>,  i-motif<sup>[12]</sup> and so on.</div>
+        <div class="B6"><img src="网站/B2.png"></div>
+    </div>
+    <div class="prob">
+        <h2 id="Problem"><br>Problem</h2>
+        <div class="P1">How to control the “switches” of nanorobots in vivo?</div>
+        <div class="P2">One of the most frequently employed schemes for dynamically regulating DNA origami robots involves the introduction of DNA hybridization strands complementary to the single-strand components within the DNA origami, allowing for hybridization with the DNA origami. Subsequently, the addition of complementary strands to these <span style = "font-weight: 600;">DNA hybridization strands</span> is used to dehybridize, thereby controlling the conformation of the DNA origami.<sup>[13]</sup> This approach necessitates the continuous addition of hybridization or dehybridization </div>
+        <div class="P3">strands to the system, maintaining them at a high concentration, and the conformation change is time-consuming, typically ranging from tens of minutes to several hours.<sup>[14]</sup> In the human body, with its rapid metabolism, it is challenging to maintain hybridization strands at a high concentration, and DNA enzymes can degrade these strands, rendering such regulation <span style = "font-weight: 600;">impractical within the human body</span><sup>[15]</sup>.</div>
+        <div class="P4"><img src="网站/P1.png"></div>
+        <div class="P5">Other “switches” include pH-responsive<sup>[16]</sup>, ultraviolet (UV) light-responsive<sup>[17]</sup>, and thermally-driven mechanisms.<sup>[18]</sup> Among them, <span style = "font-weight: 600;">the UV light response</span> utilizes the trans-cis isomerization of azobenzene to trigger the denaturation and renaturation of DNA, allowing for repeatable regulation of the conformation of DNA nanostructures.<sup>[17]</sup> The time required for conformation change is relatively short. Given the limited penetration capability of UV light in human tissue,this <span style = "font-weight: 600;">restricts the regulation</span> of DNA nanorobots within the human body.<sup>[19]</sup></div>
+        <div class="P6"><img src="网站/P2.png"></div>
+        <div class="P7"><img src="网站/P3.png"></div>
+        <div class="P8"><span style = "font-weight: 600;">Thermally-driven</span> methods can produce significant conformation changes and are simple and rapid in their operation.<sup>[20]</sup> While their application in the human body is <span style = "font-weight: 600;">limited</span> due to the difficulty of heating the entire system within a living organism.</div>
+        <div class="P9"><span style = "text-decoration: underline;">As a consequence, the programmable control of DNA nanorobots within the human body remains a challenge.</span></div>
+    </div>
+    <div class="idea">
+        <h2 id="Idea"><br>Idea</h2>
+        <div class="I1">What is Gold nanorods?</div>
+        <div class="I2"><span style = "font-weight: 600;">Gold nanorods (AuNRs)</span>, with their good biocompacity, high photothermal conversion efficiency<sup>[21]</sup> and the excitation wavelength that can be tuned based on the aspect ratio of AuNRs to fall within physiological “water window” in the near-infrared region of the spectrum<sup>[22]</sup>, have been used for biological applications, such as photothermal tumor treatment and light-responsive drug delivery.<sup>[23]</sup></div>
+        <div class="I3"><img src="网站/I1.png"></div>
+        <div class="I4"><img src="网站/I2.webp"></div>
+        <div class="I5">Therefore, if gold nanorods' <span style = "font-weight: 600;">photothermal effect</span> is utilized as a <span style = "font-weight: 600;">dynamic control</span> "switch" for the nanorobots, their good biocompatibility and the ability to remotely control through tissue will provide a new research avenue for the application of nanorobots in the human body.</div>
+    </div>
+    <div class="solution">
+        <h2 id="Solution"><br>Solution</h2>
+        <div class="S1">About DOARA (D<span class="yy">na</span>&nbsp;O<span class="yy">rigami</span>&nbsp;A<span class="yy">u</span>&nbsp;<span class="yy">nano</span>R<span class="yy">od</span>&nbsp;A<span class="yy">ssembly</span>)</div>
+        <div class="S2">In this study, we utilize AuNRs as carrier for <span style = "font-weight: 600;">photothermal actuation</span>, leveraging the heat generated by the AuNRs under illumination with specific wavelengths of light as a driving force to <span style = "font-weight: 600;">dynamically modulate the conformation</span> of DNA nanostructures. </div>
+        <div class="S3"><img src="网站/B3.png"></div>
+        <div class="S7">We employ large-sized AuNRs with an excitation wavelength of 808 nm in the near-infrared region, which provides good tissue penetration and efficient photothermal effects.<sup>[22]</sup> DNA is conjugated on the surface of the AuNRs and assembled with DNA origami to form DOARA. </div>
+        <div class="S10">Under illumination with 808 nm near-infrared light, the AuNRs, acting as photothermal conversion medium, convert light into heat, denaturing the DNA connected with the DNA origami, and thus achieving dynamic changes in the conformation of DOARA. </div>
+        <div class="S12">The advantages of this approach include rapid response and reversible conformational changes controlled by photothermally induced DNA denaturation or renaturation. It uses light exposure as a response signal rather than pH or ion concentration, because it is relatively less restricted by solution conditions, and utilizes highly tissue-penetrating near-infrared light as a dynamic response signal, allowing for remote control of DOARA without tissue damage.<sup>[22]</sup></div>
+    </div>
+    <div class="goal">
+        <h2 id="Goal"><br>Our Goals</h2>
+        <div class="gg"><img src="网站/G1.png"></div>
+    </div>
+    <div class="R1">References</div>
+    <div class="R2">[1]   Li J, Esteban-Fernández de Ávila B, Gao W, Zhang L, Wang J. Micro/Nanorobots for Biomedicine: Delivery, Surgery, Sensing, and Detoxification. Sci Robot. 2017;2(4):eaam6431. doi:10.1126/scirobotics.aam6431.</div>
+    <div class="R3">[2]   Gu Z, Zhu R, Shen T, et al. Autonomous nanorobots with powerful thrust under dry solid-contact conditions by photothermal shock. Nat Commun. 2023;14(1):7663. Published 2023 Nov 24. doi:10.1038/s41467-023-43433-6.</div>
+    <div class="R3">[3]   Yang M, Zhang Y, Mou F, et al. Swarming magnetic nanorobots bio-interfaced by heparinoid-polymer brushes for in vivo safe synergistic thrombolysis. Sci Adv. 2023;9(48):eadk7251. doi:10.1126/sciadv.adk7251.</div>
+    <div class="R3">[4]   Li H, Gao J, Cao L, et al. A DNA Molecular Robot that Autonomously Walks on the Cell Membrane to Drive Cell Motility. Angew Chem Int Ed Engl. 2021;60(50):26087-26095. doi:10.1002/anie.202108210.</div>
+    <div class="R3">[5]   Yang M, Zhang Y, Mou F, et al. Swarming magnetic nanorobots bio-interfaced by heparinoid-polymer brushes for in vivo safe synergistic thrombolysis. Sci Adv. 2023;9(48):eadk7251. doi:10.1126/sciadv.adk7251.</div>
+    <div class="R3">[6]   Thomsen RP, Malle MG, Okholm AH, et al. A large size-selective DNA nanopore with sensing applications. Nat Commun. 2019;10(1):5655. Published 2019 Dec 11. doi:10.1038/s41467-019-13284-1.</div>
+    <div class="R3">[7]   Zhang Q, Jiang Q, Li N, et al. DNA origami as an in vivo drug delivery vehicle for cancer therapy. ACS Nano. 2014;8(7):6633-6643. doi:10.1021/nn502058j.</div>
+    <div class="R3">[8]   Wang K, Huang Q, Elshaer MR, Knorr B, Chaikin P, Zhu G. Tri-state logic computation by activating DNA origami chains. Nanoscale. 2024;16(25):11991-11998. Published 2024 Jun 27. doi:10.1039/d3nr06010a.</div>
+    <div class="R3">[9]   Douglas SM, Bachelet I, Church GM. A logic-gated nanorobot for targeted transport of molecular payloads. Science. 2012;335(6070):831-834. doi:10.1126/science.1214081.</div>
+    <div class="R3">[10]  Ijäs H, Shen B, Heuer-Jungemann A, et al. Unraveling the interaction between doxorubicin and DNA origami nanostructures for customizable chemotherapeutic drug release. Nucleic Acids Res. 2021;49(6):3048-3062. doi:10.1093/nar/gkab097.</div>
+    <div class="R3">[11]  Luo T, Fan S, Liu Y, Song J. Information processing based on DNA toehold-mediated strand displacement (TMSD) reaction. Nanoscale. 2021;13(4):2100-2112. doi:10.1039/d0nr07865d.</div>
+    <div class="R3">[12]  Majikes JM, Ferraz LCC, LaBean TH. pH-Driven Actuation of DNA Origami via Parallel I-Motif Sequences in Solution and on Surfaces. Bioconjug Chem. 2017;28(7):1821-1825. doi:10.1021/acs.bioconjchem.7b00288.</div>
+    <div class="R3">[13]  Kim M, Lee C, Jeon K, et al. Harnessing a paper-folding mechanism for reconfigurable DNA origami. Nature. 2023;619(7968):78-86. doi:10.1038/s41586-023-06181-7.</div>
+    <div class="R3">[14]  Simmel FC, Yurke B, Singh HR. Principles and Applications of Nucleic Acid Strand Displacement Reactions. Chem Rev. 2019;119(10):6326-6369. doi:10.1021/acs.chemrev.8b00580.</div>
+    <div class="R3">[15]  Shen J, Zhao Y, Pham NT, et al. Deciphering the mechanism of processive ssDNA digestion by the Dna2-RPA ensemble. Nat Commun. 2022;13(1):359. Published 2022 Jan 18. doi:10.1038/s41467-021-27940-y.</div>
+    <div class="R3">[16]  Ryssy J, Natarajan AK, Wang J, et al. Light-Responsive Dynamic DNA-Origami-Based Plasmonic Assemblies [published correction appears in Angew Chem Int Ed Engl. 2022 Sep 19;61(38):e202210394. doi: 10.1002/anie.202210394]. Angew Chem Int Ed Engl. 2021;60(11):5859-5863. doi:10.1002/anie.202014963.</div>
+    <div class="R3">[17]  Kuzyk A, Yang Y, Duan X, et al. A light-driven three-dimensional plasmonic nanosystem that translates molecular motion into reversible chiroptical function. Nat Commun. 2016;7:10591. Published 2016 Feb 2. doi:10.1038/ncomms10591.</div>
+    <div class="R3">[18]  Crocker K , Johnson J , Pfeifer W , Castro C , Bundschuh R . A quantitative model for a nanoscale switch accurately predicts thermal actuation behavior. Nanoscale. 2021;13(32):13746-13757. doi:10.1039/d1nr02873a.</div>
+    <div class="R3">[19]  Finlayson L, Barnard IRM, McMillan L, et al. Depth Penetration of Light into Skin as a Function of Wavelength from 200 to 1000 nm. Photochem Photobiol. 2022;98(4):974-981. doi:10.1111/php.13550.</div>
+    <div class="R3">[20]  Johnson JA, Dehankar A, Winter JO, Castro CE. Reciprocal Control of Hierarchical DNA Origami-Nanoparticle Assemblies. Nano Lett. 2019;19(12):8469-8475. doi:10.1021/acs.nanolett.9b02786.</div>
+    <div class="R3">[21]  Zheng J, Cheng X, Zhang H, et al. Gold Nanorods: The Most Versatile Plasmonic Nanoparticles. Chem Rev. 2021;121(21):13342-13453. doi:10.1021/acs.chemrev.1c00422.</div>
+    <div class="R3">[22]  Chan MH, Chang YC. Recent advances in near-infrared I/II persistent luminescent nanoparticles for biosensing and bioimaging in cancer analysis. Anal Bioanal Chem. 2024;416(17):3887-3905. doi:10.1007/s00216-024-05267-z.</div>
+    <div class="R3">[23]  Dreaden EC, Alkilany AM, Huang X, Murphy CJ, El-Sayed MA. The golden age: gold nanoparticles for biomedicine. Chem Soc Rev. 2012;41(7):2740-2779. doi:10.1039/c1cs15237h.</div>
+    
+    <div class="BBBB"></div>
+    <div class="WRRRR">
+        <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
+          <div class="wheel"></div>
+          <div class="hamster">
+            <div class="hamster__body">
+              <div class="hamster__head">
+                <div class="hamster__ear"></div>
+                <div class="hamster__eye"></div>
+                <div class="hamster__nose"></div>
+              </div>
+              <div class="hamster__limb hamster__limb--fr"></div>
+              <div class="hamster__limb hamster__limb--fl"></div>
+              <div class="hamster__limb hamster__limb--br"></div>
+              <div class="hamster__limb hamster__limb--bl"></div>
+              <div class="hamster__tail"></div>
+            </div>
+          </div>
+          <div class="spoke"></div>
+        </div>
+      </div>
+      <script src="网站/jquery/jquery-3.7.1.js"></script>
+      <script src="网站/jquery/jquery-3.7.1.min.js"></script>
+      <script>
+        $(window).on("load",function(){
+          $(".WRRRR").fadeOut("slow");
+        });
+      </script>
+    <script src="script.js"></script>
+</body>
+</html>
