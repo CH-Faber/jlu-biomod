@@ -17,7 +17,13 @@ sudo apt install nginx -y
 
 ## 2. 部署步骤
 
-### 第一步：代码同步与构建
+### 第一步：同步静态资源到 OSS
+在本地项目根目录下运行：
+```powershell
+./upload-to-oss.ps1
+```
+
+### 第二步：代码同步与构建
 在服务器的项目目录下执行：
 
 ```bash
