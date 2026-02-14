@@ -8,8 +8,8 @@ $BUCKET_NAME  = "jlu-biomod-assets"
 Write-Host "🚀 正在同步本地 archive 目录到 OSS..." -ForegroundColor Cyan
 
 # 执行同步
-# 仅同步 archive 目录到 OSS 的 archive/ 路径下
-& $OSSUTIL_PATH cp -r ./public/archive/ oss://$BUCKET_NAME/archive/ -u
+# 仅同步 archive 目录到 OSS 的 archive/ 路径下，并设置公共读权限
+& $OSSUTIL_PATH cp -r ./public/archive/ oss://$BUCKET_NAME/archive/ -u --acl public-read
 
 if ($LASTEXITCODE -eq 0) {
     Write-Host "✅ 同步成功！" -ForegroundColor Green
