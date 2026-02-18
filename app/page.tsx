@@ -20,7 +20,7 @@ export default function Home() {
           </div>
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl md:text-7xl">
             探索微观世界的 <br className="hidden sm:inline" />
-            <span className="bg-gradient-to-r from-sky-400 to-violet-500 bg-clip-text text-transparent">
+            <span className="text-primary">
               纳米工程师
             </span>
           </h1>
