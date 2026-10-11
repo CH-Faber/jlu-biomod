@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { projects, resourceCategories } from "@/lib/data"
@@ -33,14 +32,14 @@ export default function Home() {
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button asChild size="lg" className="h-12 w-full px-8 sm:w-auto text-base">
-              <Link href="/archive">
+              <a href="/archive/">
                 浏览历年作品 <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+              </a>
             </Button>
             <Button asChild variant="outline" size="lg" className="h-12 w-full px-8 sm:w-auto text-base">
-              <Link href="/resources">
+              <a href="/resources/">
                 访问资源库
-              </Link>
+              </a>
             </Button>
           </div>
         </div>
@@ -54,9 +53,9 @@ export default function Home() {
             <p className="text-muted-foreground">回顾我们在国际生物分子设计大赛中的精彩瞬间。</p>
           </div>
           <Button asChild variant="ghost">
-            <Link href="/archive">
+            <a href="/archive/">
               查看全部 <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
+            </a>
           </Button>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

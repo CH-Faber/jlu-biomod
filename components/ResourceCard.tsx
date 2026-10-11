@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
@@ -11,7 +10,7 @@ interface ResourceCardProps {
 
 export function ResourceCard({ icon, title, description, link }: ResourceCardProps) {
     return (
-        <Link href={link} className="group block h-full">
+        <a href={link} className="group block h-full">
             <Card className="h-full transition-all hover:border-primary/50 hover:bg-muted/50">
                 <CardHeader>
                     <div className="mb-2 text-4xl">{icon}</div>
@@ -24,6 +23,6 @@ export function ResourceCard({ icon, title, description, link }: ResourceCardPro
                     <p className="text-sm text-muted-foreground">{description}</p>
                 </CardContent>
             </Card>
-        </Link>
+        </a>
     )
 }

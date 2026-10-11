@@ -25,7 +25,7 @@ export function Navbar() {
     return (
         <header className="plant-nav sticky top-0 z-50 w-full">
             <div className="plant-nav__inner container px-4 md:px-8 flex h-[76px] items-center justify-between mx-auto">
-                <Link href="/" className="plant-nav__brand flex items-center gap-2">
+                <Link href="/" prefetch={false} className="plant-nav__brand flex items-center gap-2">
                     <Leaf className="h-5 w-5" aria-hidden="true" />
                     <span className="text-xl font-bold">
                         JLU-BIOMOD
@@ -35,13 +35,13 @@ export function Navbar() {
                 {/* Desktop Nav */}
                 <nav className="plant-nav__links hidden md:flex items-center gap-7" aria-label="主导航">
                     {navItems.map((item) => (
-                        <Link
+                        <a
                             key={item.href}
                             href={item.href}
                             className="plant-nav__link text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
                         >
                             {item.name}
-                        </Link>
+                        </a>
                     ))}
                     <span className="plant-nav__theme"><ThemeToggle /></span>
                 </nav>
@@ -59,14 +59,14 @@ export function Navbar() {
                         <SheetContent side="right">
                             <div className="flex flex-col gap-4 mt-8">
                                 {navItems.map((item) => (
-                                    <Link
+                                    <a
                                         key={item.href}
                                         href={item.href}
                                         className="text-lg font-medium"
                                         onClick={() => setIsOpen(false)}
                                     >
                                         {item.name}
-                                    </Link>
+                                    </a>
                                 ))}
                             </div>
                         </SheetContent>
