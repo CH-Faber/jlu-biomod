@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Menu } from "lucide-react"
+import { Leaf, Menu } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -23,26 +23,27 @@ export function Navbar() {
     ]
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-            <div className="container px-4 md:px-8 flex h-16 items-center justify-between mx-auto">
-                <Link href="/" className="flex items-center space-x-2">
+        <header className="plant-nav sticky top-0 z-50 w-full">
+            <div className="plant-nav__inner container px-4 md:px-8 flex h-[76px] items-center justify-between mx-auto">
+                <Link href="/" className="plant-nav__brand flex items-center gap-2">
+                    <Leaf className="h-5 w-5" aria-hidden="true" />
                     <span className="text-xl font-bold">
                         JLU-BIOMOD
                     </span>
                 </Link>
 
                 {/* Desktop Nav */}
-                <nav className="hidden md:flex items-center gap-6">
+                <nav className="plant-nav__links hidden md:flex items-center gap-7" aria-label="主导航">
                     {navItems.map((item) => (
                         <Link
                             key={item.href}
                             href={item.href}
-                            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+                            className="plant-nav__link text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
                         >
                             {item.name}
                         </Link>
                     ))}
-                    <ThemeToggle />
+                    <span className="plant-nav__theme"><ThemeToggle /></span>
                 </nav>
 
                 {/* Mobile Nav */}

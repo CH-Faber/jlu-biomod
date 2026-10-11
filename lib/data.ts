@@ -10,6 +10,15 @@ export interface Project {
 
 export const projects: Project[] = [
     {
+        year: "2026",
+        title: "Helix Trap",
+        description: "Nano JLU 序列特异性纳米级捕鼠器项目",
+        award: "Concept Preview",
+        image: "",
+        link: "/2026/",
+        color: "text-cyan-400",
+    },
+    {
         year: "2025",
         title: "纳米折纸病毒陷阱",
         description: "针对流感病毒的特异性捕获与检测系统",

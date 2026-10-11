@@ -9,9 +9,13 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative flex min-h-[80vh] flex-col items-center justify-center overflow-hidden border-b bg-background px-4 py-24 text-center md:px-8">
-        {/* Background Gradient */}
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400/20 via-background to-background dark:from-sky-900/20" />
+      <section className="home-hero relative flex min-h-[80vh] flex-col items-center justify-center overflow-hidden border-b bg-background px-4 py-24 text-center md:px-8">
+        <div className="pixel-garden" aria-hidden="true">
+          <span className="pixel-garden__sprig pixel-garden__sprig--left" />
+          <span className="pixel-garden__sprig pixel-garden__sprig--right" />
+          <span className="pixel-garden__seed pixel-garden__seed--one" />
+          <span className="pixel-garden__seed pixel-garden__seed--two" />
+        </div>
 
         <div className="container max-w-4xl space-y-6 mx-auto">
           <div className="inline-flex items-center rounded-full border bg-background/50 px-3 py-1 text-sm font-medium backdrop-blur-sm">

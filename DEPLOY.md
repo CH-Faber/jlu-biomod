@@ -1,62 +1,80 @@
-# 部署指南 (Deployment Guide)
+# 部署指南
 
-本项目采用 **Nginx + PM2** 的方案进行部署。
+本项目采用 **Next.js 静态导出 + Nginx + 阿里云 OSS** 的方案，不需要在生产服务器安装 Node.js、PM2 或运行常驻应用进程。
 
-## 1. 准备工作
+## 架构
 
-在服务器上安装必要的软件：
+- Next.js 主页、历年作品索引和资源页导出为纯静态文件。
+- Nginx 从 `/var/www/jlu-biomod/current` 直接提供静态文件。
+- `/archive/<年份>/...` 保持原 URL，由 Nginx 反向代理到 `jlu-biomod-assets.oss-cn-guangzhou.aliyuncs.com`。
+- 每次部署进入独立的 `releases/<时间戳>` 目录，然后原子切换 `current` 软链接，便于回滚。
+- BioMod 使用独立子域名 `biomod.faberhu.top`，不覆盖主站和其他子域名配置。
 
-```bash
-# 安装 PM2
-npm install -g pm2
+## 1. 构建
 
-# 安装 Nginx
-sudo apt update
-sudo apt install nginx -y
-```
+`public/archive` 中的历年站点已上传到 OSS，不应再复制进静态导出目录。构建时可将该目录临时移出项目，并在构建结束后立即恢复。
 
-## 2. 部署步骤
-
-### 第一步：同步静态资源到 OSS
-在本地项目根目录下运行：
 ```powershell
-./upload-to-oss.ps1
-```
-
-### 第二步：代码同步与构建
-在服务器的项目目录下执行：
-
-```bash
-# 安装依赖
-npm install
-
-# 构建生产环境代码
+npm ci
+npm run lint
 npm run build
 ```
 
-### 第二步：使用 PM2 启动服务
-```bash
-# 启动服务
-pm2 start npm --name "jlu-biomod" -- start
+成功后应生成 `out` 目录，至少包含：
 
-# 设置开机自启
-pm2 save
-pm2 startup
+```text
+out/index.html
+out/archive/index.html
+out/resources/index.html
 ```
 
-### 第三步：配置 Nginx
-1. 将本地的 `nginx.conf` (位于 `deployment/nginx.conf`) 拷贝并修改后放入服务器的 `/etc/nginx/sites-available/jlu-biomod`。
-2. 启用并重启 Nginx：
+## 2. 发布目录
 
-```bash
-sudo ln -s /etc/nginx/sites-available/jlu-biomod /etc/nginx/sites-enabled/
-sudo nginx -t
-sudo systemctl restart nginx
+生产服务器目录结构：
+
+```text
+/var/www/jlu-biomod/
+├── current -> releases/<当前版本>
+└── releases/
+    └── <时间戳>/
 ```
 
-## 3. 常用维护命令
+将 `out` 打包上传后，解压到新 release，检查入口文件，最后切换软链接。不要直接覆盖 `current` 指向的目录。
 
-- **查看状态**: `pm2 list`
-- **查看日志**: `pm2 logs jlu-biomod`
-- **重启服务**: `pm2 restart jlu-biomod`
-- **更新代码**: `git pull && npm install && npm run build && pm2 restart jlu-biomod`
+## 3. Nginx
+
+HTTP 初始配置位于 `deployment/nginx.static-http.conf`，签发证书后使用最终配置 `deployment/nginx.conf`。生产位置是：
+
+```text
+/etc/nginx/sites-available/biomod
+/etc/nginx/sites-enabled/biomod
+```
+
+启用或修改后必须先执行 `nginx -t`。只有验证成功后才可执行 `systemctl reload nginx`。
+
+不需要重启 Nginx，也不需要重启 CopyBlog、gosync、tender-api 或其他服务。
+
+## 4. DNS 和 HTTPS
+
+Cloudflare 中 `biomod.faberhu.top` 的 A 记录应指向生产服务器。切换 DNS 前，先在服务器本机使用 Host 头验证：
+
+```bash
+curl -I -H 'Host: biomod.faberhu.top' http://127.0.0.1/
+curl -I -H 'Host: biomod.faberhu.top' http://127.0.0.1/archive/
+curl -I -H 'Host: biomod.faberhu.top' http://127.0.0.1/archive/2025/index.html
+```
+
+DNS 生效后，使用 Certbot webroot 模式签发证书，避免 Certbot 自动改写其他 Nginx 站点。签发成功后安装 `deployment/nginx.conf`，再执行 `nginx -t` 和 reload。Certbot 定时器应保持启用，并用 `certbot renew --dry-run --cert-name biomod.faberhu.top` 验证自动续期。
+
+## 5. 回滚
+
+回滚只需将 `current` 指回已验证的上一个 release：
+
+```bash
+ln -sfn releases/<上一版本> /var/www/jlu-biomod/current.new
+mv -Tf /var/www/jlu-biomod/current.new /var/www/jlu-biomod/current
+nginx -t
+systemctl reload nginx
+```
+
+回滚不需要修改 DNS、OSS 或其他服务。

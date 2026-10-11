@@ -155,3 +155,199 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Soft pixel garden treatment for the landing page. The grid stays intentionally quiet
+   so the copy remains the first thing the eye reads. */
+.home-hero {
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 50% 42%, color-mix(in oklch, var(--primary) 9%, transparent), transparent 34%),
+    var(--background);
+}
+
+.home-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  opacity: .34;
+  background-image:
+    linear-gradient(color-mix(in oklch, var(--primary) 12%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklch, var(--primary) 12%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse at center, black 18%, transparent 76%);
+}
+
+.home-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image: radial-gradient(circle, color-mix(in oklch, var(--secondary) 42%, transparent) 0 2px, transparent 2px);
+  background-size: 96px 96px;
+  background-position: 20px 18px;
+  opacity: .2;
+}
+
+.pixel-garden {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: .52;
+}
+
+.pixel-garden__sprig {
+  position: absolute;
+  width: 210px;
+  height: 150px;
+  border-left: 5px solid color-mix(in oklch, var(--primary) 45%, transparent);
+  border-bottom: 5px solid color-mix(in oklch, var(--primary) 45%, transparent);
+  border-bottom-left-radius: 72px;
+  transform: rotate(22deg);
+}
+
+.pixel-garden__sprig::before,
+.pixel-garden__sprig::after {
+  content: "";
+  position: absolute;
+  width: 34px;
+  height: 20px;
+  background: color-mix(in oklch, var(--primary) 26%, transparent);
+  border-radius: 0 100% 0 100%;
+  box-shadow: 8px 8px 0 color-mix(in oklch, var(--primary) 12%, transparent);
+}
+
+.pixel-garden__sprig::before {
+  top: 28px;
+  left: 50px;
+  transform: rotate(-32deg);
+}
+
+.pixel-garden__sprig::after {
+  top: 78px;
+  left: 112px;
+  transform: rotate(24deg);
+}
+
+.pixel-garden__sprig--left {
+  left: -55px;
+  bottom: 7%;
+}
+
+.pixel-garden__sprig--right {
+  right: -55px;
+  top: 11%;
+  transform: scaleX(-1) rotate(22deg);
+}
+
+.pixel-garden__seed {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: color-mix(in oklch, var(--secondary) 56%, transparent);
+  box-shadow: 16px 8px 0 color-mix(in oklch, var(--secondary) 24%, transparent), 32px -3px 0 color-mix(in oklch, var(--primary) 28%, transparent);
+}
+
+.pixel-garden__seed--one {
+  top: 22%;
+  left: 18%;
+}
+
+.pixel-garden__seed--two {
+  right: 21%;
+  bottom: 28%;
+  transform: rotate(90deg);
+}
+
+.plant-nav {
+  background: color-mix(in oklch, var(--background) 86%, transparent);
+  backdrop-filter: blur(14px);
+}
+
+.plant-nav__inner {
+  position: relative;
+}
+
+.plant-nav__inner::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 9px;
+  height: 2px;
+  background: color-mix(in oklch, var(--primary) 35%, transparent);
+  transform: rotate(-.6deg);
+  transform-origin: left center;
+  pointer-events: none;
+}
+
+.plant-nav__brand {
+  position: relative;
+  z-index: 1;
+  color: var(--foreground);
+}
+
+.plant-nav__brand svg {
+  color: var(--primary);
+  filter: drop-shadow(3px 2px 0 color-mix(in oklch, var(--primary) 18%, transparent));
+}
+
+.plant-nav__links {
+  position: relative;
+  z-index: 1;
+}
+
+.plant-nav__link {
+  position: relative;
+  padding: 10px 2px 14px;
+}
+
+.plant-nav__link::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  left: 50%;
+  bottom: 1px;
+  background: color-mix(in oklch, var(--primary) 75%, var(--secondary));
+  border-radius: 0 100% 0 100%;
+  transform: translateX(-50%) rotate(45deg) scale(.8);
+  opacity: .7;
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.plant-nav__link:hover::after,
+.plant-nav__link:focus-visible::after {
+  opacity: 1;
+  transform: translateX(-50%) rotate(45deg) scale(1);
+}
+
+.plant-nav__theme {
+  margin-left: 3px;
+  padding-bottom: 7px;
+}
+
+@media (max-width: 767px) {
+  .plant-nav__inner::after {
+    left: 14px;
+    right: 14px;
+  }
+
+  .pixel-garden__sprig {
+    opacity: .65;
+    transform: scale(.72) rotate(22deg);
+  }
+
+  .pixel-garden__sprig--left {
+    left: -82px;
+    bottom: 2%;
+  }
+
+  .pixel-garden__sprig--right {
+    right: -82px;
+    top: 7%;
+  }
+}

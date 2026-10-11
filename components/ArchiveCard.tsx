@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Project } from "@/lib/data"
@@ -37,10 +36,10 @@ export function ArchiveCard({ project }: ArchiveCardProps) {
             </CardContent>
             <CardFooter>
                 <Button asChild variant="outline" className="w-full group">
-                    <Link href={project.link}>
+                    <a href={project.link}>
                         查看项目
                         <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Link>
+                    </a>
                 </Button>
             </CardFooter>
         </Card>
